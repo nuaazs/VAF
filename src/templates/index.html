@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>龙垣科技</title>
+
+</head>
+<body>
+    <h1>{{name}} - 声纹识别系统演示</h1>
+    <h1> 目前已注册：{{ spks_num }} 人。</h1>
+    <ul>
+    {% for spk in spks %}
+        <li>{{spk}}</li>
+    {% endfor %}
+    </ul>
+
+</body>
+
+</html>
+
