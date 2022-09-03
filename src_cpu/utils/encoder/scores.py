@@ -1,10 +1,3 @@
-# @Time    : 2022-07-27  19:03:50
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/scores.py
-# @Describe: Get cosine scores of the spacify wav with all wavs in database.
-
 import torch
 import numpy as np
 

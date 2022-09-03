@@ -1,16 +1,10 @@
-# @Time    : 2022-07-27  18:55:16
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : ./src/utils/database.py
-# @Describe: load database from reids or pickle file.
-
 import pickle
-from utils.phone_util import getPhoneInfo
 import struct
 import redis
 import numpy as np
 import cfg
+
+from utils.phone import getPhoneInfo
 
 def toRedis(r,a,n):
     """Store given Numpy array 'a' in Redis under key 'n'"""
@@ -30,7 +24,7 @@ def deletRedis(r,n):
         r.delete(*r.keys(f"*{n}*"))
     return
 
-def get_all_embedding(blackbase="redis",class_index=-1):
+def get_embeddings(blackbase="redis",class_index=-1):
     class_index = -1
     if blackbase  != 'redis':
         with open(cfg.BLACK_BASE, 'rb') as f:
@@ -64,7 +58,7 @@ def get_all_embedding(blackbase="redis",class_index=-1):
                 continue
         return all_embedding
 
-def add_to_database(blackbase,embedding,spkid,max_class_index,log_phone_info,mode="register"):
+def to_database(blackbase,embedding,spkid,max_class_index,log_phone_info,mode="register"):
     if log_phone_info:
         phone_info = getPhoneInfo(spkid[-11:])
     else:

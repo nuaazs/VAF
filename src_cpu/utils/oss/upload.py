@@ -1,20 +1,12 @@
-# @Time    : 2022-07-27  18:57:38
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/oss.py
-# @Describe: Minio sdk for python.
-
-from minio import Minio
 from datetime import timedelta
-import cfg
-from minio import Minio
 from minio.commonconfig import GOVERNANCE
 from minio.retention import Retention
 from datetime import datetime
+from minio import Minio
+from datetime import timedelta
+import cfg
 
 HOST = f"{cfg.MINIO['host']}:{cfg.MINIO['port']}"
-
 ACCESS_KEY = cfg.MINIO['access_key']
 SECRET_KEY = cfg.MINIO['secret_key']
 client = Minio(
@@ -24,19 +16,6 @@ client = Minio(
         secure=False
     )
 
-found = client.bucket_exists("raw")
-if not found:
-    client.make_bucket(bucket_name="raw",object_lock=True)
-else:
-    print("Bucket 'raw' already exists")
-
-found = client.bucket_exists("preprocessed")
-if not found:
-    client.make_bucket(bucket_name="preprocessed",object_lock=True)
-else:
-    print("Bucket 'preprocessed' already exists")
-
-    
 def upload_file(bucket_name='raw',filepath="/VAF-System/demo_flask/utils/orm.py",filename='orm.py',save_days=30):
     # Upload data with tags, retention and legal-hold.
     date = datetime.utcnow().replace(

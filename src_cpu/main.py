@@ -1,10 +1,4 @@
-# @Time    : 2022-07-27  19:17:59
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/vvs_service.py
-# @Describe: App.
-
+# coding = utf-8
 import json
 import time
 from flask import Flask, request, render_template
