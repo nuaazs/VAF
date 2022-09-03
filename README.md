@@ -1,11 +1,13 @@
 # Voice print recognition system (Speaker identification system)
-声纹识别系统后台 (CPU版)
+声纹识别系统后台 (CPU版-src_cpu)
+声纹识别系统后台 (CUDA版-src_gpu)
 
 ## Requirements
 1. Mysql 5.7
 2. Docker 20.10.12
 3. redis 5.0.7
 4. Minio
+5. Python 3.8
 
 ## Files
 ```shell
