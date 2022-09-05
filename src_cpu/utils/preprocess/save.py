@@ -1,11 +1,3 @@
-# @Time    : 2022-07-27  19:03:27
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/save.py
-# @Describe: Save wav files.
-
-from ast import Str
 import os
 import wget
 import subprocess

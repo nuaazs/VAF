@@ -1,27 +1,42 @@
-from speechbrain.pretrained import VAD
-import torchaudio
+import torch
+import os
+from utils.oss import upload_file
 
-VAD = VAD.from_hparams(source="pretrained_models/vad-crdnn-libriparty",
-                            run_opts={"device":"cpu"})
+# else:
+USE_ONNX = True
+model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+                            source='local',
+                            model='silero_vad',
+                            force_reload=False,
+                            onnx=USE_ONNX)
+(get_speech_timestamps,
+save_audio,
+read_audio,
+VADIterator,
+collect_chunks) = utils
 
-def vad_and_upsample(file_path,pre_path):
-    boundaries = VAD.get_speech_segments(audio_file=file_path,
-                                    large_chunk_size=30,
-                                    small_chunk_size=10,
-                                    overlap_small_chunk=True,
-                                    apply_energy_VAD=False,
-                                    double_check=False,
-                                    close_th=0.250,
-                                    len_th=0.250,
-                                    activation_th=0.5,
-                                    deactivation_th=0.25,
-                                    en_activation_th=0.5,
-                                    en_deactivation_th=0.0,
-                                    speech_th=0.50,
-                                )
-    # boundaries=VAD.remove_short_segments(boundaries, len_th=0.250)
-    # boundaries=VAD.merge_close_segments(boundaries, close_th=0.250)
-    upsampled_boundaries = VAD.upsample_boundaries(boundaries, file_path) 
-    output = wav[upsampled_boundaries[0]>0.9]
-    save_audio(pre_path, output, sampling_rate=16000)
-    return wav
+def vad(wav,spkid):
+    before_vad_length = len(wav)/16000.
+
+    spk_dir = os.path.join("/tmp", str(spkid))
+    os.makedirs(spk_dir, exist_ok=True)
+    spk_filelist = os.listdir(spk_dir)
+    speech_number = len(spk_filelist) + 1
+    save_name = f"preprocessed_{spkid}_{speech_number}.wav"
+    
+    final_save_path = os.path.join(spk_dir, save_name)
+    wav = torch.FloatTensor(wav)
+    speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=16000,window_size_samples=1536)
+    wav = collect_chunks(speech_timestamps, wav)
+    save_audio(final_save_path,wav, sampling_rate=16000)
+    preprocessed_file_path=upload_file(bucket_name='preprocessed',filepath=final_save_path,filename=save_name,save_days=save_days)
+    
+    after_vad_length = len(wav)/16000.
+
+    result = {
+        "wav_torch":wav,
+        "before_length":before_vad_length,
+        "after_length":after_vad_length,
+        "preprocessed_file_path":preprocessed_file_path,
+    }
+    return result

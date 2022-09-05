@@ -69,6 +69,8 @@ def to_log(phone, action_type, err_type, message,file_url,preprocessed_file_path
     conn.commit()
     conn.close()
 
+def add_hit():
+    pass
 def add_hit(spk_id):
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
