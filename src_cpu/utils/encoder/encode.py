@@ -1,11 +1,17 @@
+# coding = utf-8
+# @Time    : 2022-09-05  15:02:51
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: self-test and encode.
 
 from utils.encoder import spkreg
 from utils.encoder import similarity
 import torch
 import cfg
 
-def encode(wav_torch, sr=16000, min_length=5, similarity_limit=0.60):
-
+def encode(wav_torch):
+    similarity_limit = cfg.SELF_TEST_TH
+    min_length = cfg.MIN_LENGTH
+    sr = cfg.SR
     max_score = 0
     mean_score = 0
     min_score = 1
@@ -22,22 +28,16 @@ def encode(wav_torch, sr=16000, min_length=5, similarity_limit=0.60):
         return result
 
     wav_length = int((len(wav_torch)-10)/2)
-    print(f" wav length : {wav_length}")
     wav_torch = wav_torch.unsqueeze(0)
     left = torch.cat((wav_torch[:,:wav_length],wav_torch[:,:wav_length]), dim=1)
     right = torch.cat((wav_torch[:,wav_length:wav_length*2],wav_torch[:,wav_length:wav_length*2]), dim=1)
     wav_torch = wav_torch[:,:left.shape[1]]
-
-
     batch = torch.cat((wav_torch,left,right), dim=0)
     encode_result = spkreg.encode_batch(batch)
     
     embedding = encode_result[0][0]
-
     similarity(encode_result[2][0], encode_result[1][0])
-    
     embedding = spkreg.encode_batch(batch)
-
     encoding_tensor = embedding[0]
     encoding_tiny_1 = embedding[1][0]
     encoding_tiny_2 = embedding[2][0]
@@ -65,9 +65,3 @@ def encode(wav_torch, sr=16000, min_length=5, similarity_limit=0.60):
             "err_type": 0
         }
     return result
-
-
-if __name__ == "__main__":
-    input = torch.random((1,16000*15))
-    result = encode(input)
-    print(result)

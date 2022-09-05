@@ -1,9 +1,7 @@
-# @Time    : 2022-07-27  19:03:50
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/scores.py
-# @Describe: Get cosine scores of the spacify wav with all wavs in database.
+# coding = utf-8
+# @Time    : 2022-09-05  15:35:17
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Scores.
 
 import torch
 import numpy as np
@@ -114,4 +112,3 @@ def test_wav(database,embedding,spkid,black_limit,similarity,top_num=10):
     print(f"Top 10 len: {len(results)}")
     inbase = (best_score>= black_limit)
     return inbase,{"best_score":best_score,"spk":best_id,"top_10":top_10}
-    

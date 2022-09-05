@@ -1,3 +1,8 @@
+# coding = utf-8
+# @Time    : 2022-09-05  15:05:31
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Define log wrapers.
+
 from logging.handlers import RotatingFileHandler
 import logging
 
@@ -28,4 +33,3 @@ err_handler = RotatingFileHandler(
 err_handler.setFormatter(formatter)
 err_handler.namer = lambda x: "err." + x.split(".")[-1]
 err_logger.addHandler(err_handler)
-

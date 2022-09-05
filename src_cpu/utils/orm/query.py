@@ -1,14 +1,12 @@
-# @Time    : 2022-07-27  19:02:00
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/query.py
-# @Describe: Query info in Mysql.
+# coding = utf-8
+# @Time    : 2022-09-05  15:06:29
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Query in SQL.
 
 import pymysql
-import cfg
 import time
 
+import cfg
 
 msg_db = cfg.MYSQL
 conn = pymysql.connect(
@@ -74,7 +72,7 @@ def add_hit(hit_info,is_grey):
     self_test_score_max = hit_info["self_test_score_max"]
     call_begintime = hit_info["call_begintime"]
     call_endtime = hit_info["call_endtime"]
-    span_time =  get_span(info.call_endtime,info.call_begintime)
+    span_time =  get_span(call_endtime,call_begintime)
     class_number = hit_info["class_number"]
     hit_time = hit_info["hit_time"]
     blackbase_phone = hit_info["blackbase_phone"]
@@ -83,6 +81,7 @@ def add_hit(hit_info,is_grey):
     # 1~10
     hit_status = hit_info["hit_status"]
     hit_score = hit_info["hit_scores"]
+    preprocessed_file_path = hit_info["preprocessed_file_path"]
     if is_grey:
         is_grey = 1
     else:
@@ -90,18 +89,15 @@ def add_hit(hit_info,is_grey):
     cur = conn.cursor()
     query_sql = f"INSERT INTO hit (phone, file_url,province,city, phone_type,area_code,\
                     zip_code,self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
-                    call_endtime,span_time,class_number,hit_time,blackbase_phone,blackbase_id,top_10,hit_status,hit_score,is_grey) \
+                    call_endtime,span_time,class_number,hit_time,blackbase_phone,blackbase_id,top_10,hit_status,hit_score,preprocessed_file_url,is_grey) \
                         VALUES ('{phone}', '{file_url}','{province}','{city}', '{phone_type}','{area_code}',\
                     '{zip_code}','{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
                     '{call_endtime}','{span_time}','{class_number}','{hit_time}','{blackbase_phone}','{blackbase_id}','{top_10}',\
-                    '{hit_status}','{hit_score}','{is_grey}');"
+                    '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}');"
     cur.execute(query_sql)
     conn.commit()
 
-
-
 def add_speaker(spk_info):
-
     name = spk_info["name"]
     phone = spk_info["phone"]
     file_url = spk_info["uuid"]
@@ -117,32 +113,22 @@ def add_speaker(spk_info):
     call_begintime = spk_info["call_begintime"]
     call_endtime = spk_info["call_endtime"]
     class_number = spk_info["max_class_index"]
+    preprocessed_file_path = spk_info["preprocessed_file_path"]
     
     span_time =  get_span(call_endtime,call_begintime)
     cur = conn.cursor()
-    query_sql = f"INSERT INTO hit (name,phone, file_url,province,city, phone_type,area_code,\
+    query_sql = f"INSERT INTO speaker (name,phone, file_url,province,city, phone_type,area_code,\
                     zip_code,self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
-                    call_endtime,span_time,class_number) \
-                        VALUES ('{name},'{phone}', '{file_url}','{province}','{city}', '{phone_type}','{area_code}',\
+                    call_endtime,span_time,class_number,preprocessed_file_url) \
+                        VALUES ('{name}','{phone}', '{file_url}','{province}','{city}', '{phone_type}','{area_code}',\
                     '{zip_code}','{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
-                    '{call_endtime}','{span_time}','{class_number}');"
+                    '{call_endtime}','{span_time}','{class_number}','{preprocessed_file_path}');"
     print(query_sql)
     cur.execute(query_sql)
     conn.commit()
-
-
 
 def add_hit_count(spk_id):
     cur = conn.cursor()
     query_sql = f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
     cur.execute(query_sql)
-    conn.commit()
-
-
-if __name__ == "__main__":
-    cur = conn.cursor()
-    query_sql = f"select * from speaker;"
-    cur.execute(query_sql)
-    res = cur.fetchall()
-    print(res)
     conn.commit()

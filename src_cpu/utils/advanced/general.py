@@ -9,8 +9,6 @@ from flask import request
 from datetime import datetime
 
 import cfg
-from utils.orm.database import get_embeddings, to_database
-
 from utils.orm import check_spkid
 from utils.orm import to_log
 from utils.log import err_logger
@@ -29,7 +27,6 @@ def general(request_form,get_type="url",action_type="test"):
 
     Args:
         request_form (form):   request.form:{'spkid': '1', 'wav_url': 'http://www.baidu.com/1.wav', 'wav_channel': 1}
-        cfg (_type_): config settings
         get_type (str, optional): url or file. Defaults to "url".
         action (str, optional): register or test. Defaults to "test".
 
@@ -44,7 +41,6 @@ def general(request_form,get_type="url",action_type="test"):
             # 6. 文件有效时长不满足要求
             # 7. 文件质量检测不满足要求（环境噪声较大或有多个说话人干扰）
     """
-
     new_spkid = request_form["spkid"]
     if cfg.CHECK_DUPLICATE:
         if check_spkid(new_spkid):
@@ -107,6 +103,7 @@ def general(request_form,get_type="url",action_type="test"):
     try:
         wav = resample(filepath)
         vad_result = vad(wav,new_spkid)
+        preprocessed_file_path = vad_result["preprocessed_file_path"]
     except Exception as e:
         print(e)
         response = {
@@ -115,7 +112,7 @@ def general(request_form,get_type="url",action_type="test"):
             "err_type": 5,
             "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
         }
-        to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"vad error",file_url=oss_path,preprocessed_file_path="")
+        to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"vad error",file_url=oss_path,preprocessed_file_path=preprocessed_file_path)
         err_logger.info(f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}")
         return response
 
@@ -123,6 +120,7 @@ def general(request_form,get_type="url",action_type="test"):
     try:
         print(type(vad_result["wav_torch"]))
         self_test_result = encode(wav_torch=vad_result["wav_torch"])
+
     except Exception as e:
         print(e)
         response = {
@@ -132,7 +130,7 @@ def general(request_form,get_type="url",action_type="test"):
             "err_msg": f"Self Test faild. No useful data in {filepath}.",
         }
         to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"self test error",\
-                file_url=oss_path,preprocessed_file_path="")
+                file_url=oss_path,preprocessed_file_path=preprocessed_file_path)
         err_logger.info(f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}")
         return response
     
@@ -146,7 +144,7 @@ def general(request_form,get_type="url",action_type="test"):
             "err_msg": msg
             }
         to_log(phone=new_spkid, action_type=action_type, err_type=err_type, message=f"{msg}",file_url=oss_path,\
-                preprocessed_file_path="")
+                preprocessed_file_path=preprocessed_file_path)
         err_logger.info(f"{new_spkid},{oss_path},{err_type},{msg}")
         return response
 
@@ -159,10 +157,9 @@ def general(request_form,get_type="url",action_type="test"):
     
     # STEP 5: Test or Register
     if action_type == "test":
-        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime)
+        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length=vad_result["after_length"],preprocessed_file_path=preprocessed_file_path)
 
     elif action_type == "register":
         return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
-                call_begintime,call_endtime,after_vad_length=0,
-                preprocessed_file_path="")
-        
+                call_begintime,call_endtime,after_vad_length=vad_result["after_length"],
+                preprocessed_file_path=preprocessed_file_path)

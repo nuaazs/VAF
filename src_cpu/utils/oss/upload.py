@@ -1,9 +1,15 @@
+# coding = utf-8
+# @Time    : 2022-09-05  15:08:59
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Minio upload files.
+
 from datetime import timedelta
 from minio.commonconfig import GOVERNANCE
 from minio.retention import Retention
 from datetime import datetime
 from minio import Minio
 from datetime import timedelta
+
 import cfg
 
 HOST = f"{cfg.MINIO['host']}:{cfg.MINIO['port']}"
@@ -33,10 +39,4 @@ def upload_file(bucket_name='raw',filepath="/VAF-System/demo_flask/utils/orm.py"
             retention=Retention(GOVERNANCE, date),
             legal_hold=True,
         )
-    print(
-        "created {0} object; etag: {1}, version-id: {2}".format(
-            result.object_name, result.etag, result.version_id,
-        ),
-    )
-
     return f"http://{HOST}/{bucket_name}/{filename}"

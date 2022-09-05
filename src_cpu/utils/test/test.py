@@ -1,4 +1,10 @@
+# coding = utf-8
+# @Time    : 2022-09-05  15:36:03
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: test.
+
 from datetime import datetime
+from utils.orm.query import add_hit_count
 
 from utils.orm import to_database
 from utils.orm import to_log
@@ -11,7 +17,7 @@ from utils.preprocess import check_clip
 
 import cfg
 
-def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_begintime,call_endtime):
+def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length,preprocessed_file_path):
     black_database = get_embeddings(blackbase=cfg.BLACK_BASE,class_index=max_class_index)
     is_inbase,check_result= test_wav(database=black_database,
                                 embedding=embedding,
@@ -50,6 +56,7 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_
             "call_begintime":call_begintime,
             "call_endtime":call_endtime,
             "class_number":max_class_index,
+            "preprocessed_file_path":preprocessed_file_path,
             "blackbase_phone":blackbase_phone,
             "blackbase_id":blackbase_id,
             "hit_status":1,
@@ -76,6 +83,6 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_
             add_hit(hit_info,is_grey=True)
         else:
             to_log(phone=new_spkid, action_type=1, err_type=0, message=f"{msg},{blackbase_phone},{hit_scores}",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length)
-            add_hit(hit_info,is_grey=Fasle)
-        add_hit(new_spkid)
+            add_hit(hit_info,is_grey=False)
+        add_hit_count(new_spkid)
         return response

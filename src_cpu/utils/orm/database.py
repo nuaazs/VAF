@@ -1,10 +1,14 @@
+# coding = utf-8
+# @Time    : 2022-09-05  15:06:16
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Database.
+
 import pickle
 import struct
 import redis
 import numpy as np
-import cfg
 
-from utils.phone import phone_info
+import cfg
 
 def toRedis(r,a,n):
     """Store given Numpy array 'a' in Redis under key 'n'"""

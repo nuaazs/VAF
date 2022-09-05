@@ -6,6 +6,8 @@
 # Workers
 WORKERS = 2
 
+SR = 16000
+
 # Threads
 THREADS = 10
 
@@ -18,7 +20,9 @@ PORT = 8180
 # Classify
 CLASSIFY = True
 
+# 
 CHECK_DUPLICATE = False
+
 # Log Phone Info Or Not
 LOG_PHONE_INFO = False
 
@@ -69,9 +73,6 @@ MINIO = {
     "test_save_days" : 30,
     "register_save_days": -1,
 }
-
-# Black Base File Path (='redis' use redis)
-BLACK_BASE = "redis" # "/VAF-System/src/wavs/database/blackbase.pkl"
 
 # Server Info
 SERVER_INFO = {

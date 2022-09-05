@@ -1,3 +1,8 @@
+# coding = utf-8
+# @Time    : 2022-09-05  15:12:04
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Phone.
+
 from phone import Phone
 
 def phone_info(phoneNum):

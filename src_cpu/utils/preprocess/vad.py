@@ -1,3 +1,8 @@
+# coding = utf-8
+# @Time    : 2022-09-05  15:34:32
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: VAD.
+
 import torch
 import os
 from utils.oss import upload_file
