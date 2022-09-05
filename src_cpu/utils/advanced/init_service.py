@@ -1,3 +1,8 @@
+# coding = utf-8
+# @Time    : 2022-09-05  09:48:38
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Init service.
+
 from utils.orm import get_embeddings
 from utils.log import logger
 import cfg

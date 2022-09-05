@@ -6,6 +6,8 @@ import cfg
 
 def encode(wav_torch, spkreg,similarity, sr=16000, min_length=5, similarity_limit=0.60):
 
+
+
     max_score = 0
     mean_score = 0
     min_score = 1
@@ -17,6 +19,7 @@ def encode(wav_torch, spkreg,similarity, sr=16000, min_length=5, similarity_limi
             "max_score":0,
             "mean_score":0,
             "min_score":0,
+            "err_type": 6,
         }
         return result
 
@@ -49,6 +52,7 @@ def encode(wav_torch, spkreg,similarity, sr=16000, min_length=5, similarity_limi
             "max_score":max_score,
             "mean_score":mean_score,
             "min_score":min_score,
+            "err_type": 7,
 
         }
         return result
@@ -58,7 +62,7 @@ def encode(wav_torch, spkreg,similarity, sr=16000, min_length=5, similarity_limi
             "max_score":max_score,
             "mean_score":mean_score,
             "min_score":min_score,
-
-            "tensor":encoding_tensor
+            "tensor":encoding_tensor,
+            "err_type": 0
         }
     return result

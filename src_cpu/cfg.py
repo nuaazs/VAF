@@ -1,3 +1,8 @@
+# coding = utf-8
+# @Time    : 2022-09-05  09:43:48
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: service configuration file.
+
 # Workers
 WORKERS = 2
 

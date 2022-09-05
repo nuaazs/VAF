@@ -1,6 +1,8 @@
-# Email: zhaosheng@nuaa.edu.cn
-# Time  : 2022-05-06  22:28:08
-# Desc  : gunicorn config file
+# coding = utf-8
+# @Time    : 2022-09-05  09:46:15
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Gunicorn config file.
+
 import cfg
 
 workers = cfg.WORKERS
