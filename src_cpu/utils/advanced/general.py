@@ -9,7 +9,7 @@ from flask import request
 from datetime import datetime
 
 import cfg
-from src_cpu.utils.orm.database import get_embeddings, to_database
+from utils.orm.database import get_embeddings, to_database
 
 from utils.orm import check_spkid
 from utils.orm import to_log
@@ -21,6 +21,8 @@ from utils.preprocess import vad
 from utils.preprocess import resample
 from utils.encoder import encode
 from utils.preprocess import classify
+from utils.register import register
+from utils.test import test
 
 def general(request_form,get_type="url",action_type="test"):
     """_summary_
@@ -44,15 +46,16 @@ def general(request_form,get_type="url",action_type="test"):
     """
 
     new_spkid = request_form["spkid"]
-    if check_spkid(new_spkid):
-        response = {
-            "code": 2000,
-            "status": "error",
-            "err_type": 4,
-            "err_msg": f"ID: {new_spkid} already exists."
-        }
-        err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
-        return response
+    if cfg.CHECK_DUPLICATE:
+        if check_spkid(new_spkid):
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_type": 4,
+                "err_msg": f"ID: {new_spkid} already exists."
+            }
+            err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
+            return response
     wav_channel = cfg.WAV_CHANNEL
     call_begintime = request_form.get("call_begintime","1999-02-18 10:10:10")
     call_endtime = request_form.get("call_endtime","1999-02-18 10:10:10")
@@ -74,6 +77,7 @@ def general(request_form,get_type="url",action_type="test"):
         try:
             filepath,oss_path = save_file(file=new_file,spk=new_spkid)
         except Exception as e:
+            print(e)
             response = {
                 "code": 2000,
                 "status": "error",
@@ -88,6 +92,7 @@ def general(request_form,get_type="url",action_type="test"):
         try:
             filepath,oss_path = save_url(url=new_url,spk=new_spkid)
         except Exception as e:
+            print(e)
             response = {
                 "code": 2000,
                 "status": "error",
@@ -97,7 +102,6 @@ def general(request_form,get_type="url",action_type="test"):
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="")
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
-
 
     # STEP 2: VAD    
     try:
@@ -117,100 +121,48 @@ def general(request_form,get_type="url",action_type="test"):
 
     # STEP 3: Self Test
     try:
-        self_test_result = encode(wav_torch=vad_result["torch"])
+        print(type(vad_result["wav_torch"]))
+        self_test_result = encode(wav_torch=vad_result["wav_torch"])
     except Exception as e:
         print(e)
         response = {
-            "code": 2000,x
+            "code": 2000,
             "status": "error",
             "err_type": 5,
             "err_msg": f"Self Test faild. No useful data in {filepath}.",
         }
-        to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"self test error",file_url=oss_path,preprocessed_file_path="")
+        to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"self test error",\
+                file_url=oss_path,preprocessed_file_path="")
         err_logger.info(f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}")
         return response
     
     msg = self_test_result["msg"]
     if not self_test_result["pass"]:
         err_type = self_test_result["err_type"]
-
         response = {
             "code": 2000,
             "status": "error",
             "err_type": err_type,
             "err_msg": msg
             }
-        to_log(phone=new_spkid, action_type=action_type, err_type=err_type, message=f"{msg}",file_url=oss_path,preprocessed_file_path=preprocessed_file_path)
+        to_log(phone=new_spkid, action_type=action_type, err_type=err_type, message=f"{msg}",file_url=oss_path,\
+                preprocessed_file_path="")
         err_logger.info(f"{new_spkid},{oss_path},{err_type},{msg}")
         return response
 
     # STEP 4: Encoding
     embedding = self_test_result["tensor"]
-    class_num = classify(embedding)
+    if cfg.CLASSIFY:
+        class_num = classify(embedding)
+    else:
+        class_num = 999
     
-
     # STEP 5: Test or Register
     if action_type == "test":
-    
-        # return response
-        else:
-            response = {
-                "code": 2000,
-                "status": "success",
-                "inbase":False,
-                "top_10":top_10,
-                "err_msg": "null",
-
-            }
-            to_log(phone=new_spkid, action_type=1, err_type=0, message=f"Not in base,{blackbase_phone},{hit_scores}",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length)
-            end_time = time.time()
-            time_used = end_time - start_time
-            logger.info(f"Test,{new_spkid},{oss_path},{response['inbase']},{time_used:.2f}")
-            return response
+        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime)
 
     elif action_type == "register":
+        return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+                call_begintime,call_endtime,after_vad_length=0,
+                preprocessed_file_path="")
         
-        if cfg.AUTO_TEST:
-            black_database = get_embeddings(blackbase=cfg.BLACK_BASE,class_index=-1)
-            
-
-
-        add_success,phone_info = to_database(
-                                        blackbase = cfg.BLACK_BASE,
-                                        embedding=embedding,
-                                        spkid=new_spkid,
-                                        max_class_index=class_num,
-                                        log_phone_info = cfg.LOG_PHONE_INFO
-                                        )
-        if add_success:
-            skp_info = {
-                "name":"none",
-                "phone":new_spkid,
-                "uuid":oss_path,
-                "hit":0,
-                "register_time":datetime.now(),
-                "province":phone_info.get("province",""),
-                "city":phone_info.get("city",""),
-                "phone_type":phone_info.get("phone_type",""),
-                "area_code":phone_info.get("area_code",""),
-                "zip_code":phone_info.get("zip_code",""),
-                "self_test_score_mean":self_test_result["mean_score"],
-                "self_test_score_min":self_test_result["min_score"],
-                "self_test_score_max":self_test_result["max_score"],
-                "call_begintime":call_begintime,
-                "call_endtime":call_endtime,
-                "max_class_index":max_class_index
-            }
-            add_speaker(skp_info,speaker_db,Speaker,preprocessed_file_path=preprocessed_file_path)
-            to_log(phone=new_spkid, action_type=2, err_type=0, message=f"Register success.",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length)
-            
-            response = {
-                "code": 2000,
-                "status": "success",
-                "err_type":0,
-                "err_msg": "Register success.",
-            }
-            end_time = time.time()
-            time_used = end_time - start_time
-            logger.info(f"Register,{new_spkid},{oss_path},Success,{time_used:.2f}")
-            return response

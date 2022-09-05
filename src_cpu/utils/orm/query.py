@@ -58,10 +58,9 @@ def to_log(phone, action_type, err_type, message,file_url,preprocessed_file_path
     query_sql = f"INSERT INTO log (phone, action_type,time,err_type, message,file_url,preprocessed_file_url,valid_length) VALUES ('{phone}', '{action_type}', curtime(),'{err_type}', '{message}','{file_url}','{preprocessed_file_path}','{valid_length}');"
     cur.execute(query_sql)
     conn.commit()
-    conn.close()
+ 
 
 def add_hit(hit_info,is_grey):
-    info = Hit()
     phone = hit_info["phone"]
     file_url = hit_info["file_url"]
     #
@@ -92,13 +91,13 @@ def add_hit(hit_info,is_grey):
     query_sql = f"INSERT INTO hit (phone, file_url,province,city, phone_type,area_code,\
                     zip_code,self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
                     call_endtime,span_time,class_number,hit_time,blackbase_phone,blackbase_id,top_10,hit_status,hit_score,is_grey) \
-                        VALUES (f'{phone}', f'{file_url}',f'{province}',f'{city}', f'{phone_type}',f'{area_code}',\
-                    f'{zip_code}',f'{self_test_score_mean}',f'{self_test_score_min}',f'{self_test_score_max}',f'{call_begintime}',\
-                    f'{call_endtime}',f'{span_time}',f'{class_number}',f'{hit_time}',f'{blackbase_phone}',f'{blackbase_id}',f'{top_10}',\
-                    f'{hit_status}',f'{hit_score}',f'{is_grey}');"
+                        VALUES ('{phone}', '{file_url}','{province}','{city}', '{phone_type}','{area_code}',\
+                    '{zip_code}','{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
+                    '{call_endtime}','{span_time}','{class_number}','{hit_time}','{blackbase_phone}','{blackbase_id}','{top_10}',\
+                    '{hit_status}','{hit_score}','{is_grey}');"
     cur.execute(query_sql)
     conn.commit()
-    conn.close()
+
 
 
 def add_speaker(spk_info):
@@ -124,17 +123,26 @@ def add_speaker(spk_info):
     query_sql = f"INSERT INTO hit (name,phone, file_url,province,city, phone_type,area_code,\
                     zip_code,self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
                     call_endtime,span_time,class_number) \
-                        VALUES (f'{name},'f'{phone}', f'{file_url}',f'{province}',f'{city}', f'{phone_type}',f'{area_code}',\
-                    f'{zip_code}',f'{self_test_score_mean}',f'{self_test_score_min}',f'{self_test_score_max}',f'{call_begintime}',\
-                    f'{call_endtime}',f'{span_time}',f'{class_number}');"
+                        VALUES ('{name},'{phone}', '{file_url}','{province}','{city}', '{phone_type}','{area_code}',\
+                    '{zip_code}','{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
+                    '{call_endtime}','{span_time}','{class_number}');"
+    print(query_sql)
     cur.execute(query_sql)
     conn.commit()
-    conn.close()
 
 
-def add_hit(spk_id):
+
+def add_hit_count(spk_id):
     cur = conn.cursor()
     query_sql = f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
     cur.execute(query_sql)
     conn.commit()
-    conn.close()
+
+
+if __name__ == "__main__":
+    cur = conn.cursor()
+    query_sql = f"select * from speaker;"
+    cur.execute(query_sql)
+    res = cur.fetchall()
+    print(res)
+    conn.commit()

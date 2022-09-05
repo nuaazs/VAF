@@ -7,13 +7,20 @@ channel = cfg.WAV_CHANNEL
 
 def resample(wav_file):
     wav, sr = torchaudio.load(wav_file)
-    if len(wav.shape)>1:
+
+    if len(wav.shape)>1 and wav.shape[0]>1:
         if wav.shape[1]>sr*(wav_length):
             wav = wav[channel,:(wav_length)*sr]
         else:
             wav = wav[channel,:]
+    elif len(wav.shape)>1:
+        wav = wav[0]
+        if wav.shape[0]>sr*(wav_length):
+            wav = wav[:(wav_length)*sr]
+        else:
+            wav = wav
     else:
-        if wav.shape[1]>sr*(wav_length):
+        if wav.shape[0]>sr*(wav_length):
             wav = wav[:(wav_length)*sr]
         else:
             wav = wav

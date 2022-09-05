@@ -5,10 +5,8 @@ import cfg
 def classify(embedding):
     max_class_score = 0
     max_class_index = 0
-    if cfg.pre_classify:
+    if cfg.CLASSIFY:
         for index,i in enumerate(torch.eye(192)):
-            if cfg.DEVICE == "cuda":
-                i = torch.FloatTensor(i).cuda()
             now_class_score = similarity(embedding,i)
             if now_class_score>max_class_score:
                 max_class_score=now_class_score

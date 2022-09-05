@@ -27,11 +27,9 @@ wavs = sorted([os.path.join(args.wav_path,_file) for _file in os.listdir(args.wa
 
 start_time = datetime.datetime.now()
 for wav in wavs:
-    
     if args.mode == 'file':
-        
         request_file = {'wav_file':open(wav, 'rb')}
-        values = {"spkid": "15151832004","call_begintime":begintime,"call_endtime":endtime}
+        values = {"spkid": "151518320014","call_begintime":begintime,"call_endtime":endtime}
         print(values)
         # !不能指定header
         # try:
@@ -41,8 +39,8 @@ for wav in wavs:
         #     print(e)
         #     continue
     else:
-        wav_url = f"local:/{wav}"
-        values = {"spkid": "15151832004","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
+        wav_url = f"local://{wav}"
+        values = {"spkid": "151518320023","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
         print(values)
         # try:
         resp = requests.request("POST",url=url, data=values)

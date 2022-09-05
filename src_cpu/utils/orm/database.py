@@ -4,7 +4,7 @@ import redis
 import numpy as np
 import cfg
 
-from utils.phone import getPhoneInfo
+from utils.phone import phone_info
 
 def toRedis(r,a,n):
     """Store given Numpy array 'a' in Redis under key 'n'"""
@@ -60,7 +60,7 @@ def get_embeddings(blackbase="redis",class_index=-1):
 
 def to_database(blackbase,embedding,spkid,max_class_index,log_phone_info,mode="register"):
     if log_phone_info:
-        phone_info = getPhoneInfo(spkid[-11:])
+        phone_info = phone_info(spkid[-11:])
     else:
         phone_info = {}
     embedding_npy = embedding.detach().cpu().numpy()

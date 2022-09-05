@@ -43,7 +43,7 @@ def index():
 def test(test_type):
     if request.method == "POST":
         request_form = request.form
-        response = general(request_form,cfg,get_type=test_type,action_type="test")
+        response = general(request_form,get_type=test_type,action_type="test")
         return json.dumps(response, ensure_ascii=False)
 
 # Register
@@ -51,8 +51,8 @@ def test(test_type):
 def register(register_type):
     if request.method == "POST":
         request_form = request.form
-        response = general(request_form,cfg,get_type=register_type,action_type="register")
+        response = general(request_form,get_type=register_type,action_type="register")
         return json.dumps(response, ensure_ascii=False)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', threaded=False, port=8180, debug=True,)
+    app.run(host='0.0.0.0', threaded=False, port=8188, debug=True,)

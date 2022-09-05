@@ -18,6 +18,7 @@ PORT = 8180
 # Classify
 CLASSIFY = True
 
+CHECK_DUPLICATE = False
 # Log Phone Info Or Not
 LOG_PHONE_INFO = False
 
@@ -52,7 +53,7 @@ MYSQL = {
     }
 # Redis
 REDIS = {
-    "host":'192.168.0.14',
+    "host":'192.168.3.202',
     "port":6379,
     "register_db":1,
     "test_db":2,
@@ -61,7 +62,7 @@ REDIS = {
 
 # MinIO
 MINIO = {
-    "host": "192.168.0.14",
+    "host": "192.168.3.202",
     "port": 9000,
     "access_key": "minioadmin",
     "secret_key": "minioadmin",
@@ -74,5 +75,5 @@ BLACK_BASE = "redis" # "/VAF-System/src/wavs/database/blackbase.pkl"
 
 # Server Info
 SERVER_INFO = {
-    "name":"lyxx78"
+    "name":"lyxx-192.168.3.202"
 }

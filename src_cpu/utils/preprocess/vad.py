@@ -1,6 +1,7 @@
 import torch
 import os
 from utils.oss import upload_file
+import cfg
 
 # else:
 USE_ONNX = True
@@ -29,10 +30,10 @@ def vad(wav,spkid):
     speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=16000,window_size_samples=1536)
     wav = collect_chunks(speech_timestamps, wav)
     save_audio(final_save_path,wav, sampling_rate=16000)
-    preprocessed_file_path=upload_file(bucket_name='preprocessed',filepath=final_save_path,filename=save_name,save_days=save_days)
+    preprocessed_file_path=upload_file(bucket_name='preprocessed',filepath=final_save_path,filename=save_name,save_days=cfg.MINIO["test_save_days"])
     
     after_vad_length = len(wav)/16000.
-
+    wav = torch.FloatTensor(wav)
     result = {
         "wav_torch":wav,
         "before_length":before_vad_length,
