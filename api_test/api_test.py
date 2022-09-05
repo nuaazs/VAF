@@ -8,6 +8,7 @@ import requests
 import argparse
 import datetime
 import os
+import random
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('--ip', type=str, default="127.0.0.1",help='')
 parser.add_argument('--port', type=int, default=8188,help='')
@@ -40,7 +41,8 @@ for wav in wavs:
         #     continue
     else:
         wav_url = f"local://{wav}"
-        values = {"spkid": "151518320023","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
+        phone = random.randint(11111111111, 99999999999)
+        values = {"spkid": str(phone),"wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
         print(values)
         # try:
         resp = requests.request("POST",url=url, data=values)
