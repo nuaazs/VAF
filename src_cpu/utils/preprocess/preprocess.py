@@ -1,10 +1,3 @@
-# @Time    : 2022-07-27  18:58:05
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/preprocess.py
-# @Describe: Preprocess wav files.
-
 import torch
 import torchaudio.transforms as T
 import os

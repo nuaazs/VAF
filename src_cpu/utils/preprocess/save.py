@@ -12,7 +12,7 @@ import subprocess
 import shutil
 from utils.oss import upload_file
 
-def save_wav_from_file(file, spk, receive_path,save_days=30):
+def save_file(file, spk, receive_path,save_days=30):
     """save wav file from post request.
 
     Args:
@@ -41,7 +41,7 @@ def save_wav_from_file(file, spk, receive_path,save_days=30):
     raw_file_path=upload_file(bucket_name='raw',filepath=save_path_wav,filename=f"raw_{spk}_{speech_number}_{pid}.wav",save_days=save_days)
     return save_path,raw_file_path
 
-def save_wav_from_url(url, spk, receive_path,save_days=30):
+def save_url(url, spk, receive_path,save_days=30):
     """save wav file from post request.
 
     Args:

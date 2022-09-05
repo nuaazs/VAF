@@ -1,1 +1,1 @@
-from utils.phone.phone_util import getPhoneInfo
+from utils.phone.phone_util import phone_info

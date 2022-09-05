@@ -11,7 +11,16 @@
 
 ## Files
 ```shell
-
+src
+- log : 日志模块输出目录，与宿主机映射
+- models : Flask Models
+- nn : neural networks
+- templeates : Flask templeates
+- utils
+cfg.py : 配置文件
+main.py : 主函数
+gunicorn.py : gunicorn配置
+requirements.txt : 项目依赖
 ```
 
 ## Install

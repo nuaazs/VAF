@@ -4,32 +4,20 @@ WORKERS = 2
 # Threads
 THREADS = 10
 
-# Device
-DEVICE = "cpu"
-
 # Max Connections
 WORKER_CONNECTIONS = 10
 
 # Port
 PORT = 8180
 
-# Do Pre Classify
-pre_classify = False
+# Classify
+CLASSIFY = True
 
 # Log Phone Info Or Not
 LOG_PHONE_INFO = False
 
 # Clipping Detect
-CLIP_DETECT = False
-
-# Auto Test
-AUTO_TEST = False
-
-# Save Raw File (=None, means don't save)
-RAW_FILE_PATH = None # "/VAF-System/src/wavs/raw"
-
-# Save Preprocessed File (=None, means don't save)
-VAD_FILE_PATH = None # "/VAF-System/src/wavs/preprocessed"
+CLIP_DETECT = True
 
 # Black Base Threshold
 BLACK_TH = 0.82
