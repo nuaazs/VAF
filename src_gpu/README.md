@@ -1,4 +1,6 @@
 # GPU Version
+cuda版本 11.4
+
 
 log : 日志目录
 nn  : 预训练模型保存目录
@@ -16,5 +18,5 @@ gunicorn -c gunicorn.py si_server_gpu:app
 ```
 ## 启动方式二
 ```shell
-python main.py
+python si_server_gpu.py
 ```

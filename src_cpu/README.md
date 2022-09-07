@@ -12,9 +12,9 @@ requirements.txt : 项目依赖
 
 ## 启动方式一
 ```shell
-gunicorn -c gunicorn.py main:app
+gunicorn -c gunicorn.py si_server:app
 ```
 ## 启动方式二
 ```shell
-python main.py
+python si_server.py
 ```
