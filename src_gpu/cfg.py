@@ -1,11 +1,15 @@
+# coding = utf-8
+# @Time    : 2022-09-05  09:43:48
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: service configuration file.
+
 # Workers
 WORKERS = 2
 
+SR = 16000
+
 # Threads
 THREADS = 10
-
-# Device
-DEVICE = "cpu"
 
 # Max Connections
 WORKER_CONNECTIONS = 10
@@ -13,23 +17,17 @@ WORKER_CONNECTIONS = 10
 # Port
 PORT = 8180
 
-# Do Pre Classify
-pre_classify = False
+# Classify
+CLASSIFY = True
+
+# 
+CHECK_DUPLICATE = False
 
 # Log Phone Info Or Not
 LOG_PHONE_INFO = False
 
 # Clipping Detect
-CLIP_DETECT = False
-
-# Auto Test
-AUTO_TEST = False
-
-# Save Raw File (=None, means don't save)
-RAW_FILE_PATH = None # "/VAF-System/src/wavs/raw"
-
-# Save Preprocessed File (=None, means don't save)
-VAD_FILE_PATH = None # "/VAF-System/src/wavs/preprocessed"
+CLIP_DETECT = True
 
 # Black Base Threshold
 BLACK_TH = 0.82
@@ -59,7 +57,7 @@ MYSQL = {
     }
 # Redis
 REDIS = {
-    "host":'192.168.0.14',
+    "host":'192.168.3.202',
     "port":6379,
     "register_db":1,
     "test_db":2,
@@ -68,7 +66,7 @@ REDIS = {
 
 # MinIO
 MINIO = {
-    "host": "192.168.0.14",
+    "host": "192.168.3.202",
     "port": 9000,
     "access_key": "minioadmin",
     "secret_key": "minioadmin",
@@ -76,10 +74,7 @@ MINIO = {
     "register_save_days": -1,
 }
 
-# Black Base File Path (='redis' use redis)
-BLACK_BASE = "redis" # "/VAF-System/src/wavs/database/blackbase.pkl"
-
 # Server Info
 SERVER_INFO = {
-    "name":"lyxx78"
+    "name":"lyxx-192.168.3.202"
 }

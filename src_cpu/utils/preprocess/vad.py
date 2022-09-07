@@ -45,4 +45,5 @@ def vad(wav,spkid):
         "after_length":after_vad_length,
         "preprocessed_file_path":preprocessed_file_path,
     }
+    os.remove(final_save_path)
     return result

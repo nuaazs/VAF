@@ -1,9 +1,7 @@
-# @Time    : 2022-07-27  18:56:04
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/log_wraper.py
-# @Describe: logger wraper.
+# coding = utf-8
+# @Time    : 2022-09-05  15:05:31
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Define log wrapers.
 
 from logging.handlers import RotatingFileHandler
 import logging
@@ -22,7 +20,6 @@ handler.setFormatter(formatter)
 handler.namer = lambda x: "si." + x.split(".")[-1]
 logger.addHandler(handler)
 
-
 # error log
 err_logger = logging.getLogger("err_log")
 err_logger.setLevel(logging.DEBUG)
@@ -31,9 +28,8 @@ formatter = logging.Formatter(
     datefmt="[%Y-%m-%d %H:%M:%S]",
 )
 err_handler = RotatingFileHandler(
-    "./log/err.log", maxBytes=20 * 1024 * 1024, backupCount=5, encoding="utf-8"
+    "./log/error.log", maxBytes=20 * 1024 * 1024, backupCount=5, encoding="utf-8"
 )
 err_handler.setFormatter(formatter)
 err_handler.namer = lambda x: "err." + x.split(".")[-1]
 err_logger.addHandler(err_handler)
-

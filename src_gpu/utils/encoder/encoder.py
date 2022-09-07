@@ -1,15 +1,13 @@
-# @Time    : 2022-07-27  19:05:52
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/encoder/encoder.py
-# @Describe: Models.
+# coding = utf-8
+# @Time    : 2022-09-05  15:04:36
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: models.
 
 from speechbrain.pretrained import SpeakerRecognition
 import torch
-import cfg
 
 similarity = torch.nn.CosineSimilarity(dim=-1, eps=1e-6)
 spkreg = SpeakerRecognition.from_hparams(
-    source="/VAF-System/src/pretrained_ecapa", savedir="/VAF-System/src/pretrained_ecapa"
-    ,run_opts={"device":cfg.DEVICE})
+    source="./nn/pretrained_ecapa",
+    savedir="./nn/pretrained_ecapa"
+    ,run_opts={"device":"cuda"})

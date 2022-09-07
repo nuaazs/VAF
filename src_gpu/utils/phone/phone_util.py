@@ -1,13 +1,11 @@
-# @Time    : 2022-07-27  18:57:54
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/phone_util.py
-# @Describe: Get phone info.
+# coding = utf-8
+# @Time    : 2022-09-05  15:12:04
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Phone.
 
 from phone import Phone
 
-def getPhoneInfo(phoneNum):
+def phone_info(phoneNum):
     info = Phone().find(phoneNum)
     if info == None:
         return {}

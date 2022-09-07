@@ -1,18 +1,16 @@
-# @Time    : 2022-07-27  19:03:27
-# @Author  : zhaosheng
-# @email   : zhaosheng@nuaa.edu.cn
-# @Blog    : http://www.iint.icu/
-# @File    : /mnt/zhaosheng/VAF-System/src/utils/save.py
-# @Describe: Save wav files.
+# coding = utf-8
+# @Time    : 2022-09-05  15:33:45
+# @Author  : zhaosheng@nuaa.edu.cn
+# @Describe: Save file.
 
-from ast import Str
 import os
 import wget
 import subprocess
 import shutil
 from utils.oss import upload_file
+import cfg
 
-def save_wav_from_file(file, spk, receive_path,save_days=30):
+def save_file(file, spk):
     """save wav file from post request.
 
     Args:
@@ -23,8 +21,7 @@ def save_wav_from_file(file, spk, receive_path,save_days=30):
     Returns:
         string: file path
     """
-    if not receive_path:
-        receive_path = "/tmp/"
+    receive_path = "/tmp/"
     spk_dir = os.path.join(receive_path, str(spk))
     os.makedirs(spk_dir, exist_ok=True)
     spk_filelist = os.listdir(spk_dir)
@@ -38,10 +35,10 @@ def save_wav_from_file(file, spk, receive_path,save_days=30):
     # conver to wav
     cmd = f"ffmpeg -i {save_path} -ac 1 -ar 16000 {save_path_wav}"
     subprocess.call(cmd, shell=True)
-    raw_file_path=upload_file(bucket_name='raw',filepath=save_path_wav,filename=f"raw_{spk}_{speech_number}_{pid}.wav",save_days=save_days)
+    raw_file_path=upload_file(bucket_name='raw',filepath=save_path_wav,filename=f"raw_{spk}_{speech_number}_{pid}.wav",save_days=cfg.MINIO["test_save_days"])
     return save_path,raw_file_path
 
-def save_wav_from_url(url, spk, receive_path,save_days=30):
+def save_url(url, spk):
     """save wav file from post request.
 
     Args:
@@ -52,8 +49,7 @@ def save_wav_from_url(url, spk, receive_path,save_days=30):
     Returns:
         string: file path
     """
-    if not receive_path:
-        receive_path = "/tmp/"
+    receive_path = "/tmp/"
     spk_dir = os.path.join(receive_path, str(spk))
     os.makedirs(spk_dir, exist_ok=True)
     spk_filelist = os.listdir(spk_dir)
@@ -71,6 +67,6 @@ def save_wav_from_url(url, spk, receive_path,save_days=30):
         save_path = os.path.join(spk_dir, save_name)
         wget.download(url, save_path)
 
-    raw_file_path = upload_file(bucket_name='raw',filepath=save_path,filename=f"raw_{spk}_{speech_number}_{pid}.wav",save_days=save_days)
+    raw_file_path = upload_file(bucket_name='raw',filepath=save_path,filename=f"raw_{spk}_{speech_number}_{pid}.wav",save_days=cfg.MINIO["test_save_days"])
 
     return save_path,raw_file_path
