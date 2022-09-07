@@ -1,0 +1,43 @@
+[2022-09-07 13:13:19 +0800] [1498261] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 13:13:19 +0800] [1498261] [INFO] Listening at: http://0.0.0.0:8187 (1498261)
+[2022-09-07 13:13:19 +0800] [1498261] [INFO] Using worker: gevent
+[2022-09-07 13:13:19 +0800] [1498263] [INFO] Booting worker with pid: 1498263
+[2022-09-07 13:13:20 +0800] [1498263] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 973, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'si_server'
+[2022-09-07 13:13:20 +0800] [1498263] [INFO] Worker exiting (pid: 1498263)
+[2022-09-07 13:13:20 +0800] [1498261] [INFO] Shutting down: Master
+[2022-09-07 13:13:20 +0800] [1498261] [INFO] Reason: Worker failed to boot.
+[2022-09-07 13:13:51 +0800] [1498846] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 13:13:51 +0800] [1498846] [INFO] Listening at: http://0.0.0.0:8187 (1498846)
+[2022-09-07 13:13:51 +0800] [1498846] [INFO] Using worker: gevent
+[2022-09-07 13:13:51 +0800] [1498848] [INFO] Booting worker with pid: 1498848
+[2022-09-07 13:13:57 +0800] [1498846] [INFO] Handling signal: int
+[2022-09-07 13:13:57 +0800] [1498848] [INFO] Worker exiting (pid: 1498848)
+[2022-09-07 13:13:57 +0800] [1498846] [WARNING] Worker with pid 1498848 was terminated due to signal 2
+[2022-09-07 13:13:57 +0800] [1498846] [INFO] Shutting down: Master
+[2022-09-07 13:13:58 +0800] [1499107] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 13:13:58 +0800] [1499107] [INFO] Listening at: http://0.0.0.0:8187 (1499107)
+[2022-09-07 13:13:58 +0800] [1499107] [INFO] Using worker: gevent
+[2022-09-07 13:13:58 +0800] [1499109] [INFO] Booting worker with pid: 1499109

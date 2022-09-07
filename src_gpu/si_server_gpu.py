@@ -55,4 +55,4 @@ def register(register_type):
         return json.dumps(response, ensure_ascii=False)
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', threaded=False, port=8188, debug=True,)
+    app.run(host='0.0.0.0', threaded=False, port=8187, debug=True,)

@@ -12,7 +12,7 @@ import random
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('--ip', type=str, default="127.0.0.1",help='')
 parser.add_argument('--port', type=int, default=8188,help='')
-parser.add_argument('--path', type=str, default="register",help='')
+parser.add_argument('--path', type=str, default="test",help='')
 parser.add_argument('--wav_path', type=str, default="/VAF-System/test/test_wavs",help='')
 parser.add_argument('--mode', type=str, default="url",help='url or file')
 

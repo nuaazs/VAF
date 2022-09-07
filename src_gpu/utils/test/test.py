@@ -14,10 +14,11 @@ from utils.test import test_wav
 from utils.encoder import similarity
 from utils.orm import to_database
 from utils.preprocess import check_clip
+from utils.orm import get_blackid
 
 import cfg
 
-def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length,preprocessed_file_path):
+def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length,preprocessed_file_path,show_phone):
     black_database = get_embeddings(class_index=max_class_index)
     is_inbase,check_result= test_wav(database=black_database,
                                 embedding=embedding,
@@ -37,10 +38,16 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_
                                     mode = "test"
                                     )
 
-    blackbase_id=0                
+    try:
+        blackbase_id=get_blackid(blackbase_phone.split(",")[0])
+    except Exception as e:
+        print(e)
+        blackbase_id = 0
+    print(f"blackbase id : {blackbase_id}")      
     if is_inbase:
         hit_info = {
             "name":"none",
+            "show_phone":show_phone,
             "phone":new_spkid,
             "file_url":oss_path,
             "hit_time":datetime.now(),

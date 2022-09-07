@@ -55,6 +55,7 @@ def general(request_form,get_type="url",action_type="test"):
     wav_channel = cfg.WAV_CHANNEL
     call_begintime = request_form.get("call_begintime","1999-02-18 10:10:10")
     call_endtime = request_form.get("call_endtime","1999-02-18 10:10:10")
+    show_phone = request_form.get("show_phone",new_spkid)
 
     # STEP 1: Get wav file.
     if get_type == "file":
@@ -157,9 +158,9 @@ def general(request_form,get_type="url",action_type="test"):
     
     # STEP 5: Test or Register
     if action_type == "test":
-        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length=vad_result["after_length"],preprocessed_file_path=preprocessed_file_path)
+        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length=vad_result["after_length"],preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
 
     elif action_type == "register":
         return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
                 call_begintime,call_endtime,after_vad_length=vad_result["after_length"],
-                preprocessed_file_path=preprocessed_file_path)
+                preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)

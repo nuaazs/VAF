@@ -3,6 +3,7 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: Query in SQL.
 
+import re
 import pymysql
 import time
 
@@ -27,7 +28,7 @@ def check_url(url):
     while True:
         try:
             cur = conn.cursor()
-            query_sql = f"SELECT * FROM log WHERE file_url='{url}';"
+            query_sql = f"SELECT * FROM speaker WHERE file_url='{url}';"
             cur.execute(query_sql)
             res = cur.fetchall()
             if len(res) != 0:
@@ -41,7 +42,7 @@ def check_spkid(spkid):
     while True:
         try:
             cur = conn.cursor()
-            query_sql = f"SELECT * FROM log WHERE phone='{spkid}';"
+            query_sql = f"SELECT * FROM speaker WHERE phone='{spkid}';"
             cur.execute(query_sql)
             res = cur.fetchall()
             if len(res) != 0:
@@ -53,13 +54,17 @@ def check_spkid(spkid):
 
 def to_log(phone, action_type, err_type, message,file_url,preprocessed_file_path="",valid_length=0):
     cur = conn.cursor()
-    query_sql = f"INSERT INTO log (phone, action_type,time,err_type, message,file_url,preprocessed_file_url,valid_length) VALUES ('{phone}', '{action_type}', curtime(),'{err_type}', '{message}','{file_url}','{preprocessed_file_path}','{valid_length}');"
+
+    date_num = int(time.strftime("%d", time.localtime()))
+
+    query_sql = f"INSERT INTO log_{date_num} (phone, action_type,time,err_type, message,file_url,preprocessed_file_url) VALUES ('{phone}', '{action_type}', curtime(),'{err_type}', '{message}','{file_url}','{preprocessed_file_path}');"
     cur.execute(query_sql)
     conn.commit()
  
 
 def add_hit(hit_info,is_grey):
     phone = hit_info["phone"]
+    show_phone = hit_info["show_phone"]
     file_url = hit_info["file_url"]
     #
     province = hit_info["province"]
@@ -72,7 +77,7 @@ def add_hit(hit_info,is_grey):
     self_test_score_max = hit_info["self_test_score_max"]
     call_begintime = hit_info["call_begintime"]
     call_endtime = hit_info["call_endtime"]
-    span_time =  get_span(call_endtime,call_begintime)
+    valid_length =  get_span(call_endtime,call_begintime)
     class_number = hit_info["class_number"]
     hit_time = hit_info["hit_time"]
     blackbase_phone = hit_info["blackbase_phone"]
@@ -87,13 +92,13 @@ def add_hit(hit_info,is_grey):
     else:
         is_grey = 0
     cur = conn.cursor()
-    query_sql = f"INSERT INTO hit (phone, file_url,province,city, phone_type,area_code,\
-                    zip_code,self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
-                    call_endtime,span_time,class_number,hit_time,blackbase_phone,blackbase_id,top_10,hit_status,hit_score,preprocessed_file_url,is_grey) \
-                        VALUES ('{phone}', '{file_url}','{province}','{city}', '{phone_type}','{area_code}',\
-                    '{zip_code}','{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
-                    '{call_endtime}','{span_time}','{class_number}','{hit_time}','{blackbase_phone}','{blackbase_id}','{top_10}',\
-                    '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}');"
+    query_sql = f"INSERT INTO hit (phone, file_url, phone_type,area_code,\
+                    self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
+                    call_endtime,valid_length,class_number,blackbase_phone,blackbase_id,top_10,hit_status,hit_score,preprocessed_file_url,is_grey,show_phone,hit_time) \
+                        VALUES ('{phone}', '{file_url}','{phone_type}','{area_code}',\
+                    '{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
+                    '{call_endtime}','{valid_length}','{class_number}','{blackbase_phone}','{blackbase_id}','{top_10}',\
+                    '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}','{show_phone}',NOW());"
     cur.execute(query_sql)
     conn.commit()
 
@@ -114,15 +119,15 @@ def add_speaker(spk_info):
     call_endtime = spk_info["call_endtime"]
     class_number = spk_info["max_class_index"]
     preprocessed_file_path = spk_info["preprocessed_file_path"]
-    
-    span_time =  get_span(call_endtime,call_begintime)
+    show_phone = spk_info["show_phone"]
+    valid_length =  get_span(call_endtime,call_begintime)
     cur = conn.cursor()
-    query_sql = f"INSERT INTO speaker (name,phone, file_url,province,city, phone_type,area_code,\
-                    zip_code,self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
-                    call_endtime,span_time,class_number,preprocessed_file_url) \
-                        VALUES ('{name}','{phone}', '{file_url}','{province}','{city}', '{phone_type}','{area_code}',\
-                    '{zip_code}','{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
-                    '{call_endtime}','{span_time}','{class_number}','{preprocessed_file_path}');"
+    query_sql = f"INSERT INTO speaker (name,phone, file_url,phone_type,area_code,\
+                    self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
+                    call_endtime,valid_length,class_number,preprocessed_file_url,show_phone,register_time) \
+                        VALUES ('{name}','{phone}', '{file_url}', '{phone_type}','{area_code}',\
+                    '{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
+                    '{call_endtime}','{valid_length}','{class_number}','{preprocessed_file_path}','{show_phone}',NOW());"
     print(query_sql)
     cur.execute(query_sql)
     conn.commit()
@@ -132,3 +137,16 @@ def add_hit_count(spk_id):
     query_sql = f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
     cur.execute(query_sql)
     conn.commit()
+
+
+def get_blackid(blackbase_phone):
+    cur = conn.cursor()
+    query_sql = f"select id from speaker where phone='{blackbase_phone}' limit 1;"
+    print(query_sql)
+    cur.execute(query_sql)
+    result = cur.fetchall()
+    print(result)
+    if len(result)>0:
+        return result[0]["id"]
+    else:
+        return 0

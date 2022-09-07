@@ -4,7 +4,7 @@
 # @Describe: service configuration file.
 
 # Workers
-WORKERS = 2
+WORKERS = 1
 
 SR = 16000
 
@@ -15,7 +15,7 @@ THREADS = 10
 WORKER_CONNECTIONS = 10
 
 # Port
-PORT = 8180
+PORT = 8187
 
 # Classify
 CLASSIFY = True
