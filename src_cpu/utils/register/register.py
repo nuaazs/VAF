@@ -17,7 +17,7 @@ import cfg
 
 def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
                 call_begintime,call_endtime,after_vad_length,
-                preprocessed_file_path):
+                preprocessed_file_path,show_phone):
 
     add_success,phone_info = to_database(
                                     embedding=embedding,
@@ -43,7 +43,8 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "call_begintime":call_begintime,
             "call_endtime":call_endtime,
             "max_class_index":max_class_index,
-            "preprocessed_file_path":preprocessed_file_path
+            "preprocessed_file_path":preprocessed_file_path,
+            "show_phone":show_phone
         }
         add_speaker(skp_info)
         to_log(phone=new_spkid, action_type=2, err_type=0, message=f"Register success.",file_url=oss_path,\
