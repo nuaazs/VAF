@@ -1,0 +1,1072 @@
+[2022-09-07 10:05:50 +0800] [1296499] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:05:50 +0800] [1296499] [INFO] Listening at: http://0.0.0.0:8188 (1296499)
+[2022-09-07 10:05:50 +0800] [1296499] [INFO] Using worker: gevent
+[2022-09-07 10:05:50 +0800] [1296507] [INFO] Booting worker with pid: 1296507
+[2022-09-07 10:05:50 +0800] [1296508] [INFO] Booting worker with pid: 1296508
+[2022-09-07 10:05:51 +0800] [1296508] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:05:51 +0800] [1296508] [INFO] Worker exiting (pid: 1296508)
+[2022-09-07 10:05:51 +0800] [1296507] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:05:51 +0800] [1296507] [INFO] Worker exiting (pid: 1296507)
+[2022-09-07 10:05:51 +0800] [1296499] [WARNING] Worker with pid 1296507 was terminated due to signal 15
+[2022-09-07 10:05:51 +0800] [1296499] [INFO] Shutting down: Master
+[2022-09-07 10:05:51 +0800] [1296499] [INFO] Reason: Worker failed to boot.
+[2022-09-07 10:07:43 +0800] [1299202] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:07:43 +0800] [1299202] [INFO] Listening at: http://0.0.0.0:8189 (1299202)
+[2022-09-07 10:07:43 +0800] [1299202] [INFO] Using worker: gevent
+[2022-09-07 10:07:43 +0800] [1299204] [INFO] Booting worker with pid: 1299204
+[2022-09-07 10:07:43 +0800] [1299205] [INFO] Booting worker with pid: 1299205
+[2022-09-07 10:07:43 +0800] [1299204] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:07:43 +0800] [1299204] [INFO] Worker exiting (pid: 1299204)
+[2022-09-07 10:07:43 +0800] [1299205] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:07:43 +0800] [1299205] [INFO] Worker exiting (pid: 1299205)
+[2022-09-07 10:07:44 +0800] [1299202] [WARNING] Worker with pid 1299205 was terminated due to signal 15
+[2022-09-07 10:07:44 +0800] [1299202] [INFO] Shutting down: Master
+[2022-09-07 10:07:44 +0800] [1299202] [INFO] Reason: Worker failed to boot.
+[2022-09-07 10:09:10 +0800] [1301416] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:09:10 +0800] [1301416] [INFO] Listening at: http://0.0.0.0:8188 (1301416)
+[2022-09-07 10:09:10 +0800] [1301416] [INFO] Using worker: gevent
+[2022-09-07 10:09:10 +0800] [1301418] [INFO] Booting worker with pid: 1301418
+[2022-09-07 10:09:10 +0800] [1301419] [INFO] Booting worker with pid: 1301419
+[2022-09-07 10:09:11 +0800] [1301418] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:09:11 +0800] [1301418] [INFO] Worker exiting (pid: 1301418)
+[2022-09-07 10:09:11 +0800] [1301419] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:09:11 +0800] [1301419] [INFO] Worker exiting (pid: 1301419)
+[2022-09-07 10:09:11 +0800] [1301416] [WARNING] Worker with pid 1301419 was terminated due to signal 15
+[2022-09-07 10:09:11 +0800] [1301416] [INFO] Shutting down: Master
+[2022-09-07 10:09:11 +0800] [1301416] [INFO] Reason: Worker failed to boot.
+[2022-09-07 10:09:44 +0800] [1302296] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:09:44 +0800] [1302296] [INFO] Listening at: http://0.0.0.0:8188 (1302296)
+[2022-09-07 10:09:44 +0800] [1302296] [INFO] Using worker: gevent
+[2022-09-07 10:09:44 +0800] [1302298] [INFO] Booting worker with pid: 1302298
+[2022-09-07 10:09:44 +0800] [1302299] [INFO] Booting worker with pid: 1302299
+[2022-09-07 10:09:44 +0800] [1302298] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:09:44 +0800] [1302298] [INFO] Worker exiting (pid: 1302298)
+[2022-09-07 10:09:44 +0800] [1302299] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:09:44 +0800] [1302299] [INFO] Worker exiting (pid: 1302299)
+[2022-09-07 10:09:45 +0800] [1302296] [WARNING] Worker with pid 1302299 was terminated due to signal 15
+[2022-09-07 10:09:45 +0800] [1302296] [INFO] Shutting down: Master
+[2022-09-07 10:09:45 +0800] [1302296] [INFO] Reason: Worker failed to boot.
+[2022-09-07 10:11:11 +0800] [1304398] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:11:11 +0800] [1304398] [INFO] Listening at: http://0.0.0.0:8188 (1304398)
+[2022-09-07 10:11:11 +0800] [1304398] [INFO] Using worker: gevent
+[2022-09-07 10:11:11 +0800] [1304400] [INFO] Booting worker with pid: 1304400
+[2022-09-07 10:11:11 +0800] [1304401] [INFO] Booting worker with pid: 1304401
+[2022-09-07 10:11:11 +0800] [1304400] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:11:11 +0800] [1304400] [INFO] Worker exiting (pid: 1304400)
+[2022-09-07 10:11:11 +0800] [1304401] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:11:11 +0800] [1304401] [INFO] Worker exiting (pid: 1304401)
+[2022-09-07 10:11:12 +0800] [1304398] [WARNING] Worker with pid 1304401 was terminated due to signal 15
+[2022-09-07 10:11:12 +0800] [1304398] [INFO] Shutting down: Master
+[2022-09-07 10:11:12 +0800] [1304398] [INFO] Reason: Worker failed to boot.
+[2022-09-07 10:11:24 +0800] [1304766] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:11:24 +0800] [1304766] [INFO] Listening at: http://0.0.0.0:8188 (1304766)
+[2022-09-07 10:11:24 +0800] [1304766] [INFO] Using worker: gevent
+[2022-09-07 10:11:24 +0800] [1304768] [INFO] Booting worker with pid: 1304768
+[2022-09-07 10:11:24 +0800] [1304775] [INFO] Booting worker with pid: 1304775
+[2022-09-07 10:11:25 +0800] [1304768] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:11:25 +0800] [1304768] [INFO] Worker exiting (pid: 1304768)
+[2022-09-07 10:11:25 +0800] [1304775] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/main.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:11:25 +0800] [1304775] [INFO] Worker exiting (pid: 1304775)
+[2022-09-07 10:11:25 +0800] [1304766] [WARNING] Worker with pid 1304775 was terminated due to signal 15
+[2022-09-07 10:11:25 +0800] [1304766] [INFO] Shutting down: Master
+[2022-09-07 10:11:25 +0800] [1304766] [INFO] Reason: Worker failed to boot.
+[2022-09-07 10:15:17 +0800] [1310367] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:15:17 +0800] [1310367] [INFO] Listening at: http://0.0.0.0:8188 (1310367)
+[2022-09-07 10:15:17 +0800] [1310367] [INFO] Using worker: gevent
+[2022-09-07 10:15:17 +0800] [1310369] [INFO] Booting worker with pid: 1310369
+[2022-09-07 10:15:17 +0800] [1310370] [INFO] Booting worker with pid: 1310370
+[2022-09-07 10:15:18 +0800] [1310370] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:15:18 +0800] [1310370] [INFO] Worker exiting (pid: 1310370)
+[2022-09-07 10:15:18 +0800] [1310369] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:15:18 +0800] [1310369] [INFO] Worker exiting (pid: 1310369)
+[2022-09-07 10:15:18 +0800] [1310367] [WARNING] Worker with pid 1310369 was terminated due to signal 15
+[2022-09-07 10:15:18 +0800] [1310367] [INFO] Shutting down: Master
+[2022-09-07 10:15:18 +0800] [1310367] [INFO] Reason: Worker failed to boot.
+[2022-09-07 10:16:22 +0800] [1312024] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:16:22 +0800] [1312024] [INFO] Listening at: http://0.0.0.0:8188 (1312024)
+[2022-09-07 10:16:22 +0800] [1312024] [INFO] Using worker: gevent
+[2022-09-07 10:16:22 +0800] [1312026] [INFO] Booting worker with pid: 1312026
+[2022-09-07 10:16:22 +0800] [1312033] [INFO] Booting worker with pid: 1312033
+[2022-09-07 10:16:23 +0800] [1312026] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:16:23 +0800] [1312026] [INFO] Worker exiting (pid: 1312026)
+[2022-09-07 10:16:23 +0800] [1312033] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-07 10:16:23 +0800] [1312033] [INFO] Worker exiting (pid: 1312033)
+[2022-09-07 10:16:23 +0800] [1312024] [WARNING] Worker with pid 1312033 was terminated due to signal 15
+[2022-09-07 10:16:23 +0800] [1312024] [INFO] Shutting down: Master
+[2022-09-07 10:16:23 +0800] [1312024] [INFO] Reason: Worker failed to boot.
+[2022-09-07 10:17:49 +0800] [1314140] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:17:49 +0800] [1314140] [INFO] Listening at: http://0.0.0.0:8188 (1314140)
+[2022-09-07 10:17:49 +0800] [1314140] [INFO] Using worker: gevent
+[2022-09-07 10:17:49 +0800] [1314152] [INFO] Booting worker with pid: 1314152
+[2022-09-07 10:17:49 +0800] [1314153] [INFO] Booting worker with pid: 1314153
+[2022-09-07 10:18:10 +0800] [1314140] [INFO] Handling signal: int
+[2022-09-07 10:18:10 +0800] [1314153] [INFO] Worker exiting (pid: 1314153)
+[2022-09-07 10:18:10 +0800] [1314152] [INFO] Worker exiting (pid: 1314152)
+[2022-09-07 10:18:10 +0800] [1314140] [WARNING] Worker with pid 1314153 was terminated due to signal 2
+[2022-09-07 10:18:10 +0800] [1314140] [WARNING] Worker with pid 1314152 was terminated due to signal 2
+[2022-09-07 10:18:10 +0800] [1314140] [INFO] Shutting down: Master
+[2022-09-07 10:18:17 +0800] [1314976] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 10:18:17 +0800] [1314976] [INFO] Listening at: http://0.0.0.0:8188 (1314976)
+[2022-09-07 10:18:17 +0800] [1314976] [INFO] Using worker: gevent
+[2022-09-07 10:18:17 +0800] [1314978] [INFO] Booting worker with pid: 1314978
+[2022-09-07 10:18:17 +0800] [1314979] [INFO] Booting worker with pid: 1314979

@@ -15,7 +15,7 @@ THREADS = 10
 WORKER_CONNECTIONS = 10
 
 # Port
-PORT = 8180
+PORT = 8188
 
 # Classify
 CLASSIFY = True
