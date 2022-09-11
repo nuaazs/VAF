@@ -96,10 +96,10 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
         }
         if clip:
             to_log(phone=new_spkid, action_type=1, err_type=10, message=f"{msg},clipped,{blackbase_phone},{hit_scores}",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length,show_phone=show_phone)
-            add_hit(hit_info,is_grey=True)
+            add_hit(hit_info,is_grey=True,after_vad_length=after_vad_length)
         else:
             to_log(phone=new_spkid, action_type=1, err_type=0, message=f"{msg},{blackbase_phone},{hit_scores}",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length,show_phone=show_phone)
-            add_hit(hit_info,is_grey=False)
+            add_hit(hit_info,is_grey=False,after_vad_length=after_vad_length)
         add_hit_count(new_spkid)
         return response
     else:

@@ -77,7 +77,7 @@ def to_log(phone,action_type, err_type, message,file_url,show_phone,preprocessed
     conn.close()
  
 
-def add_hit(hit_info,is_grey):
+def add_hit(hit_info,is_grey,after_vad_length):
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -100,7 +100,7 @@ def add_hit(hit_info,is_grey):
     self_test_score_max = hit_info["self_test_score_max"]
     call_begintime = hit_info["call_begintime"]
     call_endtime = hit_info["call_endtime"]
-    valid_length =  get_span(call_endtime,call_begintime)
+    valid_length =  after_vad_length
     class_number = hit_info["class_number"]
     hit_time = hit_info["hit_time"]
     blackbase_phone = hit_info["blackbase_phone"]
@@ -125,7 +125,7 @@ def add_hit(hit_info,is_grey):
     cur.execute(query_sql)
     conn.commit()
     conn.close()
-def add_speaker(spk_info):
+def add_speaker(spk_info,after_vad_length):
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -151,7 +151,7 @@ def add_speaker(spk_info):
     class_number = spk_info["max_class_index"]
     preprocessed_file_path = spk_info["preprocessed_file_path"]
     show_phone = spk_info["show_phone"]
-    valid_length =  get_span(call_endtime,call_begintime)
+    valid_length =  after_vad_length
     cur = conn.cursor()
     query_sql = f"INSERT INTO speaker (name,phone, file_url,phone_type,area_code,\
                     self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
