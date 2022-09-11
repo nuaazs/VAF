@@ -25,6 +25,8 @@ from utils.test import test
 from utils.encoder import similarity
 
 def general(request_form,get_type="url",action_type="test"):
+    #TODO 添加时间返回信息
+    #TODO 添加vad后时长返回信息
     """_summary_
 
     Args:
@@ -164,12 +166,12 @@ def general(request_form,get_type="url",action_type="test"):
     
     # STEP 5: Test or Register
     if action_type == 1:
-        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length=vad_result["after_length"],preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
+        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
 
     elif action_type == 2:
         return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
                 call_begintime,call_endtime,after_vad_length=vad_result["after_length"],
-                preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
+                preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"])
 
 
 def get_score(request_form,get_type="url"):

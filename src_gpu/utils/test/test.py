@@ -18,7 +18,7 @@ from utils.orm import get_blackid
 
 import cfg
 
-def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length,preprocessed_file_path,show_phone):
+def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_begintime,call_endtime,preprocessed_file_path,show_phone,before_vad_length,after_vad_length):
     black_database = get_embeddings(class_index=max_class_index)
     is_inbase,check_result= test_wav(database=black_database,
                                 embedding=embedding,
@@ -98,5 +98,11 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_
             "status": "success",
             "inbase":is_inbase,
             "err_msg": "null",
+            "before_vad_length":before_vad_length,
+            "after_vad_length":after_vad_length,
+            "hit_scores":hit_scores,
+            "blackbase_phone":blackbase_phone,
+            "top_10":top_10,
+            "clip":clip,
         }
         return response
