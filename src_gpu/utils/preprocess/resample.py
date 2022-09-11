@@ -32,5 +32,10 @@ def resample(wav_file):
     if sr != sr_dst:
         resampler = T.Resample(sr, sr_dst)
         wav = resampler(wav)
-    os.remove(wav_file)
+
+    # os.remove(wav_file)
+    if os.path.isfile(wav_file):
+        cmd = f"rm -rf {wav_file}"
+        os.system(cmd)
+
     return wav
