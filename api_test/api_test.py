@@ -11,10 +11,10 @@ import os
 import random
 parser = argparse.ArgumentParser(description='')
 parser.add_argument('--ip', type=str, default="127.0.0.1",help='')
-parser.add_argument('--port', type=int, default=8188,help='')
+parser.add_argument('--port', type=int, default=8187,help='')
 parser.add_argument('--path', type=str, default="test",help='')
 parser.add_argument('--wav_path', type=str, default="/VAF-System/test/test_wavs",help='')
-parser.add_argument('--mode', type=str, default="url",help='url or file')
+parser.add_argument('--mode', type=str, default="file",help='url or file')
 
 args = parser.parse_args()
 
@@ -24,13 +24,14 @@ headers = {
 }
 endtime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
 begintime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
-wavs = sorted([os.path.join(args.wav_path,_file) for _file in os.listdir(args.wav_path) if ".wav" in _file])[:2]
-
+wavs = sorted([os.path.join(args.wav_path,_file) for _file in os.listdir(args.wav_path) if ".wav" in _file])
+print(wavs)
 start_time = datetime.datetime.now()
 for wav in wavs:
     if args.mode == 'file':
         request_file = {'wav_file':open(wav, 'rb')}
-        values = {"spkid": "151518320014","call_begintime":begintime,"call_endtime":endtime}
+        phone = random.randint(11111111111, 99999999999)
+        values = {"spkid": str(phone),"show_phone": "15151832002","call_begintime":begintime,"call_endtime":endtime}
         print(values)
         # !不能指定header
         resp = requests.request("POST",url, files=request_file, data=values)
@@ -39,7 +40,7 @@ for wav in wavs:
     else:
         wav_url = f"local://{wav}"
         phone = random.randint(11111111111, 99999999999)
-        values = {"spkid": str(phone),"wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
+        values = {"spkid": str(phone),"show_phone": "15151832002","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
         print(values)
         resp = requests.request("POST",url=url, data=values)
         print(resp.json())

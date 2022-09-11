@@ -94,3 +94,16 @@
 [[2022-09-07 12:59:28]]  INFO  [init_service.py]  #15 <1482603:139958784885696>  ** Start! Total speaker num:2
 [[2022-09-07 13:00:03]]  INFO  [init_service.py]  #15 <1483332:140352099761136>  ** Start! Total speaker num:2
 [[2022-09-07 13:00:03]]  INFO  [init_service.py]  #15 <1483333:140352099761136>  ** Start! Total speaker num:2
+[[2022-09-07 16:23:33]]  INFO  [init_service.py]  #15 <1704228:139707727723504>  ** Start! Total speaker num:8
+[[2022-09-07 16:23:33]]  INFO  [init_service.py]  #15 <1704229:139707727723504>  ** Start! Total speaker num:8
+[[2022-09-07 16:39:20]]  INFO  [init_service.py]  #15 <1728118:140252851690480>  ** Start! Total speaker num:26
+[[2022-09-07 16:39:20]]  INFO  [init_service.py]  #15 <1728117:140252851690480>  ** Start! Total speaker num:26
+[[2022-09-08 09:47:22]]  INFO  [init_service.py]  #15 <3268683:140252851690480>  ** Start! Total speaker num:2534
+[[2022-09-08 09:47:29]]  INFO  [init_service.py]  #15 <3268978:140252851690480>  ** Start! Total speaker num:2534
+[[2022-09-08 09:48:52]]  INFO  [init_service.py]  #15 <3271444:140252851690480>  ** Start! Total speaker num:2534
+[[2022-09-08 09:52:45]]  INFO  [init_service.py]  #15 <3277879:139667977329648>  ** Start! Total speaker num:2534
+[[2022-09-08 09:52:45]]  INFO  [init_service.py]  #15 <3277886:139667977329648>  ** Start! Total speaker num:2534
+[[2022-09-08 10:00:46]]  INFO  [init_service.py]  #15 <3290273:140549663988720>  ** Start! Total speaker num:2536
+[[2022-09-08 10:00:46]]  INFO  [init_service.py]  #15 <3290269:140549663988720>  ** Start! Total speaker num:2536
+[[2022-09-08 10:04:11]]  INFO  [init_service.py]  #15 <3295566:140449457597424>  ** Start! Total speaker num:2536
+[[2022-09-08 10:04:11]]  INFO  [init_service.py]  #15 <3295567:140449457597424>  ** Start! Total speaker num:2536

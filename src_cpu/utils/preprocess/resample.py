@@ -6,6 +6,7 @@
 import torchaudio.transforms as T
 import torchaudio
 import cfg
+import os
 
 wav_length = cfg.WAV_LENGTH
 channel = cfg.WAV_CHANNEL
@@ -31,4 +32,5 @@ def resample(wav_file):
     if sr != sr_dst:
         resampler = T.Resample(sr, sr_dst)
         wav = resampler(wav)
+    os.remove(wav_file)
     return wav

@@ -1,4 +1,4 @@
-NAME='si_server'
+NAME='si_server_cpu'
 echo $NAME
 ID=`ps -ef | grep "$NAME" | grep -v "$0" | grep -v "grep" | awk '{print $2}'`
 echo $ID

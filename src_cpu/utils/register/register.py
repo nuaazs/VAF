@@ -48,7 +48,7 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
         }
         add_speaker(skp_info)
         to_log(phone=new_spkid, action_type=2, err_type=0, message=f"Register success.",file_url=oss_path,\
-                preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length)
+                preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length,show_phone=show_phone)
         
         response = {
             "code": 2000,

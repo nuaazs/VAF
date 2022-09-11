@@ -1117,3 +1117,557 @@ pymysql.err.OperationalError: (1054, "Unknown column 'province' in 'field list'"
 [2022-09-07 13:00:01 +0800] [1483330] [INFO] Using worker: gevent
 [2022-09-07 13:00:01 +0800] [1483332] [INFO] Booting worker with pid: 1483332
 [2022-09-07 13:00:01 +0800] [1483333] [INFO] Booting worker with pid: 1483333
+[2022-09-07 16:23:31 +0800] [1704217] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 16:23:31 +0800] [1704217] [INFO] Listening at: http://0.0.0.0:8188 (1704217)
+[2022-09-07 16:23:31 +0800] [1704217] [INFO] Using worker: gevent
+[2022-09-07 16:23:31 +0800] [1704228] [INFO] Booting worker with pid: 1704228
+[2022-09-07 16:23:31 +0800] [1704229] [INFO] Booting worker with pid: 1704229
+[2022-09-07 16:39:19 +0800] [1728115] [INFO] Starting gunicorn 20.1.0
+[2022-09-07 16:39:19 +0800] [1728115] [INFO] Listening at: http://0.0.0.0:8188 (1728115)
+[2022-09-07 16:39:19 +0800] [1728115] [INFO] Using worker: gevent
+[2022-09-07 16:39:19 +0800] [1728117] [INFO] Booting worker with pid: 1728117
+[2022-09-07 16:39:19 +0800] [1728118] [INFO] Booting worker with pid: 1728118
+[2022-09-08 09:47:19 +0800] [1728115] [WARNING] Worker with pid 1728117 was terminated due to signal 11
+[2022-09-08 09:47:19 +0800] [3268683] [INFO] Booting worker with pid: 3268683
+[2022-09-08 09:47:27 +0800] [1728115] [WARNING] Worker with pid 1728118 was terminated due to signal 11
+[2022-09-08 09:47:27 +0800] [3268978] [INFO] Booting worker with pid: 3268978
+[2022-09-08 09:48:51 +0800] [1728115] [WARNING] Worker with pid 3268978 was terminated due to signal 11
+[2022-09-08 09:48:51 +0800] [3271444] [INFO] Booting worker with pid: 3271444
+[2022-09-08 09:50:26 +0800] [3274319] [INFO] Starting gunicorn 20.1.0
+[2022-09-08 09:50:26 +0800] [3274319] [INFO] Listening at: http://0.0.0.0:8188 (3274319)
+[2022-09-08 09:50:26 +0800] [3274319] [INFO] Using worker: gevent
+[2022-09-08 09:50:26 +0800] [3274321] [INFO] Booting worker with pid: 3274321
+[2022-09-08 09:50:26 +0800] [3274322] [INFO] Booting worker with pid: 3274322
+[2022-09-08 09:50:27 +0800] [3274321] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-08 09:50:27 +0800] [3274321] [INFO] Worker exiting (pid: 3274321)
+[2022-09-08 09:50:27 +0800] [3274322] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-08 09:50:27 +0800] [3274322] [INFO] Worker exiting (pid: 3274322)
+[2022-09-08 09:50:27 +0800] [3274319] [WARNING] Worker with pid 3274322 was terminated due to signal 15
+[2022-09-08 09:50:27 +0800] [3274319] [INFO] Shutting down: Master
+[2022-09-08 09:50:27 +0800] [3274319] [INFO] Reason: Worker failed to boot.
+[2022-09-08 09:52:01 +0800] [3276760] [INFO] Starting gunicorn 20.1.0
+[2022-09-08 09:52:01 +0800] [3276760] [INFO] Listening at: http://0.0.0.0:8188 (3276760)
+[2022-09-08 09:52:01 +0800] [3276760] [INFO] Using worker: gevent
+[2022-09-08 09:52:01 +0800] [3276762] [INFO] Booting worker with pid: 3276762
+[2022-09-08 09:52:01 +0800] [3276765] [INFO] Booting worker with pid: 3276765
+[2022-09-08 09:52:01 +0800] [3276762] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-08 09:52:01 +0800] [3276762] [INFO] Worker exiting (pid: 3276762)
+[2022-09-08 09:52:02 +0800] [3276765] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/vad.py", line 13, in <module>
+    model, utils = torch.hub.load(repo_or_dir='./snakers4_silero-vad_master',
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 399, in load
+    model = _load_local(repo_or_dir, model, *args, **kwargs)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 425, in _load_local
+    hub_module = import_module(MODULE_HUBCONF, hubconf_path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/hub.py", line 76, in import_module
+    spec.loader.exec_module(module)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/hubconf.py", line 4, in <module>
+    from utils_vad import (init_jit_model,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/./snakers4_silero-vad_master/utils_vad.py", line 2, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-08 09:52:02 +0800] [3276765] [INFO] Worker exiting (pid: 3276765)
+[2022-09-08 09:52:02 +0800] [3276760] [WARNING] Worker with pid 3276765 was terminated due to signal 15
+[2022-09-08 09:52:02 +0800] [3276760] [INFO] Shutting down: Master
+[2022-09-08 09:52:02 +0800] [3276760] [INFO] Reason: Worker failed to boot.
+[2022-09-08 09:52:43 +0800] [3277877] [INFO] Starting gunicorn 20.1.0
+[2022-09-08 09:52:43 +0800] [3277877] [INFO] Listening at: http://0.0.0.0:8188 (3277877)
+[2022-09-08 09:52:43 +0800] [3277877] [INFO] Using worker: gevent
+[2022-09-08 09:52:43 +0800] [3277879] [INFO] Booting worker with pid: 3277879
+[2022-09-08 09:52:43 +0800] [3277886] [INFO] Booting worker with pid: 3277886
+[2022-09-08 10:00:44 +0800] [3290267] [INFO] Starting gunicorn 20.1.0
+[2022-09-08 10:00:44 +0800] [3290267] [INFO] Listening at: http://0.0.0.0:8188 (3290267)
+[2022-09-08 10:00:44 +0800] [3290267] [INFO] Using worker: gevent
+[2022-09-08 10:00:44 +0800] [3290269] [INFO] Booting worker with pid: 3290269
+[2022-09-08 10:00:44 +0800] [3290273] [INFO] Booting worker with pid: 3290273
+[2022-09-08 10:04:10 +0800] [3295564] [INFO] Starting gunicorn 20.1.0
+[2022-09-08 10:04:10 +0800] [3295564] [INFO] Listening at: http://0.0.0.0:8188 (3295564)
+[2022-09-08 10:04:10 +0800] [3295564] [INFO] Using worker: gevent
+[2022-09-08 10:04:10 +0800] [3295566] [INFO] Booting worker with pid: 3295566
+[2022-09-08 10:04:10 +0800] [3295567] [INFO] Booting worker with pid: 3295567
+[2022-09-08 13:46:27,513] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 54, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 164, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/register/register.py", line 49, in register
+    add_speaker(skp_info)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/orm/query.py", line 164, in add_speaker
+    conn.commit()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '18851152788' for key 'phone'")
+[2022-09-08 13:47:08,675] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 54, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 164, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/register/register.py", line 49, in register
+    add_speaker(skp_info)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/orm/query.py", line 164, in add_speaker
+    conn.commit()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '17768255926' for key 'phone'")
+[2022-09-08 13:47:34,798] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 54, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 164, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/register/register.py", line 49, in register
+    add_speaker(skp_info)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/orm/query.py", line 164, in add_speaker
+    conn.commit()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '17768255926' for key 'phone'")
+[2022-09-08 13:48:24,838] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 54, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 164, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/register/register.py", line 49, in register
+    add_speaker(skp_info)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/orm/query.py", line 164, in add_speaker
+    conn.commit()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '17768255926' for key 'phone'")
+[2022-09-08 13:48:51,472] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 54, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 164, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/register/register.py", line 49, in register
+    add_speaker(skp_info)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/orm/query.py", line 164, in add_speaker
+    conn.commit()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '17768255926' for key 'phone'")
+[2022-09-08 14:47:47,730] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 54, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 164, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/register/register.py", line 49, in register
+    add_speaker(skp_info)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/orm/query.py", line 164, in add_speaker
+    conn.commit()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '17768565459' for key 'phone'")
+[2022-09-08 14:48:16,866] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 54, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 164, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/register/register.py", line 49, in register
+    add_speaker(skp_info)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/orm/query.py", line 164, in add_speaker
+    conn.commit()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '17768565459' for key 'phone'")

@@ -42,6 +42,10 @@ def general(request_form,get_type="url",action_type="test"):
             # 7. 文件质量检测不满足要求（环境噪声较大或有多个说话人干扰）
     """
     new_spkid = request_form["spkid"]
+    if action_type == "register":
+        action_type = 2
+    if action_type == "test":
+        action_type = 1
     if cfg.CHECK_DUPLICATE:
         if check_spkid(new_spkid):
             response = {
@@ -68,7 +72,7 @@ def general(request_form,get_type="url",action_type="test"):
                 "err_type": 1,
                 "err_msg": "Only support wav or mp3 files."
             }
-            to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="")
+            to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
         try:
@@ -81,7 +85,7 @@ def general(request_form,get_type="url",action_type="test"):
                 "err_type": 2,
                 "err_msg": f"File save faild.",
             }
-            to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="")
+            to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
     elif get_type == "url":
@@ -96,7 +100,7 @@ def general(request_form,get_type="url",action_type="test"):
                 "err_type": 3,
                 "err_msg": f"File:{new_url} save faild.",
             }
-            to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="")
+            to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
 
@@ -113,7 +117,7 @@ def general(request_form,get_type="url",action_type="test"):
             "err_type": 5,
             "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
         }
-        to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"vad error",file_url=oss_path,preprocessed_file_path=preprocessed_file_path)
+        to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"vad error",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
         err_logger.info(f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}")
         return response
 
@@ -145,7 +149,7 @@ def general(request_form,get_type="url",action_type="test"):
             "err_msg": msg
             }
         to_log(phone=new_spkid, action_type=action_type, err_type=err_type, message=f"{msg}",file_url=oss_path,\
-                preprocessed_file_path=preprocessed_file_path)
+                preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
         err_logger.info(f"{new_spkid},{oss_path},{err_type},{msg}")
         return response
 
@@ -157,10 +161,10 @@ def general(request_form,get_type="url",action_type="test"):
         class_num = 999
     
     # STEP 5: Test or Register
-    if action_type == "test":
+    if action_type == 1:
         return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,after_vad_length=vad_result["after_length"],preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
 
-    elif action_type == "register":
+    elif action_type == 2:
         return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
                 call_begintime,call_endtime,after_vad_length=vad_result["after_length"],
                 preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
