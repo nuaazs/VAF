@@ -4,4 +4,5 @@
 # @Describe: High level abstract functions.
 
 from utils.advanced.general import general
+from utils.advanced.general import get_score
 from utils.advanced.init_service import init_service

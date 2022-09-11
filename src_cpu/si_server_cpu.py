@@ -13,6 +13,7 @@ from flask_sock import Sock
 # utils
 from utils.advanced import general
 from utils.advanced import init_service
+from utils.advanced import get_score
 
 # config
 import cfg
@@ -37,6 +38,14 @@ def index():
         "name":system_info["name"]
     }
     return render_template('index.html',**kwargs)
+
+# Get score from two file.
+@app.route("/score/<test_type>", methods=["POST"])
+def score(test_type):
+    if request.method == "POST":
+        request_form = request.form
+        response = get_score(request_form,get_type=test_type)
+        return json.dumps(response, ensure_ascii=False)
 
 # Test
 @app.route("/test/<test_type>", methods=["POST"])

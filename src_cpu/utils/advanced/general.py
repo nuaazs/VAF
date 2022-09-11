@@ -22,6 +22,8 @@ from utils.preprocess import classify
 from utils.register import register
 from utils.test import test
 
+from utils.encoder import similarity
+
 def general(request_form,get_type="url",action_type="test"):
     """_summary_
 
@@ -168,3 +170,126 @@ def general(request_form,get_type="url",action_type="test"):
         return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
                 call_begintime,call_endtime,after_vad_length=vad_result["after_length"],
                 preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
+
+
+def get_score(request_form,get_type="url"):
+    
+    wav_channel = cfg.WAV_CHANNEL
+    
+    # STEP 1: Get wav file.
+    if get_type == "file":
+        new_spkid1 = request.form.get("spkid1")
+        new_spkid2 = request.form.get("spkid2")
+        new_file1 = request.files["wav_file1"]
+        new_file2 = request.files["wav_file2"]
+        filename1 = new_file1.filename
+        filename2 = new_file2.filename
+        if ((".wav" not in filename1) and (".mp3" not in filename1)) or ((".wav" not in filename2) and (".mp3" not in filename2)):
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_type": 1,
+                "err_msg": "Only support wav or mp3 files."
+            }
+            return response
+        try:
+            filepath1,oss_path1 = save_file(file=new_file1,spk=new_spkid1)
+            filepath2,oss_path2 = save_file(file=new_file2,spk=new_spkid2)
+        except Exception as e:
+            print(e)
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_type": 2,
+                "err_msg": f"File save faild.",
+            }
+            return response
+    elif get_type == "url":
+        new_url1 =request.form.get("wav_url1")
+        new_url2 =request.form.get("wav_url2")
+        new_spkid1 = request.form.get("spkid1")
+        new_spkid2 = request.form.get("spkid2")
+        
+        try:
+            filepath1,oss_path1 = save_url(url=new_url1,spk=new_spkid1)
+            filepath2,oss_path2 = save_url(url=new_url2,spk=new_spkid2)
+        except Exception as e:
+            print(e)
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_type": 3,
+                "err_msg": f"File:{new_url1} or {new_url2} save faild.",
+            }
+            return response
+
+    # STEP 2: VAD    
+    try:
+        wav1 = resample(filepath1)
+        wav2 = resample(filepath2)
+        vad_result1 = vad(wav1,new_spkid1)
+        vad_result2 = vad(wav2,new_spkid2)
+        preprocessed_file_path1 = vad_result1["preprocessed_file_path"]
+        preprocessed_file_path2 = vad_result2["preprocessed_file_path"]
+    except Exception as e:
+        print(e)
+        response = {
+            "code": 2000,
+            "status": "error",
+            "err_type": 5,
+            "err_msg": f"VAD and upsample faild. No useful data in {filepath1} or {filepath2}.",
+        }
+        return response
+
+    # STEP 3: Self Test
+    try:
+        print(type(vad_result1["wav_torch"]))
+        print(type(vad_result2["wav_torch"]))
+        self_test_result1 = encode(wav_torch=vad_result1["wav_torch"])
+        self_test_result2 = encode(wav_torch=vad_result2["wav_torch"])
+
+    except Exception as e:
+        print(e)
+        response = {
+            "code": 2000,
+            "status": "error",
+            "err_type": 5,
+            "err_msg": f"Self Test faild. No useful data in {filepath1} {filepath2}.",
+        }
+        return response
+    
+    msg = self_test_result1["msg"]
+    if not self_test_result1["pass"]:
+        err_type = self_test_result1["err_type"]
+        response = {
+            "code": 2000,
+            "status": "error",
+            "err_type": err_type,
+            "err_msg":"wav1:"+msg
+            }
+        return response
+    
+    msg = self_test_result2["msg"]
+    if not self_test_result2["pass"]:
+        err_type = self_test_result2["err_type"]
+        response = {
+            "code": 2000,
+            "status": "error",
+            "err_type": err_type,
+            "err_msg": "wav2:"+msg
+            }
+        return response
+
+    # STEP 4: Encoding
+    embedding1 = self_test_result1["tensor"]
+    embedding2 = self_test_result2["tensor"]
+    result = similarity(embedding1, embedding2).detach().cpu().numpy()
+    response = {
+            "code": 2000,
+            "status": "success",
+            "err_type": 0,
+            "err_msg": f"",
+            "socre":float(result[0])
+        }
+    return response
+    

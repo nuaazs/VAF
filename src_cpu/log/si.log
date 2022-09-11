@@ -107,3 +107,7 @@
 [[2022-09-08 10:00:46]]  INFO  [init_service.py]  #15 <3290269:140549663988720>  ** Start! Total speaker num:2536
 [[2022-09-08 10:04:11]]  INFO  [init_service.py]  #15 <3295566:140449457597424>  ** Start! Total speaker num:2536
 [[2022-09-08 10:04:11]]  INFO  [init_service.py]  #15 <3295567:140449457597424>  ** Start! Total speaker num:2536
+[[2022-09-11 17:02:31]]  INFO  [init_service.py]  #15 <2597595:139892645012416>  ** Start! Total speaker num:2541
+[[2022-09-11 17:02:40]]  INFO  [init_service.py]  #15 <2598146:140212567847872>  ** Start! Total speaker num:2541
+[[2022-09-11 17:02:42]]  INFO  [init_service.py]  #15 <2598275:140323085738944>  ** Start! Total speaker num:2541
+[[2022-09-11 17:03:31]]  INFO  [init_service.py]  #15 <2599825:139638739264448>  ** Start! Total speaker num:2541
