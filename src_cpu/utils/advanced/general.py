@@ -46,7 +46,7 @@ def general(request_form,get_type="url",action_type="test"):
             # 7. 文件质量检测不满足要求（环境噪声较大或有多个说话人干扰）
     """
     new_spkid = request_form["spkid"]
-    dowanload_used_time,vad_used_time,self_test_used_time,classify_used_time = 0,0,0,0
+    download_used_time,vad_used_time,self_test_used_time,classify_used_time = 0,0,0,0
     if action_type == "register":
         action_type = 2
     if action_type == "test":
@@ -78,7 +78,7 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 1,
                 "err_msg": "Only support wav or mp3 files.",
-                "dowanload_used_time" : dowanload_used_time,
+                "download_used_time" : download_used_time,
                 "vad_used_time" :vad_used_time,
                 "self_test_used_time":self_test_used_time,
                 "classify_used_time":classify_used_time
@@ -95,7 +95,7 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 2,
                 "err_msg": f"File save faild.",
-                "dowanload_used_time" : dowanload_used_time,
+                "download_used_time" : download_used_time,
                 "vad_used_time" :vad_used_time,
                 "self_test_used_time":self_test_used_time,
                 "classify_used_time":classify_used_time
@@ -114,7 +114,7 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 3,
                 "err_msg": f"File:{new_url} save faild.",
-                "dowanload_used_time" : dowanload_used_time,
+                "download_used_time" : download_used_time,
                 "vad_used_time" :vad_used_time,
                 "self_test_used_time":self_test_used_time,
                 "classify_used_time":classify_used_time
@@ -123,7 +123,7 @@ def general(request_form,get_type="url",action_type="test"):
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
     vad_start = time.time()
-    dowanload_used_time = vad_start - file_download_start
+    download_used_time = vad_start - file_download_start
     # STEP 2: VAD    
     try:
         wav = resample(filepath)
@@ -136,7 +136,7 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": 5,
             "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
-            "dowanload_used_time" : dowanload_used_time,
+            "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
             "classify_used_time":classify_used_time
@@ -159,7 +159,7 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": 5,
             "err_msg": f"Self Test faild. No useful data in {filepath}.",
-            "dowanload_used_time" : dowanload_used_time,
+            "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
             "classify_used_time":classify_used_time
@@ -177,7 +177,7 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": err_type,
             "err_msg": msg,
-            "dowanload_used_time" : dowanload_used_time,
+            "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
             "classify_used_time":classify_used_time
@@ -201,7 +201,7 @@ def general(request_form,get_type="url",action_type="test"):
         return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,
                     before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],
                     preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,
-                    dowanload_used_time=dowanload_used_time,vad_used_time=vad_used_time,
+                    download_used_time=download_used_time,vad_used_time=vad_used_time,
                     self_test_used_time=self_test_used_time,classify_used_time=classify_used_time)
 
     elif action_type == 2:
@@ -209,7 +209,7 @@ def general(request_form,get_type="url",action_type="test"):
                 call_begintime,call_endtime,
                 preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,
                 before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],
-                dowanload_used_time=dowanload_used_time,vad_used_time=vad_used_time,
+                download_used_time=download_used_time,vad_used_time=vad_used_time,
                 self_test_used_time=self_test_used_time,classify_used_time=classify_used_time)
 
 

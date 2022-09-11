@@ -18,7 +18,7 @@ import cfg
 def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
                 call_begintime,call_endtime,
                 preprocessed_file_path,show_phone,before_vad_length,after_vad_length,
-                dowanload_used_time,vad_used_time,
+                download_used_time,vad_used_time,
                 self_test_used_time,classify_used_time):
 
     add_success,phone_info = to_database(
@@ -77,7 +77,7 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "show_phone":show_phone,
             "before_vad_length":before_vad_length,
             "after_vad_length":after_vad_length,
-            "dowanload_used_time" : dowanload_used_time,
+            "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
             "classify_used_time":classify_used_time

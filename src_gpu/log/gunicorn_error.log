@@ -2570,3 +2570,240 @@ Traceback (most recent call last):
   File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
     raise errorclass(errno, errval)
 pymysql.err.IntegrityError: (1062, "Duplicate entry '151518320014' for key 'phone'")
+[2022-09-11 17:58:17 +0800] [2701866] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 17:58:17 +0800] [2701866] [INFO] Listening at: http://0.0.0.0:8187 (2701866)
+[2022-09-11 17:58:17 +0800] [2701866] [INFO] Using worker: gevent
+[2022-09-11 17:58:17 +0800] [2701868] [INFO] Booting worker with pid: 2701868
+[2022-09-11 18:00:04 +0800] [2705077] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 18:00:53 +0800] [2706618] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 18:00:53 +0800] [2706618] [INFO] Listening at: http://0.0.0.0:8187 (2706618)
+[2022-09-11 18:00:53 +0800] [2706618] [INFO] Using worker: gevent
+[2022-09-11 18:00:53 +0800] [2706620] [INFO] Booting worker with pid: 2706620
+[2022-09-11 19:01:35 +0800] [2823182] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 19:01:35 +0800] [2823182] [INFO] Listening at: http://0.0.0.0:8187 (2823182)
+[2022-09-11 19:01:35 +0800] [2823182] [INFO] Using worker: gevent
+[2022-09-11 19:01:35 +0800] [2823191] [INFO] Booting worker with pid: 2823191
+[2022-09-11 19:01:36 +0800] [2823191] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/preprocess/vad.py", line 10, in <module>
+    from speechbrain.pretrained import VAD
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/__init__.py", line 4, in <module>
+    from .core import Stage, Brain, create_experiment_directory, parse_arguments
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/core.py", line 33, in <module>
+    from speechbrain.utils.distributed import run_on_main
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/utils/__init__.py", line 11, in <module>
+    from . import *  # noqa
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/utils/parameter_transfer.py", line 12, in <module>
+    from speechbrain.pretrained.fetching import fetch
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/pretrained/__init__.py", line 3, in <module>
+    from .interfaces import *  # noqa
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/pretrained/interfaces.py", line 11, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-11 19:01:36 +0800] [2823191] [INFO] Worker exiting (pid: 2823191)
+[2022-09-11 19:01:36 +0800] [2823182] [INFO] Shutting down: Master
+[2022-09-11 19:01:36 +0800] [2823182] [INFO] Reason: Worker failed to boot.
+[2022-09-11 19:01:48 +0800] [2823751] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 19:01:48 +0800] [2823751] [INFO] Listening at: http://0.0.0.0:8187 (2823751)
+[2022-09-11 19:01:48 +0800] [2823751] [INFO] Using worker: gevent
+[2022-09-11 19:01:48 +0800] [2823755] [INFO] Booting worker with pid: 2823755
+[2022-09-11 19:01:49 +0800] [2823755] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/preprocess/vad.py", line 10, in <module>
+    from speechbrain.pretrained import VAD
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/__init__.py", line 4, in <module>
+    from .core import Stage, Brain, create_experiment_directory, parse_arguments
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/core.py", line 33, in <module>
+    from speechbrain.utils.distributed import run_on_main
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/utils/__init__.py", line 11, in <module>
+    from . import *  # noqa
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/utils/parameter_transfer.py", line 12, in <module>
+    from speechbrain.pretrained.fetching import fetch
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/pretrained/__init__.py", line 3, in <module>
+    from .interfaces import *  # noqa
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/pretrained/interfaces.py", line 11, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-11 19:01:49 +0800] [2823755] [INFO] Worker exiting (pid: 2823755)
+[2022-09-11 19:01:49 +0800] [2823751] [INFO] Shutting down: Master
+[2022-09-11 19:01:49 +0800] [2823751] [INFO] Reason: Worker failed to boot.
+[2022-09-11 19:02:01 +0800] [2824218] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 19:02:01 +0800] [2824218] [INFO] Listening at: http://0.0.0.0:8187 (2824218)
+[2022-09-11 19:02:01 +0800] [2824218] [INFO] Using worker: gevent
+[2022-09-11 19:02:01 +0800] [2824220] [INFO] Booting worker with pid: 2824220
+[2022-09-11 19:02:02 +0800] [2824220] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/usr/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 848, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/preprocess/__init__.py", line 9, in <module>
+    from utils.preprocess.vad import vad
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/preprocess/vad.py", line 10, in <module>
+    from speechbrain.pretrained import VAD
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/__init__.py", line 4, in <module>
+    from .core import Stage, Brain, create_experiment_directory, parse_arguments
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/core.py", line 33, in <module>
+    from speechbrain.utils.distributed import run_on_main
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/utils/__init__.py", line 11, in <module>
+    from . import *  # noqa
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/utils/parameter_transfer.py", line 12, in <module>
+    from speechbrain.pretrained.fetching import fetch
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/pretrained/__init__.py", line 3, in <module>
+    from .interfaces import *  # noqa
+  File "/usr/local/lib/python3.8/dist-packages/speechbrain/pretrained/interfaces.py", line 11, in <module>
+    import torchaudio
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/__init__.py", line 1, in <module>
+    from . import extension  # noqa: F401
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/__init__.py", line 5, in <module>
+    _init_extension()
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 11, in _init_extension
+    _init_script_module(ext)
+  File "/usr/local/lib/python3.8/dist-packages/torchaudio/extension/extension.py", line 19, in _init_script_module
+    torch.classes.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_classes.py", line 48, in load_library
+    torch.ops.load_library(path)
+  File "/usr/local/lib/python3.8/dist-packages/torch/_ops.py", line 110, in load_library
+    ctypes.CDLL(path)
+  File "/usr/lib/python3.8/ctypes/__init__.py", line 373, in __init__
+    self._handle = _dlopen(self._name, mode)
+OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undefined symbol: _ZNK2at6Tensor7reshapeEN3c108ArrayRefIlEE
+[2022-09-11 19:02:02 +0800] [2824220] [INFO] Worker exiting (pid: 2824220)
+[2022-09-11 19:02:02 +0800] [2824218] [INFO] Shutting down: Master
+[2022-09-11 19:02:02 +0800] [2824218] [INFO] Reason: Worker failed to boot.
+[2022-09-11 19:02:28 +0800] [2825107] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 19:02:28 +0800] [2825107] [INFO] Listening at: http://0.0.0.0:8187 (2825107)
+[2022-09-11 19:02:28 +0800] [2825107] [INFO] Using worker: gevent
+[2022-09-11 19:02:28 +0800] [2825110] [INFO] Booting worker with pid: 2825110
+[2022-09-11 20:19:24 +0800] [2959101] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 20:19:24 +0800] [2959101] [INFO] Listening at: http://0.0.0.0:8187 (2959101)
+[2022-09-11 20:19:24 +0800] [2959101] [INFO] Using worker: gevent
+[2022-09-11 20:19:24 +0800] [2959107] [INFO] Booting worker with pid: 2959107
+[2022-09-11 20:20:17 +0800] [2960966] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 20:20:17 +0800] [2960966] [ERROR] Connection in use: ('0.0.0.0', 8187)
+[2022-09-11 20:20:17 +0800] [2960966] [ERROR] Retrying in 1 second.
+[2022-09-11 20:20:18 +0800] [2960966] [INFO] Listening at: http://0.0.0.0:8187 (2960966)
+[2022-09-11 20:20:18 +0800] [2960966] [INFO] Using worker: gevent
+[2022-09-11 20:20:18 +0800] [2961079] [INFO] Booting worker with pid: 2961079
+[2022-09-11 20:25:49 +0800] [2970885] [INFO] Starting gunicorn 20.1.0
+[2022-09-11 20:25:49 +0800] [2970885] [INFO] Listening at: http://0.0.0.0:8187 (2970885)
+[2022-09-11 20:25:49 +0800] [2970885] [INFO] Using worker: gevent
+[2022-09-11 20:25:49 +0800] [2970888] [INFO] Booting worker with pid: 2970888

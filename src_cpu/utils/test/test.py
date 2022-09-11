@@ -21,7 +21,7 @@ import cfg
 def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             call_begintime,call_endtime,preprocessed_file_path,
             show_phone,before_vad_length,after_vad_length,
-            dowanload_used_time,vad_used_time,
+            download_used_time,vad_used_time,
             self_test_used_time,classify_used_time):
     black_database = get_embeddings(class_index=max_class_index)
     is_inbase,check_result= test_wav(database=black_database,
@@ -76,7 +76,10 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
 
         
         msg = f"{is_inbase}"
-        clip = check_clip(wav=wav,th=cfg.CLIP_TH)
+        if cfg.CLIP_DETECT:
+            clip = check_clip(wav=wav,th=cfg.CLIP_TH)
+        else:
+            clip = False
         
         response = {
             "code": 2000,
@@ -89,7 +92,7 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "clip":clip,
             "before_vad_length":before_vad_length,
             "after_vad_length":after_vad_length,
-            "dowanload_used_time" : dowanload_used_time,
+            "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
             "classify_used_time":classify_used_time
@@ -113,7 +116,7 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "hit_scores":hit_scores,
             "blackbase_phone":blackbase_phone,
             "top_10":top_10,
-            "dowanload_used_time" : dowanload_used_time,
+            "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
             "classify_used_time":classify_used_time
