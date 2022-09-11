@@ -51,7 +51,7 @@ def to_database(embedding,spkid,max_class_index,log_phone_info,mode="register"):
         phone_info = phone_info(spkid[-11:])
     else:
         phone_info = {}
-    embedding_npy = embedding.detach().cpu().numpy()
+    embedding_npy = embedding.numpy()
 
     if mode=="register":
         db = cfg.REDIS["register_db"]

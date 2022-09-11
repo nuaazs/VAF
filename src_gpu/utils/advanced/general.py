@@ -46,6 +46,7 @@ def general(request_form,get_type="url",action_type="test"):
             # 7. 文件质量检测不满足要求（环境噪声较大或有多个说话人干扰）
     """
     new_spkid = request_form["spkid"]
+    dowanload_used_time,vad_used_time,self_test_used_time,classify_used_time = 0,0,0,0
     if action_type == "register":
         action_type = 2
     if action_type == "test":
@@ -61,6 +62,8 @@ def general(request_form,get_type="url",action_type="test"):
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
     wav_channel = cfg.WAV_CHANNEL
+
+    file_download_start = time.time()
     call_begintime = request_form.get("call_begintime","1999-02-18 10:10:10")
     call_endtime = request_form.get("call_endtime","1999-02-18 10:10:10")
     show_phone = request_form.get("show_phone",new_spkid)
@@ -74,7 +77,11 @@ def general(request_form,get_type="url",action_type="test"):
                 "code": 2000,
                 "status": "error",
                 "err_type": 1,
-                "err_msg": "Only support wav or mp3 files."
+                "err_msg": "Only support wav or mp3 files.",
+                "dowanload_used_time" : dowanload_used_time,
+                "vad_used_time" :vad_used_time,
+                "self_test_used_time":self_test_used_time,
+                "classify_used_time":classify_used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
@@ -88,6 +95,10 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 2,
                 "err_msg": f"File save faild.",
+                "dowanload_used_time" : dowanload_used_time,
+                "vad_used_time" :vad_used_time,
+                "self_test_used_time":self_test_used_time,
+                "classify_used_time":classify_used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
@@ -103,11 +114,16 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 3,
                 "err_msg": f"File:{new_url} save faild.",
+                "dowanload_used_time" : dowanload_used_time,
+                "vad_used_time" :vad_used_time,
+                "self_test_used_time":self_test_used_time,
+                "classify_used_time":classify_used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
-
+    vad_start = time.time()
+    dowanload_used_time = vad_start - file_download_start
     # STEP 2: VAD    
     try:
         wav = resample(filepath)
@@ -120,11 +136,17 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": 5,
             "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
+            "dowanload_used_time" : dowanload_used_time,
+            "vad_used_time" :vad_used_time,
+            "self_test_used_time":self_test_used_time,
+            "classify_used_time":classify_used_time
         }
         to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"vad error",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
         err_logger.info(f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}")
         return response
 
+    self_test_start = time.time()
+    vad_used_time = self_test_start-vad_start
     # STEP 3: Self Test
     try:
         print(type(vad_result["wav_torch"]))
@@ -137,6 +159,10 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": 5,
             "err_msg": f"Self Test faild. No useful data in {filepath}.",
+            "dowanload_used_time" : dowanload_used_time,
+            "vad_used_time" :vad_used_time,
+            "self_test_used_time":self_test_used_time,
+            "classify_used_time":classify_used_time
         }
         to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"self test error",\
                 file_url=oss_path,preprocessed_file_path=preprocessed_file_path)
@@ -150,28 +176,41 @@ def general(request_form,get_type="url",action_type="test"):
             "code": 2000,
             "status": "error",
             "err_type": err_type,
-            "err_msg": msg
+            "err_msg": msg,
+            "dowanload_used_time" : dowanload_used_time,
+            "vad_used_time" :vad_used_time,
+            "self_test_used_time":self_test_used_time,
+            "classify_used_time":classify_used_time
             }
         to_log(phone=new_spkid, action_type=action_type, err_type=err_type, message=f"{msg}",file_url=oss_path,\
                 preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
         err_logger.info(f"{new_spkid},{oss_path},{err_type},{msg}")
         return response
 
+    classify_start = time.time()
+    self_test_used_time = classify_start -self_test_start
     # STEP 4: Encoding
     embedding = self_test_result["tensor"]
     if cfg.CLASSIFY:
         class_num = classify(embedding)
     else:
         class_num = 999
-    
+    classify_used_time = time.time() - classify_start
     # STEP 5: Test or Register
     if action_type == 1:
-        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
+        return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,
+                    before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],
+                    preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,
+                    dowanload_used_time=dowanload_used_time,vad_used_time=vad_used_time,
+                    self_test_used_time=self_test_used_time,classify_used_time=classify_used_time)
 
     elif action_type == 2:
         return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
-                call_begintime,call_endtime,after_vad_length=vad_result["after_length"],
-                preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"])
+                call_begintime,call_endtime,
+                preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,
+                before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],
+                dowanload_used_time=dowanload_used_time,vad_used_time=vad_used_time,
+                self_test_used_time=self_test_used_time,classify_used_time=classify_used_time)
 
 
 def get_score(request_form,get_type="url"):
@@ -231,6 +270,11 @@ def get_score(request_form,get_type="url"):
         wav2 = resample(filepath2)
         vad_result1 = vad(wav1,new_spkid1)
         vad_result2 = vad(wav2,new_spkid2)
+        before_vad_length1 = vad_result1["before_length"]
+        before_vad_length2 = vad_result2["before_length"]
+        after_vad_length1 = vad_result1["after_length"]
+        after_vad_length2 = vad_result1["after_length"]
+
         preprocessed_file_path1 = vad_result1["preprocessed_file_path"]
         preprocessed_file_path2 = vad_result2["preprocessed_file_path"]
     except Exception as e:
@@ -291,7 +335,11 @@ def get_score(request_form,get_type="url"):
             "status": "success",
             "err_type": 0,
             "err_msg": f"",
-            "socre":float(result[0])
+            "socre":float(result[0]),
+            "before_vad_length1":before_vad_length1,
+            "before_vad_length2":before_vad_length2,
+            "after_vad_length1":after_vad_length1,
+            "after_vad_length2":after_vad_length2
         }
     return response
     

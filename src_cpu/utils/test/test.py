@@ -18,7 +18,11 @@ from utils.orm import get_blackid
 
 import cfg
 
-def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_begintime,call_endtime,preprocessed_file_path,show_phone,before_vad_length,after_vad_length):
+def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
+            call_begintime,call_endtime,preprocessed_file_path,
+            show_phone,before_vad_length,after_vad_length,
+            dowanload_used_time,vad_used_time,
+            self_test_used_time,classify_used_time):
     black_database = get_embeddings(class_index=max_class_index)
     is_inbase,check_result= test_wav(database=black_database,
                                 embedding=embedding,
@@ -83,6 +87,12 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_
             "top_10":top_10,
             "err_msg": "null",
             "clip":clip,
+            "before_vad_length":before_vad_length,
+            "after_vad_length":after_vad_length,
+            "dowanload_used_time" : dowanload_used_time,
+            "vad_used_time" :vad_used_time,
+            "self_test_used_time":self_test_used_time,
+            "classify_used_time":classify_used_time
         }
         if clip:
             to_log(phone=new_spkid, action_type=1, err_type=10, message=f"{msg},clipped,{blackbase_phone},{hit_scores}",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length,show_phone=show_phone)
@@ -103,6 +113,9 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,call_
             "hit_scores":hit_scores,
             "blackbase_phone":blackbase_phone,
             "top_10":top_10,
-            "clip":clip,
+            "dowanload_used_time" : dowanload_used_time,
+            "vad_used_time" :vad_used_time,
+            "self_test_used_time":self_test_used_time,
+            "classify_used_time":classify_used_time
         }
         return response
