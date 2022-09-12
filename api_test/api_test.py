@@ -18,7 +18,7 @@ parser.add_argument('--port', type=int, default=8187,help='port number')
 parser.add_argument('--path', type=str, default="test",help='test|register')
 parser.add_argument('--wav_path', type=str, default="/VAF-System/test/test_wavs",help='The directory address of the wav file for testing.')
 parser.add_argument('--mode', type=str, default="url",help='url|file')
-parser.add_argument('--test_num', type=int, default=1000,help='The total number of files you want to test, if not enough to test the same files repeatedly.')
+parser.add_argument('--test_num', type=int, default=100,help='The total number of files you want to test, if not enough to test the same files repeatedly.')
 args = parser.parse_args()
 
 url=f"http://{args.ip}:{args.port}/{args.path}/{args.mode}"
@@ -54,8 +54,8 @@ for wav in wavs:
             values = {"spkid": str(phone),"show_phone": "15151832002","call_begintime":begintime,"call_endtime":endtime}
             start = datetime.datetime.now()
             resp = requests.request("POST",url, files=request_file, data=values)
-            #print(f"\n\n#{item_number}")
-            #print(json.dumps(resp.json(), sort_keys=False, indent=4))
+            print(f"\n\n#{item_number}")
+            print(json.dumps(resp.json(), sort_keys=False, indent=4))
             time_used =datetime.datetime.now() - start
             total = time_used.total_seconds()
             total_total += total
@@ -76,8 +76,8 @@ for wav in wavs:
             values = {"spkid": str(phone),"show_phone": "15151832002","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
             start = datetime.datetime.now()
             resp = requests.request("POST",url, data=values)
-            #print(f"\n\n#{item_number}")
-            #print(json.dumps(resp.json(), sort_keys=False, indent=4))
+            print(f"\n\n#{item_number}")
+            print(json.dumps(resp.json(), sort_keys=False, indent=4))
             time_used =datetime.datetime.now() - start
             total = time_used.total_seconds()
             total_total += total

@@ -80,8 +80,10 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time
+            "classify_used_time":classify_used_time,
+            "self_test_score_mean":float(self_test_result["mean_score"].detach().cpu().numpy()),
+            "self_test_score_min":float(self_test_result["min_score"].detach().cpu().numpy()),
+            "self_test_score_max":float(self_test_result["max_score"].detach().cpu().numpy())
 
         }
-        print(response)
         return response

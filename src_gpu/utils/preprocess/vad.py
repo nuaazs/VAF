@@ -37,24 +37,27 @@ def vad(wav,spkid):
     save_name = f"preprocessed_{spkid}_{speech_number}.wav"
     
     final_save_path = os.path.join(spk_dir, save_name)
+    boundaries_save_path = os.path.join(spk_dir, f"{spkid}.txt")
     save_audio(final_save_path,wav, sampling_rate=16000)
     
     boundaries = VAD.get_speech_segments(audio_file=final_save_path,
                                         large_chunk_size=30,
                                         small_chunk_size=10,
                                         overlap_small_chunk=True,
-                                        apply_energy_VAD=False,
+                                        apply_energy_VAD=True,
                                         double_check=False,
                                         close_th=0.250,
-                                        len_th=0.250,
+                                        len_th=0.50,
                                         activation_th=0.5,
                                         deactivation_th=0.25,
                                         en_activation_th=0.5,
                                         en_deactivation_th=0.0,
                                         speech_th=0.50,
                                     )
+
     # boundaries=VAD.remove_short_segments(boundaries, len_th=0.250)
     # boundaries=VAD.merge_close_segments(boundaries, close_th=0.250)
+    VAD.save_boundaries(boundaries, save_path=boundaries_save_path, print_boundaries=True, audio_file=None)
     upsampled_boundaries = VAD.upsample_boundaries(boundaries, final_save_path) 
     output = wav[upsampled_boundaries[0]>0.9]
     save_audio(final_save_path,output, sampling_rate=16000)

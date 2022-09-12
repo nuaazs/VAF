@@ -9,3 +9,4 @@ from utils.preprocess.save import save_file
 from utils.preprocess.vad import vad
 from utils.preprocess.resample import resample
 from utils.preprocess.classify import classify
+from utils.preprocess.mydenoiser import denoise_wav

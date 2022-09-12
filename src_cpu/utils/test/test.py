@@ -95,7 +95,10 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time
+            "classify_used_time":classify_used_time,
+            "self_test_score_mean":float(self_test_result["mean_score"].detach().cpu().numpy()),
+            "self_test_score_min":float(self_test_result["min_score"].detach().cpu().numpy()),
+            "self_test_score_max":float(self_test_result["max_score"].detach().cpu().numpy())
         }
         if clip:
             to_log(phone=new_spkid, action_type=1, err_type=10, message=f"{msg},clipped,{blackbase_phone},{hit_scores}",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length,show_phone=show_phone)
@@ -119,6 +122,9 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time
+            "classify_used_time":classify_used_time,
+            "self_test_score_mean":float(self_test_result["mean_score"].detach().cpu().numpy()),
+            "self_test_score_min":float(self_test_result["min_score"].detach().cpu().numpy()),
+            "self_test_score_max":float(self_test_result["max_score"].detach().cpu().numpy()),
         }
         return response
