@@ -150,7 +150,7 @@ def general(request_form,get_type="url",action_type="test"):
     # STEP 3: Self Test
     try:
         print(type(vad_result["wav_torch"]))
-        self_test_result = encode(wav_torch=vad_result["wav_torch"])
+        self_test_result = encode(wav_torch_raw=vad_result["wav_torch"])
 
     except Exception as e:
         print(e)
@@ -162,7 +162,8 @@ def general(request_form,get_type="url",action_type="test"):
             "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time
+            "classify_used_time":classify_used_time,
+            "self_test_before_score":self_test_result["before_score"]
         }
         to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"self test error",\
                 file_url=oss_path,preprocessed_file_path=preprocessed_file_path)
@@ -180,7 +181,8 @@ def general(request_form,get_type="url",action_type="test"):
             "download_used_time" : download_used_time,
             "vad_used_time" :vad_used_time,
             "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time
+            "classify_used_time":classify_used_time,
+            "self_test_before_score":self_test_result["before_score"]
             }
         to_log(phone=new_spkid, action_type=action_type, err_type=err_type, message=f"{msg}",file_url=oss_path,\
                 preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
@@ -291,8 +293,8 @@ def get_score(request_form,get_type="url"):
     try:
         print(type(vad_result1["wav_torch"]))
         print(type(vad_result2["wav_torch"]))
-        self_test_result1 = encode(wav_torch=vad_result1["wav_torch"])
-        self_test_result2 = encode(wav_torch=vad_result2["wav_torch"])
+        self_test_result1 = encode(wav_torch_raw=vad_result1["wav_torch"])
+        self_test_result2 = encode(wav_torch_raw=vad_result2["wav_torch"])
 
     except Exception as e:
         print(e)

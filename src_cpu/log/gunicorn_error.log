@@ -1968,3 +1968,76 @@ OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undef
 [2022-09-12 09:45:38 +0800] [142249] [INFO] Using worker: gevent
 [2022-09-12 09:45:38 +0800] [142251] [INFO] Booting worker with pid: 142251
 [2022-09-12 09:45:38 +0800] [142261] [INFO] Booting worker with pid: 142261
+[2022-09-13 09:05:20 +0800] [2545525] [INFO] Starting gunicorn 20.1.0
+[2022-09-13 09:05:21 +0800] [2545525] [INFO] Listening at: http://0.0.0.0:8188 (2545525)
+[2022-09-13 09:05:21 +0800] [2545525] [INFO] Using worker: gevent
+[2022-09-13 09:05:21 +0800] [2545536] [INFO] Booting worker with pid: 2545536
+[2022-09-13 09:05:21 +0800] [2545541] [INFO] Booting worker with pid: 2545541
+[2022-09-13 09:05:24 +0800] [2545536] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/si_server_cpu.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/advanced/general.py", line 16, in <module>
+    from utils.preprocess import save_url
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/__init__.py", line 11, in <module>
+    from utils.preprocess.classify import classify
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/preprocess/classify.py", line 7, in <module>
+    from utils.encoder import similarity
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/encoder/__init__.py", line 6, in <module>
+    from utils.encoder.encoder import similarity
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/utils/encoder/encoder.py", line 10, in <module>
+    spkreg = SpeakerRecognition.from_hparams(
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/speechbrain/pretrained/interfaces.py", line 346, in from_hparams
+    pymodule_local_path = fetch(
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/speechbrain/pretrained/fetching.py", line 113, in fetch
+    destination.symlink_to(sourcepath)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/pathlib.py", line 1384, in symlink_to
+    self._accessor.symlink(target, self, target_is_directory)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/pathlib.py", line 446, in symlink
+    return os.symlink(a, b)
+FileExistsError: [Errno 17] File exists: '/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/nn/pretrained_ecapa/custom.py' -> 'nn/pretrained_ecapa/custom.py'
+[2022-09-13 09:05:24 +0800] [2545536] [INFO] Worker exiting (pid: 2545536)
+[2022-09-13 09:05:27 +0800] [2545541] [INFO] Worker exiting (pid: 2545541)
+[2022-09-13 09:05:28 +0800] [2545525] [INFO] Shutting down: Master
+[2022-09-13 09:05:28 +0800] [2545525] [INFO] Reason: Worker failed to boot.
+[2022-09-13 13:37:59 +0800] [2990600] [INFO] Starting gunicorn 20.1.0
+[2022-09-13 13:37:59 +0800] [2990600] [INFO] Listening at: http://0.0.0.0:8188 (2990600)
+[2022-09-13 13:37:59 +0800] [2990600] [INFO] Using worker: gevent
+[2022-09-13 13:37:59 +0800] [2990606] [INFO] Booting worker with pid: 2990606
+[2022-09-13 13:37:59 +0800] [2990608] [INFO] Booting worker with pid: 2990608
+[2022-09-13 13:38:09 +0800] [2991097] [INFO] Starting gunicorn 20.1.0
+[2022-09-13 13:38:09 +0800] [2991097] [INFO] Listening at: http://0.0.0.0:8188 (2991097)
+[2022-09-13 13:38:09 +0800] [2991097] [INFO] Using worker: gevent
+[2022-09-13 13:38:09 +0800] [2991102] [INFO] Booting worker with pid: 2991102
+[2022-09-13 13:38:09 +0800] [2991104] [INFO] Booting worker with pid: 2991104
+[2022-09-13 13:42:06 +0800] [3008019] [INFO] Starting gunicorn 20.1.0
+[2022-09-13 13:42:06 +0800] [3008019] [INFO] Listening at: http://0.0.0.0:8188 (3008019)
+[2022-09-13 13:42:06 +0800] [3008019] [INFO] Using worker: gevent
+[2022-09-13 13:42:06 +0800] [3008023] [INFO] Booting worker with pid: 3008023
+[2022-09-13 13:42:06 +0800] [3008024] [INFO] Booting worker with pid: 3008024

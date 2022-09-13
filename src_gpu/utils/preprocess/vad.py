@@ -9,6 +9,9 @@ from utils.oss import upload_file
 import cfg
 from speechbrain.pretrained import VAD
 import torchaudio
+import numpy as np
+import pandas as pd
+import re
 
 # else:
 USE_ONNX = True
@@ -57,8 +60,16 @@ def vad(wav,spkid):
 
     # boundaries=VAD.remove_short_segments(boundaries, len_th=0.250)
     # boundaries=VAD.merge_close_segments(boundaries, close_th=0.250)
+    
+
     VAD.save_boundaries(boundaries, save_path=boundaries_save_path, print_boundaries=True, audio_file=None)
-    upsampled_boundaries = VAD.upsample_boundaries(boundaries, final_save_path) 
+
+    # print(f"Type : {type(boundaries)}")
+    # regex=re.compile('\s+')
+    # df =  pd.read_csv(boundaries_save_path,names=['seg','start','end','description'],sep=regex, engine="python")
+    # print(df)
+    upsampled_boundaries = VAD.upsample_boundaries(boundaries, final_save_path)
+
     output = wav[upsampled_boundaries[0]>0.9]
     save_audio(final_save_path,output, sampling_rate=16000)
     wav, sr = torchaudio.load(final_save_path)

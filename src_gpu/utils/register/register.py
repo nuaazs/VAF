@@ -73,6 +73,7 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "self_test_score_mean":float(self_test_result["mean_score"].detach().cpu().numpy()),
             "self_test_score_min":float(self_test_result["min_score"].detach().cpu().numpy()),
             "self_test_score_max":float(self_test_result["max_score"].detach().cpu().numpy()),
+            "self_test_before_score":self_test_result["before_score"],
             "call_begintime":call_begintime,
             "call_endtime":call_endtime,
             "max_class_index":max_class_index,
@@ -86,9 +87,6 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "classify_used_time":classify_used_time,
             "add_speaker_used_time":add_speaker_used_time,
             "to_database_used_time":to_database_used_time,
-            "self_test_score_mean":float(self_test_result["mean_score"].detach().cpu().numpy()),
-            "self_test_score_min":float(self_test_result["min_score"].detach().cpu().numpy()),
-            "self_test_score_max":float(self_test_result["max_score"].detach().cpu().numpy()),
 
         }
         return response

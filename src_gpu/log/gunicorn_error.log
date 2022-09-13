@@ -2811,3 +2811,72 @@ OSError: /usr/local/lib/python3.8/dist-packages/torchaudio/_torchaudio.so: undef
 [2022-09-12 09:45:38 +0800] [142263] [INFO] Listening at: http://0.0.0.0:8187 (142263)
 [2022-09-12 09:45:38 +0800] [142263] [INFO] Using worker: gevent
 [2022-09-12 09:45:38 +0800] [142265] [INFO] Booting worker with pid: 142265
+[2022-09-13 09:05:20 +0800] [2545521] [INFO] Starting gunicorn 20.1.0
+[2022-09-13 09:05:21 +0800] [2545521] [INFO] Listening at: http://0.0.0.0:8187 (2545521)
+[2022-09-13 09:05:21 +0800] [2545521] [INFO] Using worker: gevent
+[2022-09-13 09:05:21 +0800] [2545527] [INFO] Booting worker with pid: 2545527
+[2022-09-13 09:05:35,972] ERROR in app: Exception on /test/url [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/speechbrain/lobes/models/ECAPA_TDNN.py", line 488, in forward
+    x = layer(x, lengths=lengths)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+TypeError: forward() got an unexpected keyword argument 'lengths'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 153, in general
+    self_test_result = encode(wav_torch=vad_result["wav_torch"])
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/encoder/encode.py", line 49, in encode
+    return do_denoise(wav_torch)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/encoder/encode.py", line 76, in do_denoise
+    encode_result = spkreg.encode_batch(batch)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/speechbrain/pretrained/interfaces.py", line 830, in encode_batch
+    embeddings = self.mods.embedding_model(feats, wav_lens)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/speechbrain/lobes/models/ECAPA_TDNN.py", line 490, in forward
+    x = layer(x)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/speechbrain/lobes/models/ECAPA_TDNN.py", line 81, in forward
+    return self.norm(self.activation(self.conv(x)))
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/speechbrain/nnet/CNN.py", line 420, in forward
+    x = self._manage_padding(
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/speechbrain/nnet/CNN.py", line 472, in _manage_padding
+    x = F.pad(x, padding, mode=self.padding_mode)
+NotImplementedError: Only 2D, 3D, 4D, 5D padding with non-constant padding are supported for now
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 55, in test
+    response = general(request_form,get_type=test_type,action_type="test")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 167, in general
+    to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"self test error",\
+TypeError: to_log() missing 1 required positional argument: 'show_phone'
+[2022-09-13 13:37:59 +0800] [2990602] [INFO] Starting gunicorn 20.1.0
+[2022-09-13 13:37:59 +0800] [2990602] [INFO] Listening at: http://0.0.0.0:8187 (2990602)
+[2022-09-13 13:37:59 +0800] [2990602] [INFO] Using worker: gevent
+[2022-09-13 13:37:59 +0800] [2990607] [INFO] Booting worker with pid: 2990607
+[2022-09-13 13:38:09 +0800] [2991099] [INFO] Starting gunicorn 20.1.0
+[2022-09-13 13:38:09 +0800] [2991099] [INFO] Listening at: http://0.0.0.0:8187 (2991099)
+[2022-09-13 13:38:09 +0800] [2991099] [INFO] Using worker: gevent
+[2022-09-13 13:38:09 +0800] [2991103] [INFO] Booting worker with pid: 2991103
+[2022-09-13 13:42:06 +0800] [3008018] [INFO] Starting gunicorn 20.1.0
+[2022-09-13 13:42:06 +0800] [3008018] [INFO] Listening at: http://0.0.0.0:8187 (3008018)
+[2022-09-13 13:42:06 +0800] [3008018] [INFO] Using worker: gevent
+[2022-09-13 13:42:06 +0800] [3008021] [INFO] Booting worker with pid: 3008021
