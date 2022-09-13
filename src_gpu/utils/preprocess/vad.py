@@ -26,7 +26,7 @@ read_audio,
 VADIterator,
 collect_chunks) = utils
 
-VAD = VAD.from_hparams(source="./nn/pretrained_models/vad-crdnn-libriparty",
+VAD = VAD.from_hparams(source="speechbrain/vad-crdnn-libriparty", savedir="./nn/pretrained_models/vad-crdnn-libriparty",
                             run_opts={"device":"cuda"})
 
 
