@@ -1,1 +1,0 @@
-/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_cpu/nn/pretrained_ecapa/custom.py

@@ -72,6 +72,7 @@ for wav in wavs:
         else:
             
             wav_url = f"local://{wav}"
+            wav_url = "http://192.168.3.202:9000/raw/raw_020229975851662540251_1_1734894.wav"
             phone = random.randint(11111111111, 99999999999)
             values = {"spkid": str(phone),"show_phone": "15151832002","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
             start = datetime.datetime.now()
