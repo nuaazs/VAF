@@ -17,9 +17,7 @@ import cfg
 
 def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
                 call_begintime,call_endtime,
-                preprocessed_file_path,show_phone,before_vad_length,after_vad_length,
-                download_used_time,vad_used_time,
-                self_test_used_time,classify_used_time):
+                preprocessed_file_path,show_phone,before_vad_length,after_vad_length):
     start = datetime.now()
     add_success,phone_info = to_database(
                                     embedding=embedding,
@@ -27,8 +25,6 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
                                     max_class_index=max_class_index,
                                     log_phone_info = cfg.LOG_PHONE_INFO
                                     )
-    to_database_end = datetime.now()
-    to_database_used_time = (to_database_end-start).total_seconds
     if add_success:
         skp_info = {
             "name":"none",
@@ -53,8 +49,6 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
         add_speaker(skp_info,after_vad_length=after_vad_length)
         to_log(phone=new_spkid, action_type=2, err_type=0, message=f"Register success.",file_url=oss_path,\
                 preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length,show_phone=show_phone)
-        add_speaker_end = datetime.now()
-        add_speaker_used_time = (add_speaker_end-to_database_end).total_seconds
         response = {
             "code": 2000,
             "status": "success",
@@ -80,13 +74,6 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "preprocessed_file_path":preprocessed_file_path,
             "show_phone":show_phone,
             "before_vad_length":before_vad_length,
-            "after_vad_length":after_vad_length,
-            "download_used_time" : download_used_time,
-            "vad_used_time" :vad_used_time,
-            "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time,
-            "add_speaker_used_time":add_speaker_used_time,
-            "to_database_used_time":to_database_used_time,
-
+            "after_vad_length":after_vad_length
         }
         return response

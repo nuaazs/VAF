@@ -149,7 +149,6 @@ def general(request_form,get_type="url",action_type="test"):
     vad_used_time = self_test_start-vad_start
     # STEP 3: Self Test
     try:
-        print(type(vad_result["wav_torch"]))
         self_test_result = encode(wav_torch=vad_result["wav_torch"])
 
     except Exception as e:
@@ -289,8 +288,6 @@ def get_score(request_form,get_type="url"):
 
     # STEP 3: Self Test
     try:
-        print(type(vad_result1["wav_torch"]))
-        print(type(vad_result2["wav_torch"]))
         self_test_result1 = encode(wav_torch=vad_result1["wav_torch"])
         self_test_result2 = encode(wav_torch=vad_result2["wav_torch"])
 

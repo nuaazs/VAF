@@ -3,6 +3,7 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: self-test and encode.
 
+from asyncio.log import logger
 from utils.encoder import spkreg
 from utils.encoder import similarity
 from utils.preprocess.mydenoiser import denoise_wav
@@ -34,9 +35,7 @@ def encode(wav_torch_raw):
     left = torch.cat((wav_torch[:,:wav_length],wav_torch[:,:wav_length]), dim=1)
     right = torch.cat((wav_torch[:,wav_length:wav_length*2],wav_torch[:,wav_length:wav_length*2]), dim=1)
     wav_torch = wav_torch[:,:left.shape[1]]
-    print(f" left:{left.shape} right:{right.shape} wav:{wav_torch.shape}")
     batch = torch.cat((wav_torch,left,right), dim=0)
-    print(batch.shape)
     encode_result = spkreg.encode_batch(batch)
     
     embedding = encode_result[0][0]
@@ -63,7 +62,7 @@ def encode(wav_torch_raw):
     return result
 
 def do_denoise(wav,before_score):
-    print("do denoising ... ")
+    logger.info("Denoising ...")
     similarity_limit = cfg.SELF_TEST_TH
     min_length = cfg.MIN_LENGTH
     sr = cfg.SR
@@ -73,13 +72,10 @@ def do_denoise(wav,before_score):
     wav_torch = denoise_wav(wav.unsqueeze(0))
 
     wav_length = int((wav_torch.shape[1]-10)/2)
-    print(f"wav_torch shape :{wav_torch.shape}")
     left = torch.cat((wav_torch[:,:wav_length],wav_torch[:,:wav_length]), dim=1)
     right = torch.cat((wav_torch[:,wav_length:wav_length*2],wav_torch[:,wav_length:wav_length*2]), dim=1)
     wav_torch = wav_torch[:,:left.shape[1]]
-    print(f" left:{left.shape} right:{right.shape} wav:{wav.shape}")
     batch = torch.cat((wav_torch,left,right), dim=0)
-    print(batch.shape)
     embedding = spkreg.encode_batch(batch)
     encoding_tensor = embedding[0]
     encoding_tiny_1 = embedding[1][0]

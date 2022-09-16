@@ -33,7 +33,6 @@ def vad(wav,spkid):
     final_save_path = os.path.join(spk_dir, save_name)
     wav = torch.FloatTensor(wav)
     speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=16000,window_size_samples=1536)
-    print(speech_timestamps)
     wav = collect_chunks(speech_timestamps, wav)
     save_audio(final_save_path,wav, sampling_rate=16000)
     preprocessed_file_path=upload_file(bucket_name='preprocessed',filepath=final_save_path,filename=save_name,save_days=cfg.MINIO["test_save_days"])

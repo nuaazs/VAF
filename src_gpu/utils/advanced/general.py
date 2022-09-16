@@ -3,10 +3,7 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: Register and identify interfaces.
 
-import os
-import time
 from flask import request
-from datetime import datetime
 
 import cfg
 from utils.orm import check_spkid
@@ -21,12 +18,9 @@ from utils.encoder import encode
 from utils.preprocess import classify
 from utils.register import register
 from utils.test import test
-
 from utils.encoder import similarity
 
 def general(request_form,get_type="url",action_type="test"):
-    #TODO 添加时间返回信息
-    #TODO 添加vad后时长返回信息
     """_summary_
 
     Args:
@@ -46,7 +40,6 @@ def general(request_form,get_type="url",action_type="test"):
             # 7. 文件质量检测不满足要求（环境噪声较大或有多个说话人干扰）
     """
     new_spkid = request_form["spkid"]
-    download_used_time,vad_used_time,self_test_used_time,classify_used_time = 0,0,0,0
     if action_type == "register":
         action_type = 2
     if action_type == "test":
@@ -61,9 +54,7 @@ def general(request_form,get_type="url",action_type="test"):
             }
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
-    wav_channel = cfg.WAV_CHANNEL
-
-    file_download_start = time.time()
+    
     call_begintime = request_form.get("call_begintime","1999-02-18 10:10:10")
     call_endtime = request_form.get("call_endtime","1999-02-18 10:10:10")
     show_phone = request_form.get("show_phone",new_spkid)
@@ -78,10 +69,6 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 1,
                 "err_msg": "Only support wav or mp3 files.",
-                "download_used_time" : download_used_time,
-                "vad_used_time" :vad_used_time,
-                "self_test_used_time":self_test_used_time,
-                "classify_used_time":classify_used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
@@ -95,10 +82,6 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 2,
                 "err_msg": f"File save faild.",
-                "download_used_time" : download_used_time,
-                "vad_used_time" :vad_used_time,
-                "self_test_used_time":self_test_used_time,
-                "classify_used_time":classify_used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
@@ -114,16 +97,11 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 3,
                 "err_msg": f"File:{new_url} save faild.",
-                "download_used_time" : download_used_time,
-                "vad_used_time" :vad_used_time,
-                "self_test_used_time":self_test_used_time,
-                "classify_used_time":classify_used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
-    vad_start = time.time()
-    download_used_time = vad_start - file_download_start
+    
     # STEP 2: VAD    
     try:
         wav = resample(filepath)
@@ -136,20 +114,13 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": 5,
             "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
-            "download_used_time" : download_used_time,
-            "vad_used_time" :vad_used_time,
-            "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time
         }
         to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"vad error",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
         err_logger.info(f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}")
         return response
 
-    self_test_start = time.time()
-    vad_used_time = self_test_start-vad_start
     # STEP 3: Self Test
     try:
-        print(type(vad_result["wav_torch"]))
         self_test_result = encode(wav_torch_raw=vad_result["wav_torch"])
 
     except Exception as e:
@@ -159,10 +130,6 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": 5,
             "err_msg": f"Self Test faild. No useful data in {filepath}.",
-            "download_used_time" : download_used_time,
-            "vad_used_time" :vad_used_time,
-            "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time,
             "self_test_before_score":self_test_result["before_score"]
         }
         to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"self test error",\
@@ -178,10 +145,6 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": err_type,
             "err_msg": msg,
-            "download_used_time" : download_used_time,
-            "vad_used_time" :vad_used_time,
-            "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time,
             "self_test_before_score":self_test_result["before_score"]
             }
         to_log(phone=new_spkid, action_type=action_type, err_type=err_type, message=f"{msg}",file_url=oss_path,\
@@ -189,36 +152,27 @@ def general(request_form,get_type="url",action_type="test"):
         err_logger.info(f"{new_spkid},{oss_path},{err_type},{msg}")
         return response
 
-    classify_start = time.time()
-    self_test_used_time = classify_start -self_test_start
     # STEP 4: Encoding
     embedding = self_test_result["tensor"]
     if cfg.CLASSIFY:
         class_num = classify(embedding)
     else:
         class_num = 999
-    classify_used_time = time.time() - classify_start
+
     # STEP 5: Test or Register
     if action_type == 1:
         return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,
                     before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],
-                    preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,
-                    download_used_time=download_used_time,vad_used_time=vad_used_time,
-                    self_test_used_time=self_test_used_time,classify_used_time=classify_used_time)
+                    preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,)
 
     elif action_type == 2:
         return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
                 call_begintime,call_endtime,
                 preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,
-                before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],
-                download_used_time=download_used_time,vad_used_time=vad_used_time,
-                self_test_used_time=self_test_used_time,classify_used_time=classify_used_time)
+                before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],)
 
 
 def get_score(request_form,get_type="url"):
-    
-    wav_channel = cfg.WAV_CHANNEL
-    
     # STEP 1: Get wav file.
     if get_type == "file":
         new_spkid1 = request.form.get("spkid1")
@@ -291,8 +245,6 @@ def get_score(request_form,get_type="url"):
 
     # STEP 3: Self Test
     try:
-        print(type(vad_result1["wav_torch"]))
-        print(type(vad_result2["wav_torch"]))
         self_test_result1 = encode(wav_torch_raw=vad_result1["wav_torch"])
         self_test_result2 = encode(wav_torch_raw=vad_result2["wav_torch"])
 

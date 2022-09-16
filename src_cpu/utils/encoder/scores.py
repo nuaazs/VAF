@@ -15,13 +15,9 @@ def get_scores(database,new_embedding,black_limit,similarity,top_num=10):
         results.append([similarity(base_embedding, new_embedding), base_item])
     results = sorted(results, key=lambda x:float(x[0])*(-1))
     return_results["best_score"] = float(np.array(results[0][0]))
-    print(f"Best score:{results[0][0]}")
 
     if results[0][0] <= black_limit:
         return_results["inbase"] = 0
-        print(f"\tNot in base, best score is {results[0][0]}")
-        print(return_results)
-        print(top_list)
         return return_results,top_list
     else:
         return_results["inbase"] = 1
@@ -30,8 +26,6 @@ def get_scores(database,new_embedding,black_limit,similarity,top_num=10):
             return_results[f"top_{index+1}"] = f"{results[index][0].numpy():.5f}"
             return_results[f"top_{index+1}_id"] = str(results[index][1])
             top_list+=f"Top {index+1} 评分:{results[index][0].numpy():.2f} 说话人:{results[index][1]}<br/>"
-    print(return_results)
-    print(top_list)
     return return_results,top_list
 
 
@@ -47,7 +41,5 @@ def test_wav(database,embedding,spkid,black_limit,similarity,top_num=10):
     best_id = str(",".join(map(str,np.array(results)[:10,1])))
     top_10 = str("|".join(map(str,np.array(top_10))))
     return_results["best_score"] = best_score
-    print(f"Spkid: {spkid} -> Best score:{results[0]}")
-    print(f"Top 10 len: {len(results)}")
     inbase = (best_score>= black_limit)
     return inbase,{"best_score":best_score,"spk":best_id,"top_10":top_10}

@@ -20,13 +20,9 @@ import cfg
 
 def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             call_begintime,call_endtime,preprocessed_file_path,
-            show_phone,before_vad_length,after_vad_length,
-            download_used_time,vad_used_time,
-            self_test_used_time,classify_used_time):
-    start = datetime.now()
+            show_phone,before_vad_length,after_vad_length,):
     black_database = get_embeddings(class_index=max_class_index)
-    get_embeddings_end = datetime.now()
-    get_embedding_used_time = (get_embeddings_end-start).total_seconds()
+
 
     is_inbase,check_result= test_wav(database=black_database,
                                 embedding=embedding,
@@ -34,8 +30,6 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
                                 black_limit=cfg.BLACK_TH,
                                 similarity=similarity,
                                 top_num=10)
-    test_end = datetime.now()
-    test_used_time = (test_end-get_embeddings_end).total_seconds()
 
     hit_scores=check_result["best_score"]
     blackbase_phone=check_result["spk"]
@@ -48,16 +42,11 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
                                     log_phone_info = cfg.LOG_PHONE_INFO,
                                     mode = "test"
                                     )
-    
-
     try:
         blackbase_id=get_blackid(blackbase_phone.split(",")[0])
     except Exception as e:
         print(e)
         blackbase_id = 0
-    print(f"blackbase id : {blackbase_id}")
-    to_database_end = datetime.now()
-    to_database_used_time = (to_database_end-test_end).total_seconds()   
     if is_inbase:
         hit_info = {
             "name":"none",
@@ -101,13 +90,6 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "clip":clip,
             "before_vad_length":before_vad_length,
             "after_vad_length":after_vad_length,
-            "download_used_time" : download_used_time,
-            "vad_used_time" :vad_used_time,
-            "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time,
-            "to_database_used_time":to_database_used_time,
-            "test_used_time":test_used_time,
-            "get_embedding_used_time":get_embedding_used_time,
             "self_test_score_mean":float(self_test_result["mean_score"].detach().cpu().numpy()),
             "self_test_score_min":float(self_test_result["min_score"].detach().cpu().numpy()),
             "self_test_score_max":float(self_test_result["max_score"].detach().cpu().numpy()),
@@ -132,13 +114,6 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "hit_scores":hit_scores,
             "blackbase_phone":blackbase_phone,
             "top_10":top_10,
-            "download_used_time" : download_used_time,
-            "vad_used_time" :vad_used_time,
-            "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time,
-            "to_database_used_time":to_database_used_time,
-            "test_used_time":test_used_time,
-            "get_embedding_used_time":get_embedding_used_time,
             "self_test_score_mean":float(self_test_result["mean_score"].detach().cpu().numpy()),
             "self_test_score_min":float(self_test_result["min_score"].detach().cpu().numpy()),
             "self_test_score_max":float(self_test_result["max_score"].detach().cpu().numpy()),

@@ -71,7 +71,6 @@ def to_log(phone,action_type, err_type, message,file_url,show_phone,preprocessed
     date_num = int(time.strftime("%d", time.localtime()))
 
     query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', '{message}','{file_url}','{preprocessed_file_path}');"
-    print(query_sql)
     cur.execute(query_sql)
     conn.commit()
     conn.close()
@@ -159,7 +158,6 @@ def add_speaker(spk_info,after_vad_length):
                         VALUES ('{name}','{phone}', '{file_url}', '{phone_type}','{area_code}',\
                     '{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
                     '{call_endtime}','{valid_length}','{class_number}','{preprocessed_file_path}','{show_phone}',NOW());"
-    print(query_sql)
     cur.execute(query_sql)
     conn.commit()
     conn.close()
@@ -191,10 +189,8 @@ def get_blackid(blackbase_phone):
     )
     cur = conn.cursor()
     query_sql = f"select id from speaker where phone='{blackbase_phone}' limit 1;"
-    print(query_sql)
     cur.execute(query_sql)
     result = cur.fetchall()
-    print(result)
     if len(result)>0:
         conn.close()
         return result[0]["id"]

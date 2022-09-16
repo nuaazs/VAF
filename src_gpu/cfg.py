@@ -8,17 +8,19 @@ WORKERS = 1
 
 SR = 16000
 
+CUDA_NUM =0
+
 # Threads
-THREADS = 10
+THREADS = 20
 
 # Max Connections
-WORKER_CONNECTIONS = 10
+WORKER_CONNECTIONS = 20
 
 # Port
 PORT = 8187
 
 # Classify
-CLASSIFY = True
+CLASSIFY = False
 
 # 
 CHECK_DUPLICATE = False

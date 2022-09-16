@@ -46,8 +46,7 @@ def test(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
         blackbase_id=get_blackid(blackbase_phone.split(",")[0])
     except Exception as e:
         print(e)
-        blackbase_id = 0
-    print(f"blackbase id : {blackbase_id}")      
+        blackbase_id = 0  
     if is_inbase:
         hit_info = {
             "name":"none",
