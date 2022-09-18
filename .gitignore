@@ -1,0 +1,24 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
+
+# C extensions
+*.so
+
+# dotenv
+.env
+
+# pycharm
+.idea
+
+# ipython notebook
+*.ipynb
+*.ipynb_checkpoints
+
+# celery
+*.pid
+*.bak
+*.dat
+*.dir
