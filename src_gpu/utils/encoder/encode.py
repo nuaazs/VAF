@@ -48,7 +48,17 @@ def encode(wav_torch_raw):
     max_score,mean_score,min_score = score,score,score
 
     if score < similarity_limit:
-        return do_denoise(wav_torch_raw,score)
+        # return do_denoise(wav_torch_raw,score)
+        result = {
+            "pass":False,
+            "msg":f"Bad quality score:{min_score}.",
+            "max_score":max_score,
+            "mean_score":mean_score,
+            "min_score":min_score,
+            "err_type": 7,
+
+        }
+        return result
     result = {
             "pass":True,
             "msg":"Qualified.",
