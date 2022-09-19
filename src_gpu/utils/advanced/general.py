@@ -171,7 +171,6 @@ def general(request_form,get_type="url",action_type="test"):
                 preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,
                 before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],)
 
-
 def get_score(request_form,get_type="url"):
     # STEP 1: Get wav file.
     if get_type == "file":
