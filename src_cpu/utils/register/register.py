@@ -3,7 +3,7 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: register.
 
-from datetime import datetime
+import datetime
 
 from utils.orm import to_database
 from utils.orm import add_speaker
@@ -17,10 +17,8 @@ import cfg
 
 def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
                 call_begintime,call_endtime,
-                preprocessed_file_path,show_phone,before_vad_length,after_vad_length,
-                download_used_time,vad_used_time,
-                self_test_used_time,classify_used_time):
-
+                preprocessed_file_path,show_phone,before_vad_length,after_vad_length,used_time):
+    start = datetime.now()
     add_success,phone_info = to_database(
                                     embedding=embedding,
                                     spkid=new_spkid,
@@ -51,7 +49,6 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
         add_speaker(skp_info,after_vad_length=after_vad_length)
         to_log(phone=new_spkid, action_type=2, err_type=0, message=f"Register success.",file_url=oss_path,\
                 preprocessed_file_path=preprocessed_file_path,valid_length=after_vad_length,show_phone=show_phone)
-        
         response = {
             "code": 2000,
             "status": "success",
@@ -70,6 +67,7 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "self_test_score_mean":float(self_test_result["mean_score"].numpy()),
             "self_test_score_min":float(self_test_result["min_score"].numpy()),
             "self_test_score_max":float(self_test_result["max_score"].numpy()),
+            "self_test_before_score":self_test_result["before_score"],
             "call_begintime":call_begintime,
             "call_endtime":call_endtime,
             "max_class_index":max_class_index,
@@ -77,13 +75,6 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "show_phone":show_phone,
             "before_vad_length":before_vad_length,
             "after_vad_length":after_vad_length,
-            "download_used_time" : download_used_time,
-            "vad_used_time" :vad_used_time,
-            "self_test_used_time":self_test_used_time,
-            "classify_used_time":classify_used_time,
-            "self_test_score_mean":float(self_test_result["mean_score"].detach().cpu().numpy()),
-            "self_test_score_min":float(self_test_result["min_score"].detach().cpu().numpy()),
-            "self_test_score_max":float(self_test_result["max_score"].detach().cpu().numpy())
-
+            "used_time":used_time
         }
         return response

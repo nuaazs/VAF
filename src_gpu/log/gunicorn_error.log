@@ -1,4 +1,1522 @@
-[2022-09-16 15:03:38 +0800] [2233644] [INFO] Starting gunicorn 20.1.0
-[2022-09-16 15:03:38 +0800] [2233644] [INFO] Listening at: http://0.0.0.0:8187 (2233644)
-[2022-09-16 15:03:38 +0800] [2233644] [INFO] Using worker: gevent
-[2022-09-16 15:03:38 +0800] [2233648] [INFO] Booting worker with pid: 2233648
+[2022-09-19 09:26:23 +0800] [1973697] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 09:26:23 +0800] [1973697] [INFO] Listening at: http://0.0.0.0:8187 (1973697)
+[2022-09-19 09:26:23 +0800] [1973697] [INFO] Using worker: gevent
+[2022-09-19 09:26:23 +0800] [1973701] [INFO] Booting worker with pid: 1973701
+[2022-09-19 10:52:37 +0800] [2152731] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 10:52:37 +0800] [2152731] [INFO] Listening at: http://0.0.0.0:8187 (2152731)
+[2022-09-19 10:52:37 +0800] [2152731] [INFO] Using worker: gevent
+[2022-09-19 10:52:37 +0800] [2152733] [INFO] Booting worker with pid: 2152733
+[2022-09-19 11:05:21 +0800] [2180129] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 11:05:21 +0800] [2180129] [INFO] Listening at: http://0.0.0.0:8187 (2180129)
+[2022-09-19 11:05:21 +0800] [2180129] [INFO] Using worker: gevent
+[2022-09-19 11:05:21 +0800] [2180131] [INFO] Booting worker with pid: 2180131
+[2022-09-19 11:05:27,229] ERROR in app: Exception on /test/file [POST]
+Traceback (most recent call last):
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 108, in general
+    vad_result = vad(wav,new_spkid)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/preprocess/vad.py", line 95, in vad
+    "preprocessed_file_path":preprocessed_file_path,
+NameError: name 'preprocessed_file_path' is not defined
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 55, in test
+    response = general(request_form,get_type=test_type,action_type="test")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 118, in general
+    to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"vad error",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
+UnboundLocalError: local variable 'preprocessed_file_path' referenced before assignment
+[2022-09-19 11:07:26 +0800] [2186843] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 11:07:26 +0800] [2186843] [INFO] Listening at: http://0.0.0.0:8187 (2186843)
+[2022-09-19 11:07:26 +0800] [2186843] [INFO] Using worker: gevent
+[2022-09-19 11:07:26 +0800] [2186852] [INFO] Booting worker with pid: 2186852
+[2022-09-19 11:08:12,259] ERROR in app: Exception on /test/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 55, in test
+    response = general(request_form,get_type=test_type,action_type="test")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 164, in general
+    return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/test/test.py", line 103, in test
+    add_hit(hit_info,is_grey=False,after_vad_length=after_vad_length)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/orm/query.py", line 125, in add_hit
+    cur.execute(query_sql)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '/test/test/test' for key 'preprocessed_file_url'")
+[2022-09-19 11:37:45,775] ERROR in app: Exception on /test/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 55, in test
+    response = general(request_form,get_type=test_type,action_type="test")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 164, in general
+    return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/test/test.py", line 103, in test
+    add_hit(hit_info,is_grey=False,after_vad_length=after_vad_length)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/orm/query.py", line 125, in add_hit
+    cur.execute(query_sql)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '/test/test/test' for key 'preprocessed_file_url'")
+[2022-09-19 11:39:13,353] ERROR in app: Exception on /test/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 55, in test
+    response = general(request_form,get_type=test_type,action_type="test")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 164, in general
+    return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/test/test.py", line 103, in test
+    add_hit(hit_info,is_grey=False,after_vad_length=after_vad_length)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/orm/query.py", line 125, in add_hit
+    cur.execute(query_sql)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 148, in execute
+    result = self._query(query)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/cursors.py", line 310, in _query
+    conn.query(q)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 548, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 775, in _read_query_result
+    result.read()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 1156, in read
+    first_packet = self.connection._read_packet()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/connections.py", line 725, in _read_packet
+    packet.raise_for_error()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/protocol.py", line 221, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/lyxx/.local/lib/python3.8/site-packages/pymysql/err.py", line 143, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.IntegrityError: (1062, "Duplicate entry '/test/test/test' for key 'preprocessed_file_url'")
+[2022-09-19 11:45:51 +0800] [2947837] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 11:45:51 +0800] [2947837] [INFO] Listening at: http://0.0.0.0:8187 (2947837)
+[2022-09-19 11:45:51 +0800] [2947837] [INFO] Using worker: gevent
+[2022-09-19 11:45:51 +0800] [2947879] [INFO] Booting worker with pid: 2947879
+[2022-09-19 11:45:51 +0800] [2947922] [INFO] Booting worker with pid: 2947922
+[2022-09-19 16:46:17 +0800] [753707] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 16:46:17 +0800] [753707] [INFO] Listening at: http://0.0.0.0:8187 (753707)
+[2022-09-19 16:46:17 +0800] [753707] [INFO] Using worker: gevent
+[2022-09-19 16:46:17 +0800] [753709] [INFO] Booting worker with pid: 753709
+[2022-09-19 16:46:17 +0800] [753710] [INFO] Booting worker with pid: 753710
+[2022-09-19 17:18:45,268] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:45,269] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:45,385] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:45,386] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:45,501] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:45,502] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:46,302] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:46,302] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:46,617] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:46,881] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:46,978] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:47,117] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:47,122] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:47,194] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:47,234] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:47,323] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:47,574] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:48,258] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:48,377] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:48,523] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:48,697] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:48,701] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:48,814] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:48,815] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:48,936] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:49,034] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:49,282] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:49,481] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:49,930] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:49,931] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:50,138] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:50,138] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:50,276] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:50,452] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:50,569] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:50,660] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:51,116] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:51,257] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:51,270] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:51,358] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:51,437] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:51,581] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:52,081] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:52,084] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:52,198] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:52,199] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:52,345] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:52,595] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:52,758] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:53,133] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:53,327] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:53,418] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:53,515] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:53,593] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:53,710] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:53,876] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:54,174] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:54,256] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:54,369] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:54,529] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:54,734] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,003] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,006] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,063] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,411] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,435] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,501] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,579] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,743] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,835] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:18:55,888] ERROR in app: Exception on /register/file [POST]
+Traceback (most recent call last):
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 2077, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1525, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/flask_cors/extension.py", line 165, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1523, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/lyxx/.local/lib/python3.8/site-packages/flask/app.py", line 1509, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**req.view_args)
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/si_server_gpu.py", line 63, in register
+    response = general(request_form,get_type=register_type,action_type="register")
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/advanced/general.py", line 201, in general
+    return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src_gpu/utils/register/register.py", line 21, in register
+    start = datetime.now()
+AttributeError: module 'datetime' has no attribute 'now'
+[2022-09-19 17:23:34 +0800] [835062] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 17:23:34 +0800] [835062] [INFO] Listening at: http://0.0.0.0:8187 (835062)
+[2022-09-19 17:23:34 +0800] [835062] [INFO] Using worker: gevent
+[2022-09-19 17:23:34 +0800] [835064] [INFO] Booting worker with pid: 835064
+[2022-09-19 17:23:34 +0800] [835065] [INFO] Booting worker with pid: 835065
+[2022-09-19 17:32:56 +0800] [852039] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 17:32:56 +0800] [852039] [INFO] Listening at: http://0.0.0.0:8187 (852039)
+[2022-09-19 17:32:56 +0800] [852039] [INFO] Using worker: gevent
+[2022-09-19 17:32:56 +0800] [852041] [INFO] Booting worker with pid: 852041
+[2022-09-19 17:32:56 +0800] [852042] [INFO] Booting worker with pid: 852042

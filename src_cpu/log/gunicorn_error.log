@@ -1,5 +1,31 @@
-[2022-09-16 15:03:38 +0800] [2233639] [INFO] Starting gunicorn 20.1.0
-[2022-09-16 15:03:38 +0800] [2233639] [INFO] Listening at: http://0.0.0.0:8188 (2233639)
-[2022-09-16 15:03:38 +0800] [2233639] [INFO] Using worker: gevent
-[2022-09-16 15:03:38 +0800] [2233646] [INFO] Booting worker with pid: 2233646
-[2022-09-16 15:03:38 +0800] [2233649] [INFO] Booting worker with pid: 2233649
+[2022-09-19 09:26:23 +0800] [1973695] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 09:26:23 +0800] [1973695] [INFO] Listening at: http://0.0.0.0:8188 (1973695)
+[2022-09-19 09:26:23 +0800] [1973695] [INFO] Using worker: gevent
+[2022-09-19 09:26:23 +0800] [1973699] [INFO] Booting worker with pid: 1973699
+[2022-09-19 09:26:23 +0800] [1973702] [INFO] Booting worker with pid: 1973702
+[2022-09-19 16:51:28 +0800] [762643] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 16:51:28 +0800] [762643] [INFO] Listening at: http://0.0.0.0:8188 (762643)
+[2022-09-19 16:51:28 +0800] [762643] [INFO] Using worker: gevent
+[2022-09-19 16:51:28 +0800] [762654] [INFO] Booting worker with pid: 762654
+[2022-09-19 16:51:28 +0800] [762655] [INFO] Booting worker with pid: 762655
+[2022-09-19 17:11:59 +0800] [805362] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 17:11:59 +0800] [805362] [INFO] Listening at: http://0.0.0.0:8188 (805362)
+[2022-09-19 17:11:59 +0800] [805362] [INFO] Using worker: gevent
+[2022-09-19 17:11:59 +0800] [805364] [INFO] Booting worker with pid: 805364
+[2022-09-19 17:11:59 +0800] [805368] [INFO] Booting worker with pid: 805368
+[2022-09-19 17:23:42 +0800] [835428] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 17:23:42 +0800] [835428] [INFO] Listening at: http://0.0.0.0:8188 (835428)
+[2022-09-19 17:23:42 +0800] [835428] [INFO] Using worker: gevent
+[2022-09-19 17:23:42 +0800] [835439] [INFO] Booting worker with pid: 835439
+[2022-09-19 17:23:43 +0800] [835440] [INFO] Booting worker with pid: 835440
+[2022-09-19 17:32:04 +0800] [835428] [CRITICAL] WORKER TIMEOUT (pid:835439)
+[2022-09-19 17:32:04 +0800] [835428] [CRITICAL] WORKER TIMEOUT (pid:835440)
+[2022-09-19 17:32:07 +0800] [835439] [INFO] Worker exiting (pid: 835439)
+[2022-09-19 17:32:07 +0800] [835440] [INFO] Worker exiting (pid: 835440)
+[2022-09-19 17:32:07 +0800] [850510] [INFO] Booting worker with pid: 850510
+[2022-09-19 17:32:07 +0800] [850511] [INFO] Booting worker with pid: 850511
+[2022-09-19 17:35:47 +0800] [857788] [INFO] Starting gunicorn 20.1.0
+[2022-09-19 17:35:47 +0800] [857788] [INFO] Listening at: http://0.0.0.0:8188 (857788)
+[2022-09-19 17:35:47 +0800] [857788] [INFO] Using worker: gevent
+[2022-09-19 17:35:47 +0800] [857790] [INFO] Booting worker with pid: 857790
+[2022-09-19 17:35:47 +0800] [857791] [INFO] Booting worker with pid: 857791

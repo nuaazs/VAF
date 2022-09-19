@@ -29,8 +29,6 @@ def deletRedis(r,n):
     return
 
 def get_embeddings(class_index=-1):
-    class_index = -1
-
     r = redis.Redis(host=cfg.REDIS["host"], port=cfg.REDIS["port"], db=cfg.REDIS["register_db"],password=cfg.REDIS["password"])
     all_embedding = {}
     for key in r.keys():
@@ -44,6 +42,7 @@ def get_embeddings(class_index=-1):
             all_embedding[spkid] = {"embedding_1":embedding_1}
         else:
             continue
+    print(f"Total : {len(all_embedding.keys())} embeddings in database #{class_index} .")
     return all_embedding
 
 def to_database(embedding,spkid,max_class_index,log_phone_info,mode="register"):

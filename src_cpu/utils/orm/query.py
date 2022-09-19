@@ -71,6 +71,7 @@ def to_log(phone,action_type, err_type, message,file_url,show_phone,preprocessed
     date_num = int(time.strftime("%d", time.localtime()))
 
     query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', '{message}','{file_url}','{preprocessed_file_path}');"
+
     cur.execute(query_sql)
     conn.commit()
     conn.close()
