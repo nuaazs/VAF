@@ -1,0 +1,33 @@
+# 本地路径
+LOCAL_PATH: /mnt/panjiawei/test/wav
+
+# url网址本地路径
+URL_PATH: http://192.168.3.202:9000
+
+# 本地wav路径
+WAV_PATH: /mnt/panjiawei/test/wav
+
+# ip   default:127.0.0.1
+IP: 127.0.0.1
+
+# 端口号    default:
+PORT: 8187
+
+# 接口名称   default: test|register
+PATH: test
+
+# mode   default: url|file
+MODE: url
+
+# 要测试的文件总数，如果不够重复测试相同的文件的话。
+TEST_NUM: 100
+
+# 桶名称
+BUCKETS_NAME: check1
+
+# 是否存储测试数据
+IS_STORAGE: True
+
+
+# 测试文件保存名称
+FILE_NAME: data.csv
