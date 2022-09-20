@@ -7,7 +7,7 @@ import pickle
 import struct
 import redis
 import numpy as np
-
+from utils.phone import get_phone_info
 import cfg
 
 def toRedis(r,a,n):
@@ -47,7 +47,7 @@ def get_embeddings(class_index=-1):
 
 def to_database(embedding,spkid,max_class_index,log_phone_info,mode="register"):
     if log_phone_info:
-        phone_info = phone_info(spkid[-11:])
+        phone_info = get_phone_info(spkid[-11:])
     else:
         phone_info = {}
     embedding_npy = embedding.detach().cpu().numpy()

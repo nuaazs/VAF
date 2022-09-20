@@ -348,3 +348,231 @@
 [[2022-09-19 17:30:11]]  INFO  [general.py]  #181 <835065:140584417416320>  14655798165,http://192.168.3.202:9000/raw/raw_14655798165_1_835065.wav,7,Bad quality score:0.4514040946960449.
 [[2022-09-19 17:30:11]]  INFO  [general.py]  #181 <835065:140584417416592>  89377992973,http://192.168.3.202:9000/raw/raw_89377992973_1_835065.wav,7,Bad quality score:0.4514040946960449.
 [[2022-09-19 17:30:12]]  INFO  [general.py]  #181 <835065:140584417416864>  64153777205,http://192.168.3.202:9000/raw/raw_64153777205_1_835065.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-19 19:16:23]]  INFO  [general.py]  #152 <852041:140341082511280>  CUDA out of memory. Tried to allocate 658.00 MiB (GPU 0; 9.78 GiB total capacity; 1.79 GiB already allocated; 89.56 MiB free; 2.77 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-19 19:16:24]]  INFO  [general.py]  #163 <852041:140341082511280>  16638157220,http://192.168.3.202:9000/raw/raw_16638157220_1_852041.wav,5,Self Test faild. No useful data in /tmp/16638157220/raw_1_852041.wav.
+[[2022-09-19 19:16:32]]  INFO  [general.py]  #152 <852041:140341082512096>  CUDA out of memory. Tried to allocate 658.00 MiB (GPU 0; 9.78 GiB total capacity; 1.79 GiB already allocated; 89.56 MiB free; 2.77 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-19 19:16:32]]  INFO  [general.py]  #152 <852041:140341082511552>  CUDA out of memory. Tried to allocate 214.00 MiB (GPU 0; 9.78 GiB total capacity; 2.30 GiB already allocated; 89.56 MiB free; 2.77 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-19 19:16:32]]  INFO  [general.py]  #163 <852041:140341082512096>  22327259591,http://192.168.3.202:9000/raw/raw_22327259591_1_852041.wav,5,Self Test faild. No useful data in /tmp/22327259591/raw_1_852041.wav.
+[[2022-09-19 19:16:32]]  INFO  [general.py]  #163 <852041:140341082511552>  62578420387,http://192.168.3.202:9000/raw/raw_62578420387_1_852041.wav,5,Self Test faild. No useful data in /tmp/62578420387/raw_1_852041.wav.
+[[2022-09-19 19:16:42]]  INFO  [general.py]  #152 <852041:140341082511008>  CUDA out of memory. Tried to allocate 658.00 MiB (GPU 0; 9.78 GiB total capacity; 1.80 GiB already allocated; 89.56 MiB free; 2.77 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-19 19:16:42]]  INFO  [general.py]  #152 <852041:140341082512368>  CUDA out of memory. Tried to allocate 390.00 MiB (GPU 0; 9.78 GiB total capacity; 2.35 GiB already allocated; 89.56 MiB free; 2.77 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-19 19:16:42]]  INFO  [general.py]  #163 <852041:140341082511008>  59177578252,http://192.168.3.202:9000/raw/raw_59177578252_1_852041.wav,5,Self Test faild. No useful data in /tmp/59177578252/raw_1_852041.wav.
+[[2022-09-19 19:16:42]]  INFO  [general.py]  #163 <852041:140341082512368>  42074431418,http://192.168.3.202:9000/raw/raw_42074431418_1_852041.wav,5,Self Test faild. No useful data in /tmp/42074431418/raw_1_852041.wav.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852041:140346094728048>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852042:140341082470320>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852041:140341082511552>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852041:140341082511824>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852041:140341082510192>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852042:140341082471408>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852042:140341082470592>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852042:140341082471952>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852041:140341082511008>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #112 <852042:140341082468960>  HTTP Error 403: Forbidden
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852041:140346094728048>  17165501448,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000000.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852041:140341082511552>  25772716771,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000003.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852042:140341082470320>  96079254777,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000002.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852041:140341082511824>  42048088036,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000001.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852042:140341082471408>  46267641007,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000005.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852042:140341082470592>  96984076555,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000007.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852041:140341082510192>  23143993467,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000008.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852042:140341082471952>  19084682689,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000004.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852041:140341082511008>  95235484293,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000006.wav save faild.
+[[2022-09-20 09:50:55]]  INFO  [general.py]  #121 <852042:140341082468960>  75973219930,None,3,File:http://192.168.3.202:9000/18file/1_8_name_000000000000009.wav save faild.
+[[2022-09-20 10:16:14]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:16:15]]  INFO  [general.py]  #121 <852041:140341082511280>  63647525658,None,3,File:None save faild.
+[[2022-09-20 10:17:41]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:17:41]]  INFO  [general.py]  #121 <852042:140341082470592>  97610545252,None,3,File:None save faild.
+[[2022-09-20 10:27:37]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:37]]  INFO  [general.py]  #121 <852041:140341082511280>  54995096424,None,3,File:None save faild.
+[[2022-09-20 10:27:37]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:37]]  INFO  [general.py]  #121 <852041:140341082511280>  14756291965,None,3,File:None save faild.
+[[2022-09-20 10:27:37]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:37]]  INFO  [general.py]  #121 <852041:140341082511280>  63939801532,None,3,File:None save faild.
+[[2022-09-20 10:27:37]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:37]]  INFO  [general.py]  #121 <852041:140341082511280>  83899479870,None,3,File:None save faild.
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #121 <852042:140341082470592>  58138748417,None,3,File:None save faild.
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #121 <852042:140341082470592>  39872944337,None,3,File:None save faild.
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #121 <852041:140341082511280>  33361194677,None,3,File:None save faild.
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #121 <852041:140341082511280>  73641035378,None,3,File:None save faild.
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #121 <852041:140341082511280>  51998556526,None,3,File:None save faild.
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #121 <852041:140341082511280>  65422712269,None,3,File:None save faild.
+[[2022-09-20 10:27:38]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #121 <852041:140341082511280>  22265425833,None,3,File:None save faild.
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #121 <852041:140341082511280>  80332291644,None,3,File:None save faild.
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #121 <852041:140341082511280>  88090538815,None,3,File:None save faild.
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #121 <852041:140341082511280>  79121675510,None,3,File:None save faild.
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #121 <852041:140341082511280>  97271770854,None,3,File:None save faild.
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #121 <852042:140341082470592>  92143078000,None,3,File:None save faild.
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #121 <852042:140341082470592>  66922382342,None,3,File:None save faild.
+[[2022-09-20 10:27:39]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #121 <852041:140341082511280>  53026181965,None,3,File:None save faild.
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #121 <852041:140341082511280>  66451077154,None,3,File:None save faild.
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #121 <852041:140341082511280>  35075807690,None,3,File:None save faild.
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #121 <852041:140341082511280>  83725328899,None,3,File:None save faild.
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #121 <852041:140341082511280>  75646995946,None,3,File:None save faild.
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #121 <852041:140341082511280>  65607802836,None,3,File:None save faild.
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #121 <852042:140341082470592>  81963528552,None,3,File:None save faild.
+[[2022-09-20 10:27:40]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #121 <852041:140341082511280>  36858226039,None,3,File:None save faild.
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #121 <852041:140341082511280>  93764843215,None,3,File:None save faild.
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #121 <852041:140341082511280>  63895789953,None,3,File:None save faild.
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #121 <852042:140341082470592>  14116525446,None,3,File:None save faild.
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #121 <852041:140341082511280>  91767177862,None,3,File:None save faild.
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #121 <852042:140341082470592>  98884386171,None,3,File:None save faild.
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:41]]  INFO  [general.py]  #121 <852041:140341082511280>  57380233054,None,3,File:None save faild.
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #121 <852041:140341082511280>  80472105487,None,3,File:None save faild.
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #121 <852041:140341082511280>  69538629725,None,3,File:None save faild.
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #121 <852041:140341082511280>  13290600801,None,3,File:None save faild.
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #121 <852041:140341082511280>  77017310963,None,3,File:None save faild.
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #121 <852041:140341082511280>  48942615943,None,3,File:None save faild.
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #121 <852041:140341082511280>  39199454597,None,3,File:None save faild.
+[[2022-09-20 10:27:42]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #121 <852041:140341082511280>  45599274174,None,3,File:None save faild.
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #121 <852041:140341082511280>  35504271030,None,3,File:None save faild.
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #121 <852041:140341082511280>  54408515842,None,3,File:None save faild.
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #121 <852042:140341082470592>  16637195094,None,3,File:None save faild.
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #121 <852041:140341082511280>  51697078037,None,3,File:None save faild.
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #121 <852041:140341082511280>  36037743408,None,3,File:None save faild.
+[[2022-09-20 10:27:43]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #121 <852042:140341082470592>  16722099578,None,3,File:None save faild.
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #121 <852041:140341082511280>  27852806624,None,3,File:None save faild.
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #121 <852041:140341082511280>  49984349532,None,3,File:None save faild.
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #121 <852041:140341082511280>  29582930825,None,3,File:None save faild.
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #121 <852041:140341082511280>  46238360968,None,3,File:None save faild.
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #121 <852042:140341082470592>  31188161671,None,3,File:None save faild.
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #121 <852041:140341082511280>  11149884231,None,3,File:None save faild.
+[[2022-09-20 10:27:44]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #121 <852041:140341082511280>  16759789331,None,3,File:None save faild.
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #121 <852041:140341082511280>  56013984086,None,3,File:None save faild.
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #121 <852041:140341082511280>  76745428398,None,3,File:None save faild.
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #121 <852042:140341082470592>  20338610863,None,3,File:None save faild.
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #121 <852041:140341082511280>  16888595028,None,3,File:None save faild.
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #121 <852041:140341082511280>  87401756253,None,3,File:None save faild.
+[[2022-09-20 10:27:45]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #121 <852041:140341082511280>  64336054857,None,3,File:None save faild.
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #121 <852041:140341082511280>  41925065433,None,3,File:None save faild.
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #121 <852041:140341082511280>  80723930232,None,3,File:None save faild.
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #121 <852041:140341082511280>  42296561415,None,3,File:None save faild.
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #121 <852041:140341082511280>  79666572571,None,3,File:None save faild.
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #121 <852042:140341082470592>  30951524987,None,3,File:None save faild.
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #121 <852041:140341082511280>  32854028115,None,3,File:None save faild.
+[[2022-09-20 10:27:46]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #121 <852041:140341082511280>  35516355441,None,3,File:None save faild.
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #121 <852041:140341082511280>  48043347225,None,3,File:None save faild.
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #121 <852041:140341082511280>  44578841490,None,3,File:None save faild.
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #121 <852041:140341082511280>  69552771792,None,3,File:None save faild.
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #121 <852041:140341082511280>  49238252798,None,3,File:None save faild.
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #121 <852042:140341082470592>  32624437063,None,3,File:None save faild.
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:47]]  INFO  [general.py]  #121 <852042:140341082470592>  89088521671,None,3,File:None save faild.
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #121 <852042:140341082470592>  37753146710,None,3,File:None save faild.
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #121 <852041:140341082511280>  83121525028,None,3,File:None save faild.
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #121 <852041:140341082511280>  16345730296,None,3,File:None save faild.
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #121 <852041:140341082511280>  79496180581,None,3,File:None save faild.
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #121 <852041:140341082511280>  61620842702,None,3,File:None save faild.
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #121 <852041:140341082511280>  79523104055,None,3,File:None save faild.
+[[2022-09-20 10:27:48]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:27:49]]  INFO  [general.py]  #121 <852041:140341082511280>  75148941583,None,3,File:None save faild.
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #121 <852042:140341082470592>  99376519107,None,3,File:None save faild.
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #121 <852042:140341082470592>  77204556939,None,3,File:None save faild.
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #121 <852041:140341082511280>  64793582613,None,3,File:None save faild.
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #121 <852041:140341082511280>  92327698677,None,3,File:None save faild.
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #121 <852041:140341082511280>  40986330721,None,3,File:None save faild.
+[[2022-09-20 10:28:11]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  66843114928,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  31252829599,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  54696560155,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  61282598996,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  84944686403,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  32921364625,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  48504836078,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  42478688012,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #121 <852041:140341082511280>  31425551329,None,3,File:None save faild.
+[[2022-09-20 10:28:12]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #121 <852041:140341082511280>  48164472229,None,3,File:None save faild.
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #121 <852041:140341082511280>  71958816908,None,3,File:None save faild.
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #112 <852042:140341082470592>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #121 <852042:140341082470592>  69558756966,None,3,File:None save faild.
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #121 <852041:140341082511280>  82835500036,None,3,File:None save faild.
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #121 <852041:140341082511280>  25918524149,None,3,File:None save faild.
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #112 <852041:140341082511280>  'NoneType' object has no attribute 'startswith'
+[[2022-09-20 10:28:13]]  INFO  [general.py]  #121 <852041:140341082511280>  37658419942,None,3,File:None save faild.
