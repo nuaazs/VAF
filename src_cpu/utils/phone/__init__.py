@@ -3,4 +3,4 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: Phone info utils.
 
-from utils.phone.phone_util import phone_info
+from utils.phone.phone_util import get_phone_info

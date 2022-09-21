@@ -3,12 +3,13 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: self-test and encode.
 
+from asyncio.log import logger
 from utils.encoder import spkreg
 from utils.encoder import similarity
 import torch
 import cfg
 
-def encode(wav_torch):
+def encode(wav_torch_raw):
     similarity_limit = cfg.SELF_TEST_TH
     min_length = cfg.MIN_LENGTH
     sr = cfg.SR
@@ -16,19 +17,20 @@ def encode(wav_torch):
     mean_score = 0
     min_score = 1
 
-    if len(wav_torch)/sr <= min_length:
+    if len(wav_torch_raw)/sr <= min_length:
         result = {
             "pass":False,
-            "msg":f"Insufficient duration, the current duration is {len(wav_torch)/sr}s.",
+            "msg":f"Insufficient duration, the current duration is {len(wav_torch_raw)/sr}s.",
             "max_score":0,
             "mean_score":0,
             "min_score":0,
             "err_type": 6,
+            "before_score":None,
         }
         return result
 
-    wav_length = int((len(wav_torch)-10)/2)
-    wav_torch = wav_torch.unsqueeze(0)
+    wav_length = int((len(wav_torch_raw)-10)/2)
+    wav_torch = wav_torch_raw.unsqueeze(0)
     left = torch.cat((wav_torch[:,:wav_length],wav_torch[:,:wav_length]), dim=1)
     right = torch.cat((wav_torch[:,wav_length:wav_length*2],wav_torch[:,wav_length:wav_length*2]), dim=1)
     wav_torch = wav_torch[:,:left.shape[1]]
@@ -45,6 +47,7 @@ def encode(wav_torch):
     max_score,mean_score,min_score = score,score,score
 
     if score < similarity_limit:
+        # return do_denoise(wav_torch_raw,score)
         result = {
             "pass":False,
             "msg":f"Bad quality score:{min_score}.",
@@ -59,6 +62,7 @@ def encode(wav_torch):
             "pass":True,
             "msg":"Qualified.",
             "max_score":max_score,
+            "before_score":None,
             "mean_score":mean_score,
             "min_score":min_score,
             "tensor":encoding_tensor,

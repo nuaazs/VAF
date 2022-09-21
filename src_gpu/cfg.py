@@ -4,7 +4,7 @@
 # @Describe: service configuration file.
 
 # Workers
-WORKERS = 1
+WORKERS = 2
 
 SR = 16000
 
@@ -20,7 +20,7 @@ WORKER_CONNECTIONS = 20
 PORT = 8187
 
 # Classify
-CLASSIFY = False
+CLASSIFY = True
 
 # 
 CHECK_DUPLICATE = False

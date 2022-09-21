@@ -3,9 +3,11 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: Register and identify interfaces.
 
+import datetime
 from flask import request
 
 import cfg
+from utils.orm.database import to_database
 from utils.orm import check_spkid
 from utils.orm import to_log
 from utils.log import err_logger
@@ -39,6 +41,19 @@ def general(request_form,get_type="url",action_type="test"):
             # 6. 文件有效时长不满足要求
             # 7. 文件质量检测不满足要求（环境噪声较大或有多个说话人干扰）
     """
+
+    start = datetime.datetime.now()
+    used_time = {
+                "download_used_time":0,
+                "vad_used_time":0,
+                "classify_used_time":0,
+                "embedding_used_time":0,
+                "self_test_used_time":0,
+                "to_database_used_time":0,
+                "test_used_time":0
+            }
+    
+
     new_spkid = request_form["spkid"]
     if action_type == "register":
         action_type = 2
@@ -69,6 +84,7 @@ def general(request_form,get_type="url",action_type="test"):
                 "status": "error",
                 "err_type": 1,
                 "err_msg": "Only support wav or mp3 files.",
+                "used_time": used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
@@ -76,67 +92,80 @@ def general(request_form,get_type="url",action_type="test"):
         try:
             filepath,oss_path = save_file(file=new_file,spk=new_spkid)
         except Exception as e:
-            print(e)
+            err_logger.info(e)
             response = {
                 "code": 2000,
                 "status": "error",
                 "err_type": 2,
                 "err_msg": f"File save faild.",
+                "used_time": used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
+
     elif get_type == "url":
         new_url =request.form.get("wav_url")
         try:
             filepath,oss_path = save_url(url=new_url,spk=new_spkid)
         except Exception as e:
-            print(e)
+            err_logger.info(e)
             response = {
                 "code": 2000,
                 "status": "error",
                 "err_type": 3,
                 "err_msg": f"File:{new_url} save faild.",
+                "used_time": used_time
             }
             to_log(phone=new_spkid, action_type=action_type, err_type=response["err_type"], message=response["err_msg"],file_url="",preprocessed_file_path="",show_phone=show_phone)
             err_logger.info(f"{new_spkid},None,{response['err_type']},{response['err_msg']}")
             return response
-    
+    used_time["download_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    start = datetime.datetime.now()
+
     # STEP 2: VAD    
     try:
         wav = resample(filepath)
         vad_result = vad(wav,new_spkid)
         preprocessed_file_path = vad_result["preprocessed_file_path"]
     except Exception as e:
-        print(e)
+        err_logger.info(e)
         response = {
             "code": 2000,
             "status": "error",
             "err_type": 5,
             "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
+            "used_time": used_time
         }
         to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"vad error",file_url=oss_path,preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
         err_logger.info(f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}")
         return response
+
+    used_time["vad_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    start = datetime.datetime.now()
 
     # STEP 3: Self Test
     try:
         self_test_result = encode(wav_torch_raw=vad_result["wav_torch"])
 
     except Exception as e:
-        print(e)
+        err_logger.info(e)
         response = {
             "code": 2000,
             "status": "error",
             "err_type": 5,
             "err_msg": f"Self Test faild. No useful data in {filepath}.",
-            "self_test_before_score":self_test_result["before_score"]
+            # "self_test_before_score":self_test_result["before_score"],
+            "used_time":used_time
         }
-        to_log(phone=new_spkid, action_type=action_type, err_type=5, message=f"self test error",\
+        to_log(phone=new_spkid, action_type=action_type, show_phone=show_phone,err_type=5, message=f"self test error",\
                 file_url=oss_path,preprocessed_file_path=preprocessed_file_path)
         err_logger.info(f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}")
         return response
     
+    used_time["self_test_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    start = datetime.datetime.now()
+
     msg = self_test_result["msg"]
     if not self_test_result["pass"]:
         err_type = self_test_result["err_type"]
@@ -145,10 +174,10 @@ def general(request_form,get_type="url",action_type="test"):
             "status": "error",
             "err_type": err_type,
             "err_msg": msg,
-            "self_test_before_score":self_test_result["before_score"]
+            "used_time":used_time
             }
-        to_log(phone=new_spkid, action_type=action_type, err_type=err_type, message=f"{msg}",file_url=oss_path,\
-                preprocessed_file_path=preprocessed_file_path,show_phone=show_phone)
+        to_log(phone=new_spkid, action_type=action_type,show_phone=show_phone, err_type=err_type, message=f"{msg}",file_url=oss_path,\
+                preprocessed_file_path=preprocessed_file_path)
         err_logger.info(f"{new_spkid},{oss_path},{err_type},{msg}")
         return response
 
@@ -159,18 +188,20 @@ def general(request_form,get_type="url",action_type="test"):
     else:
         class_num = 999
 
+    used_time["classify_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    start = datetime.datetime.now()
+
     # STEP 5: Test or Register
     if action_type == 1:
         return test(embedding,wav,new_spkid,class_num,oss_path,self_test_result,call_begintime,call_endtime,
                     before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],
-                    preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,)
+                    preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,used_time=used_time)
 
     elif action_type == 2:
         return register(embedding,wav,new_spkid,class_num,oss_path,self_test_result,
                 call_begintime,call_endtime,
                 preprocessed_file_path=preprocessed_file_path,show_phone=show_phone,
-                before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],)
-
+                before_vad_length=vad_result["before_length"],after_vad_length=vad_result["after_length"],used_time=used_time)
 
 def get_score(request_form,get_type="url"):
     # STEP 1: Get wav file.

@@ -3,7 +3,7 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: register.
 
-from datetime import datetime
+import datetime
 
 from utils.orm import to_database
 from utils.orm import add_speaker
@@ -17,8 +17,8 @@ import cfg
 
 def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
                 call_begintime,call_endtime,
-                preprocessed_file_path,show_phone,before_vad_length,after_vad_length):
-    start = datetime.now()
+                preprocessed_file_path,show_phone,before_vad_length,after_vad_length,used_time):
+    start = datetime.datetime.now()
     add_success,phone_info = to_database(
                                     embedding=embedding,
                                     spkid=new_spkid,
@@ -31,7 +31,7 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "phone":new_spkid,
             "uuid":oss_path,
             "hit":0,
-            "register_time":(datetime.now()).strftime("%Y-%m-%d %H:%M:%S"),
+            "register_time":(datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S"),
             "province":phone_info.get("province",""),
             "city":phone_info.get("city",""),
             "phone_type":phone_info.get("phone_type",""),
@@ -58,7 +58,7 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "phone":new_spkid,
             "uuid":oss_path,
             "hit":0,
-            "register_time":(datetime.now()).strftime("%Y-%m-%d %H:%M:%S"),
+            "register_time":(datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S"),
             "province":phone_info.get("province",""),
             "city":phone_info.get("city",""),
             "phone_type":phone_info.get("phone_type",""),
@@ -74,6 +74,7 @@ def register(embedding,wav,new_spkid,max_class_index,oss_path,self_test_result,
             "preprocessed_file_path":preprocessed_file_path,
             "show_phone":show_phone,
             "before_vad_length":before_vad_length,
-            "after_vad_length":after_vad_length
+            "after_vad_length":after_vad_length,
+            "used_time":used_time
         }
         return response
