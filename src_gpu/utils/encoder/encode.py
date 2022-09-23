@@ -3,23 +3,44 @@
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: self-test and encode.
 
-from asyncio.log import logger
+import sys
+import torch
+
+# utils
+from utils.log import logger
 from utils.encoder import spkreg
 from utils.encoder import similarity
 from utils.preprocess.mydenoiser import denoise_wav
-import torch
+
+# cfg
 import cfg
 
 
-def encode(wav_torch_raw):
+
+def encode(wav_torch_raw,action_type):
+    """Audio quality detection and encoding.
+
+    Args:
+        wav_torch_raw (torch 1D): wav data
+        action_type (sting): Action type (register or test)
+
+    Returns:
+        Dict: Quality inspection results and audio characteristics
+    """
+    if action_type=="register":
+        min_length = cfg.MIN_LENGTH_REGISTER
+    elif action_type=="test":
+        min_length = cfg.MIN_LENGTH_TEST
+    else:
+        min_length = sys.maxsize
     similarity_limit = cfg.SELF_TEST_TH
-    min_length = cfg.MIN_LENGTH
     sr = cfg.SR
     max_score = 0
     mean_score = 0
     min_score = 1
+    raw_wav_length = len(wav_torch_raw) / sr
 
-    if len(wav_torch_raw) / sr <= min_length:
+    if raw_wav_length <= min_length:
         result = {
             "pass": False,
             "msg": f"Insufficient duration, the current duration is {len(wav_torch_raw)/sr}s.",
@@ -30,7 +51,13 @@ def encode(wav_torch_raw):
             "before_score": None,
         }
         return result
-
+    segments_number  = int(raw_wav_length)
+    segments = []
+    start = 0
+    wav_torch = wav_torch_raw.unsqueeze(0)
+    while (start + cfg.SELF_TEST_SL)*cfg.SR < len(wav_torch_raw):
+        segments.append(wav_torch[:, start:wav_length])
+        
     wav_length = int((len(wav_torch_raw) - 10) / 2)
     wav_torch = wav_torch_raw.unsqueeze(0)
     left = torch.cat((wav_torch[:, :wav_length], wav_torch[:, :wav_length]), dim=1)

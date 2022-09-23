@@ -6,7 +6,7 @@
 import datetime
 from flask import request
 
-import cfg
+# utils
 from utils.orm.database import to_database
 from utils.orm import check_spkid
 from utils.orm import to_log
@@ -22,25 +22,29 @@ from utils.register import register
 from utils.test import test
 from utils.encoder import similarity
 
+# cfg
+import cfg
+
 
 def general(request_form, get_type="url", action_type="test"):
     """_summary_
 
     Args:
-        request_form (form):   request.form:{'spkid': '1', 'wav_url': 'http://www.baidu.com/1.wav', 'wav_channel': 1}
+        request_form (form):{'spkid': '1', 'wav_url': 'http://xxxxx/1.wav', 'wav_channel': 1}
         get_type (str, optional): url or file. Defaults to "url".
         action (str, optional): register or test. Defaults to "test".
 
     Returns:
         _type_: response: {'code':2000,'status':"success",'err_type': '1', 'err_msg': ''}
-        * err_type 说明：
-            # 1. 文件格式不对
-            # 2. 文件解析错误
-            # 3. 文件下载错误
-            # 4. spkid重复
-            # 5. 文件没有有效数据（质量极差）
-            # 6. 文件有效时长不满足要求
-            # 7. 文件质量检测不满足要求（环境噪声较大或有多个说话人干扰）
+        * err_type:
+            # 1. The file format is incorrect       
+            # 2. File parsing error 
+            # 3. File download error
+            # 4. spkid repeat
+            # 5. The file has no valid data (very poor quality)  
+            # 6. The valid duration of the file does not meet the requirements
+            # 7. The file quality detection does not meet the requirements 
+            #    (the environment is noisy or there are multiple speakers)
     """
 
     start = datetime.datetime.now()
@@ -55,26 +59,28 @@ def general(request_form, get_type="url", action_type="test"):
     }
 
     new_spkid = request_form["spkid"]
+    call_begintime = request_form.get("call_begintime", "1999-02-18 10:10:10")
+    call_endtime = request_form.get("call_endtime", "1999-02-18 10:10:10")
+    show_phone = request_form.get("show_phone", new_spkid)
+
     if action_type == "register":
         action_type = 2
     if action_type == "test":
         action_type = 1
+
+    # ID duplication detection.
     if cfg.CHECK_DUPLICATE:
         if check_spkid(new_spkid):
             response = {
                 "code": 2000,
                 "status": "error",
                 "err_type": 4,
-                "err_msg": f"ID: {new_spkid} already exists.",
+                "err_msg": f"ID error.\nID: {new_spkid} already exists.",
             }
             err_logger.info(
                 f"{new_spkid},None,{response['err_type']},{response['err_msg']}"
             )
             return response
-
-    call_begintime = request_form.get("call_begintime", "1999-02-18 10:10:10")
-    call_endtime = request_form.get("call_endtime", "1999-02-18 10:10:10")
-    show_phone = request_form.get("show_phone", new_spkid)
 
     # STEP 1: Get wav file.
     if get_type == "file":
@@ -85,7 +91,7 @@ def general(request_form, get_type="url", action_type="test"):
                 "code": 2000,
                 "status": "error",
                 "err_type": 1,
-                "err_msg": "Only support wav or mp3 files.",
+                "err_msg": "File type error.\nOnly support wav or mp3 files.",
                 "used_time": used_time,
             }
             to_log(
@@ -109,7 +115,7 @@ def general(request_form, get_type="url", action_type="test"):
                 "code": 2000,
                 "status": "error",
                 "err_type": 2,
-                "err_msg": f"File save faild.",
+                "err_msg": f"Form file save error.\nFile save faild.",
                 "used_time": used_time,
             }
             to_log(
@@ -136,7 +142,7 @@ def general(request_form, get_type="url", action_type="test"):
                 "code": 2000,
                 "status": "error",
                 "err_type": 3,
-                "err_msg": f"File:{new_url} save faild.",
+                "err_msg": f"URL file save error.\nDownload {new_url} faild.",
                 "used_time": used_time,
             }
             to_log(
@@ -157,8 +163,11 @@ def general(request_form, get_type="url", action_type="test"):
 
     # STEP 2: VAD
     try:
-        wav = resample(filepath)
-        vad_result = vad(wav, new_spkid)
+        wav = resample(wav_filepath=filepath,
+                       action_type=action_type)
+        vad_result = vad(wav=wav,
+                         spkid=new_spkid,
+                         action_type=action_type)
         preprocessed_file_path = vad_result["preprocessed_file_path"]
     except Exception as e:
         err_logger.info(e)
@@ -166,7 +175,7 @@ def general(request_form, get_type="url", action_type="test"):
             "code": 2000,
             "status": "error",
             "err_type": 5,
-            "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
+            "err_msg": f"VAD and upsample error.\nNo useful data in {filepath}.",
             "used_time": used_time,
         }
         to_log(
@@ -175,7 +184,7 @@ def general(request_form, get_type="url", action_type="test"):
             err_type=5,
             message=f"vad error",
             file_url=oss_path,
-            preprocessed_file_path=preprocessed_file_path,
+            preprocessed_file_path="",
             show_phone=show_phone,
         )
         err_logger.info(
@@ -188,7 +197,8 @@ def general(request_form, get_type="url", action_type="test"):
 
     # STEP 3: Self Test
     try:
-        self_test_result = encode(wav_torch_raw=vad_result["wav_torch"])
+        self_test_result = encode(wav_torch_raw=vad_result["wav_torch"],
+                                  action_type = action_type)
 
     except Exception as e:
         err_logger.info(e)

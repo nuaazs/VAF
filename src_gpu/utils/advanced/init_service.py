@@ -9,6 +9,12 @@ import cfg
 
 
 def init_service():
+    """Project initialization. 
+       Load the voiceprint library to obtain registrant and server information.
+
+    Returns:
+        Dict : Speakers, speakers Number, Server Name
+    """
     black_database = get_embeddings(class_index=-1)
     spks = list(black_database.keys())
     spks_num = len(spks)
