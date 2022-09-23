@@ -26,10 +26,10 @@ CLIP_DETECT = False
 AUTO_TEST = False
 
 # Save Raw File (=None, means don't save)
-RAW_FILE_PATH = None # "/VAF-System/src/wavs/raw"
+RAW_FILE_PATH = None  # "/VAF-System/src/wavs/raw"
 
 # Save Preprocessed File (=None, means don't save)
-VAD_FILE_PATH = None # "/VAF-System/src/wavs/preprocessed"
+VAD_FILE_PATH = None  # "/VAF-System/src/wavs/preprocessed"
 
 # Black Base Threshold
 BLACK_TH = 0.82
@@ -51,19 +51,19 @@ WAV_CHANNEL = 1
 
 # Mysql
 MYSQL = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si2",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123"
-    }
+    "host": "zhaosheng.mysql.rds.aliyuncs.com",
+    "port": 27546,
+    "db": "si2",
+    "username": "root",
+    "passwd": "Nt3380518!zhaosheng123",
+}
 # Redis
 REDIS = {
-    "host":'192.168.0.14',
-    "port":6379,
-    "register_db":1,
-    "test_db":2,
-    "password":""
+    "host": "192.168.0.14",
+    "port": 6379,
+    "register_db": 1,
+    "test_db": 2,
+    "password": "",
 }
 
 # MinIO
@@ -72,7 +72,7 @@ MINIO = {
     "port": 9000,
     "access_key": "minioadmin",
     "secret_key": "minioadmin",
-    "test_save_days" : 30,
+    "test_save_days": 30,
     "register_save_days": -1,
 }
 MINIO2 = {
@@ -80,14 +80,12 @@ MINIO2 = {
     "port": 7777,
     "access_key": "admin",
     "secret_key": "password",
-    "test_save_days" : 30,
+    "test_save_days": 30,
     "register_save_days": -1,
 }
 
 # Black Base File Path (='redis' use redis)
-BLACK_BASE = "redis" # "/VAF-System/src/wavs/database/blackbase.pkl"
+BLACK_BASE = "redis"  # "/VAF-System/src/wavs/database/blackbase.pkl"
 
 # Server Info
-SERVER_INFO = {
-    "name":"lyxx78"
-}
+SERVER_INFO = {"name": "lyxx78"}

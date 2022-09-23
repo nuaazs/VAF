@@ -8,7 +8,7 @@ WORKERS = 2
 
 SR = 16000
 
-CUDA_NUM =0
+CUDA_NUM = 0
 
 # Threads
 THREADS = 20
@@ -22,7 +22,7 @@ PORT = 8187
 # Classify
 CLASSIFY = True
 
-# 
+#
 CHECK_DUPLICATE = False
 
 # Log Phone Info Or Not
@@ -51,19 +51,19 @@ WAV_CHANNEL = 1
 
 # Mysql
 MYSQL = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
-            "port": 27546,
-            "db": "si2",
-            "username": "root",
-            "passwd": "Nt3380518!zhaosheng123"
-    }
+    "host": "zhaosheng.mysql.rds.aliyuncs.com",
+    "port": 27546,
+    "db": "si2",
+    "username": "root",
+    "passwd": "Nt3380518!zhaosheng123",
+}
 # Redis
 REDIS = {
-    "host":'192.168.3.202',
-    "port":6379,
-    "register_db":1,
-    "test_db":2,
-    "password":""
+    "host": "192.168.3.202",
+    "port": 6379,
+    "register_db": 1,
+    "test_db": 2,
+    "password": "",
 }
 
 # MinIO
@@ -72,11 +72,9 @@ MINIO = {
     "port": 9000,
     "access_key": "minioadmin",
     "secret_key": "minioadmin",
-    "test_save_days" : 30,
+    "test_save_days": 30,
     "register_save_days": -1,
 }
 
 # Server Info
-SERVER_INFO = {
-    "name":"lyxx-192.168.3.202"
-}
+SERVER_INFO = {"name": "lyxx-192.168.3.202"}

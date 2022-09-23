@@ -12,10 +12,11 @@ import cfg
 msg_db = cfg.MYSQL
 
 
-def get_span(time2,time1):
-    time2 = time.strptime(time2,"%Y-%m-%d %H:%M:%S")
-    time1 = time.strptime(time1,"%Y-%m-%d %H:%M:%S")
-    return int(time.mktime(time2)-time.mktime(time1))
+def get_span(time2, time1):
+    time2 = time.strptime(time2, "%Y-%m-%d %H:%M:%S")
+    time1 = time.strptime(time1, "%Y-%m-%d %H:%M:%S")
+    return int(time.mktime(time2) - time.mktime(time1))
+
 
 def check_url(url):
     conn = pymysql.connect(
@@ -40,7 +41,8 @@ def check_url(url):
                 return False
         except Exception as error:
             conn.ping(True)
-    
+
+
 def check_spkid(spkid):
     while True:
         try:
@@ -55,7 +57,17 @@ def check_spkid(spkid):
         except Exception as error:
             conn.ping(True)
 
-def to_log(phone,action_type, err_type, message,file_url,show_phone,preprocessed_file_path="",valid_length=0):
+
+def to_log(
+    phone,
+    action_type,
+    err_type,
+    message,
+    file_url,
+    show_phone,
+    preprocessed_file_path="",
+    valid_length=0,
+):
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -67,7 +79,7 @@ def to_log(phone,action_type, err_type, message,file_url,show_phone,preprocessed
     # todo 添加showphone
     conn.ping(reconnect=True)
     cur = conn.cursor()
-    
+
     date_num = int(time.strftime("%d", time.localtime()))
 
     query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', '{message}','{file_url}','{preprocessed_file_path}');"
@@ -75,9 +87,9 @@ def to_log(phone,action_type, err_type, message,file_url,show_phone,preprocessed
     cur.execute(query_sql)
     conn.commit()
     conn.close()
- 
 
-def add_hit(hit_info,is_grey,after_vad_length):
+
+def add_hit(hit_info, is_grey, after_vad_length):
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -100,7 +112,7 @@ def add_hit(hit_info,is_grey,after_vad_length):
     self_test_score_max = hit_info["self_test_score_max"]
     call_begintime = hit_info["call_begintime"]
     call_endtime = hit_info["call_endtime"]
-    valid_length =  after_vad_length
+    valid_length = after_vad_length
     class_number = hit_info["class_number"]
     hit_time = hit_info["hit_time"]
     blackbase_phone = hit_info["blackbase_phone"]
@@ -125,7 +137,9 @@ def add_hit(hit_info,is_grey,after_vad_length):
     cur.execute(query_sql)
     conn.commit()
     conn.close()
-def add_speaker(spk_info,after_vad_length):
+
+
+def add_speaker(spk_info, after_vad_length):
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
         port=msg_db.get("port", 27546),
@@ -151,7 +165,7 @@ def add_speaker(spk_info,after_vad_length):
     class_number = spk_info["max_class_index"]
     preprocessed_file_path = spk_info["preprocessed_file_path"]
     show_phone = spk_info["show_phone"]
-    valid_length =  after_vad_length
+    valid_length = after_vad_length
     cur = conn.cursor()
     query_sql = f"INSERT INTO speaker (name,phone, file_url,phone_type,area_code,\
                     self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
@@ -163,6 +177,7 @@ def add_speaker(spk_info,after_vad_length):
     conn.commit()
     conn.close()
 
+
 def add_hit_count(spk_id):
     conn = pymysql.connect(
         host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
@@ -173,7 +188,9 @@ def add_hit_count(spk_id):
         cursorclass=pymysql.cursors.DictCursor,
     )
     cur = conn.cursor()
-    query_sql = f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
+    query_sql = (
+        f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
+    )
     cur.execute(query_sql)
     conn.commit()
     conn.close()
@@ -192,10 +209,9 @@ def get_blackid(blackbase_phone):
     query_sql = f"select id from speaker where phone='{blackbase_phone}' limit 1;"
     cur.execute(query_sql)
     result = cur.fetchall()
-    if len(result)>0:
+    if len(result) > 0:
         conn.close()
         return result[0]["id"]
     else:
         conn.close()
         return 0
-    

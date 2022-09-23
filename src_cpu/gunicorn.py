@@ -8,7 +8,7 @@ import cfg
 workers = cfg.WORKERS
 threads = cfg.THREADS
 bind = f"0.0.0.0:{cfg.PORT}"
-daemon = 'true'
+daemon = "true"
 worker_class = "gevent"
 worker_connections = cfg.WORKER_CONNECTIONS
 pidfile = "./log/gunicorn.pid"

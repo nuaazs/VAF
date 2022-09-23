@@ -5,6 +5,7 @@
 
 from phone import Phone
 
+
 def get_phone_info(phoneNum):
     info = Phone().find(phoneNum)
     if info == None:
