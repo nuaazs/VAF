@@ -44,7 +44,7 @@ def save_file(file, spk):
         filename=f"raw_{spk}_{speech_number}_{pid}.wav",
         save_days=cfg.MINIO["test_save_days"],
     )
-    return save_path, raw_file_path
+    return save_path_wav, raw_file_path
 
 
 def save_url(url, spk):

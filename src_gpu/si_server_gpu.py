@@ -1,7 +1,7 @@
 # coding = utf-8
 # @Time    : 2022-09-05  09:42:43
 # @Author  : zhaosheng@nuaa.edu.cn
-# @Describe: main.
+# @Describe: The main function entry of the project.
 
 import json
 from flask import Flask
@@ -14,6 +14,8 @@ from flask_sock import Sock
 from utils.advanced import general
 from utils.advanced import init_service
 from utils.advanced import get_score
+from utils.log import err_logger
+from utils.log import logger
 
 # config
 import cfg
@@ -41,34 +43,25 @@ def index():
     return render_template("index.html", **kwargs)
 
 
-# Get score from two file.
+# Get the similarity of two audio files.
 @app.route("/score/<test_type>", methods=["POST"])
 def score(test_type):
     if request.method == "POST":
-        request_form = request.form
-        response = get_score(request_form, get_type=test_type)
+        response = get_score(request.form,
+                             get_type=test_type)
         return json.dumps(response, ensure_ascii=False)
 
 
-# Test
-@app.route("/test/<test_type>", methods=["POST"])
-def test(test_type):
+# Register Or Reasoning.
+@app.route("/<action_type>/<test_type>", methods=["POST"])
+def test(action_type,test_type):
     if request.method == "POST":
-        request_form = request.form
-        response = general(request_form, get_type=test_type, action_type="test")
+        response = general(request_form = request.form,
+                           get_type=test_type,
+                           action_type=action_type)
         return json.dumps(response, ensure_ascii=False)
-
-
-# Register
-@app.route("/register/<register_type>", methods=["POST"])
-def register(register_type):
-    if request.method == "POST":
-        request_form = request.form
-        response = general(request_form, get_type=register_type, action_type="register")
-        return json.dumps(response, ensure_ascii=False)
-
 
 if __name__ == "__main__":
     app.run(
-        host="0.0.0.0", threaded=False, port=8187, debug=True,
+        host="0.0.0.0", threaded=False, port=cfg.PORT, debug=True,
     )

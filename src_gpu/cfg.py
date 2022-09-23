@@ -10,6 +10,9 @@ SR = 16000
 
 CUDA_NUM = 0
 
+# Device
+DEVICE = "cuda:0" # "cuda:id" or "cpu"
+
 # Threads
 THREADS = 20
 
@@ -38,16 +41,26 @@ BLACK_TH = 0.82
 CLIP_TH = 0.03
 
 # Min Length Of VAD-WAV
-MIN_LENGTH = 10
+MIN_LENGTH_REGISTER = 10
+MIN_LENGTH_TEST = 5
 
 # Self-Test Limit
 SELF_TEST_TH = 0.75
+
+# Self-Test segment length
+SELF_TEST_SL = 3
+
+# Self-Test segment stride
+SELF_TEST_SS = 2
 
 # Max Length Of VAD-WAV
 WAV_LENGTH = 90
 
 # Use Which Channel
 WAV_CHANNEL = 1
+
+# Whether to save the preprocessed file
+SAVE_PREPROCESSED_OSS = False
 
 # Mysql
 MYSQL = {
