@@ -10,6 +10,7 @@ import shutil
 from utils.oss import upload_file
 import cfg
 
+
 def save_file(file, spk):
     """save wav file from post request.
 
@@ -37,8 +38,14 @@ def save_file(file, spk):
     subprocess.call(cmd, shell=True)
     # cmd = f"rm {save_path}"
     # subprocess.call(cmd, shell=True)
-    raw_file_path=upload_file(bucket_name='raw',filepath=save_path_wav,filename=f"raw_{spk}_{speech_number}_{pid}.wav",save_days=cfg.MINIO["test_save_days"])
-    return save_path,raw_file_path
+    raw_file_path = upload_file(
+        bucket_name="raw",
+        filepath=save_path_wav,
+        filename=f"raw_{spk}_{speech_number}_{pid}.wav",
+        save_days=cfg.MINIO["test_save_days"],
+    )
+    return save_path, raw_file_path
+
 
 def save_url(url, spk):
     """save wav file from post request.
@@ -64,11 +71,16 @@ def save_url(url, spk):
     if url.startswith("local://"):
         previous_path = url.replace("local://", "")
         save_path = os.path.join(spk_dir, save_name)
-        shutil.copy(previous_path,save_path)
+        shutil.copy(previous_path, save_path)
     else:
         save_path = os.path.join(spk_dir, save_name)
         wget.download(url, save_path)
 
-    raw_file_path = upload_file(bucket_name='raw',filepath=save_path,filename=f"raw_{spk}_{speech_number}_{pid}.wav",save_days=cfg.MINIO["test_save_days"])
+    raw_file_path = upload_file(
+        bucket_name="raw",
+        filepath=save_path,
+        filename=f"raw_{spk}_{speech_number}_{pid}.wav",
+        save_days=cfg.MINIO["test_save_days"],
+    )
 
-    return save_path,raw_file_path
+    return save_path, raw_file_path
