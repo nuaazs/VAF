@@ -11,7 +11,7 @@ SR = 16000
 CUDA_NUM = 0
 
 # Device
-DEVICE = "cuda:0" # "cuda:id" or "cpu"
+DEVICE = "cuda:0"  # "cuda:id" or "cpu"
 
 # Threads
 THREADS = 20

@@ -47,19 +47,19 @@ def index():
 @app.route("/score/<test_type>", methods=["POST"])
 def score(test_type):
     if request.method == "POST":
-        response = get_score(request.form,
-                             get_type=test_type)
+        response = get_score(request.form, get_type=test_type)
         return json.dumps(response, ensure_ascii=False)
 
 
 # Register Or Reasoning.
 @app.route("/<action_type>/<test_type>", methods=["POST"])
-def test(action_type,test_type):
+def test(action_type, test_type):
     if request.method == "POST":
-        response = general(request_form = request.form,
-                           get_type=test_type,
-                           action_type=action_type)
+        response = general(
+            request_form=request.form, get_type=test_type, action_type=action_type
+        )
         return json.dumps(response, ensure_ascii=False)
+
 
 if __name__ == "__main__":
     app.run(

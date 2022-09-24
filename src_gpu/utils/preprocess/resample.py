@@ -13,7 +13,13 @@ import sys
 import cfg
 
 
-def resample(wav_filepath,action_type,sr_dst=cfg.SR,channel = cfg.WAV_CHANNEL,wav_length =cfg.WAV_LENGTH):
+def resample(
+    wav_filepath,
+    action_type,
+    sr_dst=cfg.SR,
+    channel=cfg.WAV_CHANNEL,
+    wav_length=cfg.WAV_LENGTH,
+):
     """Read the file to check the file size and duration validity
          and upsample it to the specified sample rate.
 
@@ -23,7 +29,7 @@ def resample(wav_filepath,action_type,sr_dst=cfg.SR,channel = cfg.WAV_CHANNEL,wa
     Returns:
         Numpy Array (2D [channel,data]) : wav data.
     """
-    
+
     # if action_type=="register":
     #     min_length = cfg.MIN_LENGTH_REGISTER
     # elif action_type=="test":

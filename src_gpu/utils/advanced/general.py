@@ -64,9 +64,9 @@ def general(request_form, get_type="url", action_type="test"):
     show_phone = request_form.get("show_phone", new_spkid)
 
     if action_type == "register":
-        action_type = 2
+        action_num = 2
     if action_type == "test":
-        action_type = 1
+        action_num = 1
 
     # ID duplication detection.
     if cfg.CHECK_DUPLICATE:
@@ -111,6 +111,7 @@ def general(request_form, get_type="url", action_type="test"):
             filepath, oss_path = save_file(file=new_file, spk=new_spkid)
         except Exception as e:
             err_logger.info(e)
+            print(e)
             response = {
                 "code": 2000,
                 "status": "error",
@@ -138,6 +139,7 @@ def general(request_form, get_type="url", action_type="test"):
             filepath, oss_path = save_url(url=new_url, spk=new_spkid)
         except Exception as e:
             err_logger.info(e)
+            print(e)
             response = {
                 "code": 2000,
                 "status": "error",
@@ -163,11 +165,8 @@ def general(request_form, get_type="url", action_type="test"):
 
     # STEP 2: VAD
     try:
-        wav = resample(wav_filepath=filepath,
-                       action_type=action_type)
-        vad_result = vad(wav=wav,
-                         spkid=new_spkid,
-                         action_type=action_type)
+        wav = resample(wav_filepath=filepath, action_type=action_type)
+        vad_result = vad(wav=wav, spkid=new_spkid, action_type=action_type)
         preprocessed_file_path = vad_result["preprocessed_file_path"]
     except Exception as e:
         err_logger.info(e)
@@ -197,17 +196,18 @@ def general(request_form, get_type="url", action_type="test"):
 
     # STEP 3: Self Test
     try:
-        self_test_result = encode(wav_torch_raw=vad_result["wav_torch"],
-                                  action_type = action_type)
+        self_test_result = encode(
+            wav_torch_raw=vad_result["wav_torch"], action_type=action_type
+        )
 
     except Exception as e:
         err_logger.info(e)
+        print(e)
         response = {
             "code": 2000,
             "status": "error",
             "err_type": 5,
-            "err_msg": f"Self Test faild. No useful data in {filepath}.",
-            # "self_test_before_score":self_test_result["before_score"],
+            "err_msg": f"Self Test faild.\nNo useful data in {filepath}.",
             "used_time": used_time,
         }
         to_log(
@@ -260,7 +260,7 @@ def general(request_form, get_type="url", action_type="test"):
     start = datetime.datetime.now()
 
     # STEP 5: Test or Register
-    if action_type == 1:
+    if action_num == 1:
         return test(
             embedding,
             wav,
@@ -277,7 +277,7 @@ def general(request_form, get_type="url", action_type="test"):
             used_time=used_time,
         )
 
-    elif action_type == 2:
+    elif action_num == 2:
         return register(
             embedding,
             wav,
