@@ -7241,3 +7241,128 @@
 [[2022-09-23 10:46:09]]  INFO  [general.py]  #181 <1890916:139904870287552>  166390116738800,http://192.168.3.202:9000/raw/raw_166390116738800_1_1890916.wav,7,Bad quality score:0.6145365238189697.
 [[2022-09-23 10:46:12]]  INFO  [general.py]  #181 <1890919:139904687102688>  166390117020050,http://192.168.3.202:9000/raw/raw_166390117020050_1_1890919.wav,7,Bad quality score:0.6145365238189697.
 [[2022-09-23 10:54:55]]  INFO  [general.py]  #181 <1890919:139904687101056>  95603732751,http://192.168.3.202:9000/raw/raw_95603732751_1_1890919.wav,7,Bad quality score:0.6145365238189697.
+[[2022-09-23 17:12:44]]  INFO  [general.py]  #181 <1890916:139904870288912>  61118444999,http://192.168.3.202:9000/raw/raw_61118444999_1_1890916.wav,7,Bad quality score:0.6145365238189697.
+[[2022-09-23 17:34:08]]  INFO  [general.py]  #181 <1890916:139905818237120>  25769648822,http://192.168.3.202:9000/raw/raw_25769648822_1_1890916.wav,7,Bad quality score:0.7461346387863159.
+[[2022-09-23 17:34:08]]  INFO  [general.py]  #181 <1890916:139904870287008>  67695592459,http://192.168.3.202:9000/raw/raw_67695592459_1_1890916.wav,6,Insufficient duration, the current duration is 8.85s.
+[[2022-09-23 17:34:08]]  INFO  [general.py]  #181 <1890919:139904687102960>  40526957191,http://192.168.3.202:9000/raw/raw_40526957191_1_1890919.wav,7,Bad quality score:0.5018916130065918.
+[[2022-09-23 17:34:08]]  INFO  [general.py]  #181 <1890916:139904870288096>  44875774729,http://192.168.3.202:9000/raw/raw_44875774729_1_1890916.wav,7,Bad quality score:0.5215819478034973.
+[[2022-09-23 17:34:08]]  INFO  [general.py]  #181 <1890919:139904687101328>  63000687315,http://192.168.3.202:9000/raw/raw_63000687315_1_1890919.wav,6,Insufficient duration, the current duration is 4.85s.
+[[2022-09-23 17:34:08]]  INFO  [general.py]  #181 <1890919:139904687102688>  33190781774,http://192.168.3.202:9000/raw/raw_33190781774_1_1890919.wav,6,Insufficient duration, the current duration is 8.6s.
+[[2022-09-23 17:34:08]]  INFO  [general.py]  #181 <1890916:139904870287552>  54143591096,http://192.168.3.202:9000/raw/raw_54143591096_1_1890916.wav,7,Bad quality score:0.7417587041854858.
+[[2022-09-23 17:34:08]]  INFO  [general.py]  #181 <1890919:139905818384576>  85006643488,http://192.168.3.202:9000/raw/raw_85006643488_1_1890919.wav,6,Insufficient duration, the current duration is 10.0s.
+[[2022-09-23 17:34:09]]  INFO  [general.py]  #181 <1890919:139904687102144>  22958562855,http://192.168.3.202:9000/raw/raw_22958562855_1_1890919.wav,7,Bad quality score:0.33135658502578735.
+[[2022-09-23 17:34:09]]  INFO  [general.py]  #181 <1890919:139904687101056>  72206965906,http://192.168.3.202:9000/raw/raw_72206965906_1_1890919.wav,7,Bad quality score:0.680269718170166.
+[[2022-09-23 17:34:09]]  INFO  [general.py]  #95 <1890916:139904870286736>  [Errno 2] No such file or directory: '/tmp/75651370458/raw_1_1890916.wav'
+[[2022-09-23 17:34:10]]  INFO  [general.py]  #181 <1890919:139904687102688>  23529475678,http://192.168.3.202:9000/raw/raw_23529475678_1_1890919.wav,7,Bad quality score:0.7076797485351562.
+[[2022-09-23 17:34:10]]  INFO  [general.py]  #104 <1890916:139904870286736>  75651370458,None,2,File save faild.
+[[2022-09-23 17:34:11]]  INFO  [general.py]  #181 <1890919:139904687101328>  51170907460,http://192.168.3.202:9000/raw/raw_51170907460_1_1890919.wav,6,Insufficient duration, the current duration is 2.85s.
+[[2022-09-23 17:34:11]]  INFO  [general.py]  #181 <1890916:139904870287008>  57431265785,http://192.168.3.202:9000/raw/raw_57431265785_1_1890916.wav,6,Insufficient duration, the current duration is 5.5s.
+[[2022-09-23 17:34:11]]  INFO  [general.py]  #181 <1890916:139905818237120>  94621853654,http://192.168.3.202:9000/raw/raw_94621853654_1_1890916.wav,7,Bad quality score:0.15929074585437775.
+[[2022-09-23 17:34:11]]  INFO  [general.py]  #181 <1890916:139904870288096>  53850655420,http://192.168.3.202:9000/raw/raw_53850655420_1_1890916.wav,7,Bad quality score:0.6879892945289612.
+[[2022-09-23 17:34:11]]  INFO  [general.py]  #181 <1890919:139904687102960>  77280055813,http://192.168.3.202:9000/raw/raw_77280055813_1_1890919.wav,6,Insufficient duration, the current duration is 8.05s.
+[[2022-09-23 17:34:11]]  INFO  [general.py]  #181 <1890916:139904870288912>  31245788762,http://192.168.3.202:9000/raw/raw_31245788762_1_1890916.wav,7,Bad quality score:0.6318992972373962.
+[[2022-09-23 17:34:11]]  INFO  [general.py]  #181 <1890916:139904870288640>  19369933455,http://192.168.3.202:9000/raw/raw_19369933455_1_1890916.wav,7,Bad quality score:0.047273725271224976.
+[[2022-09-23 17:34:12]]  INFO  [general.py]  #181 <1890919:139905818384576>  60097171988,http://192.168.3.202:9000/raw/raw_60097171988_1_1890919.wav,7,Bad quality score:0.49978286027908325.
+[[2022-09-23 17:34:12]]  INFO  [general.py]  #181 <1890919:139904687102688>  16344118304,http://192.168.3.202:9000/raw/raw_16344118304_1_1890919.wav,7,Bad quality score:0.6491932272911072.
+[[2022-09-23 17:34:12]]  INFO  [general.py]  #181 <1890919:139904687102416>  49700541945,http://192.168.3.202:9000/raw/raw_49700541945_1_1890919.wav,7,Bad quality score:0.5437866449356079.
+[[2022-09-23 17:34:12]]  INFO  [general.py]  #181 <1890919:139904687101056>  21824440478,http://192.168.3.202:9000/raw/raw_21824440478_1_1890919.wav,7,Bad quality score:0.7154580354690552.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890919:139905818384576>  76612929869,http://192.168.3.202:9000/raw/raw_76612929869_1_1890919.wav,7,Bad quality score:0.5018916130065918.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890919:139904687102960>  14232412098,http://192.168.3.202:9000/raw/raw_14232412098_1_1890919.wav,6,Insufficient duration, the current duration is 8.85s.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890919:139904687102416>  97637621540,http://192.168.3.202:9000/raw/raw_97637621540_1_1890919.wav,6,Insufficient duration, the current duration is 10.0s.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890919:139904687101056>  62478717387,http://192.168.3.202:9000/raw/raw_62478717387_1_1890919.wav,7,Bad quality score:0.7461346387863159.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890919:139904687102688>  15061981481,http://192.168.3.202:9000/raw/raw_15061981481_1_1890919.wav,6,Insufficient duration, the current duration is 4.85s.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890916:139905818237120>  98944062120,http://192.168.3.202:9000/raw/raw_98944062120_1_1890916.wav,6,Insufficient duration, the current duration is 8.6s.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890916:139904870287552>  55798508610,http://192.168.3.202:9000/raw/raw_55798508610_1_1890916.wav,7,Bad quality score:0.680269718170166.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890916:139904870288912>  85393557412,http://192.168.3.202:9000/raw/raw_85393557412_1_1890916.wav,7,Bad quality score:0.5215819478034973.
+[[2022-09-23 17:34:53]]  INFO  [general.py]  #181 <1890916:139904870288640>  60754024848,http://192.168.3.202:9000/raw/raw_60754024848_1_1890916.wav,7,Bad quality score:0.33135658502578735.
+[[2022-09-23 17:34:54]]  INFO  [general.py]  #181 <1890916:139904870288096>  45994648780,http://192.168.3.202:9000/raw/raw_45994648780_1_1890916.wav,7,Bad quality score:0.7417587041854858.
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #181 <1890916:139904870287008>  81724834166,http://192.168.3.202:9000/raw/raw_81724834166_1_1890916.wav,7,Bad quality score:0.15929074585437775.
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #95 <1890919:139904687102688>  [Errno 2] No such file or directory: '/tmp/17565691026/raw_1_1890919.wav'
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #104 <1890919:139904687102688>  17565691026,None,2,File save faild.
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #181 <1890919:139904687102416>  93562184021,http://192.168.3.202:9000/raw/raw_93562184021_1_1890919.wav,6,Insufficient duration, the current duration is 8.05s.
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #181 <1890919:139905818384576>  15383281628,http://192.168.3.202:9000/raw/raw_15383281628_1_1890919.wav,7,Bad quality score:0.6879892945289612.
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #181 <1890919:139904687101328>  16143815639,http://192.168.3.202:9000/raw/raw_16143815639_1_1890919.wav,7,Bad quality score:0.6318992972373962.
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #181 <1890919:139904687101056>  22611482107,http://192.168.3.202:9000/raw/raw_22611482107_1_1890919.wav,6,Insufficient duration, the current duration is 5.5s.
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #181 <1890916:139905818237120>  29994115707,http://192.168.3.202:9000/raw/raw_29994115707_1_1890916.wav,6,Insufficient duration, the current duration is 2.85s.
+[[2022-09-23 17:34:55]]  INFO  [general.py]  #181 <1890916:139904870287552>  21859476266,http://192.168.3.202:9000/raw/raw_21859476266_1_1890916.wav,7,Bad quality score:0.7076797485351562.
+[[2022-09-23 17:34:56]]  INFO  [general.py]  #181 <1890919:139904687100784>  43852401767,http://192.168.3.202:9000/raw/raw_43852401767_1_1890919.wav,7,Bad quality score:0.49978286027908325.
+[[2022-09-23 19:27:04]]  INFO  [general.py]  #248 <2025786:140507734345472>  71525016284,http://192.168.3.202:9000/raw/raw_71525016284_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:05]]  INFO  [general.py]  #248 <2025786:140507734345472>  32629518917,http://192.168.3.202:9000/raw/raw_32629518917_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:05]]  INFO  [general.py]  #248 <2025786:140507734345472>  69554114489,http://192.168.3.202:9000/raw/raw_69554114489_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:05]]  INFO  [general.py]  #248 <2025786:140507734345472>  54257497111,http://192.168.3.202:9000/raw/raw_54257497111_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:06]]  INFO  [general.py]  #248 <2025786:140507734345472>  17441797692,http://192.168.3.202:9000/raw/raw_17441797692_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:07]]  INFO  [general.py]  #248 <2025786:140507734345472>  24062302433,http://192.168.3.202:9000/raw/raw_24062302433_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:07]]  INFO  [general.py]  #248 <2025786:140507734345472>  20535892550,http://192.168.3.202:9000/raw/raw_20535892550_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:07]]  INFO  [general.py]  #248 <2025786:140507734345472>  37110270526,http://192.168.3.202:9000/raw/raw_37110270526_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:08]]  INFO  [general.py]  #248 <2025786:140507734345472>  41371186295,http://192.168.3.202:9000/raw/raw_41371186295_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:27:08]]  INFO  [general.py]  #248 <2025786:140507734345472>  51722092006,http://192.168.3.202:9000/raw/raw_51722092006_1_2025786.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:09]]  INFO  [general.py]  #248 <2030416:140635192432384>  29060070854,http://192.168.3.202:9000/raw/raw_29060070854_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:09]]  INFO  [general.py]  #248 <2030416:140635192432384>  61996466381,http://192.168.3.202:9000/raw/raw_61996466381_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:10]]  INFO  [general.py]  #248 <2030416:140635192432384>  62866723430,http://192.168.3.202:9000/raw/raw_62866723430_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:10]]  INFO  [general.py]  #248 <2030416:140635192432384>  45154206093,http://192.168.3.202:9000/raw/raw_45154206093_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:11]]  INFO  [general.py]  #248 <2030416:140635192432384>  32843900006,http://192.168.3.202:9000/raw/raw_32843900006_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:11]]  INFO  [general.py]  #248 <2030416:140635192432384>  22102907727,http://192.168.3.202:9000/raw/raw_22102907727_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:12]]  INFO  [general.py]  #248 <2030416:140635192432384>  95332870788,http://192.168.3.202:9000/raw/raw_95332870788_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:12]]  INFO  [general.py]  #248 <2030416:140635192432384>  68914779494,http://192.168.3.202:9000/raw/raw_68914779494_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:13]]  INFO  [general.py]  #248 <2030416:140635192432384>  60087830921,http://192.168.3.202:9000/raw/raw_60087830921_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:29:13]]  INFO  [general.py]  #248 <2030416:140635192432384>  62132157611,http://192.168.3.202:9000/raw/raw_62132157611_1_2030416.wav,6,Insufficient duration, the current duration is 31.65s.
+[[2022-09-23 19:35:49]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:49]]  INFO  [general.py]  #224 <2043698:140265517102848>  79094248611,http://192.168.3.202:9000/raw/raw_79094248611_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/79094248611/raw_1_2043698.wav.
+[[2022-09-23 19:35:50]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:50]]  INFO  [general.py]  #224 <2043698:140265517102848>  80125422157,http://192.168.3.202:9000/raw/raw_80125422157_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/80125422157/raw_1_2043698.wav.
+[[2022-09-23 19:35:50]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:50]]  INFO  [general.py]  #224 <2043698:140265517102848>  25790804116,http://192.168.3.202:9000/raw/raw_25790804116_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/25790804116/raw_1_2043698.wav.
+[[2022-09-23 19:35:51]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:51]]  INFO  [general.py]  #224 <2043698:140265517102848>  27469161707,http://192.168.3.202:9000/raw/raw_27469161707_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/27469161707/raw_1_2043698.wav.
+[[2022-09-23 19:35:52]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:52]]  INFO  [general.py]  #224 <2043698:140265517102848>  78325192359,http://192.168.3.202:9000/raw/raw_78325192359_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/78325192359/raw_1_2043698.wav.
+[[2022-09-23 19:35:53]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:53]]  INFO  [general.py]  #224 <2043698:140265517102848>  69907766910,http://192.168.3.202:9000/raw/raw_69907766910_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/69907766910/raw_1_2043698.wav.
+[[2022-09-23 19:35:53]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:53]]  INFO  [general.py]  #224 <2043698:140265517102848>  29030897536,http://192.168.3.202:9000/raw/raw_29030897536_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/29030897536/raw_1_2043698.wav.
+[[2022-09-23 19:35:54]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:54]]  INFO  [general.py]  #224 <2043698:140265517102848>  54832019956,http://192.168.3.202:9000/raw/raw_54832019956_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/54832019956/raw_1_2043698.wav.
+[[2022-09-23 19:35:55]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:55]]  INFO  [general.py]  #224 <2043698:140265517102848>  56956885687,http://192.168.3.202:9000/raw/raw_56956885687_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/56956885687/raw_1_2043698.wav.
+[[2022-09-23 19:35:55]]  INFO  [general.py]  #206 <2043698:140265517102848>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:35:55]]  INFO  [general.py]  #224 <2043698:140265517102848>  40234420347,http://192.168.3.202:9000/raw/raw_40234420347_1_2043698.wav,5,Self Test faild.
+No useful data in /tmp/40234420347/raw_1_2043698.wav.
+[[2022-09-23 19:37:22]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:22]]  INFO  [general.py]  #224 <2047148:139879933826816>  70407945606,http://192.168.3.202:9000/raw/raw_70407945606_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/70407945606/raw_1_2047148.wav.
+[[2022-09-23 19:37:22]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:22]]  INFO  [general.py]  #224 <2047148:139879933826816>  40526162577,http://192.168.3.202:9000/raw/raw_40526162577_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/40526162577/raw_1_2047148.wav.
+[[2022-09-23 19:37:23]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:23]]  INFO  [general.py]  #224 <2047148:139879933826816>  44198341707,http://192.168.3.202:9000/raw/raw_44198341707_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/44198341707/raw_1_2047148.wav.
+[[2022-09-23 19:37:24]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:24]]  INFO  [general.py]  #224 <2047148:139879933826816>  62576334996,http://192.168.3.202:9000/raw/raw_62576334996_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/62576334996/raw_1_2047148.wav.
+[[2022-09-23 19:37:24]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:25]]  INFO  [general.py]  #224 <2047148:139879933826816>  46898654857,http://192.168.3.202:9000/raw/raw_46898654857_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/46898654857/raw_1_2047148.wav.
+[[2022-09-23 19:37:25]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:25]]  INFO  [general.py]  #224 <2047148:139879933826816>  80506861447,http://192.168.3.202:9000/raw/raw_80506861447_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/80506861447/raw_1_2047148.wav.
+[[2022-09-23 19:37:26]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:26]]  INFO  [general.py]  #224 <2047148:139879933826816>  54710143150,http://192.168.3.202:9000/raw/raw_54710143150_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/54710143150/raw_1_2047148.wav.
+[[2022-09-23 19:37:26]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:27]]  INFO  [general.py]  #224 <2047148:139879933826816>  81416685594,http://192.168.3.202:9000/raw/raw_81416685594_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/81416685594/raw_1_2047148.wav.
+[[2022-09-23 19:37:27]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:27]]  INFO  [general.py]  #224 <2047148:139879933826816>  11635608568,http://192.168.3.202:9000/raw/raw_11635608568_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/11635608568/raw_1_2047148.wav.
+[[2022-09-23 19:37:28]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
+[[2022-09-23 19:37:28]]  INFO  [general.py]  #224 <2047148:139879933826816>  27058633250,http://192.168.3.202:9000/raw/raw_27058633250_1_2047148.wav,5,Self Test faild.
+No useful data in /tmp/27058633250/raw_1_2047148.wav.

@@ -36,7 +36,7 @@ VAD = VAD.from_hparams(
 )
 
 
-def vad(wav, spkid,action_type,device=cfg.DEVICE):
+def vad(wav, spkid, action_type, device=cfg.DEVICE):
     """Audio silence clip removal
     Args:
         wav (Numpy array (1D)): audio data
