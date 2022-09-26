@@ -16,7 +16,9 @@ DEVICE = "cuda:0"  # "cuda:id" or "cpu"
 # Threads
 THREADS = 20
 
-WAV_START = 7
+# start second
+WAV_START = 0
+
 # Max Connections
 WORKER_CONNECTIONS = 20
 
@@ -26,7 +28,7 @@ PORT = 8187
 # Classify
 CLASSIFY = True
 
-#
+# Check duplicate
 CHECK_DUPLICATE = False
 
 # Log Phone Info Or Not
@@ -36,7 +38,7 @@ LOG_PHONE_INFO = False
 CLIP_DETECT = True
 
 # Black Base Threshold
-BLACK_TH = 0.82
+BLACK_TH = 0.795
 
 # Clipping Detection Threshold(>0.99)
 CLIP_TH = 0.03
@@ -46,7 +48,7 @@ MIN_LENGTH_REGISTER = 10
 MIN_LENGTH_TEST = 5
 
 # Self-Test Limit
-SELF_TEST_TH = 0.75
+SELF_TEST_TH = 0.6
 
 # Self-Test segment length
 SELF_TEST_SL = 3

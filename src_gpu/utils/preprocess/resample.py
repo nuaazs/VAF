@@ -8,6 +8,8 @@ import torchaudio.transforms as T
 import torchaudio
 import os
 import sys
+from pathlib import Path
+
 
 # cfg
 import cfg
@@ -41,21 +43,21 @@ def resample(
     wav, sr = torchaudio.load(wav_filepath)
     if len(wav.shape) > 1 and wav.shape[0] > 1:
         # Multi-channel audio, and the number of channels is greater than 1
-        if wav.shape[1] > start+ sr * (wav_length):
-            wav = wav[channel, start+start: (wav_length) * sr]
+        if wav.shape[1] > start + sr * (wav_length):
+            wav = wav[channel, start + start : (wav_length) * sr]
         else:
             wav = wav[channel, start:]
     elif len(wav.shape) > 1:
         # Multi-channel audio, and the number of channels is equal to 1
         wav = wav[0]
-        if wav.shape[0] > start+ sr * (wav_length):
-            wav = wav[start:start+ (wav_length) * sr]
+        if wav.shape[0] > start + sr * (wav_length):
+            wav = wav[start : start + (wav_length) * sr]
         else:
             wav = wav[start:]
     else:
         # single channel audio
-        if wav.shape[0] > start+ sr * (wav_length):
-            wav = wav[start: (wav_length) * sr]
+        if wav.shape[0] > start + sr * (wav_length):
+            wav = wav[start : (wav_length) * sr]
         else:
             wav = wav
 
@@ -63,10 +65,11 @@ def resample(
         resampler = T.Resample(sr, sr_dst)
         wav = resampler(wav)
 
+    path = Path(wav_filepath)
     # os.remove(wav_file)
     if os.path.isfile(wav_filepath):
         # Audio files are deleted, but the speaker directory remains
-        cmd = f"rm -rf {wav_filepath}"
+        cmd = f"rm -rf {path.parent.absolute()}"
         os.system(cmd)
 
     return wav

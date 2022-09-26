@@ -11,6 +11,7 @@ import numpy as np
 import pandas as pd
 import re
 import sys
+from pathlib import Path
 
 # cfg
 import cfg
@@ -79,18 +80,14 @@ def vad(wav, spkid, action_type, device=cfg.DEVICE):
         speech_th=0.50,
     )
 
-    VAD.save_boundaries(
-        boundaries,
-        save_path=boundaries_save_path,
-        print_boundaries=True,
-        audio_file=None,
-    )
+    # VAD.save_boundaries(
+    #     boundaries,
+    #     save_path=boundaries_save_path,
+    #     print_boundaries=False,
+    #     audio_file=None,
+    # )
 
     upsampled_boundaries = VAD.upsample_boundaries(boundaries, final_save_path)
-    print(upsampled_boundaries[0])
-    print(upsampled_boundaries.max())
-    print(upsampled_boundaries.min())
-    print(upsampled_boundaries.mean())
     output_wav = wav[upsampled_boundaries[0] > 0.99]
 
     if cfg.SAVE_PREPROCESSED_OSS:
@@ -104,7 +101,15 @@ def vad(wav, spkid, action_type, device=cfg.DEVICE):
     else:
         preprocessed_file_path = ""
 
-    os.remove(final_save_path)
+
+    path = Path(final_save_path)
+    # os.remove(final_save_path)
+    if os.path.isfile(final_save_path):
+        # Audio files are deleted, but the speaker directory remains
+        cmd = f"rm -rf {path.parent.absolute()} & rm -rf ./pretrained_model_checkpoints/{path.name}"
+        print(cmd)
+        os.system(cmd)
+
     after_vad_length = len(output_wav) / 16000.0
     output_wav = torch.FloatTensor(output_wav)
     result = {

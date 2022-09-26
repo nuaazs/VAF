@@ -54,10 +54,8 @@ def encode(wav_torch_raw, action_type):
         }
         return result
     segments_number = int(raw_wav_length)
-    print("segments_number", segments_number)
     wav_torch = wav_torch_raw.unsqueeze(0)
-    
-    
+
     # full_wavs = []  # wav_torch
     # segments = []
     # start = 0
@@ -98,8 +96,6 @@ def encode(wav_torch_raw, action_type):
     #         continue
     #     socres.append(similarity(batch[del_index][0], batch[y_index][0]))
 
-
-    print("+"*30,wav_torch.shape)
     wav_length = int((wav_torch.shape[1] - 10) / 2)
     left = torch.cat((wav_torch[:, :wav_length], wav_torch[:, :wav_length]), dim=1)
     right = torch.cat(
@@ -128,18 +124,19 @@ def encode(wav_torch_raw, action_type):
             "before_score": None,
             "mean_score": mean_score,
             "min_score": min_score,
-            "tensor": embedding[0],#encode_result[x_index][0],
+            "tensor": embedding[0],  # encode_result[x_index][0],
             "err_type": 0,
         }
     else:
-        result = {
-            "pass": False,
-            "msg": f"Bad quality score:{min_score}.",
-            "max_score": max_score,
-            "mean_score": mean_score,
-            "min_score": min_score,
-            "err_type": 7,
-        }
+        result = do_denoise(wav_torch_raw)
+        # result = {
+        #     "pass": False,
+        #     "msg": f"Bad quality score:{min_score}.",
+        #     "max_score": max_score,
+        #     "mean_score": mean_score,
+        #     "min_score": min_score,
+        #     "err_type": 7,
+        # }
     return result
 
 
@@ -147,21 +144,17 @@ def do_denoise(wav, before_score):
     """ Noise reduction for audio
 
     Args:
-        wav (_type_): _description_
-        before_score (_type_): _description_
+        wav (tensor): Audio data
+        before_score (tensor): score brefore denoise
 
     Returns:
-        _type_: _description_
+        dict: encode result
     """
-    logger.info("Denoising ...")
     similarity_limit = cfg.SELF_TEST_TH
-    min_length = cfg.MIN_LENGTH
-    sr = cfg.SR
     max_score = 0
     mean_score = 0
     min_score = 1
     wav_torch = denoise_wav(wav.unsqueeze(0))
-
     wav_length = int((wav_torch.shape[1] - 10) / 2)
     left = torch.cat((wav_torch[:, :wav_length], wav_torch[:, :wav_length]), dim=1)
     right = torch.cat(

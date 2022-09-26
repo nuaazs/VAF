@@ -53,3 +53,10 @@ cd ./src
 # python运行
 python vvs_service.py
 ```
+
+### Version
+```
+2022-09-26  zhao sheng <zhaosheng@nuaa.edu.cn>
+	* file模式文件保存方式由wav转为webm。
+    * vad时间分辨率默认改为 25ms
+```
