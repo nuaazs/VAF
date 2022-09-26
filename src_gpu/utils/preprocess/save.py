@@ -34,17 +34,17 @@ def save_file(file, spk):
     save_path_wav = os.path.join(spk_dir, f"raw_{speech_number}_{pid}.wav")
     file.save(save_path)
     # conver to wav
-    cmd = f"ffmpeg -i {save_path} -ac 1 -ar 16000 {save_path_wav}"
-    subprocess.call(cmd, shell=True)
+    #cmd = f"ffmpeg -i {save_path} -ac 1 -ar 16000 {save_path_wav}"
+    #subprocess.call(cmd, shell=True)
     # cmd = f"rm {save_path}"
     # subprocess.call(cmd, shell=True)
     raw_file_path = upload_file(
         bucket_name="raw",
-        filepath=save_path_wav,
+        filepath=save_path,
         filename=f"raw_{spk}_{speech_number}_{pid}.wav",
         save_days=cfg.MINIO["test_save_days"],
     )
-    return save_path_wav, raw_file_path
+    return save_path, raw_file_path
 
 
 def save_url(url, spk):

@@ -281,7 +281,6 @@ def general(request_form, get_type="url", action_type="test"):
         )
 
     elif action_num == 2:
-        print("*" * 100)
         return register(
             embedding,
             wav,

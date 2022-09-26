@@ -57,7 +57,7 @@ def register(
         max_class_index=max_class_index,
         log_phone_info=cfg.LOG_PHONE_INFO,
     )
-    print(f"Add success: {add_success}")
+    # print(f"Add success: {add_success}")
     if add_success:
         skp_info = {
             "name": "none",
