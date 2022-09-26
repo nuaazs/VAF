@@ -87,6 +87,10 @@ def vad(wav, spkid, action_type, device=cfg.DEVICE):
     )
 
     upsampled_boundaries = VAD.upsample_boundaries(boundaries, final_save_path)
+    print(upsampled_boundaries[0])
+    print(upsampled_boundaries.max())
+    print(upsampled_boundaries.min())
+    print(upsampled_boundaries.mean())
     output_wav = wav[upsampled_boundaries[0] > 0.99]
 
     if cfg.SAVE_PREPROCESSED_OSS:

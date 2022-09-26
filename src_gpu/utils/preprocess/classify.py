@@ -13,7 +13,6 @@ def classify(embedding):
     max_class_index = 0
     if cfg.CLASSIFY:
         for index, i in enumerate(torch.eye(192).cuda()):
-
             now_class_score = similarity(embedding, i)
             if now_class_score > max_class_score:
                 max_class_score = now_class_score

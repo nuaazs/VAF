@@ -16,6 +16,7 @@ DEVICE = "cuda:0"  # "cuda:id" or "cpu"
 # Threads
 THREADS = 20
 
+WAV_START = 7
 # Max Connections
 WORKER_CONNECTIONS = 20
 
@@ -60,7 +61,7 @@ WAV_LENGTH = 90
 WAV_CHANNEL = 1
 
 # Whether to save the preprocessed file
-SAVE_PREPROCESSED_OSS = False
+SAVE_PREPROCESSED_OSS = True
 
 # Mysql
 MYSQL = {

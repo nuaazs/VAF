@@ -7366,3 +7366,363 @@ No useful data in /tmp/11635608568/raw_1_2047148.wav.
 [[2022-09-23 19:37:28]]  INFO  [general.py]  #206 <2047148:139879933826816>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [10, 80, 1]
 [[2022-09-23 19:37:28]]  INFO  [general.py]  #224 <2047148:139879933826816>  27058633250,http://192.168.3.202:9000/raw/raw_27058633250_1_2047148.wav,5,Self Test faild.
 No useful data in /tmp/27058633250/raw_1_2047148.wav.
+[[2022-09-24 22:36:03]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:03]]  INFO  [general.py]  #222 <801810:140254117172992>  84575722945,http://192.168.3.202:9000/raw/raw_84575722945_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/84575722945/raw_1_801810.wav.
+[[2022-09-24 22:36:04]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:04]]  INFO  [general.py]  #222 <801810:140254117172992>  17571151375,http://192.168.3.202:9000/raw/raw_17571151375_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/17571151375/raw_1_801810.wav.
+[[2022-09-24 22:36:05]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:05]]  INFO  [general.py]  #222 <801810:140254117172992>  35144061072,http://192.168.3.202:9000/raw/raw_35144061072_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/35144061072/raw_1_801810.wav.
+[[2022-09-24 22:36:06]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:06]]  INFO  [general.py]  #222 <801810:140254117172992>  67220805831,http://192.168.3.202:9000/raw/raw_67220805831_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/67220805831/raw_1_801810.wav.
+[[2022-09-24 22:36:06]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:06]]  INFO  [general.py]  #222 <801810:140254117172992>  77750363965,http://192.168.3.202:9000/raw/raw_77750363965_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/77750363965/raw_1_801810.wav.
+[[2022-09-24 22:36:07]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:07]]  INFO  [general.py]  #222 <801810:140254117172992>  83701115575,http://192.168.3.202:9000/raw/raw_83701115575_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/83701115575/raw_1_801810.wav.
+[[2022-09-24 22:36:08]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:08]]  INFO  [general.py]  #222 <801810:140254117172992>  47021418880,http://192.168.3.202:9000/raw/raw_47021418880_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/47021418880/raw_1_801810.wav.
+[[2022-09-24 22:36:09]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:09]]  INFO  [general.py]  #222 <801810:140254117172992>  30217320453,http://192.168.3.202:9000/raw/raw_30217320453_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/30217320453/raw_1_801810.wav.
+[[2022-09-24 22:36:09]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:09]]  INFO  [general.py]  #222 <801810:140254117172992>  42647390635,http://192.168.3.202:9000/raw/raw_42647390635_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/42647390635/raw_1_801810.wav.
+[[2022-09-24 22:36:10]]  INFO  [general.py]  #204 <801810:140254117172992>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [15, 80, 1]
+[[2022-09-24 22:36:10]]  INFO  [general.py]  #222 <801810:140254117172992>  19536264249,http://192.168.3.202:9000/raw/raw_19536264249_1_801810.wav,5,Self Test faild.
+No useful data in /tmp/19536264249/raw_1_801810.wav.
+[[2022-09-24 22:43:40]]  INFO  [general.py]  #249 <818164:140345966159616>  12577158276,http://192.168.3.202:9000/raw/raw_12577158276_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:41]]  INFO  [general.py]  #249 <818164:140345966159616>  73185254339,http://192.168.3.202:9000/raw/raw_73185254339_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:42]]  INFO  [general.py]  #249 <818164:140345966159616>  56544401987,http://192.168.3.202:9000/raw/raw_56544401987_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:42]]  INFO  [general.py]  #249 <818164:140345966159616>  30096227332,http://192.168.3.202:9000/raw/raw_30096227332_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:43]]  INFO  [general.py]  #249 <818164:140345966159616>  91275390673,http://192.168.3.202:9000/raw/raw_91275390673_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:44]]  INFO  [general.py]  #249 <818164:140345966159616>  30764809676,http://192.168.3.202:9000/raw/raw_30764809676_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:45]]  INFO  [general.py]  #249 <818164:140345966159616>  62942119903,http://192.168.3.202:9000/raw/raw_62942119903_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:45]]  INFO  [general.py]  #249 <818164:140345966159616>  99200442699,http://192.168.3.202:9000/raw/raw_99200442699_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:46]]  INFO  [general.py]  #249 <818164:140345966159616>  19125179061,http://192.168.3.202:9000/raw/raw_19125179061_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-24 22:43:47]]  INFO  [general.py]  #249 <818164:140345966159616>  85120097436,http://192.168.3.202:9000/raw/raw_85120097436_1_818164.wav,7,Bad quality score:0.0.
+[[2022-09-25 11:15:35]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:35]]  INFO  [general.py]  #225 <2198055:140558856156928>  68164736465,http://192.168.3.202:9000/raw/raw_68164736465_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/68164736465/raw_1_2198055.wav.
+[[2022-09-25 11:15:35]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:35]]  INFO  [general.py]  #225 <2198055:140558856156928>  90399739984,http://192.168.3.202:9000/raw/raw_90399739984_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/90399739984/raw_1_2198055.wav.
+[[2022-09-25 11:15:36]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:36]]  INFO  [general.py]  #225 <2198055:140558856156928>  77389442989,http://192.168.3.202:9000/raw/raw_77389442989_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/77389442989/raw_1_2198055.wav.
+[[2022-09-25 11:15:37]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:37]]  INFO  [general.py]  #225 <2198055:140558856156928>  22786907108,http://192.168.3.202:9000/raw/raw_22786907108_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/22786907108/raw_1_2198055.wav.
+[[2022-09-25 11:15:38]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:38]]  INFO  [general.py]  #225 <2198055:140558856156928>  32188288856,http://192.168.3.202:9000/raw/raw_32188288856_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/32188288856/raw_1_2198055.wav.
+[[2022-09-25 11:15:38]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:38]]  INFO  [general.py]  #225 <2198055:140558856156928>  76632029360,http://192.168.3.202:9000/raw/raw_76632029360_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/76632029360/raw_1_2198055.wav.
+[[2022-09-25 11:15:39]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:39]]  INFO  [general.py]  #225 <2198055:140558856156928>  70361029526,http://192.168.3.202:9000/raw/raw_70361029526_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/70361029526/raw_1_2198055.wav.
+[[2022-09-25 11:15:40]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:40]]  INFO  [general.py]  #225 <2198055:140558856156928>  48196929704,http://192.168.3.202:9000/raw/raw_48196929704_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/48196929704/raw_1_2198055.wav.
+[[2022-09-25 11:15:41]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:41]]  INFO  [general.py]  #225 <2198055:140558856156928>  13245132170,http://192.168.3.202:9000/raw/raw_13245132170_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/13245132170/raw_1_2198055.wav.
+[[2022-09-25 11:15:41]]  INFO  [general.py]  #207 <2198055:140558856156928>  tuple index out of range
+[[2022-09-25 11:15:41]]  INFO  [general.py]  #225 <2198055:140558856156928>  12973852836,http://192.168.3.202:9000/raw/raw_12973852836_1_2198055.wav,5,Self Test faild.
+No useful data in /tmp/12973852836/raw_1_2198055.wav.
+[[2022-09-25 11:32:31]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:31]]  INFO  [general.py]  #225 <2229348:140073993594624>  19964999628,http://192.168.3.202:9000/raw/raw_19964999628_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/19964999628/raw_1_2229348.wav.
+[[2022-09-25 11:32:31]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:32]]  INFO  [general.py]  #225 <2229348:140073993594624>  71707631991,http://192.168.3.202:9000/raw/raw_71707631991_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/71707631991/raw_1_2229348.wav.
+[[2022-09-25 11:32:32]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:32]]  INFO  [general.py]  #225 <2229348:140073993594624>  20926404876,http://192.168.3.202:9000/raw/raw_20926404876_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/20926404876/raw_1_2229348.wav.
+[[2022-09-25 11:32:33]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:33]]  INFO  [general.py]  #225 <2229348:140073993594624>  61254567909,http://192.168.3.202:9000/raw/raw_61254567909_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/61254567909/raw_1_2229348.wav.
+[[2022-09-25 11:32:34]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:34]]  INFO  [general.py]  #225 <2229348:140073993594624>  29572746719,http://192.168.3.202:9000/raw/raw_29572746719_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/29572746719/raw_1_2229348.wav.
+[[2022-09-25 11:32:35]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:35]]  INFO  [general.py]  #225 <2229348:140073993594624>  61138786435,http://192.168.3.202:9000/raw/raw_61138786435_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/61138786435/raw_1_2229348.wav.
+[[2022-09-25 11:32:35]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:35]]  INFO  [general.py]  #225 <2229348:140073993594624>  68016846500,http://192.168.3.202:9000/raw/raw_68016846500_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/68016846500/raw_1_2229348.wav.
+[[2022-09-25 11:32:36]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:36]]  INFO  [general.py]  #225 <2229348:140073993594624>  77868278086,http://192.168.3.202:9000/raw/raw_77868278086_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/77868278086/raw_1_2229348.wav.
+[[2022-09-25 11:32:37]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:37]]  INFO  [general.py]  #225 <2229348:140073993594624>  69720642236,http://192.168.3.202:9000/raw/raw_69720642236_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/69720642236/raw_1_2229348.wav.
+[[2022-09-25 11:32:38]]  INFO  [general.py]  #207 <2229348:140073993594624>  tuple index out of range
+[[2022-09-25 11:32:38]]  INFO  [general.py]  #225 <2229348:140073993594624>  50128478529,http://192.168.3.202:9000/raw/raw_50128478529_1_2229348.wav,5,Self Test faild.
+No useful data in /tmp/50128478529/raw_1_2229348.wav.
+[[2022-09-25 11:33:47]]  INFO  [general.py]  #252 <2232342:140376307488512>  92699841528,http://192.168.3.202:9000/raw/raw_92699841528_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:47]]  INFO  [general.py]  #252 <2232342:140376307488512>  30104221046,http://192.168.3.202:9000/raw/raw_30104221046_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:48]]  INFO  [general.py]  #252 <2232342:140376307488512>  22200574355,http://192.168.3.202:9000/raw/raw_22200574355_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:49]]  INFO  [general.py]  #252 <2232342:140376307488512>  84978875012,http://192.168.3.202:9000/raw/raw_84978875012_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:49]]  INFO  [general.py]  #252 <2232342:140376307488512>  43805983417,http://192.168.3.202:9000/raw/raw_43805983417_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:50]]  INFO  [general.py]  #252 <2232342:140376307488512>  82113093211,http://192.168.3.202:9000/raw/raw_82113093211_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:50]]  INFO  [general.py]  #252 <2232342:140376307488512>  53973603681,http://192.168.3.202:9000/raw/raw_53973603681_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:51]]  INFO  [general.py]  #252 <2232342:140376307488512>  31152061742,http://192.168.3.202:9000/raw/raw_31152061742_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:51]]  INFO  [general.py]  #252 <2232342:140376307488512>  48548097765,http://192.168.3.202:9000/raw/raw_48548097765_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:33:52]]  INFO  [general.py]  #252 <2232342:140376307488512>  74749467500,http://192.168.3.202:9000/raw/raw_74749467500_1_2232342.wav,7,Bad quality score:0.4514040946960449.
+[[2022-09-25 11:36:59]]  INFO  [general.py]  #252 <2239016:139643607459584>  84969099577,http://192.168.3.202:9000/raw/raw_84969099577_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:36:59]]  INFO  [general.py]  #252 <2239016:139643607459584>  47423079104,http://192.168.3.202:9000/raw/raw_47423079104_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:37:00]]  INFO  [general.py]  #252 <2239016:139643607459584>  23023502524,http://192.168.3.202:9000/raw/raw_23023502524_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:37:01]]  INFO  [general.py]  #252 <2239016:139643607459584>  86307169463,http://192.168.3.202:9000/raw/raw_86307169463_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:37:01]]  INFO  [general.py]  #252 <2239016:139643607459584>  49383084658,http://192.168.3.202:9000/raw/raw_49383084658_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:37:02]]  INFO  [general.py]  #252 <2239016:139643607459584>  22299648326,http://192.168.3.202:9000/raw/raw_22299648326_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:37:02]]  INFO  [general.py]  #252 <2239016:139643607459584>  34419857111,http://192.168.3.202:9000/raw/raw_34419857111_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:37:03]]  INFO  [general.py]  #252 <2239016:139643607459584>  50425963925,http://192.168.3.202:9000/raw/raw_50425963925_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:37:03]]  INFO  [general.py]  #252 <2239016:139643607459584>  75603407156,http://192.168.3.202:9000/raw/raw_75603407156_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-25 11:37:04]]  INFO  [general.py]  #252 <2239016:139643607459584>  53014309132,http://192.168.3.202:9000/raw/raw_53014309132_1_2239016.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:40]]  INFO  [general.py]  #252 <213711:139709366355712>  53860228896,http://192.168.3.202:9000/raw/raw_53860228896_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:41]]  INFO  [general.py]  #252 <213711:139709366355712>  48715591106,http://192.168.3.202:9000/raw/raw_48715591106_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:41]]  INFO  [general.py]  #252 <213711:139709366355712>  21128317493,http://192.168.3.202:9000/raw/raw_21128317493_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:42]]  INFO  [general.py]  #252 <213711:139709366355712>  34026928126,http://192.168.3.202:9000/raw/raw_34026928126_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:42]]  INFO  [general.py]  #252 <213711:139709366355712>  98627277415,http://192.168.3.202:9000/raw/raw_98627277415_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:43]]  INFO  [general.py]  #252 <213711:139709366355712>  61007159190,http://192.168.3.202:9000/raw/raw_61007159190_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:43]]  INFO  [general.py]  #252 <213711:139709366355712>  52826741145,http://192.168.3.202:9000/raw/raw_52826741145_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:44]]  INFO  [general.py]  #252 <213711:139709366355712>  29699614971,http://192.168.3.202:9000/raw/raw_29699614971_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:44]]  INFO  [general.py]  #252 <213711:139709366355712>  85128125733,http://192.168.3.202:9000/raw/raw_85128125733_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:27:45]]  INFO  [general.py]  #252 <213711:139709366355712>  74710643816,http://192.168.3.202:9000/raw/raw_74710643816_1_213711.wav,7,Bad quality score:0.5195263028144836.
+[[2022-09-26 07:29:40]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:40]]  INFO  [general.py]  #225 <218033:140381028730624>  48634129623,http://192.168.3.202:9000/raw/raw_48634129623_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/48634129623/raw_1_218033.wav.
+[[2022-09-26 07:29:41]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:41]]  INFO  [general.py]  #225 <218033:140381028730624>  15902895091,http://192.168.3.202:9000/raw/raw_15902895091_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/15902895091/raw_1_218033.wav.
+[[2022-09-26 07:29:42]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:42]]  INFO  [general.py]  #225 <218033:140381028730624>  20993734171,http://192.168.3.202:9000/raw/raw_20993734171_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/20993734171/raw_1_218033.wav.
+[[2022-09-26 07:29:43]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:43]]  INFO  [general.py]  #225 <218033:140381028730624>  93602116367,http://192.168.3.202:9000/raw/raw_93602116367_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/93602116367/raw_1_218033.wav.
+[[2022-09-26 07:29:43]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:43]]  INFO  [general.py]  #225 <218033:140381028730624>  28772199052,http://192.168.3.202:9000/raw/raw_28772199052_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/28772199052/raw_1_218033.wav.
+[[2022-09-26 07:29:44]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:44]]  INFO  [general.py]  #225 <218033:140381028730624>  30269143885,http://192.168.3.202:9000/raw/raw_30269143885_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/30269143885/raw_1_218033.wav.
+[[2022-09-26 07:29:45]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:45]]  INFO  [general.py]  #225 <218033:140381028730624>  80199052451,http://192.168.3.202:9000/raw/raw_80199052451_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/80199052451/raw_1_218033.wav.
+[[2022-09-26 07:29:45]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:45]]  INFO  [general.py]  #225 <218033:140381028730624>  91393459890,http://192.168.3.202:9000/raw/raw_91393459890_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/91393459890/raw_1_218033.wav.
+[[2022-09-26 07:29:46]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:46]]  INFO  [general.py]  #225 <218033:140381028730624>  53756120286,http://192.168.3.202:9000/raw/raw_53756120286_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/53756120286/raw_1_218033.wav.
+[[2022-09-26 07:29:47]]  INFO  [general.py]  #207 <218033:140381028730624>  tuple index out of range
+[[2022-09-26 07:29:47]]  INFO  [general.py]  #225 <218033:140381028730624>  72024532081,http://192.168.3.202:9000/raw/raw_72024532081_1_218033.wav,5,Self Test faild.
+No useful data in /tmp/72024532081/raw_1_218033.wav.
+[[2022-09-26 07:29:59]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:29:59]]  INFO  [general.py]  #225 <219079:140345784956672>  44302299915,http://192.168.3.202:9000/raw/raw_44302299915_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/44302299915/raw_1_219079.wav.
+[[2022-09-26 07:29:59]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:29:59]]  INFO  [general.py]  #225 <219079:140345784956672>  39672308915,http://192.168.3.202:9000/raw/raw_39672308915_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/39672308915/raw_1_219079.wav.
+[[2022-09-26 07:30:00]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:30:00]]  INFO  [general.py]  #225 <219079:140345784956672>  68728715665,http://192.168.3.202:9000/raw/raw_68728715665_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/68728715665/raw_1_219079.wav.
+[[2022-09-26 07:30:01]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:30:01]]  INFO  [general.py]  #225 <219079:140345784956672>  32777580570,http://192.168.3.202:9000/raw/raw_32777580570_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/32777580570/raw_1_219079.wav.
+[[2022-09-26 07:30:01]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:30:01]]  INFO  [general.py]  #225 <219079:140345784956672>  59967271702,http://192.168.3.202:9000/raw/raw_59967271702_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/59967271702/raw_1_219079.wav.
+[[2022-09-26 07:30:02]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:30:02]]  INFO  [general.py]  #225 <219079:140345784956672>  76916067882,http://192.168.3.202:9000/raw/raw_76916067882_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/76916067882/raw_1_219079.wav.
+[[2022-09-26 07:30:03]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:30:03]]  INFO  [general.py]  #225 <219079:140345784956672>  58877965311,http://192.168.3.202:9000/raw/raw_58877965311_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/58877965311/raw_1_219079.wav.
+[[2022-09-26 07:30:04]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:30:04]]  INFO  [general.py]  #225 <219079:140345784956672>  46652560196,http://192.168.3.202:9000/raw/raw_46652560196_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/46652560196/raw_1_219079.wav.
+[[2022-09-26 07:30:04]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:30:04]]  INFO  [general.py]  #225 <219079:140345784956672>  16634043558,http://192.168.3.202:9000/raw/raw_16634043558_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/16634043558/raw_1_219079.wav.
+[[2022-09-26 07:30:05]]  INFO  [general.py]  #207 <219079:140345784956672>  Argument #4: Padding size should be less than the corresponding input dimension, but got: padding (2, 2) at dimension 2 of input [3, 80, 2]
+[[2022-09-26 07:30:05]]  INFO  [general.py]  #225 <219079:140345784956672>  14352758812,http://192.168.3.202:9000/raw/raw_14352758812_1_219079.wav,5,Self Test faild.
+No useful data in /tmp/14352758812/raw_1_219079.wav.
+[[2022-09-26 07:30:51]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:51]]  INFO  [general.py]  #225 <221133:140200417658624>  99805477301,http://192.168.3.202:9000/raw/raw_99805477301_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/99805477301/raw_1_221133.wav.
+[[2022-09-26 07:30:52]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:52]]  INFO  [general.py]  #225 <221133:140200417658624>  85700372569,http://192.168.3.202:9000/raw/raw_85700372569_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/85700372569/raw_1_221133.wav.
+[[2022-09-26 07:30:53]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:53]]  INFO  [general.py]  #225 <221133:140200417658624>  15873561883,http://192.168.3.202:9000/raw/raw_15873561883_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/15873561883/raw_1_221133.wav.
+[[2022-09-26 07:30:53]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:53]]  INFO  [general.py]  #225 <221133:140200417658624>  14521709627,http://192.168.3.202:9000/raw/raw_14521709627_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/14521709627/raw_1_221133.wav.
+[[2022-09-26 07:30:54]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:54]]  INFO  [general.py]  #225 <221133:140200417658624>  65795952756,http://192.168.3.202:9000/raw/raw_65795952756_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/65795952756/raw_1_221133.wav.
+[[2022-09-26 07:30:55]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:55]]  INFO  [general.py]  #225 <221133:140200417658624>  22286169585,http://192.168.3.202:9000/raw/raw_22286169585_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/22286169585/raw_1_221133.wav.
+[[2022-09-26 07:30:56]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:56]]  INFO  [general.py]  #225 <221133:140200417658624>  79438758418,http://192.168.3.202:9000/raw/raw_79438758418_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/79438758418/raw_1_221133.wav.
+[[2022-09-26 07:30:56]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:56]]  INFO  [general.py]  #225 <221133:140200417658624>  19290839530,http://192.168.3.202:9000/raw/raw_19290839530_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/19290839530/raw_1_221133.wav.
+[[2022-09-26 07:30:57]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:57]]  INFO  [general.py]  #225 <221133:140200417658624>  70485333801,http://192.168.3.202:9000/raw/raw_70485333801_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/70485333801/raw_1_221133.wav.
+[[2022-09-26 07:30:58]]  INFO  [general.py]  #207 <221133:140200417658624>  CUDA out of memory. Tried to allocate 2.10 GiB (GPU 0; 9.78 GiB total capacity; 6.49 GiB already allocated; 447.56 MiB free; 6.50 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[[2022-09-26 07:30:58]]  INFO  [general.py]  #225 <221133:140200417658624>  79888821820,http://192.168.3.202:9000/raw/raw_79888821820_1_221133.wav,5,Self Test faild.
+No useful data in /tmp/79888821820/raw_1_221133.wav.
+[[2022-09-26 07:31:15]]  INFO  [general.py]  #252 <222373:140278859593472>  91821737781,http://192.168.3.202:9000/raw/raw_91821737781_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:15]]  INFO  [general.py]  #252 <222373:140278859593472>  70450787031,http://192.168.3.202:9000/raw/raw_70450787031_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:16]]  INFO  [general.py]  #252 <222373:140278859593472>  62194872058,http://192.168.3.202:9000/raw/raw_62194872058_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:17]]  INFO  [general.py]  #252 <222373:140278859593472>  82518613431,http://192.168.3.202:9000/raw/raw_82518613431_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:18]]  INFO  [general.py]  #252 <222373:140278859593472>  84569361280,http://192.168.3.202:9000/raw/raw_84569361280_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:18]]  INFO  [general.py]  #252 <222373:140278859593472>  52561477271,http://192.168.3.202:9000/raw/raw_52561477271_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:19]]  INFO  [general.py]  #252 <222373:140278859593472>  77862774407,http://192.168.3.202:9000/raw/raw_77862774407_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:20]]  INFO  [general.py]  #252 <222373:140278859593472>  99284336979,http://192.168.3.202:9000/raw/raw_99284336979_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:21]]  INFO  [general.py]  #252 <222373:140278859593472>  30905804194,http://192.168.3.202:9000/raw/raw_30905804194_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:31:21]]  INFO  [general.py]  #252 <222373:140278859593472>  94060525095,http://192.168.3.202:9000/raw/raw_94060525095_1_222373.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:34]]  INFO  [general.py]  #252 <227101:139737142085376>  62267635170,http://192.168.3.202:9000/raw/raw_62267635170_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:35]]  INFO  [general.py]  #252 <227101:139737142085376>  97493785549,http://192.168.3.202:9000/raw/raw_97493785549_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:36]]  INFO  [general.py]  #252 <227101:139737142085376>  68675516590,http://192.168.3.202:9000/raw/raw_68675516590_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:36]]  INFO  [general.py]  #252 <227101:139737142085376>  65376117825,http://192.168.3.202:9000/raw/raw_65376117825_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:37]]  INFO  [general.py]  #252 <227101:139737142085376>  39536379263,http://192.168.3.202:9000/raw/raw_39536379263_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:38]]  INFO  [general.py]  #252 <227101:139737142085376>  19158658574,http://192.168.3.202:9000/raw/raw_19158658574_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:39]]  INFO  [general.py]  #252 <227101:139737142085376>  73109982526,http://192.168.3.202:9000/raw/raw_73109982526_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:40]]  INFO  [general.py]  #252 <227101:139737142085376>  94065448110,http://192.168.3.202:9000/raw/raw_94065448110_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:40]]  INFO  [general.py]  #252 <227101:139737142085376>  96124614247,http://192.168.3.202:9000/raw/raw_96124614247_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:33:41]]  INFO  [general.py]  #252 <227101:139737142085376>  63351238221,http://192.168.3.202:9000/raw/raw_63351238221_1_227101.wav,7,Bad quality score:0.5811522006988525.
+[[2022-09-26 07:46:56]]  INFO  [general.py]  #252 <227101:139737142085376>  49282520466,http://192.168.3.202:9000/raw/raw_49282520466_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:46:57]]  INFO  [general.py]  #252 <227101:139737142085376>  22317811340,http://192.168.3.202:9000/raw/raw_22317811340_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:46:57]]  INFO  [general.py]  #252 <227101:139737142085376>  90445037101,http://192.168.3.202:9000/raw/raw_90445037101_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:46:58]]  INFO  [general.py]  #252 <227101:139737142085376>  56602933236,http://192.168.3.202:9000/raw/raw_56602933236_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:46:58]]  INFO  [general.py]  #252 <227101:139737142085376>  83120761523,http://192.168.3.202:9000/raw/raw_83120761523_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:46:59]]  INFO  [general.py]  #252 <227101:139737142085376>  20513432254,http://192.168.3.202:9000/raw/raw_20513432254_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:46:59]]  INFO  [general.py]  #252 <227101:139737142085376>  21180175960,http://192.168.3.202:9000/raw/raw_21180175960_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:47:00]]  INFO  [general.py]  #252 <227101:139737142085376>  90263791408,http://192.168.3.202:9000/raw/raw_90263791408_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:47:00]]  INFO  [general.py]  #252 <227101:139737142085376>  96947184954,http://192.168.3.202:9000/raw/raw_96947184954_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:47:01]]  INFO  [general.py]  #252 <227101:139737142085376>  28450503103,http://192.168.3.202:9000/raw/raw_28450503103_1_227101.wav,7,Bad quality score:0.5143068432807922.
+[[2022-09-26 07:47:37]]  INFO  [general.py]  #252 <254349:140438332815104>  50742295541,http://192.168.3.202:9000/raw/raw_50742295541_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:38]]  INFO  [general.py]  #252 <254349:140438332815104>  14163328512,http://192.168.3.202:9000/raw/raw_14163328512_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:38]]  INFO  [general.py]  #252 <254349:140438332815104>  47253390692,http://192.168.3.202:9000/raw/raw_47253390692_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:38]]  INFO  [general.py]  #252 <254349:140438332815104>  16315858811,http://192.168.3.202:9000/raw/raw_16315858811_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:39]]  INFO  [general.py]  #252 <254349:140438332815104>  90587607721,http://192.168.3.202:9000/raw/raw_90587607721_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:39]]  INFO  [general.py]  #252 <254349:140438332815104>  91001994337,http://192.168.3.202:9000/raw/raw_91001994337_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:39]]  INFO  [general.py]  #252 <254349:140438332815104>  35754508915,http://192.168.3.202:9000/raw/raw_35754508915_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:40]]  INFO  [general.py]  #252 <254349:140438332815104>  27057824950,http://192.168.3.202:9000/raw/raw_27057824950_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:40]]  INFO  [general.py]  #252 <254349:140438332815104>  42393290676,http://192.168.3.202:9000/raw/raw_42393290676_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:47:40]]  INFO  [general.py]  #252 <254349:140438332815104>  43309313374,http://192.168.3.202:9000/raw/raw_43309313374_1_254349.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:21]]  INFO  [general.py]  #252 <259618:140689692100352>  23740857290,http://192.168.3.202:9000/raw/raw_23740857290_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:21]]  INFO  [general.py]  #252 <259618:140689692100352>  46756783189,http://192.168.3.202:9000/raw/raw_46756783189_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:22]]  INFO  [general.py]  #252 <259618:140689692100352>  65680310703,http://192.168.3.202:9000/raw/raw_65680310703_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:22]]  INFO  [general.py]  #252 <259618:140689692100352>  44754948375,http://192.168.3.202:9000/raw/raw_44754948375_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:22]]  INFO  [general.py]  #252 <259618:140689692100352>  44296835340,http://192.168.3.202:9000/raw/raw_44296835340_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:23]]  INFO  [general.py]  #252 <259618:140689692100352>  52398914107,http://192.168.3.202:9000/raw/raw_52398914107_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:23]]  INFO  [general.py]  #252 <259618:140689692100352>  29006459260,http://192.168.3.202:9000/raw/raw_29006459260_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:24]]  INFO  [general.py]  #252 <259618:140689692100352>  65752573919,http://192.168.3.202:9000/raw/raw_65752573919_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:24]]  INFO  [general.py]  #252 <259618:140689692100352>  97382577596,http://192.168.3.202:9000/raw/raw_97382577596_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:24]]  INFO  [general.py]  #252 <259618:140689692100352>  74405280355,http://192.168.3.202:9000/raw/raw_74405280355_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:56]]  INFO  [general.py]  #252 <259618:140689692100352>  60603321972,http://192.168.3.202:9000/raw/raw_60603321972_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:57]]  INFO  [general.py]  #252 <259618:140689692100352>  17328609709,http://192.168.3.202:9000/raw/raw_17328609709_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:57]]  INFO  [general.py]  #252 <259618:140689692100352>  88698093300,http://192.168.3.202:9000/raw/raw_88698093300_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:57]]  INFO  [general.py]  #252 <259618:140689692100352>  81252501801,http://192.168.3.202:9000/raw/raw_81252501801_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:58]]  INFO  [general.py]  #252 <259618:140689692100352>  19039694256,http://192.168.3.202:9000/raw/raw_19039694256_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:58]]  INFO  [general.py]  #252 <259618:140689692100352>  88413353237,http://192.168.3.202:9000/raw/raw_88413353237_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:58]]  INFO  [general.py]  #252 <259618:140689692100352>  63566804268,http://192.168.3.202:9000/raw/raw_63566804268_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:59]]  INFO  [general.py]  #252 <259618:140689692100352>  91650539879,http://192.168.3.202:9000/raw/raw_91650539879_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:59]]  INFO  [general.py]  #252 <259618:140689692100352>  24713010727,http://192.168.3.202:9000/raw/raw_24713010727_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:50:59]]  INFO  [general.py]  #252 <259618:140689692100352>  86474729811,http://192.168.3.202:9000/raw/raw_86474729811_1_259618.wav,7,Bad quality score:0.7162664532661438.
+[[2022-09-26 07:52:50]]  INFO  [general.py]  #252 <264620:140101431842560>  66711043006,http://192.168.3.202:9000/raw/raw_66711043006_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:50]]  INFO  [general.py]  #252 <264620:140101431842560>  21243223383,http://192.168.3.202:9000/raw/raw_21243223383_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:51]]  INFO  [general.py]  #252 <264620:140101431842560>  99160878529,http://192.168.3.202:9000/raw/raw_99160878529_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:51]]  INFO  [general.py]  #252 <264620:140101431842560>  50939674954,http://192.168.3.202:9000/raw/raw_50939674954_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:52]]  INFO  [general.py]  #252 <264620:140101431842560>  71085205908,http://192.168.3.202:9000/raw/raw_71085205908_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:52]]  INFO  [general.py]  #252 <264620:140101431842560>  22218812116,http://192.168.3.202:9000/raw/raw_22218812116_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:53]]  INFO  [general.py]  #252 <264620:140101431842560>  20472937797,http://192.168.3.202:9000/raw/raw_20472937797_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:54]]  INFO  [general.py]  #252 <264620:140101431842560>  18156100545,http://192.168.3.202:9000/raw/raw_18156100545_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:54]]  INFO  [general.py]  #252 <264620:140101431842560>  76806695306,http://192.168.3.202:9000/raw/raw_76806695306_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:52:55]]  INFO  [general.py]  #252 <264620:140101431842560>  44886624545,http://192.168.3.202:9000/raw/raw_44886624545_1_264620.wav,7,Bad quality score:0.15502265095710754.
+[[2022-09-26 07:55:12]]  INFO  [general.py]  #252 <269247:139882594285312>  45335428827,http://192.168.3.202:9000/raw/raw_45335428827_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:13]]  INFO  [general.py]  #252 <269247:139882594285312>  63442338387,http://192.168.3.202:9000/raw/raw_63442338387_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:13]]  INFO  [general.py]  #252 <269247:139882594285312>  75381582716,http://192.168.3.202:9000/raw/raw_75381582716_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:14]]  INFO  [general.py]  #252 <269247:139882594285312>  40730585127,http://192.168.3.202:9000/raw/raw_40730585127_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:14]]  INFO  [general.py]  #252 <269247:139882594285312>  12474609308,http://192.168.3.202:9000/raw/raw_12474609308_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:15]]  INFO  [general.py]  #252 <269247:139882594285312>  24030630405,http://192.168.3.202:9000/raw/raw_24030630405_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:15]]  INFO  [general.py]  #252 <269247:139882594285312>  14308611247,http://192.168.3.202:9000/raw/raw_14308611247_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:16]]  INFO  [general.py]  #252 <269247:139882594285312>  35368195257,http://192.168.3.202:9000/raw/raw_35368195257_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:16]]  INFO  [general.py]  #252 <269247:139882594285312>  55293506847,http://192.168.3.202:9000/raw/raw_55293506847_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:55:17]]  INFO  [general.py]  #252 <269247:139882594285312>  20850647826,http://192.168.3.202:9000/raw/raw_20850647826_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:09]]  INFO  [general.py]  #252 <269247:139882594285312>  54788193370,http://192.168.3.202:9000/raw/raw_54788193370_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:10]]  INFO  [general.py]  #252 <269247:139882594285312>  27814214173,http://192.168.3.202:9000/raw/raw_27814214173_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:10]]  INFO  [general.py]  #252 <269247:139882594285312>  24211984877,http://192.168.3.202:9000/raw/raw_24211984877_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:11]]  INFO  [general.py]  #252 <269247:139882594285312>  79589992084,http://192.168.3.202:9000/raw/raw_79589992084_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:12]]  INFO  [general.py]  #252 <269247:139882594285312>  13895144308,http://192.168.3.202:9000/raw/raw_13895144308_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:12]]  INFO  [general.py]  #252 <269247:139882594285312>  98517290146,http://192.168.3.202:9000/raw/raw_98517290146_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:13]]  INFO  [general.py]  #252 <269247:139882594285312>  28436713368,http://192.168.3.202:9000/raw/raw_28436713368_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:13]]  INFO  [general.py]  #252 <269247:139882594285312>  69293912642,http://192.168.3.202:9000/raw/raw_69293912642_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:14]]  INFO  [general.py]  #252 <269247:139882594285312>  50739140324,http://192.168.3.202:9000/raw/raw_50739140324_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:14]]  INFO  [general.py]  #252 <269247:139882594285312>  22327061555,http://192.168.3.202:9000/raw/raw_22327061555_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:39]]  INFO  [general.py]  #252 <269247:139882594285312>  32928287593,http://192.168.3.202:9000/raw/raw_32928287593_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:40]]  INFO  [general.py]  #252 <269247:139882594285312>  53415687619,http://192.168.3.202:9000/raw/raw_53415687619_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:40]]  INFO  [general.py]  #252 <269247:139882594285312>  71016117644,http://192.168.3.202:9000/raw/raw_71016117644_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:41]]  INFO  [general.py]  #252 <269247:139882594285312>  87185606711,http://192.168.3.202:9000/raw/raw_87185606711_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:41]]  INFO  [general.py]  #252 <269247:139882594285312>  78461335481,http://192.168.3.202:9000/raw/raw_78461335481_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:42]]  INFO  [general.py]  #252 <269247:139882594285312>  99448811407,http://192.168.3.202:9000/raw/raw_99448811407_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:42]]  INFO  [general.py]  #252 <269247:139882594285312>  31218848558,http://192.168.3.202:9000/raw/raw_31218848558_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:43]]  INFO  [general.py]  #252 <269247:139882594285312>  99344529085,http://192.168.3.202:9000/raw/raw_99344529085_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:43]]  INFO  [general.py]  #252 <269247:139882594285312>  33418984951,http://192.168.3.202:9000/raw/raw_33418984951_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 07:56:44]]  INFO  [general.py]  #252 <269247:139882594285312>  98729167071,http://192.168.3.202:9000/raw/raw_98729167071_1_269247.wav,7,Bad quality score:0.24287909269332886.
+[[2022-09-26 08:02:20]]  INFO  [general.py]  #252 <282905:140206136403712>  21109081975,http://192.168.3.202:9000/raw/raw_21109081975_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:20]]  INFO  [general.py]  #252 <282905:140206136403712>  44722361726,http://192.168.3.202:9000/raw/raw_44722361726_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:20]]  INFO  [general.py]  #252 <282905:140206136403712>  21218266513,http://192.168.3.202:9000/raw/raw_21218266513_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:20]]  INFO  [general.py]  #252 <282905:140206136403712>  45162349222,http://192.168.3.202:9000/raw/raw_45162349222_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:21]]  INFO  [general.py]  #252 <282905:140206136403712>  85932065702,http://192.168.3.202:9000/raw/raw_85932065702_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:21]]  INFO  [general.py]  #252 <282905:140206136403712>  37482051717,http://192.168.3.202:9000/raw/raw_37482051717_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:21]]  INFO  [general.py]  #252 <282905:140206136403712>  20471703892,http://192.168.3.202:9000/raw/raw_20471703892_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:21]]  INFO  [general.py]  #252 <282905:140206136403712>  12924186495,http://192.168.3.202:9000/raw/raw_12924186495_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:22]]  INFO  [general.py]  #252 <282905:140206136403712>  48450297311,http://192.168.3.202:9000/raw/raw_48450297311_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:22]]  INFO  [general.py]  #252 <282905:140206136403712>  97067725827,http://192.168.3.202:9000/raw/raw_97067725827_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:47]]  INFO  [general.py]  #252 <282905:140206136403712>  89254069938,http://192.168.3.202:9000/raw/raw_89254069938_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:48]]  INFO  [general.py]  #252 <282905:140206136403712>  89150917443,http://192.168.3.202:9000/raw/raw_89150917443_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:48]]  INFO  [general.py]  #252 <282905:140206136403712>  19503317764,http://192.168.3.202:9000/raw/raw_19503317764_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:48]]  INFO  [general.py]  #252 <282905:140206136403712>  61736472858,http://192.168.3.202:9000/raw/raw_61736472858_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:49]]  INFO  [general.py]  #252 <282905:140206136403712>  56311016687,http://192.168.3.202:9000/raw/raw_56311016687_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:49]]  INFO  [general.py]  #252 <282905:140206136403712>  67386862685,http://192.168.3.202:9000/raw/raw_67386862685_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:49]]  INFO  [general.py]  #252 <282905:140206136403712>  37864014692,http://192.168.3.202:9000/raw/raw_37864014692_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:49]]  INFO  [general.py]  #252 <282905:140206136403712>  83479293354,http://192.168.3.202:9000/raw/raw_83479293354_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:50]]  INFO  [general.py]  #252 <282905:140206136403712>  57989957935,http://192.168.3.202:9000/raw/raw_57989957935_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:02:50]]  INFO  [general.py]  #252 <282905:140206136403712>  43030926780,http://192.168.3.202:9000/raw/raw_43030926780_1_282905.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:03]]  INFO  [general.py]  #252 <288222:139973956658944>  93809448688,http://192.168.3.202:9000/raw/raw_93809448688_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:03]]  INFO  [general.py]  #252 <288222:139973956658944>  36519445390,http://192.168.3.202:9000/raw/raw_36519445390_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:03]]  INFO  [general.py]  #252 <288222:139973956658944>  80267965911,http://192.168.3.202:9000/raw/raw_80267965911_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:04]]  INFO  [general.py]  #252 <288222:139973956658944>  57115644135,http://192.168.3.202:9000/raw/raw_57115644135_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:04]]  INFO  [general.py]  #252 <288222:139973956658944>  32626523864,http://192.168.3.202:9000/raw/raw_32626523864_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:04]]  INFO  [general.py]  #252 <288222:139973956658944>  62428875742,http://192.168.3.202:9000/raw/raw_62428875742_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:04]]  INFO  [general.py]  #252 <288222:139973956658944>  50447341213,http://192.168.3.202:9000/raw/raw_50447341213_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:05]]  INFO  [general.py]  #252 <288222:139973956658944>  92882731743,http://192.168.3.202:9000/raw/raw_92882731743_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:05]]  INFO  [general.py]  #252 <288222:139973956658944>  46508427038,http://192.168.3.202:9000/raw/raw_46508427038_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:04:05]]  INFO  [general.py]  #252 <288222:139973956658944>  57241886514,http://192.168.3.202:9000/raw/raw_57241886514_1_288222.wav,6,Insufficient duration, the current duration is 4.9s.
+[[2022-09-26 08:10:11]]  INFO  [general.py]  #252 <298964:139662475245312>  21792825975,http://192.168.3.202:9000/raw/raw_21792825975_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:11]]  INFO  [general.py]  #252 <298964:139662475245312>  29422043219,http://192.168.3.202:9000/raw/raw_29422043219_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:12]]  INFO  [general.py]  #252 <298964:139662475245312>  13261068165,http://192.168.3.202:9000/raw/raw_13261068165_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:12]]  INFO  [general.py]  #252 <298964:139662475245312>  53267919072,http://192.168.3.202:9000/raw/raw_53267919072_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:13]]  INFO  [general.py]  #252 <298964:139662475245312>  90375328485,http://192.168.3.202:9000/raw/raw_90375328485_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:13]]  INFO  [general.py]  #252 <298964:139662475245312>  36428237635,http://192.168.3.202:9000/raw/raw_36428237635_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:13]]  INFO  [general.py]  #252 <298964:139662475245312>  85235530117,http://192.168.3.202:9000/raw/raw_85235530117_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:14]]  INFO  [general.py]  #252 <298964:139662475245312>  58623939930,http://192.168.3.202:9000/raw/raw_58623939930_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:14]]  INFO  [general.py]  #252 <298964:139662475245312>  81255482671,http://192.168.3.202:9000/raw/raw_81255482671_1_298964.wav,7,Bad quality score:0.175792396068573.
+[[2022-09-26 08:10:15]]  INFO  [general.py]  #252 <298964:139662475245312>  62817237866,http://192.168.3.202:9000/raw/raw_62817237866_1_298964.wav,7,Bad quality score:0.175792396068573.

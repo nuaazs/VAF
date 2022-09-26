@@ -34,6 +34,26 @@ def test(
     after_vad_length,
     used_time,
 ):
+    """Audio reasoning, compare the audio features with the black library in full, and return the result.
+
+    Args:
+        embedding (tensor): audio features
+        wav (tensor): audio data
+        new_spkid (string): speaker ID
+        max_class_index (int): pre-classify result
+        oss_path (string): The file url on OSS
+        self_test_result (dict): self-test results
+        call_begintime (string): call start time
+        call_endtime (string): call end time
+        preprocessed_file_path (string): Preprocessed file address
+        show_phone (string): Displayed phone number
+        before_vad_length (float): Audio duration after VAD
+        after_vad_length (float): Audio duration before VAD
+        used_time (dict): Time spent on each module
+
+    Returns:
+        dict: inference result.
+    """
     start = datetime.datetime.now()
 
     black_database = get_embeddings(class_index=max_class_index)
@@ -114,13 +134,13 @@ def test(
             "before_vad_length": before_vad_length,
             "after_vad_length": after_vad_length,
             "self_test_score_mean": float(
-                self_test_result["mean_score"].detach().cpu().numpy()
+                self_test_result["mean_score"]  # .detach().cpu().numpy()
             ),
             "self_test_score_min": float(
-                self_test_result["min_score"].detach().cpu().numpy()
+                self_test_result["min_score"]  # .detach().cpu().numpy()
             ),
             "self_test_score_max": float(
-                self_test_result["max_score"].detach().cpu().numpy()
+                self_test_result["max_score"]  # .detach().cpu().numpy()
             ),
             "self_test_before_score": self_test_result["before_score"],
             "used_time": used_time,
@@ -168,13 +188,13 @@ def test(
             "blackbase_phone": blackbase_phone,
             "top_10": top_10,
             "self_test_score_mean": float(
-                self_test_result["mean_score"].detach().cpu().numpy()
+                self_test_result["mean_score"]  # .detach().cpu().numpy()
             ),
             "self_test_score_min": float(
-                self_test_result["min_score"].detach().cpu().numpy()
+                self_test_result["min_score"]  # .detach().cpu().numpy()
             ),
             "self_test_score_max": float(
-                self_test_result["max_score"].detach().cpu().numpy()
+                self_test_result["max_score"]  # .detach().cpu().numpy()
             ),
             "self_test_before_score": self_test_result["before_score"],
             "used_time": used_time,

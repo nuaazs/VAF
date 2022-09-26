@@ -44,6 +44,14 @@ def check_url(url):
 
 
 def check_spkid(spkid):
+    conn = pymysql.connect(
+        host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
+        port=msg_db.get("port", 27546),
+        db=msg_db.get("db", "si"),
+        user=msg_db.get("user", "root"),
+        passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
+        cursorclass=pymysql.cursors.DictCursor,
+    )
     while True:
         try:
             cur = conn.cursor()

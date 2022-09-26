@@ -54,56 +54,71 @@ def encode(wav_torch_raw, action_type):
         }
         return result
     segments_number = int(raw_wav_length)
-
+    print("segments_number", segments_number)
     wav_torch = wav_torch_raw.unsqueeze(0)
-    full_wavs = [wav_torch]
-    segments = []
-    start = 0
-    while start + cfg.SELF_TEST_SL * cfg.SR < len(wav_torch_raw):
-        full_wavs.append(remove(wav_torch, start, start + cfg.SELF_TEST_SL))
-        start = start + cfg.SELF_TEST_SL * cfg.SR
+    
+    
+    # full_wavs = []  # wav_torch
+    # segments = []
+    # start = 0
+    # while start + cfg.SELF_TEST_SL * cfg.SR < len(wav_torch_raw):
+    #     full_wavs.append(remove(wav_torch, start, start + cfg.SELF_TEST_SL * cfg.SR))
+    #     segments.append(wav_torch[:, start : start + cfg.SELF_TEST_SL * cfg.SR])
+    #     start = start + cfg.SELF_TEST_SS * cfg.SR
 
-    start = 0
-    while start + cfg.SELF_TEST_SL * cfg.SR < len(wav_torch_raw):
-        segments.append(wav_torch[:, start : start + cfg.SELF_TEST_SR])
-        start = start + cfg.SELF_TEST_SL * cfg.SR
+    # batch = torch.cat(full_wavs, dim=0)
+    # segs_batch = torch.cat(segments, dim=0)
+    # encode_result = spkreg.encode_batch(batch)
+    # segs_encode_result = spkreg.encode_batch(segs_batch)
 
-    print("=" * 20)
-    print(full_wavs)
-    print(segments)
-    batch = torch.cat(full_wavs, dim=0)
-    segs_batch = torch.cat(segments, dim=0)
-    encode_result = spkreg.encode_batch(batch)
-    segs_encode_result = spkreg.encode_batch(segs_batch)
+    # result_len = len(segs_batch)
 
-    print("=" * 20)
-    print(encode_result.shape)
-    print(segs_encode_result.shape)
-    result_len = len(segs_batch)
+    # # seg_scores = []
+    # # for x_index in range(result_len):
+    # #     socres = []
+    # #     for y_index in range(result_len):
+    # #         if y_index == x_index:
+    # #             continue
+    # #         socres.append(similarity(segs_batch[x_index][0], segs_batch[y_index][0]))
+    # #     max_score, mean_score, min_score = (
+    # #         np.max(socres),
+    # #         np.mean(socres),
+    # #         np.min(socres),
+    # #     )
+    # #     seg_scores.append([max_score, mean_score, min_score, x_index])
+    # # seg_scores = sorted(seg_scores, key=lambda x: x[2])  # sort by min_score
+    # # del_index = seg_scores[0][3]
 
-    seg_scores = []
-    for x_index in range(result_len):
-        socres = []
-        for y_index in range(result_len):
-            if y_index == x_index:
-                continue
-            socres.append(similarity(segs_batch[x_index][0], segs_batch[y_index][0]))
-        max_score, mean_score, min_score = (
-            np.max(socres),
-            np.mean(socres),
-            np.min(socres),
-        )
-        seg_scores.append([max_score, mean_score, min_score, x_index])
-    seg_scores = sorted(seg_scores, key=lambda x: x[2])
-    del_index = seg_scores[0][3]
-    wav_data = encode_result[del_index][0]
+    # # wav_torch = full_wavs[del_index]
+    # wav_torch = wav_torch.unsqueeze(0)
 
-    socres = []
-    for y_index in range(result_len):
-        if y_index == del_index:
-            continue
-        socres.append(similarity(batch[del_index][0], batch[y_index][0]))
-    max_score, mean_score, min_score = np.max(socres), np.mean(socres), np.min(socres)
+    # socres = []
+    # for y_index in range(result_len):
+    #     if y_index == del_index:
+    #         continue
+    #     socres.append(similarity(batch[del_index][0], batch[y_index][0]))
+
+
+    print("+"*30,wav_torch.shape)
+    wav_length = int((wav_torch.shape[1] - 10) / 2)
+    left = torch.cat((wav_torch[:, :wav_length], wav_torch[:, :wav_length]), dim=1)
+    right = torch.cat(
+        (
+            wav_torch[:, wav_length : wav_length * 2],
+            wav_torch[:, wav_length : wav_length * 2],
+        ),
+        dim=1,
+    )
+    wav_torch = wav_torch[:, : left.shape[1]]
+    batch = torch.cat((wav_torch, left, right), dim=0)
+    embedding = spkreg.encode_batch(batch)
+    encoding_tensor = embedding[0]
+    encoding_tiny_1 = embedding[1][0]
+    encoding_tiny_2 = embedding[2][0]
+    score = similarity(encoding_tiny_1, encoding_tiny_2)
+    max_score, mean_score, min_score = score, score, score
+
+    # max_score, mean_score, min_score = np.max(socres), np.mean(socres), np.min(socres)
 
     if mean_score > similarity_limit:
         result = {
@@ -113,7 +128,7 @@ def encode(wav_torch_raw, action_type):
             "before_score": None,
             "mean_score": mean_score,
             "min_score": min_score,
-            "tensor": encode_result[x_index][0],
+            "tensor": embedding[0],#encode_result[x_index][0],
             "err_type": 0,
         }
     else:

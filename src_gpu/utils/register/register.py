@@ -30,6 +30,26 @@ def register(
     after_vad_length,
     used_time,
 ):
+    """Audio registration, write voiceprint library.
+
+    Args:
+        embedding (tensor): audio features
+        wav (tensor): audio data
+        new_spkid (string): speaker ID
+        max_class_index (int): Pre-classification results
+        oss_path (string): The path of the file on oss
+        self_test_result (dict): self-test results
+        call_begintime (string): call start time
+        call_endtime (string): call end time
+        preprocessed_file_path (string): Preprocessed file save path
+        show_phone (string): Displayed phone number
+        before_vad_length (float): Audio duration before VAD
+        after_vad_length (float): Audio duration after VAD
+        used_time (dict): Time spent on each module
+
+    Returns:
+        dict: Registration result
+    """
     start = datetime.datetime.now()
     add_success, phone_info = to_database(
         embedding=embedding,
@@ -37,6 +57,7 @@ def register(
         max_class_index=max_class_index,
         log_phone_info=cfg.LOG_PHONE_INFO,
     )
+    print(f"Add success: {add_success}")
     if add_success:
         skp_info = {
             "name": "none",
@@ -50,13 +71,13 @@ def register(
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
             "self_test_score_mean": float(
-                self_test_result["mean_score"].detach().cpu().numpy()
+                self_test_result["mean_score"]  # .detach().cpu().numpy()
             ),
             "self_test_score_min": float(
-                self_test_result["min_score"].detach().cpu().numpy()
+                self_test_result["min_score"]  # .detach().cpu().numpy()
             ),
             "self_test_score_max": float(
-                self_test_result["max_score"].detach().cpu().numpy()
+                self_test_result["max_score"]  # .detach().cpu().numpy()
             ),
             "call_begintime": call_begintime,
             "call_endtime": call_endtime,
@@ -91,13 +112,13 @@ def register(
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
             "self_test_score_mean": float(
-                self_test_result["mean_score"].detach().cpu().numpy()
+                self_test_result["mean_score"]  # .detach().cpu().numpy()
             ),
             "self_test_score_min": float(
-                self_test_result["min_score"].detach().cpu().numpy()
+                self_test_result["min_score"]  # .detach().cpu().numpy()
             ),
             "self_test_score_max": float(
-                self_test_result["max_score"].detach().cpu().numpy()
+                self_test_result["max_score"]  # .detach().cpu().numpy()
             ),
             "self_test_before_score": self_test_result["before_score"],
             "call_begintime": call_begintime,
