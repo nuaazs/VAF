@@ -19,6 +19,7 @@ def resample(
     sr_dst=cfg.SR,
     channel=cfg.WAV_CHANNEL,
     wav_length=cfg.WAV_LENGTH,
+    start=cfg.WAV_START * cfg.SR,
 ):
     """Read the file to check the file size and duration validity
          and upsample it to the specified sample rate.
@@ -40,21 +41,21 @@ def resample(
     wav, sr = torchaudio.load(wav_filepath)
     if len(wav.shape) > 1 and wav.shape[0] > 1:
         # Multi-channel audio, and the number of channels is greater than 1
-        if wav.shape[1] > sr * (wav_length):
-            wav = wav[channel, : (wav_length) * sr]
+        if wav.shape[1] > start+ sr * (wav_length):
+            wav = wav[channel, start+start: (wav_length) * sr]
         else:
-            wav = wav[channel, :]
+            wav = wav[channel, start:]
     elif len(wav.shape) > 1:
         # Multi-channel audio, and the number of channels is equal to 1
         wav = wav[0]
-        if wav.shape[0] > sr * (wav_length):
-            wav = wav[: (wav_length) * sr]
+        if wav.shape[0] > start+ sr * (wav_length):
+            wav = wav[start:start+ (wav_length) * sr]
         else:
-            wav = wav
+            wav = wav[start:]
     else:
         # single channel audio
-        if wav.shape[0] > sr * (wav_length):
-            wav = wav[: (wav_length) * sr]
+        if wav.shape[0] > start+ sr * (wav_length):
+            wav = wav[start: (wav_length) * sr]
         else:
             wav = wav
 

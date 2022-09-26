@@ -167,7 +167,10 @@ def general(request_form, get_type="url", action_type="test"):
     try:
         wav = resample(wav_filepath=filepath, action_type=action_type)
         vad_result = vad(wav=wav, spkid=new_spkid, action_type=action_type)
-        preprocessed_file_path = vad_result["preprocessed_file_path"]
+        if cfg.SAVE_PREPROCESSED_OSS:
+            preprocessed_file_path = vad_result["preprocessed_file_path"]
+        else:
+            preprocessed_file_path = ""
     except Exception as e:
         err_logger.info(e)
         response = {
@@ -278,6 +281,7 @@ def general(request_form, get_type="url", action_type="test"):
         )
 
     elif action_num == 2:
+        print("*" * 100)
         return register(
             embedding,
             wav,

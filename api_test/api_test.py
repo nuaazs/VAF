@@ -23,7 +23,7 @@ parser.add_argument(
     default="/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/cnnoc_test_wavs",
     help="The directory address of the wav file for testing.",
 )
-parser.add_argument("--mode", type=str, default="file", help="url|file")
+parser.add_argument("--mode", type=str, default="url", help="url|file")
 parser.add_argument(
     "--test_num",
     type=int,
@@ -116,16 +116,18 @@ test_embedding_total = 0
 
 def register(item):
 
-    request_file = {"wav_file": open(item, "rb")}
+    #request_file = {"wav_file": open(item, "rb")}
+    wav_url = f"local://{item}"
     phone = random.randint(11111111111, 99999999999)
     values = {
         "spkid": str(phone),
         "show_phone": "15151832002",
         "call_begintime": begintime,
         "call_endtime": endtime,
+        "wav_url":wav_url
     }
     try:
-        resp = requests.request("POST", url, files=request_file, data=values)
+        resp = requests.request("POST", url, data=values)
         print(resp.json())
     except Exception as e:
         print(e)
@@ -133,8 +135,8 @@ def register(item):
     # print(json.dumps(resp.json(), sort_keys=False, indent=4))
 
 
-# wavs = ["/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/loupan/loupan/13057366090/grey_2000321.wav"]*10
-wavs = ["/mnt/panjiawei/test/downloadFild/raw_34086548105_1_1031627_____00010.wav"] * 10
+wavs = ["/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/raw_34086548105_1_1031627_____00010.wav"]*10
+# wavs = ["/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/cnnoc_test_wavs/black_8000.wav"] * 10
 pool = ThreadPool(10)
 
 
