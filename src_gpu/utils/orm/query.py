@@ -20,11 +20,11 @@ def get_span(time2, time1):
 
 def check_url(url):
     conn = pymysql.connect(
-        host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
-        port=msg_db.get("port", 27546),
-        db=msg_db.get("db", "si"),
-        user=msg_db.get("user", "root"),
-        passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
+        host=msg_db.get("host"),
+        port=msg_db.get("port"),
+        db=msg_db.get("db"),
+        user=msg_db.get("username"),
+        passwd=msg_db.get("passwd"),
         cursorclass=pymysql.cursors.DictCursor,
     )
     while True:
@@ -54,6 +54,14 @@ def check_spkid(spkid):
     )
     while True:
         try:
+            conn = pymysql.connect(
+                host=msg_db.get("host"),
+                port=msg_db.get("port"),
+                db=msg_db.get("db"),
+                user=msg_db.get("username"),
+                passwd=msg_db.get("passwd"),
+                cursorclass=pymysql.cursors.DictCursor,
+            )
             cur = conn.cursor()
             query_sql = f"SELECT * FROM speaker WHERE phone='{spkid}';"
             cur.execute(query_sql)
@@ -67,21 +75,21 @@ def check_spkid(spkid):
 
 
 def to_log(
-    phone,
-    action_type,
-    err_type,
-    message,
-    file_url,
-    show_phone,
-    preprocessed_file_path="",
-    valid_length=0,
+        phone,
+        action_type,
+        err_type,
+        message,
+        file_url,
+        show_phone,
+        preprocessed_file_path="",
+        valid_length=0,
 ):
     conn = pymysql.connect(
-        host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
-        port=msg_db.get("port", 27546),
-        db=msg_db.get("db", "si"),
-        user=msg_db.get("user", "root"),
-        passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
+        host=msg_db.get("host"),
+        port=msg_db.get("port"),
+        db=msg_db.get("db"),
+        user=msg_db.get("username"),
+        passwd=msg_db.get("passwd"),
         cursorclass=pymysql.cursors.DictCursor,
     )
     # todo 添加showphone
