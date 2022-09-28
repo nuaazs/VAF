@@ -127,7 +127,7 @@ def register(item):
         "wav_url": wav_url,
     }
     try:
-        resp = requests.request("POST", url,files=request_file,data=values)
+        resp = requests.request("POST", url, files=request_file, data=values)
         print(resp.json())
     except Exception as e:
         print(e)
