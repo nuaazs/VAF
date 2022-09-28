@@ -308,7 +308,7 @@ def get_score(request_form, get_type="url"):
         filename1 = new_file1.filename
         filename2 = new_file2.filename
         if ((".wav" not in filename1) and (".mp3" not in filename1)) or (
-            (".wav" not in filename2) and (".mp3" not in filename2)
+                (".wav" not in filename2) and (".mp3" not in filename2)
         ):
             response = {
                 "code": 2000,
