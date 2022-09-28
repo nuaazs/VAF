@@ -22,3 +22,6 @@ __pycache__/
 *.bak
 *.dat
 *.dir
+
+*.wav
+log
