@@ -1,0 +1,7 @@
+speaker_id, wav_number, file_size, speech_duration, gender, channel
+# 说明： speaker_id 说话人ID, wav_number WAV编号, file_size 文件大小（字节数）, speech_duration（毫秒）, gender（性别 F/M）, channel(有效音频所在通道数)
+15151832002, 1, 13742842, 69351, M, 0
+15151832002, 2, 13742842, 35351, M, 0
+15151832002, 3, 13742842, 83620, M, 0
+13160050611, 1, 13582445, 69351, F, 0
+13160050611, 2, 8374954, 39351, F, 0
