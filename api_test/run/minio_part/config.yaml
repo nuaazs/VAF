@@ -1,16 +1,16 @@
 # 本地路径
-LOCAL_PATH: /mnt/panjiawei/test/wav
+LOCAL_PATH: /mnt/panjiawei/run_2/data/black
 
 # url网址本地路径
 URL_PATH: http://192.168.3.202:9000
 
 # 本地wav路径
-WAV_PATH: /mnt/panjiawei/test/wav
+WAV_PATH: /mnt/panjiawei/run_2/data/black
 
 # ip   default:127.0.0.1
 IP: 127.0.0.1
 
-# 端口号    default:
+# 端口号    default: 8187 ->gpu 和 8188 -> cpu
 PORT: 8187
 
 # 接口名称   default: test|register
@@ -23,7 +23,7 @@ MODE: url
 TEST_NUM: 100
 
 # 桶名称
-BUCKETS_NAME: check1
+BUCKETS_NAME: 1wfile15msize
 
 # 是否存储测试数据
 IS_STORAGE: True
@@ -31,3 +31,12 @@ IS_STORAGE: True
 
 # 测试文件保存名称
 FILE_NAME: data.csv
+
+# ---------------------自动注册部分------------------------------
+# 桶名称
+Z_BUCKETS_NAME: file
+
+# rclone名称
+Z_RCLONE_NAME: minio
+
+
