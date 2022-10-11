@@ -14,8 +14,8 @@ RECIPE
 └── dataset_name.csv (数据集信息)
 ```
 dataset_name：
-1. cjsd(长江时代语音数据集)
-2. aishell(aishell1语音数据集)
+1. cjsd(长江时代语音数据集)  # 202服务器 /mnt/dataset/cjsd
+2. aishell(aishell1语音数据集) # 202服务器 /mnt/dataset/data_aishell/wav/train
 3. ctcc(电信数据)
 
 　csv 文件记录每条音频的以下信息：
