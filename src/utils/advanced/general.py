@@ -8,7 +8,13 @@ from flask import request
 
 # utils
 from utils.orm.database import to_database
+from utils.orm.database import get_embedding
+
 from utils.orm import check_spkid
+from utils.orm import get_spkinfo
+from utils.orm import delete_spk
+
+
 from utils.orm import to_log
 from utils.log import err_logger
 from utils.log import logger
@@ -21,6 +27,8 @@ from utils.preprocess import classify
 from utils.register import register
 from utils.test import test
 from utils.encoder import similarity
+
+import torch
 
 # cfg
 import cfg
@@ -350,8 +358,8 @@ def get_score(request_form, get_type="url"):
 
     # STEP 2: VAD
     try:
-        wav1 = resample(filepath1)
-        wav2 = resample(filepath2)
+        wav1 = resample(filepath1, action_type="register")
+        wav2 = resample(filepath2, action_type="register")
         vad_result1 = vad(wav1, new_spkid1)
         vad_result2 = vad(wav2, new_spkid2)
         before_vad_length1 = vad_result1["before_length"]
@@ -424,3 +432,208 @@ def get_score(request_form, get_type="url"):
         "after_vad_length2": after_vad_length2,
     }
     return response
+
+
+def check_new(request_form, get_type="url"):
+    # STEP 1: Check old data
+    new_spkid = request.form.get("spkid")
+    print(new_spkid)
+    has_spkid = check_spkid(new_spkid)
+    print("has_spkid:", has_spkid)
+    if has_spkid:
+        # TODO:获取历史文件信息
+        old_info = get_spkinfo(new_spkid)
+        if old_info == None:
+            return {
+                "inbase": False,
+                "code": 2000,
+                "status": "success",
+                "replace": False,
+                "err_msg": "activate ID not exist.",
+                "err_type": 0,
+            }
+        old_class = old_info["class_number"]
+        old_score = old_info["self_test_score_mean"]
+        old_valid_length = old_info["valid_length"]
+        print(f"now get embedding from :{new_spkid}")
+        old_embedding = get_embedding(new_spkid)
+        # STEP 2: Get wav file.
+        if get_type == "file":
+            new_file = request.files["wav_file"]
+            filename = new_file.filename
+            if (".wav" not in filename) and (".mp3" not in filename):
+                response = {
+                    "code": 2000,
+                    "status": "error",
+                    "err_type": 1,
+                    "err_msg": "Only support wav or mp3 files.",
+                    "inbase": True,
+                    "code": 2000,
+                    "replace": False,
+                }
+                return response
+            try:
+                filepath, oss_path = save_file(file=new_file, spk=new_spkid)
+            except Exception as e:
+                print(e)
+                response = {
+                    "code": 2000,
+                    "status": "error",
+                    "err_type": 2,
+                    "err_msg": f"File save faild.",
+                    "inbase": True,
+                    "code": 2000,
+                    "replace": False,
+                }
+
+                return response
+        elif get_type == "url":
+            new_url = request.form.get("wav_url")
+            try:
+                filepath, oss_path = save_url(url=new_url, spk=new_spkid)
+            except Exception as e:
+                print(e)
+                response = {
+                    "code": 2000,
+                    "status": "error",
+                    "err_type": 3,
+                    "err_msg": f"File:{new_url} save faild.",
+                    "inbase": True,
+                    "code": 2000,
+                    "replace": False,
+                }
+                return response
+
+        # STEP 3: VAD
+        try:
+            wav1 = resample(filepath, action_type="register")
+            vad_result = vad(wav1, new_spkid, action_type="register")
+            before_vad_length = vad_result["before_length"]
+            after_vad_length = vad_result["after_length"]
+            preprocessed_file_path = vad_result["preprocessed_file_path"]
+
+        except Exception as e:
+            print(e)
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_type": 5,
+                "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
+                "inbase": True,
+                "code": 2000,
+                "replace": False,
+            }
+            return response
+
+        # STEP 3: Self Test
+        try:
+            self_test_result = encode(
+                wav_torch_raw=vad_result["wav_torch"], action_type="register"
+            )
+        except Exception as e:
+            print(e)
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_type": 5,
+                "err_msg": f"Self Test faild. No useful data in {filepath}.",
+                "inbase": True,
+                "code": 2000,
+                "replace": False,
+            }
+            return response
+
+        msg = self_test_result["msg"]
+        if not self_test_result["pass"]:
+            err_type = self_test_result["err_type"]
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_type": err_type,
+                "err_msg": "wav1:" + msg,
+                "inbase": True,
+                "code": 2000,
+                "replace": False,
+            }
+            return response
+
+        # STEP 4: Encoding
+        embedding = self_test_result["tensor"]
+
+        embedding_similarity = (
+            similarity(embedding, torch.FloatTensor(old_embedding).cuda())
+            .detach()
+            .cpu()
+            .numpy()
+        )
+        score = float(self_test_result["mean_score"])
+        if embedding_similarity >= cfg.UPDATE_TH and score >= old_score - 0.05:
+            response = {
+                "code": 2000,
+                "status": "success",
+                "err_type": 0,
+                "err_msg": f"",
+                "similarity": float(embedding_similarity[0]),
+                "before_vad_length": before_vad_length,
+                "after_vad_length": after_vad_length,
+                "old_score": old_score,
+                "score": score,
+                "inbase": True,
+                "code": 2000,
+                "replace": True,
+                "err_msg": "None",
+            }
+            return response
+        else:
+            if embedding_similarity > cfg.UPDATE_TH:
+                response = {
+                    "code": 2000,
+                    "status": "success",
+                    "err_type": 0,
+                    "err_msg": f"",
+                    "similarity": float(embedding_similarity[0]),
+                    "before_vad_length": before_vad_length,
+                    "after_vad_length": after_vad_length,
+                    "old_score": old_score,
+                    "score": score,
+                    "inbase": True,
+                    "code": 2000,
+                    "replace": False,
+                    "err_msg": "相似度过低",
+                }
+                return response
+            else:
+                response = {
+                    "code": 2000,
+                    "status": "success",
+                    "err_type": 0,
+                    "err_msg": f"",
+                    "similarity": float(embedding_similarity[0]),
+                    "before_vad_length": before_vad_length,
+                    "after_vad_length": after_vad_length,
+                    "old_score": old_score,
+                    "score": score,
+                    "inbase": True,
+                    "code": 2000,
+                    "replace": False,
+                    "err_msg": "音频质量没有提升",
+                }
+                return response
+
+    else:
+        return {
+            "inbase": False,
+            "code": 2000,
+            "status": "success",
+            "replace": False,
+            "err_msg": "None",
+            "err_type": 0,
+        }
+
+
+def update_embedding(request_form, get_type="url"):
+    # TODO：删除旧的信息
+    spkid = request.form.get("spkid")
+    print(f"delete spk {spkid}")
+    delete_spk(spkid)
+    return general(request_form, get_type=get_type, action_type="register")

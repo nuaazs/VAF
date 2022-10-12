@@ -12,4 +12,6 @@ from utils.orm.query import to_log
 from utils.orm.query import add_hit
 from utils.orm.query import add_hit_count
 from utils.orm.query import add_speaker
+from utils.orm.query import get_spkinfo
 from utils.orm.query import get_blackid
+from utils.orm.query import delete_spk

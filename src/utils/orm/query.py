@@ -222,12 +222,65 @@ def get_blackid(blackbase_phone):
         cursorclass=pymysql.cursors.DictCursor,
     )
     cur = conn.cursor()
-    query_sql = f"select id from speaker where phone='{blackbase_phone}' limit 1;"
+    query_sql = (
+        f"select id from speaker where phone='{blackbase_phone}' and status=1 limit 1;"
+    )
     cur.execute(query_sql)
     result = cur.fetchall()
     if len(result) > 0:
+        conn.commit()
         conn.close()
         return result[0]["id"]
     else:
+        conn.commit()
         conn.close()
-        return 0
+        return None
+
+
+def get_spkinfo(spk_id):
+    conn = pymysql.connect(
+        host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
+        port=msg_db.get("port", 27546),
+        db=msg_db.get("db", "si"),
+        user=msg_db.get("user", "root"),
+        passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
+        cursorclass=pymysql.cursors.DictCursor,
+    )
+    cur = conn.cursor()
+    query_sql = f"select class_number,self_test_score_mean,valid_length from speaker where phone='{spk_id}' and status=1 limit 1;"
+    cur.execute(query_sql)
+    result = cur.fetchall()
+    if len(result) > 0:
+        conn.commit()
+        conn.close()
+        return {
+            "class_number": result[0]["class_number"],
+            "self_test_score_mean": result[0]["self_test_score_mean"],
+            "valid_length": result[0]["valid_length"],
+        }
+    else:
+
+        conn.commit()
+        conn.close()
+        return None
+
+
+def delete_spk(spk_id):
+
+    conn = pymysql.connect(
+        host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
+        port=msg_db.get("port", 27546),
+        db=msg_db.get("db", "si"),
+        user=msg_db.get("user", "root"),
+        passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
+        cursorclass=pymysql.cursors.DictCursor,
+    )
+    cur = conn.cursor()
+    query_sql = f"delete from speaker where phone='{spk_id}';"
+    print(f"delete from speaker where phone='{spk_id}';")
+    cur.execute(query_sql)
+    result = cur.fetchall()
+    if len(result) > 0:
+        print(result)
+    conn.commit()
+    conn.close()

@@ -16,6 +16,12 @@ DEVICE = "cuda:0"  # "cuda:id" or "cpu"
 # Threads
 THREADS = 20
 
+# UPDATE
+UPDATE = False
+
+# UPDATE_DAYS
+UPDATE_DAYS = 90
+
 # start second
 WAV_START = 0
 
@@ -23,7 +29,7 @@ WAV_START = 0
 WORKER_CONNECTIONS = 20
 
 # Port
-PORT = 8187
+PORT = 8186
 
 # Classify
 CLASSIFY = True
@@ -42,6 +48,9 @@ BLACK_TH = 0.795
 
 # Clipping Detection Threshold(>0.99)
 CLIP_TH = 0.03
+
+# Similarity threshold for audio updates of the same ID
+UPDATE_TH = 0.8
 
 # Min Length Of VAD-WAV
 MIN_LENGTH_REGISTER = 10

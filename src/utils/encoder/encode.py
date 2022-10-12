@@ -128,7 +128,7 @@ def encode(wav_torch_raw, action_type):
             "err_type": 0,
         }
     else:
-        result = do_denoise(wav_torch_raw,mean_score)
+        result = do_denoise(wav_torch_raw, mean_score)
         result = {
             "pass": False,
             "msg": f"Bad quality score:{min_score}.",

@@ -32,6 +32,25 @@ def deletRedis(r, n):
     return
 
 
+def get_embedding(spkid):
+    r = redis.Redis(
+        host=cfg.REDIS["host"],
+        port=cfg.REDIS["port"],
+        db=cfg.REDIS["register_db"],
+        password=cfg.REDIS["password"],
+    )
+
+    for key in r.keys():
+        key = key.decode("utf-8")
+        if "_" not in key:
+            continue
+        now_id = key.split("_")[1]
+        if now_id == spkid:
+            embedding = fromRedis(r, key)
+
+    return embedding
+
+
 def get_embeddings(class_index=-1):
     r = redis.Redis(
         host=cfg.REDIS["host"],
