@@ -350,6 +350,7 @@ def matrix_prin(real, label):
 def run():
     # balck
     balck_data = acquire_data("register")
+    # TODO: id,wav,status,msg,valid_length,score
     balck_success = balck_data[balck_data["status"] == "success"]
     balck_error = balck_data[balck_data["status"] == "error"]
     balck_error.to_csv(Args.log_path + "balck_error_data.csv")
@@ -374,9 +375,7 @@ def run():
 
     real = []
     dict_phone = {}
-    for name, inbase, phone in zip(
-        gray_success["wav"], gray_success["inbase"], gray_success["Zphone"]
-    ):
+    for name, inbase, phone in zip(gray_success["wav"], gray_success["inbase"], gray_success["Zphone"]):
         if dict_phone.get("Zphone") == None:
             dict_phone[phone] = [inbase, name]
         else:
@@ -384,9 +383,20 @@ def run():
             dict_phone[phone] = [inbase_, name]
 
         if phone in balck_phone:
-            real.append("1_" + str(inbase))
+            # TODO：
+            if inbase:
+                real.append("1_true")
+            else:
+                real.append("1_false")
+
+            # real.append("1_" + str(inbase)) # 1_
+            
         else:
-            real.append("0_" + str(inbase))
+            if inbase:
+                real.append("0_false")
+            else:
+                real.append("0_true")
+            # real.append("0_" + str(inbase))
 
     matrix_prin(real, "file")
 
