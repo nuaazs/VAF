@@ -70,7 +70,7 @@ def update(file_type):
 
 # Register Or Reasoning.
 @app.route("/<action_type>/<test_type>", methods=["POST"])
-def test(action_type, test_type):
+def register_or_reasoning(action_type, test_type):
     if request.method == "POST":
         response = general(
             request_form=request.form, get_type=test_type, action_type=action_type
@@ -80,5 +80,5 @@ def test(action_type, test_type):
 
 if __name__ == "__main__":
     app.run(
-        host="0.0.0.0", threaded=False, port=cfg.PORT, debug=True,
+        host="0.0.0.0", threaded=False, port=cfg.PORT, debug=False,
     )
