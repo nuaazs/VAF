@@ -53,7 +53,7 @@ def score(test_type):
         return json.dumps(response, ensure_ascii=False)
 
 
-# TODO: Get the similarity of the two audio tracks and compare the ratings 
+# TODO: Get the similarity of the two audio tracks and compare the ratings
 # to determine whether to replace the new audio with the old one
 # Perform the audio update process
 @app.route("/update/<file_type>", methods=["POST"])

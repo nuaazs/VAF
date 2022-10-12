@@ -5,6 +5,7 @@ import time
 import requests
 from multiprocessing.dummy import Pool as ThreadPool
 
+
 class ARGS:
     IP = "127.0.0.1"
     # 端口
@@ -29,7 +30,7 @@ class ARGS:
 
 def access_file(file_name):
     if ARGS.PATTERN == "rclone":
-        str = r"rclone lsl minio:/%s | awk '{print $4}'"%(file_name)
+        str = r"rclone lsl minio:/%s | awk '{print $4}'" % (file_name)
         with os.popen(str) as f1:
             return f1.read().strip().split("\n")
 
@@ -41,12 +42,23 @@ def data_test(wav):
     endtime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
     begintime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
     phone = int(time.time() * 1000000)
-    values = {"spkid": str(phone),"show_phone": "15151832002","call_begintime":begintime,"call_endtime":endtime}
+    values = {
+        "spkid": str(phone),
+        "show_phone": "15151832002",
+        "call_begintime": begintime,
+        "call_endtime": endtime,
+    }
 
     wav_url = ARGS.URL_PATH + "/" + ARGS.GRAY_BUCKETS_NAME + "/" + wav
 
-    values = {"spkid": str(phone),"show_phone": "15151832002","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
-    resp = requests.request("POST", ARGS.URL_TEST, data = values)
+    values = {
+        "spkid": str(phone),
+        "show_phone": "15151832002",
+        "wav_url": wav_url,
+        "call_begintime": begintime,
+        "call_endtime": endtime,
+    }
+    resp = requests.request("POST", ARGS.URL_TEST, data=values)
 
     resp_json = resp.json()
     print(wav_url)
@@ -60,12 +72,23 @@ def data_requests(wav):
     endtime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
     begintime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
     phone = int(time.time() * 1000000)
-    values = {"spkid": str(phone),"show_phone": "15151832002","call_begintime":begintime,"call_endtime":endtime}
+    values = {
+        "spkid": str(phone),
+        "show_phone": "15151832002",
+        "call_begintime": begintime,
+        "call_endtime": endtime,
+    }
 
     wav_url = ARGS.URL_PATH + "/" + ARGS.BLACK_BUCKETS_NAME + "/" + wav
 
-    values = {"spkid": str(phone),"show_phone": "15151832002","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
-    resp = requests.request("POST", ARGS.URL_REGISTER, data = values)
+    values = {
+        "spkid": str(phone),
+        "show_phone": "15151832002",
+        "wav_url": wav_url,
+        "call_begintime": begintime,
+        "call_endtime": endtime,
+    }
+    resp = requests.request("POST", ARGS.URL_REGISTER, data=values)
 
     resp_json = resp.json()
 
@@ -103,6 +126,3 @@ def run():
 
 if __name__ == "__main__":
     run()
-    
-
-
