@@ -39,3 +39,7 @@
 [[2022-10-12 13:37:00]]  INFO  [init_service.py]  #22 <4034087:139957131744192>  ** Start! Total speaker num:5265
 [[2022-10-12 13:38:05]]  INFO  [init_service.py]  #22 <4036617:140133211734976>  ** Start! Total speaker num:5265
 [[2022-10-12 14:18:29]]  INFO  [init_service.py]  #22 <4139181:139997698089920>  ** Start! Total speaker num:5265
+[[2022-10-13 08:26:00]]  INFO  [init_service.py]  #22 <2343062:140683192210352>  ** Start! Total speaker num:1
+[[2022-10-13 08:26:00]]  INFO  [init_service.py]  #22 <2343068:140683192210352>  ** Start! Total speaker num:1
+[[2022-10-13 09:27:29]]  INFO  [init_service.py]  #22 <2488401:140340656583600>  ** Start! Total speaker num:2
+[[2022-10-13 09:27:29]]  INFO  [init_service.py]  #22 <2488402:140340656583600>  ** Start! Total speaker num:2

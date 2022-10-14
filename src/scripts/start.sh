@@ -1,2 +1,2 @@
 #/bin/bash
-gunicorn -c gunicorn.py si_server_gpu:app
+gunicorn -c gunicorn.py server:app
