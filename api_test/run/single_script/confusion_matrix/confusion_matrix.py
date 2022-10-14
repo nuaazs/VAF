@@ -116,6 +116,8 @@ class CallingInterface:
         print(wav)
 
         valid_length = self.content.get(wav)
+        if valid_length == None:
+            raise TypeError(wav file not in json.json, Please check the.)
 
         # top
         value = str(resp_json.get("blackbase_phone")).split(",")

@@ -14,6 +14,7 @@ single_script
 		- data_preparation.py	数据准备脚本
 		- confusion_matrix.py	降噪脚本
 		- data_cleaning.sh	一键清空之前的文件
+		- update_file.py 上传数据到桶
 		
 ```
 
@@ -38,11 +39,9 @@ confusion_matrix运行方法：
    3. zhuanban.txt
    ```
 
-   ​	
+2. 运行update_file.py
 
-2. 运行data_cleaning.sh文件 
-
-   bash data_cleaning.sh
+   python3 update_file.py
 
 3. 运行confusion_matrix.py文件
 
@@ -60,7 +59,7 @@ confusion_matrix运行方法：
    info.log	日志
    register_timely_save_file_1.csv	注册跑完后的文件
    test_timely_save_file_1.csv	测试跑完后的文件
-   TN_1.csv	预测失败信息
+   TN_1.csv	预测失败信息运行data_cleaning.sh文件 
    ```
 
-   
+   完整运行流程见：bash data_cleaning.sh
