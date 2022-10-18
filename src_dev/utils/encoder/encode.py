@@ -8,7 +8,6 @@ import torch
 import numpy as np
 
 # utils
-from utils.log import logger
 from utils.encoder import spkreg
 from utils.encoder import similarity
 from utils.preprocess.mydenoiser import denoise_wav

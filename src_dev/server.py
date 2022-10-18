@@ -11,13 +11,7 @@ from flask_cors import CORS
 from flask_sock import Sock
 
 # utils
-from utils.advanced import general
-from utils.advanced import init_service
-from utils.advanced import get_score
-from utils.advanced import check_new
-from utils.advanced import update_embedding
-from utils.log import err_logger
-from utils.log import logger
+from utils.advanced import preprocess
 
 # config
 import cfg
@@ -33,32 +27,14 @@ sock = Sock(app)
 CORS(app, supports_credentials=True, origins="*", methods="*", allow_headers="*")
 
 
-# Get the similarity of two audio files.
-@app.route("/score/<test_type>", methods=["POST"])
-def score(test_type):
-    if request.method == "POST":
-        response = get_score(request.form, get_type=test_type)
-        return json.dumps(response, ensure_ascii=False)
-
+# Get the embedding of the audio file.
 @app.route("/embedding/<test_type>", methods=["POST"])
-def register_or_reasoning(action_type, test_type):
+def register_or_reasoning(test_type):
     if request.method == "POST":
-        response = general(
-            request_form=request.form, get_type=test_type, action_type=action_type
+        response = preprocess(
+            request_form=request.form, get_type=test_type,
         )
         return json.dumps(response, ensure_ascii=False)
-
-
-
-# Register Or Reasoning.
-@app.route("/embedding/<test_type>", methods=["POST"])
-def register_or_reasoning(action_type, test_type):
-    if request.method == "POST":
-        response = general(
-            request_form=request.form, get_type=test_type, action_type=action_type
-        )
-        return json.dumps(response, ensure_ascii=False)
-
 
 if __name__ == "__main__":
     app.run(

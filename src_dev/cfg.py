@@ -4,7 +4,7 @@
 # @Describe: service configuration file.
 
 # Workers
-WORKERS = 2
+WORKERS = 1
 
 SR = 16000
 
@@ -29,7 +29,7 @@ WAV_START = 0
 WORKER_CONNECTIONS = 20
 
 # Port
-PORT = 8180
+PORT = 8186
 
 # Classify
 CLASSIFY = True
