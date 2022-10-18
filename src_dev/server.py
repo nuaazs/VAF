@@ -14,6 +14,8 @@ from flask_sock import Sock
 from utils.advanced import general
 from utils.advanced import init_service
 from utils.advanced import get_score
+from utils.advanced import check_new
+from utils.advanced import update_embedding
 from utils.log import err_logger
 from utils.log import logger
 
@@ -30,19 +32,6 @@ app.config["SQLALCHEMY_TRACK_MOD/IFICATIONS"] = False
 sock = Sock(app)
 CORS(app, supports_credentials=True, origins="*", methods="*", allow_headers="*")
 
-system_info = init_service()
-
-
-# HomePage
-@app.route("/", methods=["GET"])
-def index():
-    kwargs = {
-        "spks_num": system_info["spks_num"],
-        "spks": system_info["spks"][:10],
-        "name": system_info["name"],
-    }
-    return render_template("index.html", **kwargs)
-
 
 # Get the similarity of two audio files.
 @app.route("/score/<test_type>", methods=["POST"])
@@ -51,9 +40,18 @@ def score(test_type):
         response = get_score(request.form, get_type=test_type)
         return json.dumps(response, ensure_ascii=False)
 
+@app.route("/embedding/<test_type>", methods=["POST"])
+def register_or_reasoning(action_type, test_type):
+    if request.method == "POST":
+        response = general(
+            request_form=request.form, get_type=test_type, action_type=action_type
+        )
+        return json.dumps(response, ensure_ascii=False)
+
+
 
 # Register Or Reasoning.
-@app.route("/<action_type>/<test_type>", methods=["POST"])
+@app.route("/embedding/<test_type>", methods=["POST"])
 def register_or_reasoning(action_type, test_type):
     if request.method == "POST":
         response = general(

@@ -29,7 +29,7 @@ WAV_START = 0
 WORKER_CONNECTIONS = 20
 
 # Port
-PORT = 8186
+PORT = 8180
 
 # Classify
 CLASSIFY = True
