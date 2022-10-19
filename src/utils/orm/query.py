@@ -307,9 +307,6 @@ def check_spkid(spkid):
 
 @call_time
 def add_speaker(spk_info, after_vad_length):
-    print("--"*50)
-    print("待改", spk_info)
-    print("--"*50)
     name = spk_info["name"]
     phone = spk_info["phone"]
     file_url = spk_info["uuid"]
