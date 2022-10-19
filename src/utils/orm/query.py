@@ -54,7 +54,7 @@ def get_spkinfo(spk_id):
         cursorclass=pymysql.cursors.DictCursor,
     )
     cur = conn.cursor()
-    query_sql = f"select class_number,self_test_score_mean,valid_length from speaker where phone='{spk_id}' and status=1 limit 1;"
+    query_sql = f"select class_number,self_test_score_mean,valid_length,register_time from speaker where phone='{spk_id}' and status=1 limit 1;"
     cur.execute(query_sql)
     result = cur.fetchall()
     if len(result) > 0:
@@ -64,6 +64,7 @@ def get_spkinfo(spk_id):
             "class_number": result[0]["class_number"],
             "self_test_score_mean": result[0]["self_test_score_mean"],
             "valid_length": result[0]["valid_length"],
+            "register_time": result[0]["register_time"],
         }
     else:
 
@@ -291,6 +292,7 @@ def get_blackid_bak(blackbase_phone):
 
 @call_time
 def check_spkid(spkid):
+    # TODO: 添加判断是否需要更新声纹
     while True:
         try:
             query_sql = f"SELECT * FROM speaker WHERE phone='{spkid}';"
@@ -305,6 +307,9 @@ def check_spkid(spkid):
 
 @call_time
 def add_speaker(spk_info, after_vad_length):
+    print("--"*50)
+    print("待改", spk_info)
+    print("--"*50)
     name = spk_info["name"]
     phone = spk_info["phone"]
     file_url = spk_info["uuid"]
@@ -379,13 +384,14 @@ def add_hit(hit_info, is_grey, after_vad_length):
     else:
         is_grey = 0
 
-    query_sql = f"INSERT INTO hit (phone, file_url, phone_type,area_code,\
-                    self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
-                    call_endtime,valid_length,class_number,blackbase_phone,blackbase_id,top_10,hit_status,hit_score,preprocessed_file_url,is_grey,show_phone,hit_time) \
-                        VALUES ('{phone}', '{file_url}','{phone_type}','{area_code}',\
-                    '{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
-                    '{call_endtime}','{valid_length}','{class_number}','{blackbase_phone}','{blackbase_id}','{top_10}',\
-                    '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}','{show_phone}',NOW());"
+    query_sql = f"INSERT INTO hit (phone, file_url, phone_type,area_code,self_test_score_mean,self_test_score_min,\
+                                   self_test_score_max,call_begintime,call_endtime,valid_length,class_number,\
+                                   blackbase_phone,blackbase_id,top_10,hit_status,hit_score,preprocessed_file_url,\
+                                   is_grey,show_phone,hit_time) \
+                 VALUES ('{phone}', '{file_url}','{phone_type}','{area_code}',\
+                 '{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
+                 '{call_endtime}','{valid_length}','{class_number}','{blackbase_phone}','{blackbase_id}','{top_10}',\
+                 '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}','{show_phone}',NOW());"
     try:
         mysql_handler.insert_one(query_sql)
     except Exception as e:
@@ -395,7 +401,9 @@ def add_hit(hit_info, is_grey, after_vad_length):
 @call_time
 def to_log(phone, action_type, err_type, message, file_url, show_phone, preprocessed_file_path="", valid_length=0):
     date_num = int(time.strftime("%d", time.localtime()))
-    query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', '{message}','{file_url}','{preprocessed_file_path}');"
+    query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,\
+                 preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', \
+                 '{message}','{file_url}','{preprocessed_file_path}');"
     try:
         mysql_handler.insert_one(query_sql)
     except Exception as e:
