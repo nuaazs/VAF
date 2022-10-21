@@ -1,9 +1,0 @@
-[[2022-10-12 11:16:57]]  INFO  [general.py]  #147 <3760736:140207858345728>  <urlopen error [Errno 111] Connection refused>
-[[2022-10-12 11:16:57]]  INFO  [general.py]  #165 <3760736:140207858345728>  15151832002,None,3,URL file save error.
-Download http://172.17.0.4:9000/raw/raw_051786289666999_1_1900795.wav faild.
-[[2022-10-12 11:18:16]]  INFO  [general.py]  #147 <3760736:140207858345728>  HTTP Error 404: Not Found
-[[2022-10-12 11:18:16]]  INFO  [general.py]  #165 <3760736:140207858345728>  15151832002,None,3,URL file save error.
-Download http://192.168.3.202:9000/raw/H_JSSR83512908_20220815849669_000000013_otalk_True_zhuanban.wav faild.
-[[2022-10-12 11:18:48]]  INFO  [general.py]  #213 <3760736:140207858345728>  CUDA out of memory. Tried to allocate 50.00 MiB (GPU 0; 9.78 GiB total capacity; 327.55 MiB already allocated; 23.56 MiB free; 374.00 MiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
-[[2022-10-12 11:18:48]]  INFO  [general.py]  #231 <3760736:140207858345728>  15151832002,http://192.168.3.202:9000/raw/raw_15151832002_1_3760736.wav,5,Self Test faild.
-No useful data in /tmp/15151832002/raw_1_3760736.wav.
