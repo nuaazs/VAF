@@ -381,13 +381,14 @@ def add_hit(hit_info, is_grey, after_vad_length):
     else:
         is_grey = 0
 
-    query_sql = f"INSERT INTO hit (phone, file_url, phone_type,area_code,\
-                    self_test_score_mean,self_test_score_min,self_test_score_max,call_begintime,\
-                    call_endtime,valid_length,class_number,blackbase_phone,blackbase_id,top_10,hit_status,hit_score,preprocessed_file_url,is_grey,show_phone,hit_time) \
-                        VALUES ('{phone}', '{file_url}','{phone_type}','{area_code}',\
-                    '{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
-                    '{call_endtime}','{valid_length}','{class_number}','{blackbase_phone}','{blackbase_id}','{top_10}',\
-                    '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}','{show_phone}',NOW());"
+    query_sql = f"INSERT INTO hit (phone, file_url, phone_type,area_code,self_test_score_mean,self_test_score_min,\
+                                   self_test_score_max,call_begintime,call_endtime,valid_length,class_number,\
+                                   blackbase_phone,blackbase_id,top_10,hit_status,hit_score,preprocessed_file_url,\
+                                   is_grey,show_phone,hit_time) \
+                 VALUES ('{phone}', '{file_url}','{phone_type}','{area_code}',\
+                 '{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
+                 '{call_endtime}','{valid_length}','{class_number}','{blackbase_phone}','{blackbase_id}','{top_10}',\
+                 '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}','{show_phone}',NOW());"
     try:
         mysql_handler.insert_one(query_sql)
     except Exception as e:
@@ -397,7 +398,9 @@ def add_hit(hit_info, is_grey, after_vad_length):
 @call_time
 def to_log(phone, action_type, err_type, message, file_url, show_phone, preprocessed_file_path="", valid_length=0):
     date_num = int(time.strftime("%d", time.localtime()))
-    query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', '{message}','{file_url}','{preprocessed_file_path}');"
+    query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,\
+                 preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', \
+                 '{message}','{file_url}','{preprocessed_file_path}');"
     try:
         mysql_handler.insert_one(query_sql)
     except Exception as e:

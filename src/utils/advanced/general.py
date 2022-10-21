@@ -34,6 +34,52 @@ import torch
 import cfg
 
 
+class OutInfo:
+    """
+    out dict info
+    """
+    used_time = {
+            "download_used_time": 0,
+            "vad_used_time": 0,
+            "classify_used_time": 0,
+            "embedding_used_time": 0,
+            "self_test_used_time": 0,
+            "to_database_used_time": 0,
+            "test_used_time": 0,
+        }
+    def __init__(self):
+        self.response = {"code": 2000, "status": "error"}
+        self.response_check_new = {
+            "code": 2000,
+            "status": "error",
+            "err_type": "None",
+            "err_msg": "None",
+            "inbase": True,
+            "code": 2000,
+            "replace": False
+        }
+
+    def response_error(self, spkid, err_type, err_msg, used_time=None, oss_path="None"):
+        err_logger.info("%s, %s, %s, %s"%(spkid, oss_path, err_type, err_msg))
+        self.response["err_type"] = err_type
+        self.response["err_msg"] = err_msg
+        if used_time != None:
+            self.response["used_time"] = used_time
+        return self.response
+
+    def response_vad(self, err_type, err_msg, used_time=None):
+        self.response["err_type"] = err_type
+        self.response["err_msg"] = err_msg
+        if used_time != None:
+            self.response["used_time"] = used_time
+        return self.response
+
+    def response_check(self, err_type, err_msg):
+        self.response_check_new["err_type"] = err_type
+        self.response_check_new["err_msg"] = err_msg
+        return self.response
+
+
 def general(request_form, get_type="url", action_type="test"):
     """_summary_
 
@@ -56,15 +102,6 @@ def general(request_form, get_type="url", action_type="test"):
     """
 
     start = datetime.datetime.now()
-    used_time = {
-        "download_used_time": 0,
-        "vad_used_time": 0,
-        "classify_used_time": 0,
-        "embedding_used_time": 0,
-        "self_test_used_time": 0,
-        "to_database_used_time": 0,
-        "test_used_time": 0,
-    }
 
     new_spkid = request_form["spkid"]
     call_begintime = request_form.get("call_begintime", "1999-02-18 10:10:10")
@@ -104,51 +141,33 @@ def general(request_form, get_type="url", action_type="test"):
         new_file = request.files["wav_file"]
         filename = new_file.filename
         if (".wav" not in filename) and (".mp3" not in filename):
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": 1,
-                "err_msg": "File type error.\nOnly support wav or mp3 files.",
-                "used_time": used_time,
-            }
+            err_msg = "File type error.\nOnly support wav or mp3 files."
             to_log(
-                phone=new_spkid,
-                action_type=action_type,
-                err_type=response["err_type"],
-                message=response["err_msg"],
-                file_url="",
-                preprocessed_file_path="",
-                show_phone=show_phone,
+                phone = new_spkid,
+                action_type = action_type,
+                err_type = 1,
+                message = err_msg,
+                file_url = "",
+                preprocessed_file_path = "",
+                show_phone = show_phone,
             )
-            err_logger.info(
-                f"{new_spkid},None,{response['err_type']},{response['err_msg']}"
-            )
-            return response
+            return OutInfo().response_error(new_spkid, 1, err_msg, OutInfo.used_time)
         try:
             filepath, oss_path = save_file(file=new_file, spk=new_spkid)
         except Exception as e:
             err_logger.info(e)
             print(e)
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": 2,
-                "err_msg": f"Form file save error.\nFile save faild.",
-                "used_time": used_time,
-            }
+            err_msg = "Form file save error. File save faild."
             to_log(
                 phone=new_spkid,
                 action_type=action_type,
-                err_type=response["err_type"],
-                message=response["err_msg"],
+                err_type=2,
+                message=err_msg,
                 file_url="",
                 preprocessed_file_path="",
                 show_phone=show_phone,
             )
-            err_logger.info(
-                f"{new_spkid},None,{response['err_type']},{response['err_msg']}"
-            )
-            return response
+            return OutInfo().response_error(new_spkid, 2, err_msg, OutInfo.used_time)
 
     elif get_type == "url":
         new_url = request.form.get("wav_url")
@@ -157,27 +176,19 @@ def general(request_form, get_type="url", action_type="test"):
         except Exception as e:
             err_logger.info(e)
             print(e)
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": 3,
-                "err_msg": f"URL file save error.\nDownload {new_url} faild.",
-                "used_time": used_time,
-            }
+            err_msg = f"URL file save error. Download {new_url} faild."
             to_log(
                 phone=new_spkid,
                 action_type=action_type,
-                err_type=response["err_type"],
-                message=response["err_msg"],
+                err_type=3,
+                message=err_msg,
                 file_url="",
                 preprocessed_file_path="",
                 show_phone=show_phone,
             )
-            err_logger.info(
-                f"{new_spkid},None,{response['err_type']},{response['err_msg']}"
-            )
-            return response
-    used_time["download_used_time"] = (datetime.datetime.now() - start).total_seconds()
+            return OutInfo().response_error(new_spkid, 3, err_msg, OutInfo.used_time)
+
+    OutInfo.used_time["download_used_time"] = (datetime.datetime.now() - start).total_seconds()
     start = datetime.datetime.now()
 
     # STEP 2: VAD
@@ -190,13 +201,7 @@ def general(request_form, get_type="url", action_type="test"):
             preprocessed_file_path = ""
     except Exception as e:
         err_logger.info(e)
-        response = {
-            "code": 2000,
-            "status": "error",
-            "err_type": 5,
-            "err_msg": f"VAD and upsample error.\nNo useful data in {filepath}.",
-            "used_time": used_time,
-        }
+        err_msg = "VAD and upsample error. No useful data in {filepath}."
         to_log(
             phone=new_spkid,
             action_type=action_type,
@@ -206,30 +211,18 @@ def general(request_form, get_type="url", action_type="test"):
             preprocessed_file_path="",
             show_phone=show_phone,
         )
-        err_logger.info(
-            f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}"
-        )
-        return response
+        return OutInfo().response_error(new_spkid, 5, err_msg, OutInfo.used_time, oss_path)
 
-    used_time["vad_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    OutInfo.used_time["vad_used_time"] = (datetime.datetime.now() - start).total_seconds()
     start = datetime.datetime.now()
 
     # STEP 3: Self Test
     try:
-        self_test_result = encode(
-            wav_torch_raw=vad_result["wav_torch"], action_type=action_type
-        )
-
+        self_test_result = encode(wav_torch_raw=vad_result["wav_torch"], action_type=action_type)
     except Exception as e:
         err_logger.info(e)
         print(e)
-        response = {
-            "code": 2000,
-            "status": "error",
-            "err_type": 5,
-            "err_msg": f"Self Test faild.\nNo useful data in {filepath}.",
-            "used_time": used_time,
-        }
+        err_msg = f"Self Test faild. No useful data in {filepath}."
         to_log(
             phone=new_spkid,
             action_type=action_type,
@@ -239,35 +232,24 @@ def general(request_form, get_type="url", action_type="test"):
             file_url=oss_path,
             preprocessed_file_path=preprocessed_file_path,
         )
-        err_logger.info(
-            f"{new_spkid},{oss_path},{response['err_type']},{response['err_msg']}"
-        )
-        return response
+        return OutInfo().response_error(new_spkid, 5, err_msg, OutInfo.used_time, oss_path)
 
-    used_time["self_test_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    OutInfo.used_time["self_test_used_time"] = (datetime.datetime.now() - start).total_seconds()
     start = datetime.datetime.now()
 
     msg = self_test_result["msg"]
     if not self_test_result["pass"]:
         err_type = self_test_result["err_type"]
-        response = {
-            "code": 2000,
-            "status": "error",
-            "err_type": err_type,
-            "err_msg": msg,
-            "used_time": used_time,
-        }
         to_log(
             phone=new_spkid,
             action_type=action_type,
             show_phone=show_phone,
             err_type=err_type,
-            message=f"{msg}",
+            message=str(msg),
             file_url=oss_path,
             preprocessed_file_path=preprocessed_file_path,
         )
-        err_logger.info(f"{new_spkid},{oss_path},{err_type},{msg}")
-        return response
+        return OutInfo().response_error(new_spkid, err_type, msg, OutInfo.used_time, oss_path)
 
     # STEP 4: Encoding
     embedding = self_test_result["tensor"]
@@ -276,7 +258,7 @@ def general(request_form, get_type="url", action_type="test"):
     else:
         class_num = 999
 
-    used_time["classify_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    OutInfo.used_time["classify_used_time"] = (datetime.datetime.now() - start).total_seconds()
     start = datetime.datetime.now()
 
     # TODO:执行更新声纹特征
@@ -323,7 +305,7 @@ def general(request_form, get_type="url", action_type="test"):
             after_vad_length=vad_result["after_length"],
             preprocessed_file_path=preprocessed_file_path,
             show_phone=show_phone,
-            used_time=used_time,
+            used_time=OutInfo.used_time,
         )
 
     elif action_num == 2:
@@ -340,7 +322,7 @@ def general(request_form, get_type="url", action_type="test"):
             show_phone=show_phone,
             before_vad_length=vad_result["before_length"],
             after_vad_length=vad_result["after_length"],
-            used_time=used_time,
+            used_time=OutInfo.used_time,
         )
 
 
@@ -353,28 +335,16 @@ def get_score(request_form, get_type="url"):
         new_file2 = request.files["wav_file2"]
         filename1 = new_file1.filename
         filename2 = new_file2.filename
-        if ((".wav" not in filename1) and (".mp3" not in filename1)) or (
-            (".wav" not in filename2) and (".mp3" not in filename2)
-        ):
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": 1,
-                "err_msg": "Only support wav or mp3 files.",
-            }
-            return response
+        if ((".wav" not in filename1) and (".mp3" not in filename1)) or \
+           ((".wav" not in filename2) and (".mp3" not in filename2)):
+            return OutInfo().response_vad(1, "Only support wav or mp3 files.")
         try:
-            filepath1, oss_path1 = save_file(file=new_file1, spk=new_spkid1)
-            filepath2, oss_path2 = save_file(file=new_file2, spk=new_spkid2)
+            filepath1, _oss_path1 = save_file(file=new_file1, spk=new_spkid1)
+            filepath2, _oss_path2 = save_file(file=new_file2, spk=new_spkid2)
         except Exception as e:
             print(e)
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": 2,
-                "err_msg": f"File save faild.",
-            }
-            return response
+            return OutInfo().response_vad(2, "File save faild.")
+
     elif get_type == "url":
         new_url1 = request.form.get("wav_url1")
         new_url2 = request.form.get("wav_url2")
@@ -382,17 +352,11 @@ def get_score(request_form, get_type="url"):
         new_spkid2 = request.form.get("spkid2")
 
         try:
-            filepath1, oss_path1 = save_url(url=new_url1, spk=new_spkid1)
-            filepath2, oss_path2 = save_url(url=new_url2, spk=new_spkid2)
+            filepath1, _oss_path1 = save_url(url=new_url1, spk=new_spkid1)
+            filepath2, _oss_path2 = save_url(url=new_url2, spk=new_spkid2)
         except Exception as e:
             print(e)
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": 3,
-                "err_msg": f"File:{new_url1} or {new_url2} save faild.",
-            }
-            return response
+            return OutInfo().response_vad(3, "File:%s or %s save faild."%(new_url1, new_url2))
 
     # STEP 2: VAD
     try:
@@ -404,18 +368,10 @@ def get_score(request_form, get_type="url"):
         before_vad_length2 = vad_result2["before_length"]
         after_vad_length1 = vad_result1["after_length"]
         after_vad_length2 = vad_result1["after_length"]
-
-        preprocessed_file_path1 = vad_result1["preprocessed_file_path"]
-        preprocessed_file_path2 = vad_result2["preprocessed_file_path"]
     except Exception as e:
         print(e)
-        response = {
-            "code": 2000,
-            "status": "error",
-            "err_type": 5,
-            "err_msg": f"VAD and upsample faild. No useful data in {filepath1} or {filepath2}.",
-        }
-        return response
+        err_msg = "VAD and upsample faild. No useful data in %s or %s."%(filepath1, filepath2)
+        return OutInfo().response_vad(5, err_msg)
 
     # STEP 3: Self Test
     try:
@@ -424,35 +380,18 @@ def get_score(request_form, get_type="url"):
 
     except Exception as e:
         print(e)
-        response = {
-            "code": 2000,
-            "status": "error",
-            "err_type": 5,
-            "err_msg": f"Self Test faild. No useful data in {filepath1} {filepath2}.",
-        }
-        return response
+        err_msg = "Self Test faild. No useful data in %s %s."%(filepath1, filepath2)
+        return OutInfo().response_vad(5, err_msg)
 
     msg = self_test_result1["msg"]
     if not self_test_result1["pass"]:
         err_type = self_test_result1["err_type"]
-        response = {
-            "code": 2000,
-            "status": "error",
-            "err_type": err_type,
-            "err_msg": "wav1:" + msg,
-        }
-        return response
+        return OutInfo().response_vad(err_type, "wav1:" + msg)
 
     msg = self_test_result2["msg"]
     if not self_test_result2["pass"]:
         err_type = self_test_result2["err_type"]
-        response = {
-            "code": 2000,
-            "status": "error",
-            "err_type": err_type,
-            "err_msg": "wav2:" + msg,
-        }
-        return response
+        return OutInfo().response_vad(err_type, "wav2:" + msg)
 
     # STEP 4: Encoding
     embedding1 = self_test_result1["tensor"]
@@ -490,9 +429,7 @@ def check_new(request_form, get_type="url"):
                 "err_msg": "activate ID not exist.",
                 "err_type": 0,
             }
-        old_class = old_info["class_number"]
         old_score = old_info["self_test_score_mean"]
-        old_valid_length = old_info["valid_length"]
         print(f"now get embedding from :{new_spkid}")
         old_embedding = get_embedding(new_spkid)
         # STEP 2: Get wav file.
@@ -500,47 +437,20 @@ def check_new(request_form, get_type="url"):
             new_file = request.files["wav_file"]
             filename = new_file.filename
             if (".wav" not in filename) and (".mp3" not in filename):
-                response = {
-                    "code": 2000,
-                    "status": "error",
-                    "err_type": 1,
-                    "err_msg": "Only support wav or mp3 files.",
-                    "inbase": True,
-                    "code": 2000,
-                    "replace": False,
-                }
-                return response
+                return OutInfo().response_check(1, "Only support wav or mp3 files.")
             try:
                 filepath, oss_path = save_file(file=new_file, spk=new_spkid)
             except Exception as e:
                 print(e)
-                response = {
-                    "code": 2000,
-                    "status": "error",
-                    "err_type": 2,
-                    "err_msg": f"File save faild.",
-                    "inbase": True,
-                    "code": 2000,
-                    "replace": False,
-                }
+                return OutInfo().response_check(2, "File save faild.")
 
-                return response
         elif get_type == "url":
             new_url = request.form.get("wav_url")
             try:
                 filepath, oss_path = save_url(url=new_url, spk=new_spkid)
             except Exception as e:
                 print(e)
-                response = {
-                    "code": 2000,
-                    "status": "error",
-                    "err_type": 3,
-                    "err_msg": f"File:{new_url} save faild.",
-                    "inbase": True,
-                    "code": 2000,
-                    "replace": False,
-                }
-                return response
+                return OutInfo().response_check(3, "File:%s save faild."%new_url)
 
         # STEP 3: VAD
         try:
@@ -548,20 +458,9 @@ def check_new(request_form, get_type="url"):
             vad_result = vad(wav1, new_spkid, action_type="register")
             before_vad_length = vad_result["before_length"]
             after_vad_length = vad_result["after_length"]
-            preprocessed_file_path = vad_result["preprocessed_file_path"]
-
         except Exception as e:
             print(e)
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": 5,
-                "err_msg": f"VAD and upsample faild. No useful data in {filepath}.",
-                "inbase": True,
-                "code": 2000,
-                "replace": False,
-            }
-            return response
+            return OutInfo().response_check(5, "VAD and upsample faild. No useful data in %s."%filepath)
 
         # STEP 3: Self Test
         try:
@@ -570,30 +469,12 @@ def check_new(request_form, get_type="url"):
             )
         except Exception as e:
             print(e)
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": 5,
-                "err_msg": f"Self Test faild. No useful data in {filepath}.",
-                "inbase": True,
-                "code": 2000,
-                "replace": False,
-            }
-            return response
+            return OutInfo().response_check(5, "Self Test faild. No useful data in %s."%filepath)
 
         msg = self_test_result["msg"]
         if not self_test_result["pass"]:
             err_type = self_test_result["err_type"]
-            response = {
-                "code": 2000,
-                "status": "error",
-                "err_type": err_type,
-                "err_msg": "wav1:" + msg,
-                "inbase": True,
-                "code": 2000,
-                "replace": False,
-            }
-            return response
+            return OutInfo().response_check(err_type, "wav1:" + msg)
 
         # STEP 4: Encoding
         embedding = self_test_result["tensor"]
