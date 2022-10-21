@@ -52,6 +52,8 @@ CLIP_TH = 0.03
 # Similarity threshold for audio updates of the same ID
 UPDATE_TH = 0.8
 
+UPDATE_DAYS = 90
+
 # Min Length Of VAD-WAV
 MIN_LENGTH_REGISTER = 10
 MIN_LENGTH_TEST = 5

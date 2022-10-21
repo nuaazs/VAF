@@ -117,12 +117,23 @@ def general(request_form, get_type="url", action_type="test"):
     # TODO:判断更新的逻辑
     do_update = False
     if check_spkid(new_spkid):
+        
         do_update = True
         old_info = get_spkinfo(new_spkid)
         last_days = int((datetime.datetime.now() - old_info["register_time"]).days)
         if last_days < cfg.UPDATE_DAYS:
-            return OutInfo().response_error(new_spkid, 4, f"ID error. ID: {new_spkid} already exists.")
+            response = {
+                "code": 2000,
+                "status": "error",
+                "err_type": 4,
+                "err_msg": f"ID error.\nID: {new_spkid} already exists.",
+            }
+            err_logger.info(
+                f"{new_spkid},None,{response['err_type']},{response['err_msg']}"
+            )
+            return response
         else:
+            do_update = True
             print(f"start checking ... to update spk {new_spkid}")
 
     # STEP 1: Get wav file.
