@@ -27,6 +27,7 @@ from utils.preprocess import classify
 from utils.register import register
 from utils.test import test
 from utils.encoder import similarity
+from utils.orm.db_utils import mysql_handler
 
 import torch
 
@@ -116,8 +117,7 @@ def general(request_form, get_type="url", action_type="test"):
     # ID duplication detection.
     # TODO:判断更新的逻辑
     do_update = False
-    if check_spkid(new_spkid):
-        
+    if check_spkid(new_spkid) and action_type == "register":
         do_update = True
         old_info = get_spkinfo(new_spkid)
         last_days = int((datetime.datetime.now() - old_info["register_time"]).days)
@@ -133,8 +133,9 @@ def general(request_form, get_type="url", action_type="test"):
             )
             return response
         else:
-            do_update = True
-            print(f"start checking ... to update spk {new_spkid}")
+            query_sql = f"delete from speaker where phone='{new_spkid}'"
+            _ = mysql_handler.delete(query_sql)
+            print(f"phone:{new_spkid}, The user audio has timed out and will be updated.")
 
     # STEP 1: Get wav file.
     if get_type == "file":
