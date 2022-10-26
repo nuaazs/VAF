@@ -13,9 +13,6 @@ from flask_sock import Sock
 # utils
 from utils.advanced import general
 from utils.advanced import init_service
-from utils.advanced import get_score
-from utils.advanced import check_new
-from utils.advanced import update_embedding
 from utils.log import err_logger
 from utils.log import logger
 
@@ -43,30 +40,6 @@ def index():
         "name": system_info["name"],
     }
     return render_template("index.html", **kwargs)
-
-
-# Get the similarity of two audio files.
-@app.route("/score/<test_type>", methods=["POST"])
-def score(test_type):
-    if request.method == "POST":
-        response = get_score(request.form, get_type=test_type)
-        return json.dumps(response, ensure_ascii=False)
-
-
-# TODO: Get the similarity of the two audio tracks and compare the ratings
-# to determine whether to replace the new audio with the old one
-# Perform the audio update process
-@app.route("/update/<file_type>", methods=["POST"])
-def update(file_type):
-    if request.method == "POST":
-        check_result = check_new(request.form, get_type=file_type)
-        print(check_result)
-        if check_result["replace"]:
-            response = update_embedding(request.form, get_type=file_type)
-            return json.dumps(response, ensure_ascii=False)
-        else:
-            return json.dumps(check_result, ensure_ascii=False)
-
 
 # Register Or Reasoning.
 @app.route("/<action_type>/<test_type>", methods=["POST"])

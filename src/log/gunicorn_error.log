@@ -88,3 +88,49 @@ pymysql.err.IntegrityError: (1062, "Duplicate entry '15151832002' for key 'phone
 [2022-10-26 10:49:50 +0800] [3234000] [INFO] Listening at: http://0.0.0.0:8186 (3234000)
 [2022-10-26 10:49:50 +0800] [3234000] [INFO] Using worker: gevent
 [2022-10-26 10:49:50 +0800] [3234003] [INFO] Booting worker with pid: 3234003
+[2022-10-26 11:27:39 +0800] [3321886] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 11:27:39 +0800] [3321886] [INFO] Listening at: http://0.0.0.0:8186 (3321886)
+[2022-10-26 11:27:39 +0800] [3321886] [INFO] Using worker: gevent
+[2022-10-26 11:27:39 +0800] [3321888] [INFO] Booting worker with pid: 3321888
+[2022-10-26 11:27:45 +0800] [3321888] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/home/lyxx/anaconda3/envs/fnet/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 843, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src/vaf_server.py", line 14, in <module>
+    from utils.advanced import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src/utils/advanced/__init__.py", line 6, in <module>
+    from utils.advanced.general import general
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src/utils/advanced/general.py", line 27, in <module>
+    from utils.info import OutInfo
+  File "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/src/utils/info/__init__.py", line 1, in <module>
+    from out import OutInfo
+ModuleNotFoundError: No module named 'out'
+[2022-10-26 11:27:45 +0800] [3321888] [INFO] Worker exiting (pid: 3321888)
+[2022-10-26 11:27:46 +0800] [3321886] [INFO] Shutting down: Master
+[2022-10-26 11:27:46 +0800] [3321886] [INFO] Reason: Worker failed to boot.
+[2022-10-26 11:29:01 +0800] [3325405] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 11:29:01 +0800] [3325405] [INFO] Listening at: http://0.0.0.0:8186 (3325405)
+[2022-10-26 11:29:01 +0800] [3325405] [INFO] Using worker: gevent
+[2022-10-26 11:29:01 +0800] [3325407] [INFO] Booting worker with pid: 3325407

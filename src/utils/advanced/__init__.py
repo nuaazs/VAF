@@ -4,7 +4,4 @@
 # @Describe: High level abstract functions.
 
 from utils.advanced.general import general
-from utils.advanced.general import get_score
-from utils.advanced.general import check_new
-from utils.advanced.general import update_embedding
 from utils.advanced.init_service import init_service

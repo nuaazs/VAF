@@ -318,3 +318,383 @@
 [[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  to_log use time: 0.03886818885803223s
 [[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  to_log use time: 0.04545140266418457s
 [[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  to_log use time: 0.041643381118774414s
+[[2022-10-26 10:51:37]]  ERROR  [query.py]  #280 <3234003:140155861958160>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:37]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  check_spkid use time: 0.002292156219482422s
+[[2022-10-26 10:51:37]]  ERROR  [query.py]  #280 <3234003:140155727184208>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:37]]  INFO  [db_utils.py]  #16 <3234003:140155727184208>  check_spkid use time: 0.003687620162963867s
+[[2022-10-26 10:51:37]]  ERROR  [query.py]  #280 <3234003:140155861957888>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:37]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  check_spkid use time: 0.004441261291503906s
+[[2022-10-26 10:51:38]]  ERROR  [query.py]  #280 <3234003:140155727183936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:38]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  check_spkid use time: 0.03433823585510254s
+[[2022-10-26 10:51:38]]  ERROR  [query.py]  #280 <3234003:140155727184752>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:38]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  check_spkid use time: 0.03383231163024902s
+[[2022-10-26 10:51:38]]  ERROR  [query.py]  #280 <3234003:140155727184480>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:38]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  check_spkid use time: 0.0376129150390625s
+[[2022-10-26 10:51:38]]  ERROR  [query.py]  #280 <3234003:140155727185024>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:38]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  check_spkid use time: 0.0366823673248291s
+[[2022-10-26 10:51:38]]  ERROR  [query.py]  #280 <3234003:140155727185296>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:38]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  check_spkid use time: 0.0363774299621582s
+[[2022-10-26 10:51:38]]  ERROR  [query.py]  #280 <3234003:140155727185568>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:38]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  check_spkid use time: 0.0673208236694336s
+[[2022-10-26 10:51:38]]  ERROR  [query.py]  #280 <3234003:140155727185840>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:38]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  check_spkid use time: 0.0411376953125s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  get_blackid use time: 0.0018553733825683594s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155861958160>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  to_log use time: 0.006976127624511719s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184208>  get_blackid use time: 0.007976770401000977s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155727184208>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184208>  to_log use time: 0.0009953975677490234s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184208>  add_hit use time: 0.12152266502380371s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  add_hit use time: 0.12687110900878906s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  get_blackid use time: 0.00410914421081543s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155727184480>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184208>  add_hit_count use time: 0.010666847229003906s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  add_hit_count use time: 0.011045455932617188s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  get_blackid use time: 0.013109445571899414s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155727183936>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  get_blackid use time: 0.015114068984985352s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  to_log use time: 0.011185407638549805s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155861957888>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  get_blackid use time: 0.017726898193359375s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155727185024>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  get_blackid use time: 0.02002406120300293s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155727185296>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  get_blackid use time: 0.022168397903442383s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155727184752>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  to_log use time: 0.010540008544921875s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  to_log use time: 0.008701801300048828s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  to_log use time: 0.013073205947875977s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  to_log use time: 0.011500358581542969s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  to_log use time: 0.009923458099365234s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  get_blackid use time: 0.0009105205535888672s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155727185568>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  add_hit use time: 0.019989967346191406s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  get_blackid use time: 0.003618478775024414s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  to_log use time: 0.0030527114868164062s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #393 <3234003:140155727185840>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  to_log use time: 0.0010457038879394531s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  add_hit_count use time: 0.0033669471740722656s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  add_hit use time: 0.019388675689697266s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #280 <3234003:140155861958160>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  check_spkid use time: 0.001734018325805664s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.0021877288818359375s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  add_hit_count use time: 0.0021674633026123047s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  add_hit use time: 0.021885395050048828s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  add_hit_count use time: 0.0005962848663330078s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  add_hit use time: 0.04349517822265625s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  add_hit use time: 0.045271873474121094s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  add_hit use time: 0.05161285400390625s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  add_hit use time: 0.05337166786193848s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  add_hit use time: 0.0531010627746582s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #280 <3234003:140155861957888>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  check_spkid use time: 0.005974531173706055s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  add_hit_count use time: 0.005621433258056641s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  add_hit_count use time: 0.0058176517486572266s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  add_hit_count use time: 0.006690263748168945s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  add_hit_count use time: 0.007490873336791992s
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  add_hit_count use time: 0.008008480072021484s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #280 <3234003:140155727183936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  check_spkid use time: 0.012896537780761719s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #280 <3234003:140155727184480>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  check_spkid use time: 0.025774717330932617s
+[[2022-10-26 10:51:40]]  ERROR  [query.py]  #280 <3234003:140155727185024>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:40]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  check_spkid use time: 0.0011773109436035156s
+[[2022-10-26 10:51:41]]  ERROR  [query.py]  #280 <3234003:140155727185296>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:41]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  check_spkid use time: 0.5171706676483154s
+[[2022-10-26 10:51:41]]  ERROR  [query.py]  #280 <3234003:140155727184752>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:41]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  check_spkid use time: 0.5212345123291016s
+[[2022-10-26 10:51:41]]  ERROR  [query.py]  #280 <3234003:140155727185568>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:41]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  check_spkid use time: 0.5222702026367188s
+[[2022-10-26 10:51:41]]  ERROR  [query.py]  #280 <3234003:140155727185840>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:41]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  check_spkid use time: 0.5230498313903809s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  get_blackid use time: 0.002238750457763672s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155727185024>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  get_blackid use time: 0.005124092102050781s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155861957888>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  get_blackid use time: 0.009470462799072266s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155727185840>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  get_blackid use time: 0.015157461166381836s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155861958160>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  get_blackid use time: 0.0173337459564209s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155727185568>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  get_blackid use time: 0.020093917846679688s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  get_blackid use time: 0.024559974670410156s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155727185296>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  to_log use time: 0.023360729217529297s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  get_blackid use time: 0.02732396125793457s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  to_log use time: 0.021846532821655273s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155727184480>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  get_blackid use time: 0.02968144416809082s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  get_blackid use time: 0.032004594802856445s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155727183936>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  to_log use time: 0.021801471710205078s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #393 <3234003:140155727184752>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  to_log use time: 0.018464326858520508s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  to_log use time: 0.016043663024902344s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  to_log use time: 0.013565301895141602s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.011229515075683594s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  to_log use time: 0.008237600326538086s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  to_log use time: 0.005666255950927734s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  to_log use time: 0.0037224292755126953s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  add_hit use time: 0.014040946960449219s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  add_hit_count use time: 0.0005857944488525391s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  add_hit use time: 0.017427921295166016s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  add_hit_count use time: 0.001010894775390625s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  add_hit use time: 0.016730070114135742s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  add_hit use time: 0.015057563781738281s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  add_hit_count use time: 0.0013713836669921875s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  add_hit use time: 0.020024776458740234s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  add_hit use time: 0.021538496017456055s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit use time: 0.021175384521484375s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  add_hit_count use time: 0.002179384231567383s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  add_hit use time: 0.02489757537841797s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  add_hit use time: 0.023414134979248047s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  add_hit use time: 0.023777246475219727s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  add_hit_count use time: 0.002109050750732422s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  add_hit_count use time: 0.012070655822753906s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  add_hit_count use time: 0.0043141841888427734s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  add_hit_count use time: 0.010791778564453125s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit_count use time: 0.011019468307495117s
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  add_hit_count use time: 0.009740352630615234s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #280 <3234003:140155727185024>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  check_spkid use time: 0.01511383056640625s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #280 <3234003:140155861957888>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  check_spkid use time: 0.0049436092376708984s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #280 <3234003:140155727184752>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  check_spkid use time: 0.010893106460571289s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.003996372222900391s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #280 <3234003:140155727185568>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  check_spkid use time: 0.0031082630157470703s
+[[2022-10-26 10:51:42]]  ERROR  [query.py]  #280 <3234003:140155861958160>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:42]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  check_spkid use time: 0.0038285255432128906s
+[[2022-10-26 10:51:43]]  ERROR  [query.py]  #280 <3234003:140155727185296>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:43]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  check_spkid use time: 0.0040361881256103516s
+[[2022-10-26 10:51:43]]  ERROR  [query.py]  #280 <3234003:140155727184480>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:43]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  check_spkid use time: 0.007814884185791016s
+[[2022-10-26 10:51:43]]  ERROR  [query.py]  #280 <3234003:140155727183936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:43]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  check_spkid use time: 0.008217334747314453s
+[[2022-10-26 10:51:43]]  ERROR  [query.py]  #280 <3234003:140155727185840>  object of type 'NoneType' has no len()
+[[2022-10-26 10:51:43]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  check_spkid use time: 0.020606040954589844s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  get_blackid use time: 0.0007185935974121094s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  get_blackid use time: 0.004106044769287109s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155727184480>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155861957888>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  get_blackid use time: 0.00710606575012207s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  get_blackid use time: 0.00949406623840332s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155727185296>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  get_blackid use time: 0.011306047439575195s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  to_log use time: 0.010092020034790039s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155861958160>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  to_log use time: 0.011915206909179688s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  get_blackid use time: 0.018154621124267578s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  get_blackid use time: 0.020415782928466797s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155727184752>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  get_blackid use time: 0.02211928367614746s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155727185024>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.01580953598022461s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155727185568>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  to_log use time: 0.014003992080688477s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  get_blackid use time: 0.024387121200561523s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  to_log use time: 0.014247894287109375s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155727183936>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  to_log use time: 0.0017659664154052734s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  add_hit use time: 0.01581120491027832s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  to_log use time: 0.010655879974365234s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  to_log use time: 0.009531974792480469s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  to_log use time: 0.008321285247802734s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  add_hit_count use time: 0.0034410953521728516s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  get_blackid use time: 0.014713048934936523s
+[[2022-10-26 10:51:45]]  ERROR  [query.py]  #393 <3234003:140155727185840>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  to_log use time: 0.0014297962188720703s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  add_hit use time: 0.022163867950439453s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit use time: 0.01578998565673828s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  add_hit_count use time: 0.0008730888366699219s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  add_hit use time: 0.017061710357666016s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  add_hit use time: 0.014981269836425781s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit_count use time: 0.002561330795288086s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  add_hit_count use time: 0.0020515918731689453s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  add_hit_count use time: 0.002575397491455078s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  add_hit use time: 0.01682591438293457s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  add_hit_count use time: 0.0008037090301513672s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  add_hit use time: 0.019586563110351562s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  add_hit use time: 0.02190375328063965s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  add_hit use time: 0.024265766143798828s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  add_hit use time: 0.014170169830322266s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  add_hit_count use time: 0.0016472339630126953s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  add_hit_count use time: 0.0021119117736816406s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  add_hit_count use time: 0.0025403499603271484s
+[[2022-10-26 10:51:45]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  add_hit_count use time: 0.0029387474060058594s
+[[2022-10-26 11:05:57]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:05:57]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.000993490219116211s
+[[2022-10-26 11:05:57]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  get_blackid use time: 0.0006003379821777344s
+[[2022-10-26 11:05:57]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:05:57]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.0007882118225097656s
+[[2022-10-26 11:05:57]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit use time: 0.008911371231079102s
+[[2022-10-26 11:05:57]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit_count use time: 0.0006356239318847656s
+[[2022-10-26 11:06:16]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:06:16]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.002264261245727539s
+[[2022-10-26 11:06:17]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  get_blackid use time: 0.0010635852813720703s
+[[2022-10-26 11:06:17]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:06:17]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.0013275146484375s
+[[2022-10-26 11:06:17]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit use time: 0.009209156036376953s
+[[2022-10-26 11:06:17]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit_count use time: 0.0007908344268798828s
+[[2022-10-26 11:19:26]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:19:26]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.002221345901489258s
+[[2022-10-26 11:19:26]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  get_blackid use time: 0.0012791156768798828s
+[[2022-10-26 11:19:26]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:19:26]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.0009343624114990234s
+[[2022-10-26 11:19:26]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit use time: 0.008556127548217773s
+[[2022-10-26 11:19:26]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit_count use time: 0.0006389617919921875s
+[[2022-10-26 11:20:14]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:20:14]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.002378225326538086s
+[[2022-10-26 11:20:14]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  get_blackid use time: 0.0008044242858886719s
+[[2022-10-26 11:20:14]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:20:14]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.0008020401000976562s
+[[2022-10-26 11:20:14]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit use time: 0.009012460708618164s
+[[2022-10-26 11:20:14]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit_count use time: 0.0006899833679199219s
+[[2022-10-26 11:22:24]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:22:24]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.0019125938415527344s
+[[2022-10-26 11:22:25]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  get_blackid use time: 0.0008118152618408203s
+[[2022-10-26 11:22:25]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:22:25]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.000720977783203125s
+[[2022-10-26 11:22:25]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit use time: 0.009306669235229492s
+[[2022-10-26 11:22:25]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit_count use time: 0.001012563705444336s
+[[2022-10-26 11:24:59]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:24:59]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.002092599868774414s
+[[2022-10-26 11:24:59]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  get_blackid use time: 0.0007181167602539062s
+[[2022-10-26 11:24:59]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:24:59]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.0007872581481933594s
+[[2022-10-26 11:24:59]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit use time: 0.011606693267822266s
+[[2022-10-26 11:24:59]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  add_hit_count use time: 0.0008618831634521484s
+[[2022-10-26 11:26:36]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:26:36]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.00193023681640625s
+[[2022-10-26 11:26:36]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1366, "Incorrect integer value: 'embedding' for column 'action_type' at row 1")
+[[2022-10-26 11:26:36]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.0010492801666259766s
+[[2022-10-26 11:27:19]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:27:19]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.0017740726470947266s
+[[2022-10-26 11:27:20]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1366, "Incorrect integer value: 'embedding' for column 'action_type' at row 1")
+[[2022-10-26 11:27:20]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.000774383544921875s
+[[2022-10-26 11:27:33]]  ERROR  [query.py]  #280 <3234003:140155901781120>  object of type 'NoneType' has no len()
+[[2022-10-26 11:27:33]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  check_spkid use time: 0.0018229484558105469s
+[[2022-10-26 11:27:33]]  ERROR  [query.py]  #393 <3234003:140155901781120>  (1366, "Incorrect integer value: 'embedding' for column 'action_type' at row 1")
+[[2022-10-26 11:27:33]]  INFO  [db_utils.py]  #16 <3234003:140155901781120>  to_log use time: 0.0007467269897460938s
+[[2022-10-26 11:28:50]]  INFO  [init_service.py]  #22 <3324590:140206709777344>  ** Start! Total speaker num:618
+[[2022-10-26 11:29:07]]  INFO  [init_service.py]  #22 <3325407:140298517595056>  ** Start! Total speaker num:618
+[[2022-10-26 11:29:07]]  ERROR  [query.py]  #280 <3325407:140294236564464>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:07]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  check_spkid use time: 0.0027070045471191406s
+[[2022-10-26 11:29:09]]  ERROR  [query.py]  #393 <3325407:140294236564464>  (1366, "Incorrect integer value: 'embedding' for column 'action_type' at row 1")
+[[2022-10-26 11:29:09]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  to_log use time: 0.001413583755493164s
+[[2022-10-26 11:29:21]]  ERROR  [query.py]  #280 <3325407:140294236564736>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:21]]  INFO  [db_utils.py]  #16 <3325407:140294236564736>  check_spkid use time: 0.0877985954284668s
+[[2022-10-26 11:29:21]]  ERROR  [query.py]  #280 <3325407:140294236565008>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:21]]  INFO  [db_utils.py]  #16 <3325407:140294236565008>  check_spkid use time: 0.10380983352661133s
+[[2022-10-26 11:29:21]]  ERROR  [query.py]  #280 <3325407:140294236564464>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:21]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  check_spkid use time: 0.1056821346282959s
+[[2022-10-26 11:29:21]]  ERROR  [query.py]  #280 <3325407:140294101540928>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:21]]  INFO  [db_utils.py]  #16 <3325407:140294101540928>  check_spkid use time: 0.10742878913879395s
+[[2022-10-26 11:29:21]]  ERROR  [query.py]  #280 <3325407:140294101541200>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:21]]  INFO  [db_utils.py]  #16 <3325407:140294101541200>  check_spkid use time: 0.11154699325561523s
+[[2022-10-26 11:29:21]]  ERROR  [query.py]  #280 <3325407:140294101541472>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:21]]  INFO  [db_utils.py]  #16 <3325407:140294101541472>  check_spkid use time: 0.11545419692993164s
+[[2022-10-26 11:29:21]]  ERROR  [query.py]  #280 <3325407:140294101541744>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:21]]  INFO  [db_utils.py]  #16 <3325407:140294101541744>  check_spkid use time: 0.11673617362976074s
+[[2022-10-26 11:29:21]]  ERROR  [query.py]  #280 <3325407:140294101542016>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:21]]  INFO  [db_utils.py]  #16 <3325407:140294101542016>  check_spkid use time: 0.3037571907043457s
+[[2022-10-26 11:29:22]]  ERROR  [query.py]  #280 <3325407:140294101542288>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:22]]  INFO  [db_utils.py]  #16 <3325407:140294101542288>  check_spkid use time: 0.6344540119171143s
+[[2022-10-26 11:29:22]]  ERROR  [query.py]  #280 <3325407:140294101542560>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:22]]  INFO  [db_utils.py]  #16 <3325407:140294101542560>  check_spkid use time: 0.8312180042266846s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294236564736>  add_speaker use time: 0.13611769676208496s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294236565008>  add_speaker use time: 0.09924149513244629s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101541200>  add_speaker use time: 0.06365466117858887s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294236564736>  to_log use time: 0.01805710792541504s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101541744>  add_speaker use time: 0.02112555503845215s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101542016>  add_speaker use time: 0.02112269401550293s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101541472>  add_speaker use time: 0.022871971130371094s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  add_speaker use time: 0.11197233200073242s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101542288>  add_speaker use time: 0.0221102237701416s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101540928>  add_speaker use time: 0.11281204223632812s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101542560>  add_speaker use time: 0.022899627685546875s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294236565008>  to_log use time: 0.01472163200378418s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101541200>  to_log use time: 0.014905929565429688s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101542016>  to_log use time: 0.014856338500976562s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101541472>  to_log use time: 0.016042232513427734s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101542288>  to_log use time: 0.016618967056274414s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  to_log use time: 0.01879572868347168s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101542560>  to_log use time: 0.019217491149902344s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101541744>  to_log use time: 0.02385687828063965s
+[[2022-10-26 11:29:24]]  INFO  [db_utils.py]  #16 <3325407:140294101540928>  to_log use time: 0.022826671600341797s
+[[2022-10-26 11:29:41]]  ERROR  [query.py]  #280 <3325407:140294236564464>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:41]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  check_spkid use time: 0.09256386756896973s
+[[2022-10-26 11:29:41]]  ERROR  [query.py]  #280 <3325407:140294101541744>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:41]]  INFO  [db_utils.py]  #16 <3325407:140294101541744>  check_spkid use time: 0.07116961479187012s
+[[2022-10-26 11:29:41]]  ERROR  [query.py]  #280 <3325407:140294236564736>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:41]]  INFO  [db_utils.py]  #16 <3325407:140294236564736>  check_spkid use time: 0.09397602081298828s
+[[2022-10-26 11:29:41]]  ERROR  [query.py]  #280 <3325407:140294101540928>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:41]]  INFO  [db_utils.py]  #16 <3325407:140294101540928>  check_spkid use time: 0.09247565269470215s
+[[2022-10-26 11:29:41]]  ERROR  [query.py]  #280 <3325407:140294236565008>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:41]]  INFO  [db_utils.py]  #16 <3325407:140294236565008>  check_spkid use time: 0.0832061767578125s
+[[2022-10-26 11:29:41]]  ERROR  [query.py]  #280 <3325407:140294101542560>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:41]]  INFO  [db_utils.py]  #16 <3325407:140294101542560>  check_spkid use time: 0.08247661590576172s
+[[2022-10-26 11:29:41]]  ERROR  [query.py]  #280 <3325407:140294101542288>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:41]]  INFO  [db_utils.py]  #16 <3325407:140294101542288>  check_spkid use time: 0.08054161071777344s
+[[2022-10-26 11:29:41]]  ERROR  [query.py]  #280 <3325407:140294101541472>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:41]]  INFO  [db_utils.py]  #16 <3325407:140294101541472>  check_spkid use time: 0.26465439796447754s
+[[2022-10-26 11:29:42]]  ERROR  [query.py]  #280 <3325407:140294101542016>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:42]]  INFO  [db_utils.py]  #16 <3325407:140294101542016>  check_spkid use time: 1.0955746173858643s
+[[2022-10-26 11:29:43]]  ERROR  [query.py]  #280 <3325407:140294101541200>  object of type 'NoneType' has no len()
+[[2022-10-26 11:29:43]]  INFO  [db_utils.py]  #16 <3325407:140294101541200>  check_spkid use time: 1.272979974746704s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542560>  get_blackid use time: 0.0013585090637207031s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294101542560>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  get_blackid use time: 0.005080699920654297s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294236564464>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542560>  to_log use time: 0.004175424575805664s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542288>  get_blackid use time: 0.0043179988861083984s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541472>  get_blackid use time: 0.009549379348754883s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294101542288>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294101541472>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101540928>  get_blackid use time: 0.011815547943115234s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236564736>  get_blackid use time: 0.013808965682983398s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294101540928>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541744>  get_blackid use time: 0.01605534553527832s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294236564736>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236565008>  get_blackid use time: 0.018080711364746094s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294101541744>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542016>  get_blackid use time: 0.019997835159301758s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294236565008>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  to_log use time: 0.015712976455688477s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294101542016>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541200>  get_blackid use time: 0.01944756507873535s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542288>  to_log use time: 0.01539921760559082s
+[[2022-10-26 11:29:44]]  ERROR  [query.py]  #393 <3325407:140294101541200>  (1406, "Data too long for column 'message' at row 1")
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541472>  to_log use time: 0.013769865036010742s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101540928>  to_log use time: 0.01190638542175293s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542560>  add_hit use time: 0.018752336502075195s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236564736>  to_log use time: 0.010480642318725586s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541744>  to_log use time: 0.008794784545898438s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236565008>  to_log use time: 0.007264137268066406s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542016>  to_log use time: 0.005696535110473633s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541200>  to_log use time: 0.0035219192504882812s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542560>  add_hit_count use time: 0.002231121063232422s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541472>  add_hit use time: 0.011628389358520508s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541472>  add_hit_count use time: 0.0005981922149658203s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541744>  add_hit use time: 0.017506122589111328s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236565008>  add_hit use time: 0.01786947250366211s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542288>  add_hit use time: 0.021137475967407227s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541200>  add_hit use time: 0.019128799438476562s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101540928>  add_hit use time: 0.022358179092407227s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  add_hit use time: 0.026545286178588867s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542016>  add_hit use time: 0.022080659866333008s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236564736>  add_hit use time: 0.02426004409790039s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541744>  add_hit_count use time: 0.007138967514038086s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236564736>  add_hit_count use time: 0.0031816959381103516s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236565008>  add_hit_count use time: 0.011121988296508789s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542288>  add_hit_count use time: 0.012252330780029297s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101541200>  add_hit_count use time: 0.012610912322998047s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101540928>  add_hit_count use time: 0.013439655303955078s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294236564464>  add_hit_count use time: 0.014380693435668945s
+[[2022-10-26 11:29:44]]  INFO  [db_utils.py]  #16 <3325407:140294101542016>  add_hit_count use time: 0.015250205993652344s
