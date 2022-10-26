@@ -65,3 +65,26 @@ pymysql.err.IntegrityError: (1062, "Duplicate entry '15151832002' for key 'phone
 [2022-10-13 09:28:19 +0800] [2488401] [INFO] Worker exiting (pid: 2488401)
 [2022-10-13 09:28:20 +0800] [2488402] [INFO] Parent changed, shutting down: <Worker 2488402>
 [2022-10-13 09:28:20 +0800] [2488402] [INFO] Worker exiting (pid: 2488402)
+[2022-10-26 10:22:52 +0800] [3171627] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:22:52 +0800] [3171627] [INFO] Listening at: http://0.0.0.0:8186 (3171627)
+[2022-10-26 10:22:52 +0800] [3171627] [INFO] Using worker: gevent
+[2022-10-26 10:22:52 +0800] [3171629] [INFO] Booting worker with pid: 3171629
+[2022-10-26 10:22:52 +0800] [3171630] [INFO] Booting worker with pid: 3171630
+[2022-10-26 10:25:04 +0800] [3176743] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:26:18 +0800] [3179919] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:26:18 +0800] [3179919] [INFO] Listening at: http://0.0.0.0:8186 (3179919)
+[2022-10-26 10:26:18 +0800] [3179919] [INFO] Using worker: gevent
+[2022-10-26 10:26:18 +0800] [3179921] [INFO] Booting worker with pid: 3179921
+[2022-10-26 10:26:18 +0800] [3179922] [INFO] Booting worker with pid: 3179922
+[2022-10-26 10:27:17 +0800] [3182245] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:27:17 +0800] [3182245] [INFO] Listening at: http://0.0.0.0:8186 (3182245)
+[2022-10-26 10:27:17 +0800] [3182245] [INFO] Using worker: gevent
+[2022-10-26 10:27:17 +0800] [3182247] [INFO] Booting worker with pid: 3182247
+[2022-10-26 10:49:32 +0800] [3233130] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:49:32 +0800] [3233130] [INFO] Listening at: http://0.0.0.0:8186 (3233130)
+[2022-10-26 10:49:32 +0800] [3233130] [INFO] Using worker: gevent
+[2022-10-26 10:49:32 +0800] [3233135] [INFO] Booting worker with pid: 3233135
+[2022-10-26 10:49:50 +0800] [3234000] [INFO] Starting gunicorn 20.1.0
+[2022-10-26 10:49:50 +0800] [3234000] [INFO] Listening at: http://0.0.0.0:8186 (3234000)
+[2022-10-26 10:49:50 +0800] [3234000] [INFO] Using worker: gevent
+[2022-10-26 10:49:50 +0800] [3234003] [INFO] Booting worker with pid: 3234003

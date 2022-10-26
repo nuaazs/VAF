@@ -67,7 +67,7 @@ def general(request_form, get_type="url", action_type="test"):
     # TODO:判断更新的逻辑
     do_update = False
     if check_spkid(new_spkid):
-        
+
         do_update = True
         old_info = get_spkinfo(new_spkid)
         last_days = int((datetime.datetime.now() - old_info["register_time"]).days)
@@ -268,7 +268,7 @@ def general(request_form, get_type="url", action_type="test"):
 
     # TODO:执行更新声纹特征
     if do_update:
-        
+
         if old_info == None:
             return {
                 "inbase": False,

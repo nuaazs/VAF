@@ -80,5 +80,5 @@ def register_or_reasoning(action_type, test_type):
 
 if __name__ == "__main__":
     app.run(
-        host="0.0.0.0", threaded=False, port=cfg.PORT, debug=False,
+        host="0.0.0.0", threaded=False, port=cfg.PORT, debug=True,
     )

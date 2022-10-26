@@ -15,8 +15,8 @@ from multiprocessing.dummy import Pool as ThreadPool
 
 parser = argparse.ArgumentParser(description="")
 parser.add_argument("--ip", type=str, default="192.168.3.202", help="server ip")
-parser.add_argument("--port", type=int, default=8187, help="port number")
-parser.add_argument("--path", type=str, default="test", help="test|register")
+parser.add_argument("--port", type=int, default=8186, help="port number")
+parser.add_argument("--path", type=str, default="register", help="test|register")
 parser.add_argument(
     "--wav_path",
     type=str,

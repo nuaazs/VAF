@@ -94,8 +94,16 @@ def delete_spk(spk_id):
 
 
 @call_time
-def to_log_bak(phone, action_type, err_type, message, file_url, show_phone, preprocessed_file_path="",
-           valid_length=0, ):
+def to_log_bak(
+    phone,
+    action_type,
+    err_type,
+    message,
+    file_url,
+    show_phone,
+    preprocessed_file_path="",
+    valid_length=0,
+):
     conn = pymysql.connect(
         host=msg_db.get("host"),
         port=msg_db.get("port"),
@@ -306,7 +314,9 @@ def add_speaker(spk_info, after_vad_length):
 
 @call_time
 def add_hit_count(spk_id):
-    query_sql = f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
+    query_sql = (
+        f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
+    )
     mysql_handler.update(query_sql)
 
 
@@ -314,7 +324,7 @@ def add_hit_count(spk_id):
 def get_blackid(blackbase_phone):
     query_sql = f"select id from speaker where phone='{blackbase_phone}' limit 1;"
     result = mysql_handler.fetch_one(query_sql)
-    return result.get('id', 0)
+    return result.get("id", 0)
 
 
 @call_time
@@ -363,7 +373,16 @@ def add_hit(hit_info, is_grey, after_vad_length):
 
 
 @call_time
-def to_log(phone, action_type, err_type, message, file_url, show_phone, preprocessed_file_path="", valid_length=0):
+def to_log(
+    phone,
+    action_type,
+    err_type,
+    message,
+    file_url,
+    show_phone,
+    preprocessed_file_path="",
+    valid_length=0,
+):
     date_num = int(time.strftime("%d", time.localtime()))
     query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,\
                  preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', \

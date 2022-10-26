@@ -31,10 +31,9 @@ CORS(app, supports_credentials=True, origins="*", methods="*", allow_headers="*"
 @app.route("/embedding/<test_type>", methods=["POST"])
 def register_or_reasoning(test_type):
     if request.method == "POST":
-        response = preprocess(
-            request_form=request.form, get_type=test_type,
-        )
+        response = preprocess(request_form=request.form, get_type=test_type,)
         return json.dumps(response, ensure_ascii=False)
+
 
 if __name__ == "__main__":
     app.run(

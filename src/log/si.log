@@ -43,3 +43,278 @@
 [[2022-10-13 08:26:00]]  INFO  [init_service.py]  #22 <2343068:140683192210352>  ** Start! Total speaker num:1
 [[2022-10-13 09:27:29]]  INFO  [init_service.py]  #22 <2488401:140340656583600>  ** Start! Total speaker num:2
 [[2022-10-13 09:27:29]]  INFO  [init_service.py]  #22 <2488402:140340656583600>  ** Start! Total speaker num:2
+[[2022-10-26 10:23:05]]  INFO  [init_service.py]  #22 <3171629:140661547623344>  ** Start! Total speaker num:598
+[[2022-10-26 10:23:05]]  INFO  [init_service.py]  #22 <3171630:140661547623344>  ** Start! Total speaker num:598
+[[2022-10-26 10:27:24]]  INFO  [init_service.py]  #22 <3182247:139686118122416>  ** Start! Total speaker num:598
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681665512032>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681665512032>  check_spkid use time: 0.12793636322021484s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681799650560>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681799650560>  check_spkid use time: 0.14412689208984375s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681665513120>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681665513120>  check_spkid use time: 0.1056365966796875s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681665512576>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681665512576>  check_spkid use time: 0.13008928298950195s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681665511760>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681665511760>  check_spkid use time: 0.10373520851135254s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681665512304>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681665512304>  check_spkid use time: 0.15171217918395996s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681665512848>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681665512848>  check_spkid use time: 0.15624141693115234s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681665513392>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681665513392>  check_spkid use time: 0.2513153553009033s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681799650832>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681799650832>  check_spkid use time: 0.2516202926635742s
+[[2022-10-26 10:33:49]]  ERROR  [query.py]  #280 <3182247:139681665511488>  object of type 'NoneType' has no len()
+[[2022-10-26 10:33:49]]  INFO  [db_utils.py]  #16 <3182247:139681665511488>  check_spkid use time: 0.34660863876342773s
+[[2022-10-26 10:33:53]]  ERROR  [query.py]  #393 <3182247:139681665513120>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:53]]  INFO  [db_utils.py]  #16 <3182247:139681665513120>  to_log use time: 2.8168246746063232s
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681799650560>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681665512304>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681799650560>  to_log use time: 1.5470678806304932s
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681799650832>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681665513392>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681665512848>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681665511488>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681665511760>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681665512848>  to_log use time: 1.2461609840393066s
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681665512576>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681665512304>  to_log use time: 1.5103492736816406s
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681799650832>  to_log use time: 1.4178965091705322s
+[[2022-10-26 10:33:54]]  ERROR  [query.py]  #393 <3182247:139681665512032>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681665512032>  to_log use time: 0.8558318614959717s
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681665513392>  to_log use time: 1.3560221195220947s
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681665511488>  to_log use time: 1.1767432689666748s
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681665511760>  to_log use time: 1.116356611251831s
+[[2022-10-26 10:33:54]]  INFO  [db_utils.py]  #16 <3182247:139681665512576>  to_log use time: 0.9822108745574951s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681799650560>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681799650560>  check_spkid use time: 0.09439587593078613s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681665512576>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665512576>  check_spkid use time: 0.07624697685241699s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681665512848>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665512848>  check_spkid use time: 0.03535342216491699s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681799650832>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681799650832>  check_spkid use time: 0.10371994972229004s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681665511760>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665511760>  check_spkid use time: 0.08988356590270996s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681665511488>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665511488>  check_spkid use time: 0.08996701240539551s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681665513392>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665513392>  check_spkid use time: 0.0887143611907959s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681665512032>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665512032>  check_spkid use time: 0.16850566864013672s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681665512304>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665512304>  check_spkid use time: 0.39780592918395996s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681665512848>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665512848>  to_log use time: 0.19022679328918457s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #280 <3182247:139681665513120>  object of type 'NoneType' has no len()
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665513120>  check_spkid use time: 0.535294771194458s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681665511488>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681799650560>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681665512576>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681799650832>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681665511760>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681665513392>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681665512032>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665511488>  to_log use time: 0.04936695098876953s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681665512304>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665512304>  to_log use time: 0.0038809776306152344s
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681799650560>  to_log use time: 0.4966089725494385s
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665512576>  to_log use time: 0.38659048080444336s
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681799650832>  to_log use time: 0.3262510299682617s
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665511760>  to_log use time: 0.25896549224853516s
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665513392>  to_log use time: 0.15658068656921387s
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665512032>  to_log use time: 0.1073293685913086s
+[[2022-10-26 10:35:52]]  ERROR  [query.py]  #393 <3182247:139681665513120>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:35:52]]  INFO  [db_utils.py]  #16 <3182247:139681665513120>  to_log use time: 0.0014634132385253906s
+[[2022-10-26 10:36:37]]  INFO  [init_service.py]  #22 <3201589:140248749003712>  ** Start! Total speaker num:598
+[[2022-10-26 10:36:41]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:41]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0030901432037353516s
+[[2022-10-26 10:36:41]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:41]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.00084686279296875s
+[[2022-10-26 10:36:41]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:41]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.001638174057006836s
+[[2022-10-26 10:36:41]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:41]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0006105899810791016s
+[[2022-10-26 10:36:41]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:41]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0007216930389404297s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0006656646728515625s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0007417201995849609s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0007355213165283203s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0007350444793701172s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0006616115570068359s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0010647773742675781s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0008542537689208984s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0012226104736328125s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0007081031799316406s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0008738040924072266s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0007882118225097656s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0008232593536376953s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0005762577056884766s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #280 <3201589:140248749003712>  object of type 'NoneType' has no len()
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  check_spkid use time: 0.0008113384246826172s
+[[2022-10-26 10:36:42]]  ERROR  [query.py]  #393 <3201589:140248749003712>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:36:42]]  INFO  [db_utils.py]  #16 <3201589:140248749003712>  to_log use time: 0.0006268024444580078s
+[[2022-10-26 10:38:55]]  INFO  [init_service.py]  #22 <3206589:140453099135936>  ** Start! Total speaker num:598
+[[2022-10-26 10:39:05]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:05]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0051229000091552734s
+[[2022-10-26 10:39:05]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:05]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0007467269897460938s
+[[2022-10-26 10:39:05]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:05]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0008227825164794922s
+[[2022-10-26 10:39:05]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:05]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0005967617034912109s
+[[2022-10-26 10:39:05]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:05]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0007350444793701172s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0007596015930175781s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0009026527404785156s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0008764266967773438s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0007307529449462891s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0006227493286132812s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0008568763732910156s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0007276535034179688s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0008983612060546875s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0007519721984863281s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0009160041809082031s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0007779598236083984s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0009887218475341797s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0007979869842529297s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #280 <3206589:140453099135936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  check_spkid use time: 0.0010037422180175781s
+[[2022-10-26 10:39:06]]  ERROR  [query.py]  #393 <3206589:140453099135936>  (1366, "Incorrect integer value: 'test' for column 'action_type' at row 1")
+[[2022-10-26 10:39:06]]  INFO  [db_utils.py]  #16 <3206589:140453099135936>  to_log use time: 0.0008096694946289062s
+[[2022-10-26 10:42:55]]  INFO  [init_service.py]  #22 <3215161:139892769674176>  ** Start! Total speaker num:598
+[[2022-10-26 10:43:13]]  INFO  [init_service.py]  #22 <3215917:140361255515072>  ** Start! Total speaker num:598
+[[2022-10-26 10:44:30]]  INFO  [init_service.py]  #22 <3218952:139665581048768>  ** Start! Total speaker num:598
+[[2022-10-26 10:44:57]]  INFO  [init_service.py]  #22 <3220150:140387711308736>  ** Start! Total speaker num:598
+[[2022-10-26 10:46:23]]  INFO  [init_service.py]  #22 <3223979:139901709304768>  ** Start! Total speaker num:598
+[[2022-10-26 10:46:31]]  INFO  [init_service.py]  #22 <3224439:140060307579840>  ** Start! Total speaker num:598
+[[2022-10-26 10:48:00]]  INFO  [init_service.py]  #22 <3228490:140609812562880>  ** Start! Total speaker num:598
+[[2022-10-26 10:48:06]]  INFO  [init_service.py]  #22 <3228821:140235240084416>  ** Start! Total speaker num:598
+[[2022-10-26 10:48:12]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:12]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.00394439697265625s
+[[2022-10-26 10:48:14]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:14]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0010063648223876953s
+[[2022-10-26 10:48:14]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:14]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.001066446304321289s
+[[2022-10-26 10:48:15]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:15]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0018978118896484375s
+[[2022-10-26 10:48:15]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:15]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.001209259033203125s
+[[2022-10-26 10:48:15]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:15]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.001705169677734375s
+[[2022-10-26 10:48:16]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:16]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0010433197021484375s
+[[2022-10-26 10:48:16]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:16]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0008845329284667969s
+[[2022-10-26 10:48:16]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:16]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0010004043579101562s
+[[2022-10-26 10:48:17]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:17]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.002293825149536133s
+[[2022-10-26 10:48:55]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:55]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0021953582763671875s
+[[2022-10-26 10:48:56]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.014483928680419922s
+[[2022-10-26 10:48:56]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.009876012802124023s
+[[2022-10-26 10:48:56]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:56]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0019092559814453125s
+[[2022-10-26 10:48:56]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.011920452117919922s
+[[2022-10-26 10:48:56]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.008063793182373047s
+[[2022-10-26 10:48:56]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:56]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0011496543884277344s
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.009264469146728516s
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.007494449615478516s
+[[2022-10-26 10:48:57]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0015211105346679688s
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.008585214614868164s
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.008189916610717773s
+[[2022-10-26 10:48:57]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0016331672668457031s
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.009146928787231445s
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.010053873062133789s
+[[2022-10-26 10:48:57]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:57]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0012965202331542969s
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.008799076080322266s
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.007154941558837891s
+[[2022-10-26 10:48:58]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0021562576293945312s
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.008147478103637695s
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.007416963577270508s
+[[2022-10-26 10:48:58]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0017101764678955078s
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.010575056076049805s
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.007239580154418945s
+[[2022-10-26 10:48:58]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:58]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0012326240539550781s
+[[2022-10-26 10:48:59]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.008692264556884766s
+[[2022-10-26 10:48:59]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.009884357452392578s
+[[2022-10-26 10:48:59]]  ERROR  [query.py]  #280 <3228821:140231423158016>  object of type 'NoneType' has no len()
+[[2022-10-26 10:48:59]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  check_spkid use time: 0.0014529228210449219s
+[[2022-10-26 10:48:59]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  add_speaker use time: 0.008466482162475586s
+[[2022-10-26 10:48:59]]  INFO  [db_utils.py]  #16 <3228821:140231423158016>  to_log use time: 0.007692575454711914s
+[[2022-10-26 10:49:39]]  INFO  [init_service.py]  #22 <3233135:140544314921904>  ** Start! Total speaker num:608
+[[2022-10-26 10:49:56]]  INFO  [init_service.py]  #22 <3234003:140160071238576>  ** Start! Total speaker num:608
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155861957888>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  check_spkid use time: 0.10086369514465332s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155727185840>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  check_spkid use time: 0.03763914108276367s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155861958160>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  check_spkid use time: 0.10783863067626953s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155727183936>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  check_spkid use time: 0.10031771659851074s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155727184208>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155727184208>  check_spkid use time: 0.09604430198669434s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155727184480>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  check_spkid use time: 0.0999147891998291s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155727184752>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  check_spkid use time: 0.1050412654876709s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155727185024>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  check_spkid use time: 0.1089632511138916s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155727185296>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  check_spkid use time: 0.11691737174987793s
+[[2022-10-26 10:50:03]]  ERROR  [query.py]  #280 <3234003:140155727185568>  object of type 'NoneType' has no len()
+[[2022-10-26 10:50:03]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  check_spkid use time: 0.11648321151733398s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  add_speaker use time: 0.02388310432434082s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  add_speaker use time: 0.026275634765625s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  add_speaker use time: 0.02849268913269043s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  add_speaker use time: 0.027742385864257812s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727184208>  add_speaker use time: 0.029021501541137695s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  add_speaker use time: 0.029705286026000977s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  add_speaker use time: 0.03112959861755371s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  add_speaker use time: 0.03117966651916504s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  add_speaker use time: 0.031858205795288086s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  add_speaker use time: 0.03170323371887207s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727185296>  to_log use time: 0.01612091064453125s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727185568>  to_log use time: 0.02340388298034668s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727184752>  to_log use time: 0.0300753116607666s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727185840>  to_log use time: 0.030803918838500977s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727185024>  to_log use time: 0.03435111045837402s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155861957888>  to_log use time: 0.03883695602416992s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727184208>  to_log use time: 0.03939223289489746s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155861958160>  to_log use time: 0.03886818885803223s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727184480>  to_log use time: 0.04545140266418457s
+[[2022-10-26 10:50:07]]  INFO  [db_utils.py]  #16 <3234003:140155727183936>  to_log use time: 0.041643381118774414s

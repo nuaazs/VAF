@@ -1,4 +1,3 @@
-
 import datetime
 from flask import request
 
@@ -17,7 +16,7 @@ import torch
 import cfg
 
 
-def preprocess(request_form,get_type="url",action_type="register"):
+def preprocess(request_form, get_type="url", action_type="register"):
     new_spkid = request_form["spkid"]
     # STEP 1: Get wav file.
     if get_type == "file":
@@ -48,7 +47,6 @@ def preprocess(request_form,get_type="url",action_type="register"):
                 "err_msg": f"URL file save error.\nDownload {new_url} faild.",
             }
             return response
-    
 
     # VAD
     try:
@@ -82,8 +80,6 @@ def preprocess(request_form,get_type="url",action_type="register"):
         }
         return response
 
-
-
     msg = self_test_result["msg"]
     if not self_test_result["pass"]:
         err_type = self_test_result["err_type"]
@@ -102,11 +98,10 @@ def preprocess(request_form,get_type="url",action_type="register"):
     else:
         class_num = 999
 
-
-    result  = {
+    result = {
         "code": 2000,
         "status": "success",
-         # "wav_torch":vad_result["wav_torch"].detach().cpu().numpy().tolist(),
+        # "wav_torch":vad_result["wav_torch"].detach().cpu().numpy().tolist(),
         "embedding": embedding.detach().cpu().numpy().tolist(),
         "class_num": class_num,
     }

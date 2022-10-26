@@ -39,15 +39,17 @@ class OutInfo:
     """
     out dict info
     """
+
     used_time = {
-            "download_used_time": 0,
-            "vad_used_time": 0,
-            "classify_used_time": 0,
-            "embedding_used_time": 0,
-            "self_test_used_time": 0,
-            "to_database_used_time": 0,
-            "test_used_time": 0,
-        }
+        "download_used_time": 0,
+        "vad_used_time": 0,
+        "classify_used_time": 0,
+        "embedding_used_time": 0,
+        "self_test_used_time": 0,
+        "to_database_used_time": 0,
+        "test_used_time": 0,
+    }
+
     def __init__(self):
         self.response = {"code": 2000, "status": "error"}
         self.response_check_new = {
@@ -57,11 +59,11 @@ class OutInfo:
             "err_msg": "None",
             "inbase": True,
             "code": 2000,
-            "replace": False
+            "replace": False,
         }
 
     def response_error(self, spkid, err_type, err_msg, used_time=None, oss_path="None"):
-        err_logger.info("%s, %s, %s, %s"%(spkid, oss_path, err_type, err_msg))
+        err_logger.info("%s, %s, %s, %s" % (spkid, oss_path, err_type, err_msg))
         self.response["err_type"] = err_type
         self.response["err_msg"] = err_msg
         if used_time != None:
@@ -135,7 +137,9 @@ def general(request_form, get_type="url", action_type="test"):
         else:
             query_sql = f"delete from speaker where phone='{new_spkid}'"
             _ = mysql_handler.delete(query_sql)
-            print(f"phone:{new_spkid}, The user audio has timed out and will be updated.")
+            print(
+                f"phone:{new_spkid}, The user audio has timed out and will be updated."
+            )
 
     # STEP 1: Get wav file.
     if get_type == "file":
@@ -144,13 +148,13 @@ def general(request_form, get_type="url", action_type="test"):
         if (".wav" not in filename) and (".mp3" not in filename):
             err_msg = "File type error.\nOnly support wav or mp3 files."
             to_log(
-                phone = new_spkid,
-                action_type = action_type,
-                err_type = 1,
-                message = err_msg,
-                file_url = "",
-                preprocessed_file_path = "",
-                show_phone = show_phone,
+                phone=new_spkid,
+                action_type=action_type,
+                err_type=1,
+                message=err_msg,
+                file_url="",
+                preprocessed_file_path="",
+                show_phone=show_phone,
             )
             return OutInfo().response_error(new_spkid, 1, err_msg, OutInfo.used_time)
         try:
@@ -189,20 +193,23 @@ def general(request_form, get_type="url", action_type="test"):
             )
             return OutInfo().response_error(new_spkid, 3, err_msg, OutInfo.used_time)
 
-    OutInfo.used_time["download_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    OutInfo.used_time["download_used_time"] = (
+        datetime.datetime.now() - start
+    ).total_seconds()
     start = datetime.datetime.now()
 
     # STEP 2: VAD
     try:
         wav = resample(wav_filepath=filepath, action_type=action_type)
         vad_result = vad(wav=wav, spkid=new_spkid, action_type=action_type)
+        print(f'preprocessed_file_path:{vad_result["preprocessed_file_path"]}')
         if cfg.SAVE_PREPROCESSED_OSS:
             preprocessed_file_path = vad_result["preprocessed_file_path"]
         else:
             preprocessed_file_path = ""
     except Exception as e:
         err_logger.info(e)
-        err_msg = "VAD and upsample error. No useful data in {filepath}."
+        err_msg = f"VAD and upsample error. No useful data in {filepath}."
         to_log(
             phone=new_spkid,
             action_type=action_type,
@@ -212,14 +219,20 @@ def general(request_form, get_type="url", action_type="test"):
             preprocessed_file_path="",
             show_phone=show_phone,
         )
-        return OutInfo().response_error(new_spkid, 5, err_msg, OutInfo.used_time, oss_path)
+        return OutInfo().response_error(
+            new_spkid, 5, err_msg, OutInfo.used_time, oss_path
+        )
 
-    OutInfo.used_time["vad_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    OutInfo.used_time["vad_used_time"] = (
+        datetime.datetime.now() - start
+    ).total_seconds()
     start = datetime.datetime.now()
 
     # STEP 3: Self Test
     try:
-        self_test_result = encode(wav_torch_raw=vad_result["wav_torch"], action_type=action_type)
+        self_test_result = encode(
+            wav_torch_raw=vad_result["wav_torch"], action_type=action_type
+        )
     except Exception as e:
         err_logger.info(e)
         print(e)
@@ -233,9 +246,13 @@ def general(request_form, get_type="url", action_type="test"):
             file_url=oss_path,
             preprocessed_file_path=preprocessed_file_path,
         )
-        return OutInfo().response_error(new_spkid, 5, err_msg, OutInfo.used_time, oss_path)
+        return OutInfo().response_error(
+            new_spkid, 5, err_msg, OutInfo.used_time, oss_path
+        )
 
-    OutInfo.used_time["self_test_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    OutInfo.used_time["self_test_used_time"] = (
+        datetime.datetime.now() - start
+    ).total_seconds()
     start = datetime.datetime.now()
 
     msg = self_test_result["msg"]
@@ -250,7 +267,9 @@ def general(request_form, get_type="url", action_type="test"):
             file_url=oss_path,
             preprocessed_file_path=preprocessed_file_path,
         )
-        return OutInfo().response_error(new_spkid, err_type, msg, OutInfo.used_time, oss_path)
+        return OutInfo().response_error(
+            new_spkid, err_type, msg, OutInfo.used_time, oss_path
+        )
 
     # STEP 4: Encoding
     embedding = self_test_result["tensor"]
@@ -259,12 +278,14 @@ def general(request_form, get_type="url", action_type="test"):
     else:
         class_num = 999
 
-    OutInfo.used_time["classify_used_time"] = (datetime.datetime.now() - start).total_seconds()
+    OutInfo.used_time["classify_used_time"] = (
+        datetime.datetime.now() - start
+    ).total_seconds()
     start = datetime.datetime.now()
 
     # TODO:执行更新声纹特征
     if do_update:
-        
+
         if old_info == None:
             return {
                 "inbase": False,
@@ -336,8 +357,9 @@ def get_score(request_form, get_type="url"):
         new_file2 = request.files["wav_file2"]
         filename1 = new_file1.filename
         filename2 = new_file2.filename
-        if ((".wav" not in filename1) and (".mp3" not in filename1)) or \
-           ((".wav" not in filename2) and (".mp3" not in filename2)):
+        if ((".wav" not in filename1) and (".mp3" not in filename1)) or (
+            (".wav" not in filename2) and (".mp3" not in filename2)
+        ):
             return OutInfo().response_vad(1, "Only support wav or mp3 files.")
         try:
             filepath1, _oss_path1 = save_file(file=new_file1, spk=new_spkid1)
@@ -357,7 +379,9 @@ def get_score(request_form, get_type="url"):
             filepath2, _oss_path2 = save_url(url=new_url2, spk=new_spkid2)
         except Exception as e:
             print(e)
-            return OutInfo().response_vad(3, "File:%s or %s save faild."%(new_url1, new_url2))
+            return OutInfo().response_vad(
+                3, "File:%s or %s save faild." % (new_url1, new_url2)
+            )
 
     # STEP 2: VAD
     try:
@@ -371,7 +395,10 @@ def get_score(request_form, get_type="url"):
         after_vad_length2 = vad_result1["after_length"]
     except Exception as e:
         print(e)
-        err_msg = "VAD and upsample faild. No useful data in %s or %s."%(filepath1, filepath2)
+        err_msg = "VAD and upsample faild. No useful data in %s or %s." % (
+            filepath1,
+            filepath2,
+        )
         return OutInfo().response_vad(5, err_msg)
 
     # STEP 3: Self Test
@@ -381,7 +408,7 @@ def get_score(request_form, get_type="url"):
 
     except Exception as e:
         print(e)
-        err_msg = "Self Test faild. No useful data in %s %s."%(filepath1, filepath2)
+        err_msg = "Self Test faild. No useful data in %s %s." % (filepath1, filepath2)
         return OutInfo().response_vad(5, err_msg)
 
     msg = self_test_result1["msg"]
@@ -451,7 +478,7 @@ def check_new(request_form, get_type="url"):
                 filepath, oss_path = save_url(url=new_url, spk=new_spkid)
             except Exception as e:
                 print(e)
-                return OutInfo().response_check(3, "File:%s save faild."%new_url)
+                return OutInfo().response_check(3, "File:%s save faild." % new_url)
 
         # STEP 3: VAD
         try:
@@ -461,7 +488,9 @@ def check_new(request_form, get_type="url"):
             after_vad_length = vad_result["after_length"]
         except Exception as e:
             print(e)
-            return OutInfo().response_check(5, "VAD and upsample faild. No useful data in %s."%filepath)
+            return OutInfo().response_check(
+                5, "VAD and upsample faild. No useful data in %s." % filepath
+            )
 
         # STEP 3: Self Test
         try:
@@ -470,7 +499,9 @@ def check_new(request_form, get_type="url"):
             )
         except Exception as e:
             print(e)
-            return OutInfo().response_check(5, "Self Test faild. No useful data in %s."%filepath)
+            return OutInfo().response_check(
+                5, "Self Test faild. No useful data in %s." % filepath
+            )
 
         msg = self_test_result["msg"]
         if not self_test_result["pass"]:

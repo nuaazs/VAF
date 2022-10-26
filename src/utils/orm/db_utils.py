@@ -11,27 +11,26 @@ def call_time(func):
     def inner(*args, **kwargs):
         old_time = time.time()
         result = func(*args, **kwargs)
-        func_name = str(func).split(' ')[1]
-        print('{} use time: {}s'.format(func_name, time.time() - old_time))
-        logger.info('{} use time: {}s'.format(func_name, time.time() - old_time))
+        func_name = str(func).split(" ")[1]
+        print("{} use time: {}s".format(func_name, time.time() - old_time))
+        logger.info("{} use time: {}s".format(func_name, time.time() - old_time))
         return result
 
     return inner
 
 
 class MySQLHandler(object):
-
     def __init__(self):
         self.pool = PooledDB(
             creator=pymysql,
             maxconnections=20,
             blocking=True,
-            host=MYSQL['host'],
-            port=MYSQL['port'],
-            user=MYSQL['username'],
-            password=MYSQL['passwd'],
-            database=MYSQL['db'],
-            charset='utf8'
+            host=MYSQL["host"],
+            port=MYSQL["port"],
+            user=MYSQL["username"],
+            password=MYSQL["passwd"],
+            database=MYSQL["db"],
+            charset="utf8",
         )
 
     def get_conn(self):
