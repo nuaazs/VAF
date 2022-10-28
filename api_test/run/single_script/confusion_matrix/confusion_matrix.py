@@ -360,7 +360,6 @@ def run():
     report += list(error_data[["wav", "raw_wav", "Zphone"]].values) # 漏判
     report = pd.DataFrame(report)
     report.to_csv(Args.log_path + "out_.csv", index=False)
-    return 
     real = []
     dict_phone = {}
     for name, inbase, phone in zip(gray_success["wav"], gray_success["inbase"], gray_success["Zphone"]):
