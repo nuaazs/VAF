@@ -29,7 +29,7 @@ def save_file(file, spk):
     speech_number = len(spk_filelist) + 1
     # receive wav file and save it to  ->  <receive_path>/<spk_id>/raw_?.webm
     pid = os.getpid()
-    save_name = f"raw_{speech_number}_{pid}.webm"
+    save_name = f"raw_{speech_number}_{pid}.wav"
     save_path = os.path.join(spk_dir, save_name)
     save_path_wav = os.path.join(spk_dir, f"raw_{speech_number}_{pid}.wav")
     file.save(save_path)

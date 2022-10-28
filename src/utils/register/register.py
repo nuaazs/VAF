@@ -70,9 +70,15 @@ def register(
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": float(self_test_result["mean_score"]),  # .detach().cpu().numpy()
-            "self_test_score_min": float(self_test_result["min_score"]),  # .detach().cpu().numpy()
-            "self_test_score_max": float(self_test_result["max_score"]),  # .detach().cpu().numpy()
+            "self_test_score_mean": float(
+                self_test_result["mean_score"]
+            ),  # .detach().cpu().numpy()
+            "self_test_score_min": float(
+                self_test_result["min_score"]
+            ),  # .detach().cpu().numpy()
+            "self_test_score_max": float(
+                self_test_result["max_score"]
+            ),  # .detach().cpu().numpy()
             "call_begintime": call_begintime,
             "call_endtime": call_endtime,
             "max_class_index": max_class_index,
@@ -105,9 +111,15 @@ def register(
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": float(self_test_result["mean_score"]),  # .detach().cpu().numpy()
-            "self_test_score_min": float(self_test_result["min_score"]),  # .detach().cpu().numpy()
-            "self_test_score_max": float(self_test_result["max_score"]),  # .detach().cpu().numpy()
+            "self_test_score_mean": float(
+                self_test_result["mean_score"]
+            ),  # .detach().cpu().numpy()
+            "self_test_score_min": float(
+                self_test_result["min_score"]
+            ),  # .detach().cpu().numpy()
+            "self_test_score_max": float(
+                self_test_result["max_score"]
+            ),  # .detach().cpu().numpy()
             "self_test_before_score": self_test_result["before_score"],
             "call_begintime": call_begintime,
             "call_endtime": call_endtime,

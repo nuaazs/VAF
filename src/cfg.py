@@ -4,11 +4,11 @@
 # @Describe: service configuration file.
 
 # Workers
-WORKERS = 2
+WORKERS = 1
 
 SR = 16000
 
-CUDA_NUM = 0
+CUDA_NUM = 1
 
 # Device
 DEVICE = "cuda:0"  # "cuda:id" or "cpu"
@@ -83,7 +83,7 @@ MYSQL = {
     "db": "si",
     "username": "root",
     "passwd": "123456",
-}
+} 
 # Redis
 REDIS = {
     "host": "192.168.3.202",

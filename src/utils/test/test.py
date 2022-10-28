@@ -19,19 +19,21 @@ from utils.orm import get_blackid
 import cfg
 
 
-def test(embedding,
-         wav,
-         new_spkid,
-         max_class_index,
-         oss_path,
-         self_test_result,
-         call_begintime,
-         call_endtime,
-         preprocessed_file_path,
-         show_phone,
-         before_vad_length,
-         after_vad_length,
-         used_time):
+def test(
+    embedding,
+    wav,
+    new_spkid,
+    max_class_index,
+    oss_path,
+    self_test_result,
+    call_begintime,
+    call_endtime,
+    preprocessed_file_path,
+    show_phone,
+    before_vad_length,
+    after_vad_length,
+    used_time,
+):
     """Audio reasoning, compare the audio features with the black library in full, and return the result.
 
     Args:
@@ -131,9 +133,15 @@ def test(embedding,
             "clip": clip,
             "before_vad_length": before_vad_length,
             "after_vad_length": after_vad_length,
-            "self_test_score_mean": float(self_test_result["mean_score"]),  # .detach().cpu().numpy()
-            "self_test_score_min": float(self_test_result["min_score"]),  # .detach().cpu().numpy()
-            "self_test_score_max": float(self_test_result["max_score"]),  # .detach().cpu().numpy()
+            "self_test_score_mean": float(
+                self_test_result["mean_score"]
+            ),  # .detach().cpu().numpy()
+            "self_test_score_min": float(
+                self_test_result["min_score"]
+            ),  # .detach().cpu().numpy()
+            "self_test_score_max": float(
+                self_test_result["max_score"]
+            ),  # .detach().cpu().numpy()
             "self_test_before_score": self_test_result["before_score"],
             "used_time": used_time,
         }
@@ -179,9 +187,15 @@ def test(embedding,
             "hit_scores": hit_scores,
             "blackbase_phone": blackbase_phone,
             "top_10": top_10,
-            "self_test_score_mean": float(self_test_result["mean_score"]),  # .detach().cpu().numpy()
-            "self_test_score_min": float(self_test_result["min_score"]),  # .detach().cpu().numpy()
-            "self_test_score_max": float(self_test_result["max_score"]),  # .detach().cpu().numpy()
+            "self_test_score_mean": float(
+                self_test_result["mean_score"]
+            ),  # .detach().cpu().numpy()
+            "self_test_score_min": float(
+                self_test_result["min_score"]
+            ),  # .detach().cpu().numpy()
+            "self_test_score_max": float(
+                self_test_result["max_score"]
+            ),  # .detach().cpu().numpy()
             "self_test_before_score": self_test_result["before_score"],
             "used_time": used_time,
         }

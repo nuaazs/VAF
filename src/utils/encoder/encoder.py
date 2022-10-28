@@ -10,5 +10,5 @@ similarity = torch.nn.CosineSimilarity(dim=-1, eps=1e-6)
 spkreg = SpeakerRecognition.from_hparams(
     source="speechbrain/spkrec-ecapa-voxceleb",
     savedir="./nn/ecapa",
-    run_opts={"device": "cuda"},
+    run_opts={"device": "cuda:0"},
 )

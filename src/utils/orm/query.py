@@ -94,40 +94,16 @@ def delete_spk(spk_id):
 
 
 @call_time
-def check_spkid(spkid):
-    conn = pymysql.connect(
-        host=msg_db.get("host", "zhaosheng.mysql.rds.aliyuncs.com"),
-        port=msg_db.get("port", 27546),
-        db=msg_db.get("db", "si"),
-        user=msg_db.get("user", "root"),
-        passwd=msg_db.get("passwd", "Nt3380518!zhaosheng123"),
-        cursorclass=pymysql.cursors.DictCursor,
-    )
-    while True:
-        try:
-            conn = pymysql.connect(
-                host=msg_db.get("host"),
-                port=msg_db.get("port"),
-                db=msg_db.get("db"),
-                user=msg_db.get("username"),
-                passwd=msg_db.get("passwd"),
-                cursorclass=pymysql.cursors.DictCursor,
-            )
-            cur = conn.cursor()
-            query_sql = f"SELECT * FROM speaker WHERE phone='{spkid}';"
-            cur.execute(query_sql)
-            res = cur.fetchall()
-            if len(res) != 0:
-                return True
-            else:
-                return False
-        except Exception as error:
-            conn.ping(True)
-
-
-@call_time
-def to_log_bak(phone, action_type, err_type, message, file_url, show_phone, preprocessed_file_path="",
-               valid_length=0, ):
+def to_log_bak(
+    phone,
+    action_type,
+    err_type,
+    message,
+    file_url,
+    show_phone,
+    preprocessed_file_path="",
+    valid_length=0,
+):
     conn = pymysql.connect(
         host=msg_db.get("host"),
         port=msg_db.get("port"),
@@ -293,12 +269,15 @@ def get_blackid_bak(blackbase_phone):
 @call_time
 def check_spkid(spkid):
     # TODO: 添加判断是否需要更新声纹
-    query_sql = f"SELECT * FROM speaker WHERE phone='{spkid}';"
-    result = mysql_handler.fetch_one(query_sql)
-    if result:
-        return True
-    else:
-        return False
+    try:
+        query_sql = f"SELECT * FROM speaker WHERE phone='{spkid}';"
+        result = mysql_handler.fetch_one(query_sql)
+        if len(result) != 0:
+            return True
+        else:
+            return False
+    except Exception as e:
+        logger.error(e)
 
 
 @call_time
@@ -335,7 +314,9 @@ def add_speaker(spk_info, after_vad_length):
 
 @call_time
 def add_hit_count(spk_id):
-    query_sql = f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
+    query_sql = (
+        f"update speaker set hit_count = hit_count + 1 where phone='{spk_id}' limit 1;"
+    )
     mysql_handler.update(query_sql)
 
 
@@ -343,7 +324,7 @@ def add_hit_count(spk_id):
 def get_blackid(blackbase_phone):
     query_sql = f"select id from speaker where phone='{blackbase_phone}' limit 1;"
     result = mysql_handler.fetch_one(query_sql)
-    return result.get('id', 0)
+    return result.get("id", 0)
 
 
 @call_time
@@ -392,7 +373,16 @@ def add_hit(hit_info, is_grey, after_vad_length):
 
 
 @call_time
-def to_log(phone, action_type, err_type, message, file_url, show_phone, preprocessed_file_path="", valid_length=0):
+def to_log(
+    phone,
+    action_type,
+    err_type,
+    message,
+    file_url,
+    show_phone,
+    preprocessed_file_path="",
+    valid_length=0,
+):
     date_num = int(time.strftime("%d", time.localtime()))
     query_sql = f"INSERT INTO log_{date_num} (phone,show_phone,action_type,time,err_type, message,file_url,\
                  preprocessed_file_url) VALUES ('{phone}','{show_phone}','{action_type}', curtime(),'{err_type}', \

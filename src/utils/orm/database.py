@@ -70,7 +70,9 @@ def get_embeddings(class_index=-1):
             all_embedding[spkid] = {"embedding_1": embedding_1}
         else:
             continue
-    print(f"Total : {len(all_embedding.keys())} embeddings in database #{class_index} .")
+    print(
+        f"Total : {len(all_embedding.keys())} embeddings in database #{class_index} ."
+    )
     return all_embedding
 
 

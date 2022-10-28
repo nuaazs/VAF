@@ -15,8 +15,8 @@ from multiprocessing.dummy import Pool as ThreadPool
 
 parser = argparse.ArgumentParser(description="")
 parser.add_argument("--ip", type=str, default="192.168.3.202", help="server ip")
-parser.add_argument("--port", type=int, default=8187, help="port number")
-parser.add_argument("--path", type=str, default="test", help="test|register")
+parser.add_argument("--port", type=int, default=8186, help="port number")
+parser.add_argument("--path", type=str, default="register", help="test|register")
 parser.add_argument(
     "--wav_path",
     type=str,
@@ -136,7 +136,7 @@ def register(item):
 
 
 wavs = [
-    "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/raw_34086548105_1_1031627_____00010.wav"
+    "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/test_wavs/001.wav"
 ] * 10
 # wavs = ["/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/cnnoc_test_wavs/black_8000.wav"] * 10
 pool = ThreadPool(10)
