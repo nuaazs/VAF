@@ -9,12 +9,13 @@ import pandas as pd
 # from tomlkit import value
 
 class Args:
+    pwd = os.getcwd()
     # ip   default:127.0.0.1
     ip = "127.0.0.1"
     # 端口号    default: 8187 ->gpu 和 8188 -> cpu
-    port = 5000
+    port = 8186
     # 接口名称   default: test|register
-    path = "test"
+    # path = "test"
     # mode   default: url|file
     mode = "url"
     # 线程池| 数量
@@ -22,11 +23,11 @@ class Args:
     # 开启线程功能
     poll_switch = False
     # 黑库
-    file_path_black = '/mnt/panjiawei/run_2/data/new/zhuanban.txt'
+    file_path_black = os.path.join(pwd, "new/zhuanban.txt")
     # 桶名称
     bucket_name_black = "black"
     # 灰库
-    file_path_gray = "/mnt/panjiawei/run_2/data/new/noblack.txt"
+    file_path_gray = os.path.join(pwd, "new/noblack.txt")
     bucket_name_gray = "gray"
 
     rclone = "rclone"
@@ -50,7 +51,7 @@ class Args:
     log_path = "./plog/"
 
     # 文件时长  {wav_name: time}
-    wav_file_time = "/mnt/panjiawei/run_2/data/new/json.json"
+    wav_file_time = os.path.join(pwd, "new/json.json")
 
 
 class Log:
@@ -110,14 +111,17 @@ class CallingInterface:
 
 
     def info_neaten(self, resp, wav, _file_name, _phone):
+        print(wav)
         wav = wav.split("/")[-1]
+        
         resp_json = resp.json()
         print(json.dumps(resp_json, sort_keys=False, indent=4))
-        print(wav)
+        if "already exists and it's not time to update it yet" in resp_json.get("err_msg"):
+            return False
 
         valid_length = self.content.get(wav)
         if valid_length == None:
-            raise TypeError(wav file not in json.json, Please check the.)
+            raise TypeError("wav file not in json.json, Please check the. Error file name is [%s]"%wav)
 
         # top
         value = str(resp_json.get("blackbase_phone")).split(",")
@@ -130,7 +134,7 @@ class CallingInterface:
         else:
             top_value = "None"
 
-        temporary_data = [_file_name, _phone, str(valid_length / 1000), top_value]
+        temporary_data = [_file_name, wav, str(_phone), str(valid_length / 1000), top_value]
 
         for i in self.columns:
             value = str(resp_json.get(i))
@@ -142,18 +146,18 @@ class CallingInterface:
         used_time = resp_json.get("used_time")
         for i in self.used_time:
             temporary_data.append(str(used_time.get(i)))
-        
 
-        
-    
         self.inbase_out.append(temporary_data)
         if Args.timely_save:
             with open(Args.log_path + self.port_type + "_timely_save_file_1.csv", "a+") as f1:
                 f1.writelines(",".join(temporary_data) + '\n')
+        return True
 
 
     def test_port(self, wav):
         wav_url = self.url_path + "/" + self.bucket_name + "/" + wav
+        print("wav_url", wav_url)
+        # wav_url = r"http://192.168.3.202:9000/gray/H_JSSR10942663_20220815641817_00000070_otalk_noblack.wav"
         endtime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
         begintime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
         try:
@@ -165,12 +169,15 @@ class CallingInterface:
                 logger.warning(self.state + ": " + wav + "not in zhuanban.txt")
                 phone = random.randint(11111111111, 99999999999)
             file_name, phone = wav, random.randint(11111111111, 99999999999)
-
+        # phone = random.randint(11111111111, 99999999999)
+        print(phone)
         values = {"spkid": str(phone),"show_phone": "15151832002","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
         resp = requests.request("POST", self.url, data = values)
   
-        self.info_neaten(resp, wav, file_name, phone)
-        logger.debug('(%s)  file %s run success.'%(self.port_type, wav))
+        if self.info_neaten(resp, wav, file_name, phone):
+            logger.debug('(%s)  file %s run success.'%(self.port_type, wav))
+        else:
+            logger.warning('(%s)  file %s run fail. multiple registration.'%(self.port_type, wav))
 
     def run_port(self, port_type, bucket_name):
         # test|register
@@ -245,19 +252,20 @@ class CallingInterface:
         try:
             with open(self.wav_file_time) as obj:
                 content = json.load(obj)
-            logger.info(content)
+            logger.debug("content: ", content)
         except:
             raise TypeError("File %s was not found "%self.wav_file_time)
         return txt_file_info, content
+
 
 
 def acquire_data(state):
     port = CallingInterface(state)
     columns = ""
     if state == "test":
-        columns = ['wav', 'Zphone', "valid_length", "top"] + Args.test_columns + Args.used_time
+        columns = ['wav', "raw_wav", 'Zphone', "valid_length", "top"] + Args.test_columns + Args.used_time
     elif state == "register":
-        columns = ['wav', 'Zphone', "valid_length", "top"] + Args.register_columns + Args.used_time
+        columns = ['wav', "raw_wav", 'Zphone', "valid_length", "top"] + Args.register_columns + Args.used_time
 
 
     if Args.timely_save:
@@ -277,6 +285,8 @@ def matrix_prin(real, label):
 
     FP = real.count("0_true") + real.count("0_True")
     TN = real.count("0_false") + real.count("0_False")
+    print("TP, TN: ", TP, TN)
+    print("FP, FN: ", FP, FN)
     try:
         logger.info("==========》 【" + label + "】")
         logger.info("              ------------------------------------|")
@@ -295,23 +305,30 @@ def matrix_prin(real, label):
         logger.info(label + "[label] FNR: " + str(FN/(TP+FN)))
         logger.info(label + "[label] FPR: " + str(FP/(TN+FP)))
         logger.info(label + "[label] TNR: " + str(TN/(TN+FP)))
-    except ZeroDivisionError:
-        logger.error("division by zero." + real)
 
+    except:
+        # pass
+        logger.warning("division by zero." + real)
 
 
 def run():
+    
     # balck
     balck_data = acquire_data("register")
     balck_success = balck_data[balck_data["status"] == "success"]
     balck_error = balck_data[balck_data["status"] == "error"]
 
-    balck_error = balck_error[["wav", "status", "err_msg", "valid_length", 'self_test_score_mean', 'self_test_score_min', 'self_test_score_max']]
+    balck_error = balck_error[["wav", "status", "err_msg", "valid_length", 'self_test_score_mean', 'self_test_score_min', 'self_test_score_max', 'raw_wav', 'Zphone', 'err_msg']]
     balck_error.to_csv(Args.log_path + "balck_error_data_1.csv")
+    
+    print(balck_error.columns)
+    
 
+    #  # 黑库注册未过质检列表
+    ["wav", "raw_wav", "Zphone", "err_msg"]
     logger.info("balck test valid data: %d"%(len(balck_success["status"])))
     logger.info("balck test invalid data: %d.  please findv %sbalck_error_data_1.csv "%(len(balck_error["status"]), Args.log_path))
-    balck_phone = set(balck_success["Zphone"])
+    balck_phone = set(balck_data["Zphone"])
     logger.info("balck_phone : " + str(balck_phone))
     # gray
     gray_data = acquire_data("test")
@@ -322,14 +339,28 @@ def run():
     logger.info("gray test valid data: %d"%(len(gray_success["status"])))
     logger.info("gray test invalid data: %d.  please findv %sgray_error_data_1.csv "%(len(gray_error["status"]), Args.log_path))
 
-    inbase_false = gray_success[gray_success["inbase"] == "False"]
+    inbase_false = gray_data
     gray_error_data = []
     for i, Zphone in zip(list(inbase_false["Zphone"].index), list(inbase_false["Zphone"])):
         if str(Zphone) in balck_phone:
             gray_error_data.append(inbase_false.loc[i])
     gray_error_data = pd.DataFrame(gray_error_data)
-    gray_error_data.to_csv(Args.log_path + "TN_1.csv")
+    gray_error_data.to_csv(Args.log_path + "correct.csv")
+    report = [["wav", "raw_wav", "Zphone", "err_msg"]]
+    report = [["balck_error","黑库注册未过质检列表" ,"" ,""]]
+    report += list(balck_error[["wav", "raw_wav", "Zphone", "err_msg"]].values)
+    # 漏判说明
+    omit_data = gray_error_data[gray_error_data["inbase"] == "False"]
+    report += [["omit_data","误判" ,"" ,""]]
+    
+    report += list(omit_data[["wav", "raw_wav", "Zphone"]].values) # 误判
 
+    report += [["error_data","漏判" ,"" ,""]]
+    error_data = gray_error_data[gray_error_data["inbase"] == "True"]
+    report += list(error_data[["wav", "raw_wav", "Zphone"]].values) # 漏判
+    report = pd.DataFrame(report)
+    report.to_csv(Args.log_path + "out_.csv", index=False)
+    return 
     real = []
     dict_phone = {}
     for name, inbase, phone in zip(gray_success["wav"], gray_success["inbase"], gray_success["Zphone"]):
@@ -368,8 +399,14 @@ def run():
     matrix_prin(real_, "individual")
 
 
+
+
+
 if __name__ == "__main__":
     if not os.path.exists(Args.log_path):
         os.mkdir(Args.log_path)
     logger = Log().logger
     run()
+    # state = "test"
+    # port = CallingInterface(state)
+    # port.test_port(r"H_JSSR10568061_20220815107456_00000071_otalk_noblack.wav")

@@ -1,7 +1,11 @@
 # 上传
+import os
+from oss.oss_tool import OSS
+
 def minio_set_object():
+    pwd = os.getcwd()
     oss = OSS("gray")
-    PATH_D = "/mnt/panjiawei/run_2/data/gray"
+    PATH_D = os.path.join(pwd, "data/gray/")
     file = os.listdir(PATH_D)
     for i in file:
         print(i)
@@ -9,7 +13,7 @@ def minio_set_object():
         oss.upload_file("gray", file_path, i)
 
     oss = OSS("black")
-    PATH_D = "/mnt/panjiawei/run_2/data/black"
+    PATH_D = os.path.join(pwd, "data/black/")
     file = os.listdir(PATH_D)
     for i in file:
         print(i)
