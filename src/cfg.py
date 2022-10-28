@@ -78,11 +78,11 @@ SAVE_PREPROCESSED_OSS = True
 
 # Mysql
 MYSQL = {
-    "host": "zhaosheng.mysql.rds.aliyuncs.com",
-    "port": 27546,
-    "db": "si2",
+    "host": "192.168.3.202",
+    "port": 3306,
+    "db": "si",
     "username": "root",
-    "passwd": "Nt3380518!zhaosheng123",
+    "passwd": "123456",
 }
 # Redis
 REDIS = {

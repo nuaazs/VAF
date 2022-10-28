@@ -127,7 +127,7 @@ def check_spkid(spkid):
 
 @call_time
 def to_log_bak(phone, action_type, err_type, message, file_url, show_phone, preprocessed_file_path="",
-           valid_length=0, ):
+               valid_length=0, ):
     conn = pymysql.connect(
         host=msg_db.get("host"),
         port=msg_db.get("port"),
@@ -293,16 +293,12 @@ def get_blackid_bak(blackbase_phone):
 @call_time
 def check_spkid(spkid):
     # TODO: 添加判断是否需要更新声纹
-    while True:
-        try:
-            query_sql = f"SELECT * FROM speaker WHERE phone='{spkid}';"
-            result = mysql_handler.fetch_one(query_sql)
-            if len(result) != 0:
-                return True
-            else:
-                return False
-        except Exception as e:
-            logger.error(e)
+    query_sql = f"SELECT * FROM speaker WHERE phone='{spkid}';"
+    result = mysql_handler.fetch_one(query_sql)
+    if result:
+        return True
+    else:
+        return False
 
 
 @call_time
