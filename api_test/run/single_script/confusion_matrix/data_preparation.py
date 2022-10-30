@@ -5,19 +5,20 @@ import json
 
 
 class Args:
+    pwd = os.getcwd()
     # 数据集路径
     data_warehouse = "/mnt/dataset/cjsd"
     # 数据保存路径
-    scv = "/mnt/panjiawei/run_2/data/new/"
+    scv = os.path.join(pwd, "new/")
     # csv文件路径
-    csv_path = "/mnt/panjiawei/run_2/data/new/cjsd.csv"
+    csv_path = os.path.join(pwd, "new/cjsd.csv")
 
     # 黑库数量
     black_number = 40
     # 黑库路径
-    balck_path = "/mnt/panjiawei/run_2/data/black/"
+    balck_path = os.path.join(pwd, "data/black/")
     # 灰库路径
-    gray_path = "/mnt/panjiawei/run_2/data/gray/"
+    gray_path = os.path.join(pwd, "data/gray/")
 
     # 灰库其他样例
     gray_nubmer = 100
@@ -35,6 +36,8 @@ if __name__ == "__main__":
         phone_falg = data[data["speaker_id"] == phone]
         phone = str(phone)
         new_path = os.path.join(Args.data_warehouse, phone)
+        if not os.path.exists(new_path):
+            continue
         source_path_1 = os.path.join(new_path, "1.wav")
 
         try:
@@ -51,68 +54,29 @@ if __name__ == "__main__":
             source_path_2 = os.path.join(new_path, "2.wav")
             jssr = str(random.randint(10000000, 99999999))
             date = "20220815" + str(random.randint(100000, 999999))
-            file_name_zhuanban_previous = "H_JSSR%s_%s_%s_otalk_zhuanban.wav" % (
-                jssr,
-                date,
-                phone,
-            )
-            file_name_zhuanban_new = "H_JSSR%s_%s_%s_otalk_zhuanban.wav" % (
-                jssr,
-                date,
-                "%08d" % i,
-            )
+            file_name_zhuanban_previous = "H_JSSR%s_%s_%s_otalk_zhuanban.wav" % (jssr, date, phone)
+            file_name_zhuanban_new = "H_JSSR%s_%s_%s_otalk_zhuanban.wav" % (jssr, date, "%08d"%i)
             info[file_name_zhuanban_new] = size
 
             zhuanban.append([file_name_zhuanban_previous, file_name_zhuanban_new])
-            print(
-                "cp "
-                + source_path_1
-                + " "
-                + os.path.join(Args.balck_path, file_name_zhuanban_new)
-            )
+            print("cp " + source_path_1 + " " + os.path.join(Args.balck_path, file_name_zhuanban_new))
 
-            file_name_noblack_previous = "H_JSSR%s_%s_%s_otalk_noblack.wav" % (
-                jssr,
-                date,
-                phone,
-            )
-            file_name_noblack_new = "H_JSSR%s_%s_%s_otalk_noblack.wav" % (
-                jssr,
-                date,
-                "%08d" % i,
-            )
+            file_name_noblack_previous = "H_JSSR%s_%s_%s_otalk_noblack.wav" % (jssr, date, phone)
+            file_name_noblack_new = "H_JSSR%s_%s_%s_otalk_noblack.wav" % (jssr, date, "%08d"%i)
             noblack.append([file_name_noblack_previous, file_name_noblack_new])
 
             size = data.loc[index][2] / 1000
             info[file_name_noblack_new] = size
 
-            print(
-                "cp "
-                + source_path_2
-                + " "
-                + os.path.join(Args.gray_path, file_name_noblack_new)
-            )
+            print("cp " + source_path_2 + " " + os.path.join(Args.gray_path, file_name_noblack_new))
         elif i < Args.black_number + Args.gray_nubmer:
             jssr = str(random.randint(10000000, 99999999))
             date = "20220815" + str(random.randint(100000, 999999))
-            file_name_noblack_previous = "H_JSSR%s_%s_%s_otalk_noblack.wav" % (
-                jssr,
-                date,
-                phone,
-            )
-            file_name_noblack_new = "H_JSSR%s_%s_%s_otalk_noblack.wav" % (
-                jssr,
-                date,
-                "%08d" % i,
-            )
+            file_name_noblack_previous = "H_JSSR%s_%s_%s_otalk_noblack.wav" % (jssr, date, phone)
+            file_name_noblack_new = "H_JSSR%s_%s_%s_otalk_noblack.wav" % (jssr, date, "%08d" % i)
             info[file_name_noblack_new] = size
             noblack.append([file_name_noblack_previous, file_name_noblack_new])
-            print(
-                "cp "
-                + source_path_1
-                + " "
-                + os.path.join(Args.gray_path, file_name_noblack_new)
-            )
+            print("cp " + source_path_1 + " " + os.path.join(Args.gray_path, file_name_noblack_new))
 
     with open(Args.scv + "zhuanban.txt", "w") as z1:
         for i, j in zhuanban:
