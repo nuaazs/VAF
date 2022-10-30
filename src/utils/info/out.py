@@ -32,6 +32,7 @@ class OutInfo:
 
     def __init__(self,action_type):
         self.response = {"code": 2000, "status": "error"}
+        self.action_type = action_type
         self.response_check_new = {
             "code": 2000,
             "status": "error",
@@ -58,7 +59,7 @@ class OutInfo:
         self.used_time[name] = (datetime.datetime.now() - self.start_time).total_seconds()
         self.start_time = datetime.datetime.now()
     
-    def response(self, spkid, err_type, message="", used_time=None,show_phone=None):
+    def response_error(self, spkid, err_type, message="", used_time=None,show_phone=None):
         if show_phone != None:
             self.show_phone = show_phone
         else:
@@ -71,7 +72,7 @@ class OutInfo:
         self.response["message"] = message
         if used_time != None:
             self.response["used_time"] = used_time
-        to_log(phone=spkid, action_type=self.action_type,err_type=err_type, message=message, file_url=self.oss_path,preprocess_file_path=self.preprocess_file_path)
+        to_log(phone=spkid, action_type=self.action_type,err_type=err_type, message=message, file_url=self.oss_path,preprocessed_file_path=self.preprocess_file_path,show_phone=self.show_phone)
         return self.response
 
     def response_vad(self, err_type, err_msg, used_time=None):

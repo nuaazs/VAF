@@ -88,19 +88,19 @@ def general(request_form, file_mode="url", action_type="test"):
     # STEP 1: Get wav file.
     if file_mode == "file":
         new_file = request.files["wav_file"]
-        if (".wav" not in new_file.filename):
+        if (new_file.filename.split('.')[-1] not in ["wav","mp3","flac","m4a","ogg","opus","spx","amr","mp4","aac","wma","m4r","3gp","3g2","caf","aiff","aif","aifc","au","sd2","bwf","rf64"]):
             message = f"File type error."
             return outinfo.response_error(spkid=new_spkid, err_type=1, message=message)
         try:
             filepath, outinfo.oss_path = save_file(file=new_file, spk=new_spkid)
         except Exception as e:
-            return outinfo.response_error(spkid=new_spkid, err_type=2, message=e)
+            return outinfo.response_error(spkid=new_spkid, err_type=2, message=str(e))
     elif file_mode == "url":
         new_url = request.form.get("wav_url")
         try:
             filepath, outinfo.oss_path = save_url(url=new_url, spk=new_spkid)
         except Exception as e:
-            return outinfo.response_error(spkid=new_spkid, err_type=3, message=e)
+            return outinfo.response_error(spkid=new_spkid, err_type=3, message=str(e))
     outinfo.log_time(name="download_used_time")
 
 
@@ -118,7 +118,7 @@ def general(request_form, file_mode="url", action_type="test"):
         else:
             outinfo.preprocessed_file_path = ""
     except Exception as e:
-        return outinfo.response_error(spkid=new_spkid, err_type=4, message=e)
+        return outinfo.response_error(spkid=new_spkid, err_type=5, message=str(e))
     outinfo.log_time(name="vad_used_time")
 
 
@@ -129,7 +129,7 @@ def general(request_form, file_mode="url", action_type="test"):
         self_test_result = encode(wav_torch_raw=vad_result["wav_torch"], action_type=action_type)
         outinfo.self_test_result = self_test_result
     except Exception as e:
-        return outinfo.response_error(spkid=new_spkid, err_type=5, message=e)
+        return outinfo.response_error(spkid=new_spkid, err_type=7, message=str(e))
     outinfo.log_time(name="self_test_used_time")
     msg = self_test_result["msg"]
     if not self_test_result["pass"]:

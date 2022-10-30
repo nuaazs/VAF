@@ -29,22 +29,26 @@ def save_file(file, spk):
     speech_number = len(spk_filelist) + 1
     # receive wav file and save it to  ->  <receive_path>/<spk_id>/raw_?.webm
     pid = os.getpid()
-    save_name = f"raw_{speech_number}_{pid}.wav"
+    ext = file.filename.split('.')[-1]
+    save_name = f"raw_{speech_number}_{pid}.{ext}"
     save_path = os.path.join(spk_dir, save_name)
     save_path_wav = os.path.join(spk_dir, f"raw_{speech_number}_{pid}.wav")
     file.save(save_path)
     # conver to wav
-    # cmd = f"ffmpeg -i {save_path} -ac 1 -ar 16000 {save_path_wav}"
-    # subprocess.call(cmd, shell=True)
-    # cmd = f"rm {save_path}"
-    # subprocess.call(cmd, shell=True)
+    if ext!="wav":
+        cmd = f"ffmpeg -i {save_path} -ac 1 -ar 16000 -vn -map_channel 0.0.{cfg.WAV_CHANNEL} {save_path_wav}"
+        subprocess.call(cmd, shell=True)
+        cmd = f"rm {save_path}"
+        subprocess.call(cmd, shell=True)
+    else:
+        save_path_wav = save_path
     raw_file_path = upload_file(
         bucket_name="raw",
-        filepath=save_path,
+        filepath=save_path_wav,
         filename=f"raw_{spk}_{speech_number}_{pid}.wav",
         save_days=cfg.MINIO["test_save_days"],
     )
-    return save_path, raw_file_path
+    return save_path_wav, raw_file_path
 
 
 def save_url(url, spk):
@@ -66,7 +70,8 @@ def save_url(url, spk):
     # receive wav file and save it to  ->  <receive_path>/<spk_id>/raw_?.webm
 
     pid = os.getpid()
-    save_name = f"raw_{speech_number}_{pid}.wav"
+    ext = url.split('.')[-1]
+    save_name = f"raw_{speech_number}_{pid}.{ext}"
 
     if url.startswith("local://"):
         previous_path = url.replace("local://", "")
@@ -76,11 +81,20 @@ def save_url(url, spk):
         save_path = os.path.join(spk_dir, save_name)
         wget.download(url, save_path)
 
+    if ext!="wav":
+        save_path_wav = os.path.join(spk_dir, f"raw_{speech_number}_{pid}.wav")
+        # conver to wav
+        cmd = f"ffmpeg -i {save_path} -ac 1 -ar 16000 -vn -map_channel 0.0.{cfg.WAV_CHANNEL} {save_path_wav}"
+        subprocess.call(cmd, shell=True)
+        cmd = f"rm {save_path}"
+        subprocess.call(cmd, shell=True)
+    else:
+        save_path_wav = save_path
     raw_file_path = upload_file(
         bucket_name="raw",
-        filepath=save_path,
+        filepath=save_path_wav,
         filename=f"raw_{spk}_{speech_number}_{pid}.wav",
         save_days=cfg.MINIO["test_save_days"],
     )
 
-    return save_path, raw_file_path
+    return save_path_wav, raw_file_path
