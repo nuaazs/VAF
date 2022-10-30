@@ -4,11 +4,9 @@
 # @Describe: service configuration file.
 
 # Workers
-WORKERS = 1
+WORKERS = 2
 
 SR = 16000
-
-CUDA_NUM = 1
 
 # Device
 DEVICE = "cuda:0"  # "cuda:id" or "cpu"
@@ -25,6 +23,18 @@ UPDATE_DAYS = 90
 # start second
 WAV_START = 0
 
+# Denoise type
+# 0: no denoise
+# 1: denoise by denoiser(facebook)
+DENOISE_TYPE = 1
+
+# Self-test type
+# 0: no self-test
+# 1: equally divided into SELF_TEST_NUM parts
+# 2: randomly divided into SELF_TEST_NUM parts
+SELF_TEST_TYPE = 1
+SELF_TEST_NUM = 2
+
 # Max Connections
 WORKER_CONNECTIONS = 20
 
@@ -32,7 +42,7 @@ WORKER_CONNECTIONS = 20
 PORT = 8186
 
 # Classify
-CLASSIFY = True
+CLASSIFY = False
 
 # Check duplicate
 CHECK_DUPLICATE = False

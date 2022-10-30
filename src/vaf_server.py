@@ -13,8 +13,6 @@ from flask_sock import Sock
 # utils
 from utils.advanced import general
 from utils.advanced import init_service
-from utils.log import err_logger
-from utils.log import logger
 
 # config
 import cfg
@@ -34,6 +32,7 @@ system_info = init_service()
 # HomePage
 @app.route("/", methods=["GET"])
 def index():
+    system_info = init_service()
     kwargs = {
         "spks_num": system_info["spks_num"],
         "spks": system_info["spks"][:10],
@@ -42,11 +41,11 @@ def index():
     return render_template("index.html", **kwargs)
 
 # Register Or Reasoning.
-@app.route("/<action_type>/<test_type>", methods=["POST"])
-def register_or_reasoning(action_type, test_type):
+@app.route("/<action_type>/<file_mode>", methods=["POST"])
+def register_or_reasoning(action_type, file_mode):
     if request.method == "POST":
         response = general(
-            request_form=request.form, get_type=test_type, action_type=action_type
+            request_form=request.form, file_mode=file_mode, action_type=action_type
         )
         return json.dumps(response, ensure_ascii=False)
 

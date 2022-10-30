@@ -137,9 +137,9 @@ def register(item):
 
 wavs = [
     "/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/test_wavs/001.wav"
-] * 10
+] * args.test_num
 # wavs = ["/mnt/zhaosheng/Voiceprint-Recognition-System-bak/test/voiceprint-recognition-system/api_test/cnnoc_test_wavs/black_8000.wav"] * 10
-pool = ThreadPool(10)
+pool = ThreadPool(3)
 
 
 start = datetime.datetime.now()
