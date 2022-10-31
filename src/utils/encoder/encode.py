@@ -20,6 +20,7 @@ import cfg
 
 
 def encode(wav_torch_raw, action_type):
+    # TODO:降噪模块更新
     """Audio quality detection and encoding.
 
     Args:
@@ -29,6 +30,7 @@ def encode(wav_torch_raw, action_type):
     Returns:
         Dict: Quality inspection results and audio characteristics
     """
+    print("-------------------encode----------------------")
     if action_type == "register":
         min_length = cfg.MIN_LENGTH_REGISTER
     elif action_type == "test":
@@ -53,9 +55,37 @@ def encode(wav_torch_raw, action_type):
             "before_score": None,
         }
         return result
-    segments_number = int(raw_wav_length)
+    
     wav_torch = wav_torch_raw.unsqueeze(0)
+    
+    if cfg.SELF_TEST_TYPE==1:
+        # equally divide the audio into N parts
+        N = 2#cfg.SELF_TEST_NUM
+        wav_length = int((wav_torch.shape[1] - 10) / N)
+        tiny_wavs = []
+        for i in range(N):
+            # print((wav_torch[:, wav_length * i : wav_length * (i + 1)])*N.shape)
+            _data = torch.cat((wav_torch[:, wav_length * i : wav_length * (i + 1)],wav_torch[:, wav_length * i : wav_length * (i + 1)]), dim=1)
+            print(_data.shape)
+            tiny_wavs.append(_data)
+        
+        wav_torch = wav_torch[:, : _data.shape[1]]
+        tiny_wavs.append(wav_torch)
+        batch = torch.cat(tiny_wavs, dim=0)
+        embedding = spkreg.encode_batch(batch)
+        scores = []
+        for xx in range(N):
+            for yy in range(N):
+                if xx!=yy:
+                    scores.append(similarity(embedding[xx][0], embedding[yy][0]).detach().cpu().numpy())
+        max_score, mean_score, min_score = np.max(scores), np.mean(scores), np.min(scores)
+    print("-------------------cfg.SELF_TEST_TYPE==2:----------------------")
+    if cfg.SELF_TEST_TYPE==2:
+        # TODO:随机切分质量检测
+        # random divide the audio into N parts
+        pass
 
+    # segments_number = int(raw_wav_length)
     # full_wavs = []  # wav_torch
     # segments = []
     # start = 0
@@ -96,26 +126,6 @@ def encode(wav_torch_raw, action_type):
     #         continue
     #     socres.append(similarity(batch[del_index][0], batch[y_index][0]))
 
-    wav_length = int((wav_torch.shape[1] - 10) / 2)
-    left = torch.cat((wav_torch[:, :wav_length], wav_torch[:, :wav_length]), dim=1)
-    right = torch.cat(
-        (
-            wav_torch[:, wav_length : wav_length * 2],
-            wav_torch[:, wav_length : wav_length * 2],
-        ),
-        dim=1,
-    )
-    wav_torch = wav_torch[:, : left.shape[1]]
-    batch = torch.cat((wav_torch, left, right), dim=0)
-    embedding = spkreg.encode_batch(batch)
-    encoding_tensor = embedding[0]
-    encoding_tiny_1 = embedding[1][0]
-    encoding_tiny_2 = embedding[2][0]
-    score = similarity(encoding_tiny_1, encoding_tiny_2)
-    max_score, mean_score, min_score = score, score, score
-
-    # max_score, mean_score, min_score = np.max(socres), np.mean(socres), np.min(socres)
-
     if mean_score > similarity_limit:
         result = {
             "pass": True,
@@ -137,10 +147,11 @@ def encode(wav_torch_raw, action_type):
             "min_score": min_score,
             "err_type": 7,
         }
+    print("-------------------end----------------------")
     return result
 
 
-def do_denoise(wav, before_score):
+def do_denoise(wav, before_score,denoise_type=cfg.DENOISE_TYPE):
     """ Noise reduction for audio
 
     Args:
@@ -154,7 +165,8 @@ def do_denoise(wav, before_score):
     max_score = 0
     mean_score = 0
     min_score = 1
-    wav_torch = denoise_wav(wav.unsqueeze(0))
+    if denoise_type == 1:
+        wav_torch = denoise_wav(wav.unsqueeze(0))
     wav_length = int((wav_torch.shape[1] - 10) / 2)
     left = torch.cat((wav_torch[:, :wav_length], wav_torch[:, :wav_length]), dim=1)
     right = torch.cat(

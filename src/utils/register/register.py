@@ -15,21 +15,7 @@ from utils.orm import to_database
 import cfg
 
 
-def register(
-    embedding,
-    wav,
-    new_spkid,
-    max_class_index,
-    oss_path,
-    self_test_result,
-    call_begintime,
-    call_endtime,
-    preprocessed_file_path,
-    show_phone,
-    before_vad_length,
-    after_vad_length,
-    used_time,
-):
+def register(outinfo):
     """Audio registration, write voiceprint library.
 
     Args:
@@ -52,17 +38,17 @@ def register(
     """
     start = datetime.datetime.now()
     add_success, phone_info = to_database(
-        embedding=embedding,
-        spkid=new_spkid,
-        max_class_index=max_class_index,
+        embedding=outinfo.embedding,
+        spkid=outinfo.spkid,
+        max_class_index=outinfo.class_num,
         log_phone_info=cfg.LOG_PHONE_INFO,
     )
     # print(f"Add success: {add_success}")
     if add_success:
         skp_info = {
             "name": "none",
-            "phone": new_spkid,
-            "uuid": oss_path,
+            "phone": outinfo.spkid,
+            "uuid": outinfo.oss_path,
             "hit": 0,
             "register_time": (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S"),
             "province": phone_info.get("province", ""),
@@ -71,30 +57,30 @@ def register(
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
             "self_test_score_mean": float(
-                self_test_result["mean_score"]
+                outinfo.self_test_result["mean_score"]
             ),  # .detach().cpu().numpy()
             "self_test_score_min": float(
-                self_test_result["min_score"]
+                outinfo.self_test_result["min_score"]
             ),  # .detach().cpu().numpy()
             "self_test_score_max": float(
-                self_test_result["max_score"]
+                outinfo.self_test_result["max_score"]
             ),  # .detach().cpu().numpy()
-            "call_begintime": call_begintime,
-            "call_endtime": call_endtime,
-            "max_class_index": max_class_index,
-            "preprocessed_file_path": preprocessed_file_path,
-            "show_phone": show_phone,
+            "call_begintime": outinfo.call_begintime,
+            "call_endtime": outinfo.call_endtime,
+            "max_class_index": outinfo.class_num,
+            "preprocessed_file_path": outinfo.preprocessed_file_path,
+            "show_phone": outinfo.show_phone,
         }
-        add_speaker(skp_info, after_vad_length=after_vad_length)
+        add_speaker(skp_info, after_vad_length=outinfo.after_length)
         to_log(
-            phone=new_spkid,
+            phone=outinfo.spkid,
             action_type=2,
             err_type=0,
             message=f"Register success.",
-            file_url=oss_path,
-            preprocessed_file_path=preprocessed_file_path,
-            valid_length=after_vad_length,
-            show_phone=show_phone,
+            file_url=outinfo.oss_path,
+            preprocessed_file_path=outinfo.preprocessed_file_path,
+            valid_length=outinfo.after_length,
+            show_phone=outinfo.show_phone,
         )
         response = {
             "code": 2000,
@@ -102,8 +88,8 @@ def register(
             "err_type": 0,
             "err_msg": "Register success.",
             "name": "none",
-            "phone": new_spkid,
-            "uuid": oss_path,
+            "phone": outinfo.spkid,
+            "uuid": outinfo.oss_path,
             "hit": 0,
             "register_time": (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S"),
             "province": phone_info.get("province", ""),
@@ -112,22 +98,22 @@ def register(
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
             "self_test_score_mean": float(
-                self_test_result["mean_score"]
+                outinfo.self_test_result["mean_score"]
             ),  # .detach().cpu().numpy()
             "self_test_score_min": float(
-                self_test_result["min_score"]
+                outinfo.self_test_result["min_score"]
             ),  # .detach().cpu().numpy()
             "self_test_score_max": float(
-                self_test_result["max_score"]
+                outinfo.self_test_result["max_score"]
             ),  # .detach().cpu().numpy()
-            "self_test_before_score": self_test_result["before_score"],
-            "call_begintime": call_begintime,
-            "call_endtime": call_endtime,
-            "max_class_index": max_class_index,
-            "preprocessed_file_path": preprocessed_file_path,
-            "show_phone": show_phone,
-            "before_vad_length": before_vad_length,
-            "after_vad_length": after_vad_length,
-            "used_time": used_time,
+            "self_test_before_score": outinfo.self_test_result["before_score"],
+            "call_begintime": outinfo.call_begintime,
+            "call_endtime": outinfo.call_endtime,
+            "max_class_index": outinfo.class_num,
+            "preprocessed_file_path": outinfo.preprocessed_file_path,
+            "show_phone": outinfo.show_phone,
+            "before_vad_length": outinfo.before_length,
+            "after_vad_length": outinfo.after_length,
+            "used_time": outinfo.used_time,
         }
         return response

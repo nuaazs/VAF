@@ -19,21 +19,7 @@ from utils.orm import get_blackid
 import cfg
 
 
-def test(
-    embedding,
-    wav,
-    new_spkid,
-    max_class_index,
-    oss_path,
-    self_test_result,
-    call_begintime,
-    call_endtime,
-    preprocessed_file_path,
-    show_phone,
-    before_vad_length,
-    after_vad_length,
-    used_time,
-):
+def test(outinfo):
     """Audio reasoning, compare the audio features with the black library in full, and return the result.
 
     Args:
@@ -56,14 +42,12 @@ def test(
     """
     start = datetime.datetime.now()
 
-    black_database = get_embeddings(class_index=max_class_index)
-    used_time["embedding_used_time"] = (datetime.datetime.now() - start).total_seconds()
-    start = datetime.datetime.now()
-
+    black_database = get_embeddings(class_index=outinfo.class_num)
+    outinfo.log_time("embedding_used_time")
     is_inbase, check_result = test_wav(
         database=black_database,
-        embedding=embedding,
-        spkid=new_spkid,
+        embedding=outinfo.embedding,
+        spkid=outinfo.spkid,
         black_limit=cfg.BLACK_TH,
         similarity=similarity,
         top_num=10,
@@ -72,12 +56,11 @@ def test(
     hit_scores = check_result["best_score"]
     blackbase_phone = check_result["spk"]
     top_10 = check_result["top_10"]
-    used_time["test_used_time"] = (datetime.datetime.now() - start).total_seconds()
-    start = datetime.datetime.now()
+    outinfo.log_time("test_used_time")
     add_success, phone_info = to_database(
-        embedding=embedding,
-        spkid=new_spkid,
-        max_class_index=max_class_index,
+        embedding=outinfo.embedding,
+        spkid=outinfo.spkid,
+        max_class_index=outinfo.class_num,
         log_phone_info=cfg.LOG_PHONE_INFO,
         mode="test",
     )
@@ -90,22 +73,22 @@ def test(
     if is_inbase:
         hit_info = {
             "name": "none",
-            "show_phone": show_phone,
-            "phone": new_spkid,
-            "file_url": oss_path,
+            "show_phone": outinfo.show_phone,
+            "phone": outinfo.spkid,
+            "file_url": outinfo.oss_path,
             "hit_time": datetime.datetime.now(),
             "province": phone_info.get("province", ""),
             "city": phone_info.get("city", ""),
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": self_test_result["mean_score"],
-            "self_test_score_min": self_test_result["min_score"],
-            "self_test_score_max": self_test_result["max_score"],
-            "call_begintime": call_begintime,
-            "call_endtime": call_endtime,
-            "class_number": max_class_index,
-            "preprocessed_file_path": preprocessed_file_path,
+            "self_test_score_mean": outinfo.self_test_result["mean_score"],
+            "self_test_score_min": outinfo.self_test_result["min_score"],
+            "self_test_score_max": outinfo.self_test_result["max_score"],
+            "call_begintime": outinfo.call_begintime,
+            "call_endtime": outinfo.call_endtime,
+            "class_number": outinfo.class_num,
+            "preprocessed_file_path": outinfo.preprocessed_file_path,
             "blackbase_phone": blackbase_phone,
             "blackbase_id": blackbase_id,
             "hit_status": 1,
@@ -115,13 +98,10 @@ def test(
 
         msg = f"{is_inbase}"
         if cfg.CLIP_DETECT:
-            clip = check_clip(wav=wav, th=cfg.CLIP_TH)
+            clip = check_clip(wav=outinfo.wav, th=cfg.CLIP_TH)
         else:
             clip = False
-        used_time["to_database_used_time"] = (
-            datetime.datetime.now() - start
-        ).total_seconds()
-        start = datetime.datetime.now()
+        outinfo.log_time("to_database_used_time")
         response = {
             "code": 2000,
             "status": "success",
@@ -131,73 +111,71 @@ def test(
             "top_10": top_10,
             "err_msg": "null",
             "clip": clip,
-            "before_vad_length": before_vad_length,
-            "after_vad_length": after_vad_length,
+            "before_vad_length": outinfo.before_length,
+            "after_vad_length": outinfo.after_length,
             "self_test_score_mean": float(
-                self_test_result["mean_score"]
+                outinfo.self_test_result["mean_score"]
             ),  # .detach().cpu().numpy()
             "self_test_score_min": float(
-                self_test_result["min_score"]
+                outinfo.self_test_result["min_score"]
             ),  # .detach().cpu().numpy()
             "self_test_score_max": float(
-                self_test_result["max_score"]
+                outinfo.self_test_result["max_score"]
             ),  # .detach().cpu().numpy()
-            "self_test_before_score": self_test_result["before_score"],
-            "used_time": used_time,
+            "self_test_before_score": outinfo.self_test_result["before_score"],
+            "used_time": outinfo.used_time,
         }
         if clip:
             to_log(
-                phone=new_spkid,
+                phone=outinfo.spkid,
                 action_type=1,
                 err_type=10,
                 message=f"{msg},clipped,{blackbase_phone},{hit_scores}",
-                file_url=oss_path,
-                preprocessed_file_path=preprocessed_file_path,
-                valid_length=after_vad_length,
-                show_phone=show_phone,
+                file_url=outinfo.oss_path,
+                preprocessed_file_path=outinfo.preprocessed_file_path,
+                valid_length=outinfo.after_length,
+                show_phone=outinfo.show_phone,
             )
-            add_hit(hit_info, is_grey=True, after_vad_length=after_vad_length)
+            add_hit(hit_info, is_grey=True, after_vad_length=outinfo.after_length)
         else:
             to_log(
-                phone=new_spkid,
+                phone=outinfo.spkid,
                 action_type=1,
                 err_type=0,
                 message=f"{msg},{blackbase_phone},{hit_scores}",
-                file_url=oss_path,
-                preprocessed_file_path=preprocessed_file_path,
-                valid_length=after_vad_length,
-                show_phone=show_phone,
+                file_url=outinfo.oss_path,
+                preprocessed_file_path=outinfo.preprocessed_file_path,
+                valid_length=outinfo.after_length,
+                show_phone=outinfo.show_phone,
             )
-            add_hit(hit_info, is_grey=False, after_vad_length=after_vad_length)
-        add_hit_count(new_spkid)
+            add_hit(hit_info, is_grey=False, after_vad_length=outinfo.after_length)
+        add_hit_count(outinfo.spkid)
 
         return response
     else:
-        used_time["to_database_used_time"] = (
-            datetime.datetime.now() - start
-        ).total_seconds()
-        start = datetime.datetime.now()
+        outinfo.log_time("to_database_used_time")
+        
         response = {
             "code": 2000,
             "status": "success",
             "inbase": is_inbase,
             "err_msg": "null",
-            "before_vad_length": before_vad_length,
-            "after_vad_length": after_vad_length,
+            "before_vad_length": outinfo.before_length,
+            "after_vad_length": outinfo.after_length,
             "hit_scores": hit_scores,
             "blackbase_phone": blackbase_phone,
             "top_10": top_10,
             "self_test_score_mean": float(
-                self_test_result["mean_score"]
+                outinfo.self_test_result["mean_score"]
             ),  # .detach().cpu().numpy()
             "self_test_score_min": float(
-                self_test_result["min_score"]
+                outinfo.self_test_result["min_score"]
             ),  # .detach().cpu().numpy()
             "self_test_score_max": float(
-                self_test_result["max_score"]
+                outinfo.self_test_result["max_score"]
             ),  # .detach().cpu().numpy()
-            "self_test_before_score": self_test_result["before_score"],
-            "used_time": used_time,
+            "self_test_before_score": outinfo.self_test_result["before_score"],
+            "used_time": outinfo.used_time,
         }
 
         return response

@@ -38,6 +38,9 @@ def test_wav(database, embedding, spkid, black_limit, similarity, top_num=10):
     for base_item in database.keys():
         base_embedding = torch.tensor(database[base_item]["embedding_1"])
         results.append([np.array(similarity(base_embedding, embedding)), base_item])
+    if results == None:
+        inbase = False
+        return inbase, {"best_score": 0, "spk": None, "top_10": ""}
     results = sorted(results, key=lambda x: float(x[0]) * (-1))
     top_10 = [f"{_score},{_spk_id}" for _score, _spk_id in results[:10]]
     best_score = float(np.array(results[0][0]))
