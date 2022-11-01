@@ -144,6 +144,8 @@ class CallingInterface:
                 value = value.replace("\n", " ")
             temporary_data.append(value)
         used_time = resp_json.get("used_time")
+        if used_time == None:
+            used_time = {}
         for i in self.used_time:
             temporary_data.append(str(used_time.get(i)))
 
@@ -386,12 +388,12 @@ def run():
     for _phone in dict_phone.keys():
         inbase, name = dict_phone.get(_phone)
         if _phone in balck_phone:
-            if inbase:
+            if inbase == "True":
                 real_.append("1_true")
             else:
                 real_.append("1_false")
         else:
-            if inbase:
+            if inbase == "True":
                 real_.append("0_false")
             else:
                 real_.append("0_true")

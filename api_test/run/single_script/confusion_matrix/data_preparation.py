@@ -2,7 +2,8 @@ import pandas as pd
 import os
 import random
 import json
-
+import datetime
+import requests
 
 class Args:
     pwd = os.getcwd()
@@ -22,6 +23,43 @@ class Args:
 
     # 灰库其他样例
     gray_nubmer = 100
+
+
+
+def test_test(self, wav):
+    wav_url = self.url_path + "/" + self.bucket_name + "/" + wav
+    print("wav_url", wav_url)
+    # wav_url = r"http://192.168.3.202:9000/gray/H_JSSR10942663_20220815641817_00000070_otalk_noblack.wav"
+    endtime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
+    begintime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        file_name, phone = self.txt_file_info.get(wav)
+    except TypeError:
+        if self.state == "test":
+            phone = random.randint(11111111111, 99999999999)
+        file_name, phone = wav, random.randint(11111111111, 99999999999)
+
+    print(phone)
+    values = {"spkid": str(phone),"show_phone": "15151832002","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
+    resp = requests.request("POST", self.url, data = values)
+
+
+def test_register(self, wav):
+    wav_url = self.url_path + "/" + self.bucket_name + "/" + wav
+    print("wav_url", wav_url)
+    # wav_url = r"http://192.168.3.202:9000/gray/H_JSSR10942663_20220815641817_00000070_otalk_noblack.wav"
+    endtime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
+    begintime = (datetime.datetime.now()).strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        file_name, phone = self.txt_file_info.get(wav)
+    except TypeError:
+        if self.state == "test":
+            phone = random.randint(11111111111, 99999999999)
+        file_name, phone = wav, random.randint(11111111111, 99999999999)
+
+    print(phone)
+    values = {"spkid": str(phone),"show_phone": "15151832002","wav_url":wav_url,"call_begintime":begintime,"call_endtime":endtime}
+    resp = requests.request("POST", self.url, data = values)
 
 
 if __name__ == "__main__":
