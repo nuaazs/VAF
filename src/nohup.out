@@ -1,0 +1,98 @@
+/home/lyxx/.local/lib/python3.8/site-packages/torch/cuda/__init__.py:143: UserWarning: 
+NVIDIA GeForce RTX 3080 with CUDA capability sm_86 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_70.
+If you want to use the NVIDIA GeForce RTX 3080 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+Bucket 'raw' already exists
+Bucket 'preprocessed' already exists
+/home/lyxx/.local/lib/python3.8/site-packages/torch/cuda/__init__.py:143: UserWarning: 
+NVIDIA GeForce RTX 3080 with CUDA capability sm_86 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_70.
+If you want to use the NVIDIA GeForce RTX 3080 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+Bucket 'raw' already exists
+Bucket 'preprocessed' already exists
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 209, in run
+    self.sleep()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 357, in sleep
+    ready = select.select([self.PIPE[0]], [], [], 1.0)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+/home/lyxx/.local/lib/python3.8/site-packages/torch/cuda/__init__.py:143: UserWarning: 
+NVIDIA GeForce RTX 3080 with CUDA capability sm_86 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_70.
+If you want to use the NVIDIA GeForce RTX 3080 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+Bucket 'raw' already exists
+Bucket 'preprocessed' already exists
+/home/lyxx/.local/lib/python3.8/site-packages/torch/cuda/__init__.py:143: UserWarning: 
+NVIDIA GeForce RTX 3080 with CUDA capability sm_86 is not compatible with the current PyTorch installation.
+The current PyTorch install supports CUDA capabilities sm_37 sm_50 sm_60 sm_70.
+If you want to use the NVIDIA GeForce RTX 3080 GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
+
+  warnings.warn(incompatible_device_warn.format(device_name, capability, " ".join(arch_list), device_name))
+Bucket 'raw' already exists
+Bucket 'preprocessed' already exists
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 209, in run
+    self.sleep()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 357, in sleep
+    ready = select.select([self.PIPE[0]], [], [], 1.0)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/usr/local/lib/python3.8/dist-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
