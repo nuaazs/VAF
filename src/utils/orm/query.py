@@ -394,11 +394,11 @@ def add_hit(hit_info, is_grey, after_vad_length):
     query_sql = f"INSERT INTO hit (phone, file_url, phone_type,area_code,self_test_score_mean,self_test_score_min,\
                                    self_test_score_max,call_begintime,call_endtime,valid_length,class_number,\
                                    blackbase_phone,blackbase_id,top_10,hit_status,hit_score,preprocessed_file_url,\
-                                   is_grey,show_phone,hit_time,content_text,hit_keyword,keyword) \
+                                   is_grey,show_phone,hit_time,hit_keyword,keyword) \
                  VALUES ('{phone}', '{file_url}','{phone_type}','{area_code}',\
                  '{self_test_score_mean}','{self_test_score_min}','{self_test_score_max}','{call_begintime}',\
                  '{call_endtime}','{valid_length}','{class_number}','{blackbase_phone}','{blackbase_id}','{top_10}',\
-                 '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}','{show_phone}',NOW(),'{content_text[:1000]}','{hit_keyword}','{keyword[:1000]}');"
+                 '{hit_status}','{hit_score}','{preprocessed_file_path}','{is_grey}','{show_phone}',NOW(),'{hit_keyword}','{keyword[:1000]}');"
     try:
         mysql_handler.insert_one(query_sql)
     except Exception as e:

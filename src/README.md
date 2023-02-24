@@ -20,3 +20,7 @@ gunicorn -c gunicorn.py si_server_gpu:app
 ```shell
 python si_server_gpu.py
 ```
+
+更新时间：2023-02-14
+作者：赵胜
+内容：

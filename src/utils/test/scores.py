@@ -2,6 +2,7 @@
 # @Time    : 2022-09-05  15:35:17
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: Scores.
+import os
 
 import torch
 import numpy as np
@@ -184,8 +185,9 @@ def test_wav(database, embedding, spkid, black_limit, similarity, pool,top_num=1
     else:
         results = []
         return_results = {}
+        embedding = torch.tensor(embedding).to('cpu')
         for base_item in database.keys():
-            base_embedding = torch.tensor(database[base_item]["embedding_1"]).to(cfg.DEVICE)
+            base_embedding = torch.tensor(database[base_item]["embedding_1"]).to('cpu')
             results.append(
                 [similarity(base_embedding, embedding).detach().cpu().numpy(), base_item]
             )

@@ -56,15 +56,9 @@ def register(outinfo,pool=False):
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": float(
-                outinfo.self_test_result["mean_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_score_min": float(
-                outinfo.self_test_result["min_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_score_max": float(
-                outinfo.self_test_result["max_score"]
-            ),  # .detach().cpu().numpy()
+            "self_test_score_mean": 1,
+            "self_test_score_min": 1,
+            "self_test_score_max": 1,
             "call_begintime": outinfo.call_begintime,
             "call_endtime": outinfo.call_endtime,
             "max_class_index": outinfo.class_num,
@@ -97,16 +91,10 @@ def register(outinfo,pool=False):
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": float(
-                outinfo.self_test_result["mean_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_score_min": float(
-                outinfo.self_test_result["min_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_score_max": float(
-                outinfo.self_test_result["max_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_before_score": outinfo.self_test_result["before_score"],
+            "self_test_score_mean": 1,
+            "self_test_score_min": 1,
+            "self_test_score_max": 1,
+            "self_test_before_score": 1,
             "call_begintime": outinfo.call_begintime,
             "call_endtime": outinfo.call_endtime,
             "max_class_index": outinfo.class_num,

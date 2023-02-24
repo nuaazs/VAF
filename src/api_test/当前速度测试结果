@@ -1,0 +1,108 @@
+/home/lyxx/anaconda3/envs/server_dev/bin/python /lyxx/online/src/api_test/api_test.py
+* Start testing:
+	 total 100 files in fold.
+{'download_used_time': 0.073653, 'vad_used_time': 0.897509, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.156604, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.049576, 'vad_used_time': 0.655038, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.136778, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.099966, 'vad_used_time': 1.604781, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.328353, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.079813, 'vad_used_time': 0.809498, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.203302, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.064002, 'vad_used_time': 0.801734, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.177727, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.14491, 'vad_used_time': 1.78811, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.518164, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.070368, 'vad_used_time': 0.883568, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.243886, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.090897, 'vad_used_time': 1.594816, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.484974, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.151167, 'vad_used_time': 1.81752, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.563215, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.06615, 'vad_used_time': 0.719171, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.147313, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.085048, 'vad_used_time': 1.176959, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.259799, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.072657, 'vad_used_time': 1.571603, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.486128, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.070841, 'vad_used_time': 0.883601, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.224105, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.279341, 'vad_used_time': 1.78083, 'classify_used_time': 1.4e-05, 'embedding_used_time': 0, 'self_test_used_time': 0.31996, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.074931, 'vad_used_time': 0.931816, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.26656, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.112847, 'vad_used_time': 1.743717, 'classify_used_time': 8e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.567338, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.058387, 'vad_used_time': 0.600235, 'classify_used_time': 4e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.104691, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.089873, 'vad_used_time': 1.243572, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.347772, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.11319, 'vad_used_time': 1.760489, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.48005, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.064561, 'vad_used_time': 1.124297, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.299192, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.050107, 'vad_used_time': 0.730179, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.183421, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.094825, 'vad_used_time': 1.099315, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.237706, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.073866, 'vad_used_time': 1.293713, 'classify_used_time': 8e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.3276, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.172974, 'vad_used_time': 1.736122, 'classify_used_time': 7e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.328158, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.056407, 'vad_used_time': 0.832303, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.200674, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.115511, 'vad_used_time': 1.73005, 'classify_used_time': 7e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.404327, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.078082, 'vad_used_time': 0.98422, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.262238, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.114639, 'vad_used_time': 1.28842, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.335661, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.05597, 'vad_used_time': 0.717115, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.127095, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.049046, 'vad_used_time': 0.59233, 'classify_used_time': 4e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.084997, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.051459, 'vad_used_time': 0.697121, 'classify_used_time': 4e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.128754, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.158194, 'vad_used_time': 1.707949, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.393353, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+'used_time'
+{'download_used_time': 0.099083, 'vad_used_time': 1.14892, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.324787, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.090832, 'vad_used_time': 0.995852, 'classify_used_time': 4e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.150236, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.090132, 'vad_used_time': 1.082611, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.257542, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.063645, 'vad_used_time': 1.42901, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.286548, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.215589, 'vad_used_time': 1.87661, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.406539, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.074914, 'vad_used_time': 0.966232, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.254665, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.091678, 'vad_used_time': 1.588758, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.53169, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.11778, 'vad_used_time': 1.553939, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.252694, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.076867, 'vad_used_time': 0.699861, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.145437, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.088266, 'vad_used_time': 0.869521, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.160874, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.086105, 'vad_used_time': 1.04569, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.264068, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.122567, 'vad_used_time': 1.702965, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.51104, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.245942, 'vad_used_time': 2.004304, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.556439, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.071088, 'vad_used_time': 1.08218, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.259143, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.091639, 'vad_used_time': 1.195136, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.357098, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.164546, 'vad_used_time': 1.716567, 'classify_used_time': 8e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.399366, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.103642, 'vad_used_time': 1.686434, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.481207, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.165719, 'vad_used_time': 1.984915, 'classify_used_time': 9e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.424785, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.116502, 'vad_used_time': 1.542386, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.458785, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.068196, 'vad_used_time': 0.845548, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.23344, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.125686, 'vad_used_time': 1.864813, 'classify_used_time': 8e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.640527, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.078385, 'vad_used_time': 0.937004, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.218254, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.072611, 'vad_used_time': 1.334664, 'classify_used_time': 7e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.332349, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.137866, 'vad_used_time': 1.797525, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.564673, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.055072, 'vad_used_time': 0.723403, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.134498, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.097402, 'vad_used_time': 1.078433, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.228208, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.126879, 'vad_used_time': 1.793396, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.688512, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.091212, 'vad_used_time': 1.199485, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.290215, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.110863, 'vad_used_time': 1.525109, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.400667, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.063308, 'vad_used_time': 0.781846, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.146253, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.07142, 'vad_used_time': 0.747143, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.1474, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.076635, 'vad_used_time': 0.938484, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.222882, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.061763, 'vad_used_time': 0.737256, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.167947, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.104132, 'vad_used_time': 1.708695, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.482083, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.060361, 'vad_used_time': 0.713532, 'classify_used_time': 4e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.146143, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.133237, 'vad_used_time': 1.838346, 'classify_used_time': 7e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.513197, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.063256, 'vad_used_time': 0.741466, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.1214, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.072621, 'vad_used_time': 1.186453, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.304737, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.193652, 'vad_used_time': 1.786687, 'classify_used_time': 7e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.431625, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.094733, 'vad_used_time': 1.017512, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.241409, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.065254, 'vad_used_time': 0.823952, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.179035, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.090915, 'vad_used_time': 1.223504, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.28631, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.068795, 'vad_used_time': 0.970594, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.192518, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.068305, 'vad_used_time': 1.198104, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.285256, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.081326, 'vad_used_time': 0.987367, 'classify_used_time': 7e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.258754, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.068849, 'vad_used_time': 0.895696, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.269612, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.108813, 'vad_used_time': 1.611978, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.385865, 'to_database_used_time': 0, 'test_used_time': 0}
+'used_time'
+{'download_used_time': 0.09413, 'vad_used_time': 1.172648, 'classify_used_time': 6e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.268876, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.088815, 'vad_used_time': 1.640962, 'classify_used_time': 7e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.505338, 'to_database_used_time': 0, 'test_used_time': 0}
+{'download_used_time': 0.065202, 'vad_used_time': 0.722418, 'classify_used_time': 5e-06, 'embedding_used_time': 0, 'self_test_used_time': 0.165171, 'to_database_used_time': 0, 'test_used_time': 0}
+
+
+	-> Mean Used Time:1.77880519
+
+进程已结束,退出代码0

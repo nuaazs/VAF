@@ -78,7 +78,8 @@ def test(outinfo,pool=False):
     if is_inbase:
         # todo
         # get asr content
-        asr_content,hit_keyword,keyword = get_asr_content(outinfo.preprocessed_file_path,outinfo.spkid)
+        #asr_content,hit_keyword,keyword = get_asr_content(outinfo.preprocessed_file_path,outinfo.spkid)
+        asr_content,hit_keyword,keyword = "","",""
         hit_info = {
             "name": "none",
             "show_phone": outinfo.show_phone,
@@ -90,9 +91,9 @@ def test(outinfo,pool=False):
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": outinfo.self_test_result["mean_score"],
-            "self_test_score_min": outinfo.self_test_result["min_score"],
-            "self_test_score_max": outinfo.self_test_result["max_score"],
+            "self_test_score_mean": 1,#outinfo.self_test_result["mean_score"],
+            "self_test_score_min": 1,#outinfo.self_test_result["min_score"],
+            "self_test_score_max": 1,#outinfo.self_test_result["max_score"],
             "call_begintime": outinfo.call_begintime,
             "call_endtime": outinfo.call_endtime,
             "class_number": outinfo.class_num,
@@ -109,10 +110,10 @@ def test(outinfo,pool=False):
         }
 
         msg = f"{is_inbase}"
-        if cfg.CLIP_DETECT:
-            clip = check_clip(wav=outinfo.wav, th=cfg.CLIP_TH)
-        else:
-            clip = False
+        # if cfg.CLIP_DETECT:
+        #     clip = check_clip(wav=outinfo.wav, th=cfg.CLIP_TH)
+        # else:
+        clip = False
         outinfo.log_time("to_database_used_time")
         response = {
             "code": 2000,
@@ -125,16 +126,10 @@ def test(outinfo,pool=False):
             "clip": clip,
             "before_vad_length": outinfo.before_length,
             "after_vad_length": outinfo.after_length,
-            "self_test_score_mean": float(
-                outinfo.self_test_result["mean_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_score_min": float(
-                outinfo.self_test_result["min_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_score_max": float(
-                outinfo.self_test_result["max_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_before_score": outinfo.self_test_result["before_score"],
+            "self_test_score_mean": 1,
+            "self_test_score_min": 1,
+            "self_test_score_max": 1,
+            "self_test_before_score": 1,
             "used_time": outinfo.used_time,
         }
         if clip:

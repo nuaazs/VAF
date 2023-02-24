@@ -12,7 +12,6 @@ from flask_sock import Sock
 import time
 import torch
 
-
 # utils
 from utils.advanced import general
 from utils.advanced import init_service
@@ -40,19 +39,20 @@ CORS(app, supports_credentials=True, origins="*", methods="*", allow_headers="*"
 
 system_info = init_service()
 
+
 # HomePage
 @app.route("/", methods=["GET"])
 def index():
     system_info = init_service()
-    cuda_check_result,cuda_check_message = check_cuda()
-    minio_check_result,minio_check_message = check_minio()
-    redis_check_result,redis_check_message = check_redis()
-    mysql_check_result,mysql_check_message = check_mysql()
+    cuda_check_result, cuda_check_message = check_cuda()
+    minio_check_result, minio_check_message = check_minio()
+    redis_check_result, redis_check_message = check_redis()
+    mysql_check_result, mysql_check_message = check_mysql()
     kwargs = {
         "spks_num": system_info["spks_num"],
         "spks": system_info["spks"][:10],
         "name": system_info["name"],
-        "config" : str(cfg),
+        "config": str(cfg),
         "ip": cfg.SERVER_INFO["ip"],
         "port": cfg.SERVER_INFO["port"],
         "cuda_check_result": cuda_check_result,
@@ -65,6 +65,7 @@ def index():
         "mysql_check_message": mysql_check_message,
     }
     return render_template("index.html", **kwargs)
+
 
 # Register Or Reasoning.
 @app.route("/<action_type>/<file_mode>", methods=["POST"])
@@ -79,23 +80,23 @@ def register_or_reasoning(action_type, file_mode):
             torch.cuda.empty_cache()
         return json.dumps(response, ensure_ascii=False)
 
+
 # Register Or Reasoning.
 @app.route("/pretest/<action_type>", methods=["GET"])
 def pretest(action_type):
-
     # generate random id
     random_id = str(time.time()).replace(".", "")[-5:]
     wav_url = f"http://{cfg.MINIO['host']}:{cfg.MINIO['port']}/testing/2p2c16k.wav"
     test_form = {
         "spkid": f"999{random_id}",
         "spkname": f"just_for_test_{random_id}",
-        "show_phone":f"999{random_id}",
+        "show_phone": f"999{random_id}",
         "wav_channel": "1",
         "wav_url": wav_url,
-        "pool":False
+        "pool": False
     }
-    if action_type=="pool":
-        test_form["pool"]=True
+    if action_type == "pool":
+        test_form["pool"] = True
         response = general(
             request_form=test_form, file_mode="url", action_type="test"
         )
@@ -110,47 +111,8 @@ def pretest(action_type):
         torch.cuda.empty_cache()
     return json.dumps(response, ensure_ascii=False)
 
-# Websockets
-@sock.route('/namelist_ws')
-def namelist_ws(sock):
-    while True:
-        sock.send(query_speaker())
-        time.sleep(3)
-
-
-@app.route('/namelist', methods=["GET"])
-def namelist():
-    return json.dumps(query_speaker(), ensure_ascii=False)
-
-
-@sock.route('/hit_phone_info_ws')
-def hit_phone_info_ws(sock):
-    while True:
-        sock.send(query_hit_phone())
-        time.sleep(3)
-
-# 省份信息删除了
-# @sock.route('/hit_info_ws')
-# def hit_info_ws(sock):
-#     while True:
-#         sock.send(query_hit_location())
-#         time.sleep(3)
- 
-@sock.route('/database_info_ws')
-def database_info_ws(sock):
-    while True:
-        sock.send(query_database_info())
-        time.sleep(3)
-
-@sock.route('/date_info_ws')
-def date_info_ws(sock):
-    while True:
-        date = time.strftime("%Y%m%d",time.localtime(time.time()))
-        sock.send(query_date_info(date))
-        time.sleep(3)
-
 
 if __name__ == "__main__":
     app.run(
-        host="0.0.0.0", threaded=False, port=cfg.PORT, debug=False,
+        host="0.0.0.0", threaded=False, port=cfg.PORT, debug=True,
     )

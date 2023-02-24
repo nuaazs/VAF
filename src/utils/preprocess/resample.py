@@ -60,4 +60,4 @@ def resample(
         cmd = f"rm -rf {path.parent.absolute()}"
         os.system(cmd)
 
-    return wav
+    return wav.unsqueeze(0)

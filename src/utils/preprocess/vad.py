@@ -5,19 +5,22 @@
 
 import torch
 import os
-from speechbrain.pretrained import VAD
+# from speechbrain.pretrained import VAD
+from utils.preprocess.new_vad import lyxx_VAD
 import torchaudio
 import numpy as np
 import pandas as pd
 import re
 import sys
 from pathlib import Path
+import subprocess
 
 # cfg
 import cfg
 
 # utils
 from utils.oss import upload_file
+from utils.preprocess.energy_vad import energy_VAD
 
 USE_ONNX = True
 model, utils = torch.hub.load(
@@ -30,72 +33,53 @@ model, utils = torch.hub.load(
 (get_speech_timestamps, save_audio, read_audio, VADIterator, collect_chunks) = utils
 
 if cfg.VAD_TYPE=="speechbrain":
-    VAD = VAD.from_hparams(
-        source="./nn/vad",
-        savedir="./pretrained_models/vad",
+    VAD = lyxx_VAD.from_hparams(
+        source=f"./nn/{cfg.VAD_MODEL}",
+        savedir=f"./pretrained_models/{cfg.VAD_MODEL}",
         run_opts={"device": cfg.DEVICE},
     )
 
+def get_vad_result(wav):
+    # print(wav.shape)
+    assert wav.shape[0]==1
+    assert len(wav.shape)==2
+    boundaries = VAD.get_speech_segments(
+        wav_data=wav,
+        large_chunk_size=cfg.large_chunk_size,
+        small_chunk_size=cfg.small_chunk_size,
+        overlap_small_chunk=cfg.overlap_small_chunk,
+        apply_energy_VAD=cfg.apply_energy_VAD,
+        double_check=cfg.double_check,
+        close_th=cfg.close_th,
+        len_th=cfg.len_th,
+        activation_th=cfg.activation_th,
+        deactivation_th=cfg.deactivation_th,
+        en_activation_th=cfg.en_activation_th,
+        en_deactivation_th=cfg.en_deactivation_th,
+        speech_th=cfg.speech_th,
+    )
+    upsampled_boundaries = VAD.upsample_boundaries(boundaries, wav)
+    output_wav = wav[upsampled_boundaries > 0.5]
+    # torchaudio.save("test.wav",output_wav.reshape(1,-1),cfg.SR)
+    return output_wav
+
 def vad(wav, spkid, action_type, device=cfg.DEVICE):
-    """Audio silence clip removal
-    Args:
-        wav (Numpy array (1D)): audio data
-        spkid (string): speaker ID
-
-    Returns:
-        Numpy array (1D) : audio data
-    """
-    # if action_type=="register":
-    #     min_length = cfg.MIN_LENGTH_REGISTER
-    # elif action_type=="test":
-    #     min_length = cfg.MIN_LENGTH_TEST
-    # else:
-    #     min_length = sys.maxsize
-
-    before_vad_length = len(wav) / cfg.SR
+    before_vad_length = len(wav[0]) / cfg.SR
 
     spk_dir = os.path.join("/tmp", str(spkid))
     os.makedirs(spk_dir, exist_ok=True)
     spk_filelist = os.listdir(spk_dir)
+
     speech_number = len(spk_filelist) + 1
     save_name = f"preprocessed_{spkid}_{speech_number}.wav"
     final_save_path = os.path.join(spk_dir, save_name)
-    boundaries_save_path = os.path.join(spk_dir, f"{spkid}.txt")
-    save_audio(final_save_path, wav, sampling_rate=16000)
-    if cfg.VAD_TYPE=="speechbrain":
-        boundaries = VAD.get_speech_segments(
-            audio_file=final_save_path,
-            large_chunk_size=30,
-            small_chunk_size=10,
-            overlap_small_chunk=True,
-            apply_energy_VAD=True,
-            double_check=False,
-            close_th=0.250,
-            len_th=0.50,
-            activation_th=0.5,
-            deactivation_th=0.25,
-            en_activation_th=0.5,
-            en_deactivation_th=0.0,
-            speech_th=0.50,
-        )
 
-        # VAD.save_boundaries(
-        #     boundaries,
-        #     save_path=boundaries_save_path,
-        #     print_boundaries=False,
-        #     audio_file=None,
-        # )
+    # after vad wav (tensor)
+    output_wav = get_vad_result(wav)
 
-        upsampled_boundaries = VAD.upsample_boundaries(boundaries, final_save_path)
-        output_wav = wav[upsampled_boundaries[0] > 0.5]
-    elif cfg.VAD_TYPE=="silero":
-        wav = torch.FloatTensor(wav)
-        speech_timestamps = get_speech_timestamps(wav, model, sampling_rate=16000,window_size_samples=1536)
-        wav = collect_chunks(speech_timestamps, wav)
-        save_audio(final_save_path,wav, sampling_rate=16000)
-        output_wav = wav
+    # save
     if cfg.SAVE_PREPROCESSED_OSS:
-        save_audio(final_save_path, output_wav, sampling_rate=16000)
+        save_audio(final_save_path, output_wav, sampling_rate=cfg.SR)
         preprocessed_file_path = upload_file(
             bucket_name="preprocessed",
             filepath=final_save_path,
@@ -106,13 +90,11 @@ def vad(wav, spkid, action_type, device=cfg.DEVICE):
         preprocessed_file_path = ""
 
     path = Path(final_save_path)
-    # os.remove(final_save_path)
     if os.path.isfile(final_save_path):
-        # Audio files are deleted, but the speaker directory remains
         cmd = f"rm -rf {path.parent.absolute()} & rm -rf ./pretrained_model_checkpoints/{path.name}"
-        os.system(cmd)
+        subprocess.call(cmd, shell=True)
 
-    after_vad_length = len(output_wav) / 16000.0
+    after_vad_length = len(output_wav) / cfg.SR
     output_wav = torch.FloatTensor(output_wav)
     result = {
         "wav_torch": output_wav,
