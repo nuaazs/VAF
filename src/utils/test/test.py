@@ -172,16 +172,6 @@ def test(outinfo,pool=False):
             "hit_scores": hit_scores,
             "blackbase_phone": blackbase_phone,
             "top_10": top_10,
-            "self_test_score_mean": float(
-                outinfo.self_test_result["mean_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_score_min": float(
-                outinfo.self_test_result["min_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_score_max": float(
-                outinfo.self_test_result["max_score"]
-            ),  # .detach().cpu().numpy()
-            "self_test_before_score": outinfo.self_test_result["before_score"],
             "used_time": outinfo.used_time,
         }
         to_log(

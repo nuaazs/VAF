@@ -28,7 +28,7 @@ parser.add_argument("--mode", type=str, default="file", help="url|file")
 parser.add_argument(
     "--test_num",
     type=int,
-    default=1,
+    default=50,
     help="The total number of files you want to test, if not enough to test the same files repeatedly.",
 )
 args = parser.parse_args()
