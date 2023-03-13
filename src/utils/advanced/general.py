@@ -2,6 +2,10 @@
 # @Time    : 2022-09-05  09:47:51
 # @Author  : zhaosheng@nuaa.edu.cn
 # @Describe: Register and identify interfaces.
+import os
+import subprocess
+
+import torchaudio
 from flask import request
 
 # utils
@@ -118,6 +122,9 @@ def general(request_form, file_mode="url", action_type="test"):
     #     return outinfo.response_error(spkid=new_spkid, err_type=5, message=str(e))
     outinfo.log_time(name="vad_used_time")
 
+    # STEP 2.5:
+    vad_result = resample_16k(new_spkid, vad_result)
+
     # STEP 3: Encoding
     embedding = encode(wav_torch_raw=vad_result["wav_torch"], action_type=action_type)["tensor"]
     if cfg.CLASSIFY:
@@ -148,3 +155,24 @@ def general(request_form, file_mode="url", action_type="test"):
         logger.info(f"\t\t Registering ... ")
         remove_fold_and_file(new_spkid)
         return register(outinfo)
+
+
+def resample_16k(new_spkid, vad_result):
+    """
+    重采样
+    Args:
+        vad_result:
+
+    Returns:
+
+    """
+    file_path = f'./{new_spkid}.wav'
+    torchaudio.save(file_path, vad_result["wav_torch"][None], cfg.SR)  # tensor格式数据保存音频
+    os.makedirs('/tmp/resample', exist_ok=True)
+    outpath = f'/tmp/resample/after_resample_{new_spkid}.wav'
+    cmd = f'ffmpeg -y -i {file_path} -ar 16000 {outpath}'
+    subprocess.call(cmd, shell=True)
+    wav, sr = torchaudio.load(outpath)
+    vad_result["wav_torch"] = wav[-1]
+    os.remove(outpath)
+    return vad_result

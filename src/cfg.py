@@ -23,18 +23,18 @@ PORT = 8190
 ####################### 2. VAD ########################
 #######################################################
 
-large_chunk_size=30
-small_chunk_size=10
-overlap_small_chunk=True
-apply_energy_VAD=True
-double_check=False
-close_th=0.1
-len_th=0.1
-activation_th=0.5
-deactivation_th=0.25
-en_activation_th=0.6
-en_deactivation_th=0.6
-speech_th=0.5
+large_chunk_size = 30
+small_chunk_size = 10
+overlap_small_chunk = True
+apply_energy_VAD = True
+double_check = True
+close_th = 0.1
+len_th = 0.1
+activation_th = 0.5
+deactivation_th = 0.25
+en_activation_th = 0.6
+en_deactivation_th = 0.6
+speech_th = 0.5
 
 VAD_MODEL = "vad_8k_en_phone_crdnns"
 

@@ -5,7 +5,7 @@ import math
 import logging
 import numpy as np
 
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 def preemphasis(signal, preemph=0.97):
     """
