@@ -19,7 +19,7 @@ from utils.asr import get_asr_content
 import cfg
 
 
-def test(outinfo,pool=False):
+def test(outinfo, pool=False):
     """Audio reasoning, compare the audio features with the black library in full, and return the result.
 
     Args:
@@ -62,6 +62,7 @@ def test(outinfo,pool=False):
     blackbase_phone = check_result["spk"]
     top_10 = check_result["top_10"]
     outinfo.log_time("test_used_time")
+
     add_success, phone_info = to_database(
         embedding=outinfo.embedding,
         spkid=outinfo.spkid,
@@ -69,17 +70,16 @@ def test(outinfo,pool=False):
         log_phone_info=cfg.LOG_PHONE_INFO,
         mode="test",
     )
-
-    try:
-        blackbase_id = get_blackid(blackbase_phone.split(",")[0])
-    except Exception as e:
-        print(e)
-        blackbase_id = 0
     if is_inbase:
+        try:
+            blackbase_id = get_blackid(blackbase_phone.split(",")[0])
+        except Exception as e:
+            print(e)
+            blackbase_id = 0
         # todo
         # get asr content
-        #asr_content,hit_keyword,keyword = get_asr_content(outinfo.preprocessed_file_path,outinfo.spkid)
-        asr_content,hit_keyword,keyword = "","",""
+        # asr_content,hit_keyword,keyword = get_asr_content(outinfo.preprocessed_file_path,outinfo.spkid)
+        asr_content, hit_keyword, keyword = "", "", ""
         hit_info = {
             "name": "none",
             "show_phone": outinfo.show_phone,
@@ -91,9 +91,6 @@ def test(outinfo,pool=False):
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": 1,#outinfo.self_test_result["mean_score"],
-            "self_test_score_min": 1,#outinfo.self_test_result["min_score"],
-            "self_test_score_max": 1,#outinfo.self_test_result["max_score"],
             "call_begintime": outinfo.call_begintime,
             "call_endtime": outinfo.call_endtime,
             "class_number": outinfo.class_num,
@@ -161,7 +158,7 @@ def test(outinfo,pool=False):
         return response
     else:
         outinfo.log_time("to_database_used_time")
-        
+
         response = {
             "code": 2000,
             "status": "success",
@@ -175,13 +172,13 @@ def test(outinfo,pool=False):
             "used_time": outinfo.used_time,
         }
         to_log(
-                phone=outinfo.spkid,
-                action_type=1,
-                err_type=99,
-                message=f"False, Not in base, {blackbase_phone},{hit_scores}",
-                file_url=outinfo.oss_path,
-                preprocessed_file_path=outinfo.preprocessed_file_path,
-                valid_length=outinfo.after_length,
-                show_phone=outinfo.show_phone,
-            )
+            phone=outinfo.spkid,
+            action_type=1,
+            err_type=99,
+            message=f"False, Not in base, {blackbase_phone},{hit_scores}",
+            file_url=outinfo.oss_path,
+            preprocessed_file_path=outinfo.preprocessed_file_path,
+            valid_length=outinfo.after_length,
+            show_phone=outinfo.show_phone,
+        )
         return response

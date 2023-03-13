@@ -111,6 +111,4 @@ def pretest(action_type):
 
 
 if __name__ == "__main__":
-    app.run(
-        host="0.0.0.0", threaded=False, port=cfg.PORT, debug=True,
-    )
+    app.run(host="0.0.0.0", port=cfg.PORT, debug=False)

@@ -114,82 +114,99 @@ def find_similar_wav(database, spk_id_a, embedding_a, similarity, pool_info):
     return pool_info
 
 
+def test_with_pool(database, embedding, spkid, black_limit, similarity, pool, top_num=10):
+    """
+    声纹池启用逻辑
+    Args:
+        database:
+        embedding:
+        spkid:
+        black_limit:
+        similarity:
+        pool:
+        top_num:
+
+    Returns:
+
+    """
+    results = []
+    embedding = torch.tensor(embedding).to('cpu')
+    for base_item in database.keys():
+        base_embedding = torch.tensor(database[base_item]["embedding_1"]).to('cpu')
+        score = similarity(base_embedding, embedding).detach().cpu().numpy()[0]
+        results.append(
+            [score, base_item, base_embedding]
+        )
+    results = sorted(results, key=lambda x: float(x[0]) * (-1))
+    pool_info = []
+    if cfg.POOL_TYPE == "quick":
+        for _score, _spk_id, embedding_b in results[:500]:
+            if _score < cfg.BLACK_TH:
+                break
+            wav_url = get_wav_url(_spk_id)
+            pool_info.append({"score": str(_score), "spk_id_a": spkid, "spk_id_b": _spk_id, "wav_url": wav_url})
+        # 去重
+        out_info = []
+        id_list = []
+        for _data in pool_info:
+            if (_data["spk_id_a"] == _data["spk_id_b"]):
+                continue
+            elif (_data["spk_id_a"] > _data["spk_id_b"]):
+                if _data["spk_id_a"] + _data["spk_id_b"] not in id_list:
+                    out_info.append(
+                        {"score": _data["score"], "spk_id_a": _data["spk_id_a"], "spk_id_b": _data["spk_id_b"],
+                         "wav_url": _data["wav_url"]})
+                    id_list.append(_data["spk_id_a"] + _data["spk_id_b"])
+            else:
+                if _data["spk_id_b"] + _data["spk_id_a"] not in id_list:
+                    out_info.append(
+                        {"score": _data["score"], "spk_id_a": _data["spk_id_b"], "spk_id_b": _data["spk_id_a"],
+                         "wav_url": _data["wav_url"]})
+                    id_list.append(_data["spk_id_b"] + _data["spk_id_a"])
+
+        if len(out_info) >= cfg.POOL_LIMIT:
+            in_pool = True
+        else:
+            in_pool = False
+
+    if cfg.POOL_TYPE == "recursion":
+        for _score, _spk_id, embedding_b in results[:500]:
+            if _score < cfg.BLACK_TH:
+                break
+            wav_url = get_wav_url(_spk_id)
+            pool_info.append({"score": str(_score), "spk_id_a": spkid, "spk_id_b": _spk_id, "wav_url": wav_url})
+            # 递归
+            pool_info = find_similar_wav(database, _spk_id, embedding_b, similarity, pool_info)
+        # 去重
+        out_info = []
+        id_list = []
+        for _data in pool_info:
+            if (_data["spk_id_a"] == _data["spk_id_b"]):
+                continue
+            elif (_data["spk_id_a"] > _data["spk_id_b"]):
+                if _data["spk_id_a"] + _data["spk_id_b"] not in id_list:
+                    out_info.append(
+                        {"score": _data["score"], "spk_id_a": _data["spk_id_a"], "spk_id_b": _data["spk_id_b"],
+                         "wav_url": _data["wav_url"]})
+                    id_list.append(_data["spk_id_a"] + _data["spk_id_b"])
+            else:
+                if _data["spk_id_b"] + _data["spk_id_a"] not in id_list:
+                    out_info.append(
+                        {"score": _data["score"], "spk_id_a": _data["spk_id_b"], "spk_id_b": _data["spk_id_a"],
+                         "wav_url": _data["wav_url"]})
+                    id_list.append(_data["spk_id_b"] + _data["spk_id_a"])
+
+        if len(out_info) >= cfg.POOL_LIMIT:
+            in_pool = True
+        else:
+            in_pool = False
+
+    return in_pool, {"pool_info": out_info}
+
+
 def test_wav(database, embedding, spkid, black_limit, similarity, pool, top_num=10):
     if pool:
-
-        results = []
-        embedding = torch.tensor(embedding).to('cpu')
-        for base_item in database.keys():
-            base_embedding = torch.tensor(database[base_item]["embedding_1"]).to('cpu')
-            score = similarity(base_embedding, embedding).detach().cpu().numpy()[0]
-            results.append(
-                [score, base_item, base_embedding]
-            )
-        results = sorted(results, key=lambda x: float(x[0]) * (-1))
-        pool_info = []
-        if cfg.POOL_TYPE == "quick":
-            for _score, _spk_id, embedding_b in results[:500]:
-                if _score < cfg.BLACK_TH:
-                    break
-                wav_url = get_wav_url(_spk_id)
-                pool_info.append({"score": str(_score), "spk_id_a": spkid, "spk_id_b": _spk_id, "wav_url": wav_url})
-            # 去重
-            out_info = []
-            id_list = []
-            for _data in pool_info:
-                if (_data["spk_id_a"] == _data["spk_id_b"]):
-                    continue
-                elif (_data["spk_id_a"] > _data["spk_id_b"]):
-                    if _data["spk_id_a"] + _data["spk_id_b"] not in id_list:
-                        out_info.append(
-                            {"score": _data["score"], "spk_id_a": _data["spk_id_a"], "spk_id_b": _data["spk_id_b"],
-                             "wav_url": _data["wav_url"]})
-                        id_list.append(_data["spk_id_a"] + _data["spk_id_b"])
-                else:
-                    if _data["spk_id_b"] + _data["spk_id_a"] not in id_list:
-                        out_info.append(
-                            {"score": _data["score"], "spk_id_a": _data["spk_id_b"], "spk_id_b": _data["spk_id_a"],
-                             "wav_url": _data["wav_url"]})
-                        id_list.append(_data["spk_id_b"] + _data["spk_id_a"])
-
-            if len(out_info) >= cfg.POOL_LIMIT:
-                in_pool = True
-            else:
-                in_pool = False
-
-        if cfg.POOL_TYPE == "recursion":
-            for _score, _spk_id, embedding_b in results[:500]:
-                if _score < cfg.BLACK_TH:
-                    break
-                wav_url = get_wav_url(_spk_id)
-                pool_info.append({"score": str(_score), "spk_id_a": spkid, "spk_id_b": _spk_id, "wav_url": wav_url})
-                # 递归
-                pool_info = find_similar_wav(database, _spk_id, embedding_b, similarity, pool_info)
-            # 去重
-            out_info = []
-            id_list = []
-            for _data in pool_info:
-                if (_data["spk_id_a"] == _data["spk_id_b"]):
-                    continue
-                elif (_data["spk_id_a"] > _data["spk_id_b"]):
-                    if _data["spk_id_a"] + _data["spk_id_b"] not in id_list:
-                        out_info.append(
-                            {"score": _data["score"], "spk_id_a": _data["spk_id_a"], "spk_id_b": _data["spk_id_b"],
-                             "wav_url": _data["wav_url"]})
-                        id_list.append(_data["spk_id_a"] + _data["spk_id_b"])
-                else:
-                    if _data["spk_id_b"] + _data["spk_id_a"] not in id_list:
-                        out_info.append(
-                            {"score": _data["score"], "spk_id_a": _data["spk_id_b"], "spk_id_b": _data["spk_id_a"],
-                             "wav_url": _data["wav_url"]})
-                        id_list.append(_data["spk_id_b"] + _data["spk_id_a"])
-
-            if len(out_info) >= cfg.POOL_LIMIT:
-                in_pool = True
-            else:
-                in_pool = False
-
-        return in_pool, {"pool_info": out_info}
+        test_with_pool(database, embedding, spkid, black_limit, similarity, pool, top_num)
     else:
         results = []
         return_results = {}
