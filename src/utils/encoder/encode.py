@@ -1,19 +1,5 @@
-# coding = utf-8
-# @Time    : 2022-09-05  15:02:51
-# @Author  : zhaosheng@nuaa.edu.cn
-# @Describe: self-test and encode.
-
-import sys
-import torch
-import numpy as np
-
 # utils
-from utils.log import logger
 from utils.encoder import spkreg
-from utils.encoder import similarity
-from utils.preprocess.mydenoiser import denoise_wav
-from utils.preprocess.remove_segments import remove
-
 
 # cfg
 import cfg
@@ -35,8 +21,9 @@ def encode(wav_torch_raw, action_type="test"):
     elif action_type == "test":
         min_length = cfg.MIN_LENGTH_TEST
     else:
-        min_length = cfg.MIN_LENGTH_TEST# sys.maxsize
-    sr = cfg.SR
+        min_length = cfg.MIN_LENGTH_TEST  # sys.maxsize
+    # sr = cfg.SR
+    sr = 16000
     max_score = 0
     mean_score = 0
     min_score = 1
@@ -44,7 +31,8 @@ def encode(wav_torch_raw, action_type="test"):
     if raw_wav_length <= min_length:
         result = {
             "pass": False,
-            "msg": f" encode Insufficient duration, the current duration is {len(wav_torch_raw)/sr}s. %d <= %d"%(raw_wav_length, min_length),
+            "msg": f"encode Insufficient duration, the current duration is {len(wav_torch_raw) / sr}s. %d <= %d" % (
+                raw_wav_length, min_length),
             "max_score": 0,
             "mean_score": 0,
             "min_score": 0,
@@ -65,7 +53,3 @@ def encode(wav_torch_raw, action_type="test"):
         "err_type": 0,
     }
     return result
-
-
-def preprocess_denoise(wav):
-    return denoise_wav(wav.unsqueeze(0))[0]

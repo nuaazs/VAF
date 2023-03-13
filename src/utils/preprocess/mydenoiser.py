@@ -1,10 +1,9 @@
 import torch
-from denoiser import pretrained
-from denoiser.dsp import convert_audio
 import torchaudio
 import cfg
 
-model = pretrained.dns64().to(cfg.DEVICE)
+
+# model = pretrained.dns64().to(cfg.DEVICE)
 
 def denoise_wav(wav_data):
     if len(wav_data.shape) == 1:
@@ -14,6 +13,7 @@ def denoise_wav(wav_data):
         print(f"result shape: {result.shape}")
         denoised = result[0][0]
     return denoised
+
 
 def denoise_file(filepath, savepath):
     # get wav data by torchaudio

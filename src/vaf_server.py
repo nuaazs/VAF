@@ -73,9 +73,7 @@ def register_or_reasoning(action_type, file_mode):
     if action_type not in ["register", "test"]:
         return json.dumps({"code": 4000, "status": "fail", "err_type": 1, "err_msg": "action_type error"})
     if request.method == "POST":
-        response = general(
-            request_form=request.form, file_mode=file_mode, action_type=action_type
-        )
+        response = general(request_form=request.form, file_mode=file_mode, action_type=action_type)
         if "cuda" in cfg.DEVICE:
             torch.cuda.empty_cache()
         return json.dumps(response, ensure_ascii=False)

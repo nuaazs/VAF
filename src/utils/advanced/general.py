@@ -20,7 +20,6 @@ from utils.preprocess import classify
 from utils.register import register
 from utils.test import test
 from utils.info import OutInfo
-from utils.preprocess.mydenoiser import denoise_file, denoise_wav
 from utils.preprocess import remove_fold_and_file
 
 # cfg
@@ -101,12 +100,14 @@ def general(request_form, file_mode="url", action_type="test"):
     outinfo.log_time(name="download_used_time")
     logger.info(f"\t\t Download success. Filepath: {filepath}")
 
-    # try:
+    # STEP 1.5: Resample wav file.
     logger.info(f"\t\t Resampling wav data ... ")
     wav = resample(wav_filepath=filepath, action_type=action_type, channel=channel)
     # todo
     outinfo.wav = wav
     logger.info(f"\t\t Resampling Success! ")
+
+    # STEP 2: VAD
     logger.info(f"\t\t Doing VAD ... ")
     vad_result = vad(wav=wav, spkid=new_spkid, action_type=action_type)
     outinfo.after_length = vad_result["after_length"]
@@ -117,9 +118,6 @@ def general(request_form, file_mode="url", action_type="test"):
         logger.info(f"\t\t Preprocessed file saved to OSS: {outinfo.preprocessed_file_path}")
     else:
         outinfo.preprocessed_file_path = ""
-    # except Exception as e:
-    #     remove_fold_and_file(new_spkid)
-    #     return outinfo.response_error(spkid=new_spkid, err_type=5, message=str(e))
     outinfo.log_time(name="vad_used_time")
 
     # STEP 2.5:
@@ -175,4 +173,5 @@ def resample_16k(new_spkid, vad_result):
     wav, sr = torchaudio.load(outpath)
     vad_result["wav_torch"] = wav[-1]
     os.remove(outpath)
+    os.remove(file_path)
     return vad_result
