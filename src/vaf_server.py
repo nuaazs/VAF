@@ -4,6 +4,9 @@
 # @Describe: The main function entry of the project.
 
 import json
+import os
+
+import torchaudio
 from flask import Flask
 from flask import render_template
 from flask import request
@@ -26,6 +29,7 @@ from checker.cuda_checker import check as check_cuda
 from checker.minio_checker import check as check_minio
 from checker.redis_checker import check as check_redis
 from checker.mysql_checker import check as check_mysql
+from utils.preprocess import save_file, save_url, vad, resample
 
 # app
 app = Flask(__name__)
@@ -77,6 +81,41 @@ def register_or_reasoning(action_type, file_mode):
         if "cuda" in cfg.DEVICE:
             torch.cuda.empty_cache()
         return json.dumps(response, ensure_ascii=False)
+
+
+@app.route("/vad/<file_mode>", methods=["POST"])
+def get_vad(file_mode):
+    """
+    VAD API
+    Args:
+        file_mode:
+
+    Returns:
+
+    """
+    spkid = request.form["spkid"]
+
+    # STEP 1: Get wav file.
+    if file_mode == "file":
+        new_file = request.files["wav_file"]
+        filepath, _ = save_file(file=new_file, spk=spkid)
+    elif file_mode == "url":
+        new_url = request.form.get("wav_url")
+        filepath, _ = save_url(url=new_url, spk=spkid)
+
+    # STEP 1.5: Resample wav file.
+    wav = resample(wav_filepath=filepath, action_type=None)
+
+    # STEP 2: VAD
+    vad_result = vad(wav=wav, spkid=spkid)
+    os.makedirs(f"/tmp/output_vad", exist_ok=True)
+    torchaudio.save(f"/tmp/output_vad/{spkid}.wav", vad_result['wav_torch'].reshape(1, -1), cfg.SR)
+
+    if "cuda" in cfg.DEVICE:
+        torch.cuda.empty_cache()
+    response = {'output_vad_file_path': f"/tmp/output_vad/{spkid}.wav"}
+
+    return json.dumps(response, ensure_ascii=False)
 
 
 # Register Or Reasoning.

@@ -32,17 +32,18 @@ model, utils = torch.hub.load(
 )
 (get_speech_timestamps, save_audio, read_audio, VADIterator, collect_chunks) = utils
 
-if cfg.VAD_TYPE=="speechbrain":
+if cfg.VAD_TYPE == "speechbrain":
     VAD = lyxx_VAD.from_hparams(
         source=f"./nn/{cfg.VAD_MODEL}",
         savedir=f"./pretrained_models/{cfg.VAD_MODEL}",
         run_opts={"device": cfg.DEVICE},
     )
 
+
 def get_vad_result(wav):
     # print(wav.shape)
-    assert wav.shape[0]==1
-    assert len(wav.shape)==2
+    assert wav.shape[0] == 1
+    assert len(wav.shape) == 2
     boundaries = VAD.get_speech_segments(
         wav_data=wav,
         large_chunk_size=cfg.large_chunk_size,
@@ -63,7 +64,8 @@ def get_vad_result(wav):
     # torchaudio.save("test.wav",output_wav.reshape(1,-1),cfg.SR)
     return output_wav
 
-def vad(wav, spkid, action_type, device=cfg.DEVICE):
+
+def vad(wav, spkid, action_type=None, device=cfg.DEVICE):
     before_vad_length = len(wav[0]) / cfg.SR
 
     spk_dir = os.path.join("/tmp", str(spkid))
