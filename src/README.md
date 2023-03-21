@@ -11,6 +11,9 @@ gunicorn.py : gunicorn配置
 main.py : 项目入口
 requirements.txt : 项目依赖
 
+# CPU Version
+- 修改src/pretrained_models/vad_8k_en_phone_crdnns/hyperparams.yaml中的参数device: 'cpu'
+- 修改cfg.py中的参数DEVICE = "cpu"
 
 ## 启动方式一
 ```shell

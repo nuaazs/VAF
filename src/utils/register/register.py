@@ -15,7 +15,7 @@ from utils.orm import to_database
 import cfg
 
 
-def register(outinfo,pool=False):
+def register(outinfo, pool=False):
     """Audio registration, write voiceprint library.
 
     Args:
@@ -56,9 +56,6 @@ def register(outinfo,pool=False):
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": 1,
-            "self_test_score_min": 1,
-            "self_test_score_max": 1,
             "call_begintime": outinfo.call_begintime,
             "call_endtime": outinfo.call_endtime,
             "max_class_index": outinfo.class_num,
@@ -75,6 +72,8 @@ def register(outinfo,pool=False):
             preprocessed_file_path=outinfo.preprocessed_file_path,
             valid_length=outinfo.after_length,
             show_phone=outinfo.show_phone,
+            before_length=outinfo.before_length,
+            after_length=outinfo.after_length
         )
         response = {
             "code": 2000,
@@ -91,10 +90,6 @@ def register(outinfo,pool=False):
             "phone_type": phone_info.get("phone_type", ""),
             "area_code": phone_info.get("area_code", ""),
             "zip_code": phone_info.get("zip_code", ""),
-            "self_test_score_mean": 1,
-            "self_test_score_min": 1,
-            "self_test_score_max": 1,
-            "self_test_before_score": 1,
             "call_begintime": outinfo.call_begintime,
             "call_endtime": outinfo.call_endtime,
             "max_class_index": outinfo.class_num,

@@ -122,9 +122,15 @@ def general(request_form, file_mode="url", action_type="test"):
 
     # STEP 2.5:
     vad_result = resample_16k(new_spkid, vad_result)
+    outinfo.log_time(name="resample_16k")
 
     # STEP 3: Encoding
-    embedding = encode(wav_torch_raw=vad_result["wav_torch"], action_type=action_type)["tensor"]
+    try:
+        embedding = encode(wav_torch_raw=vad_result["wav_torch"], action_type=action_type)["tensor"]
+        outinfo.log_time(name="encode_time")
+    except Exception as e:
+        return outinfo.response_error(spkid=new_spkid, err_type=9, message=str(e))
+
     if cfg.CLASSIFY:
         logger.info(f"\t\t Classifying ... ")
         class_num = classify(embedding)
@@ -133,7 +139,6 @@ def general(request_form, file_mode="url", action_type="test"):
         class_num = 999
     outinfo.class_num = class_num
     outinfo.embedding = embedding
-    outinfo.log_time(name="classify_used_time")
 
     # STEP 4: Test or Register
     if action_num == 1:

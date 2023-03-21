@@ -4,6 +4,8 @@
 # @Describe: test.
 
 import datetime
+import time
+
 from utils.orm.query import add_hit_count
 
 from utils.orm import to_database
@@ -17,6 +19,8 @@ from utils.preprocess import check_clip
 from utils.orm import get_blackid
 from utils.asr import get_asr_content
 import cfg
+
+black_database = None
 
 
 def test(outinfo, pool=False):
@@ -40,10 +44,10 @@ def test(outinfo, pool=False):
     Returns:
         dict: inference result.
     """
-    start = datetime.datetime.now()
-
-    black_database = get_embeddings(class_index=outinfo.class_num)
-    outinfo.log_time("embedding_used_time")
+    global black_database
+    if black_database is None:
+        black_database = get_embeddings(class_index=outinfo.class_num)
+    outinfo.log_time("get_embeddings")
     is_inbase, check_result = test_wav(
         database=black_database,
         embedding=outinfo.embedding,
@@ -139,6 +143,8 @@ def test(outinfo, pool=False):
                 preprocessed_file_path=outinfo.preprocessed_file_path,
                 valid_length=outinfo.after_length,
                 show_phone=outinfo.show_phone,
+                before_length=outinfo.before_length,
+                after_length=outinfo.after_length
             )
             add_hit(hit_info, is_grey=True, after_vad_length=outinfo.after_length)
         else:
@@ -151,6 +157,8 @@ def test(outinfo, pool=False):
                 preprocessed_file_path=outinfo.preprocessed_file_path,
                 valid_length=outinfo.after_length,
                 show_phone=outinfo.show_phone,
+                before_length=outinfo.before_length,
+                after_length=outinfo.after_length
             )
             add_hit(hit_info, is_grey=False, after_vad_length=outinfo.after_length)
         add_hit_count(blackbase_phone)
@@ -180,5 +188,7 @@ def test(outinfo, pool=False):
             preprocessed_file_path=outinfo.preprocessed_file_path,
             valid_length=outinfo.after_length,
             show_phone=outinfo.show_phone,
+            before_length=outinfo.before_length,
+            after_length=outinfo.after_length
         )
         return response
