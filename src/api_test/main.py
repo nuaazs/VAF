@@ -84,6 +84,15 @@ def load_npy(file_name):
 
 
 def vad_req(item, mode='file'):
+    """
+    VAD api
+    Args:
+        item:
+        mode:
+
+    Returns:
+
+    """
     if mode == 'url':
         spkid = '2'
         minio_url = f'http://192.168.3.202:9000/black-raw/{spkid}.wav'
@@ -115,7 +124,6 @@ if __name__ == "__main__":
     # print(score)
     file_list = glob.glob("./test_data/*/*_1.wav")
     for file in file_list:
-        vad_req(file, mode='url')
-        # test(file, path='test')
+        # vad_req(file, mode='url')
+        test(file, path='test')
         # test(file, path='register')
-        break
