@@ -15,13 +15,11 @@ SIMILAR_SCORE = 0.78
 dt = datetime.now().strftime('%Y-%m-%d')
 LOG = Logger(f'{dt}_auto_register.log', level='debug').logger
 
-MARK_FILE_NAME = 'register_id_list.txt'
 MINIO_HOST = cfg.MINIO_HOST
 REQ_API_HOST = cfg.REQ_API_HOST
 REGISTER_URL = f'{REQ_API_HOST}/register/url'
 
 BUCKETS_NAME_BLACK = cfg.BUCKETS_NAME_BLACK
-# WAV_PATH_BLACK = cfg.WAV_PATH_BLACK
 WAV_PATH_BLACK = '/home/recbak/file/20221202'
 
 

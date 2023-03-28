@@ -179,4 +179,9 @@ def resample_16k(new_spkid, vad_result):
     vad_result["wav_torch"] = wav[-1]
     os.remove(outpath)
     os.remove(file_path)
+
+    # import torchaudio.transforms as T
+    # resampler = T.Resample(8000, 16000)
+    # wav = resampler(vad_result["wav_torch"])
+    # vad_result["wav_torch"] = wav.unsqueeze(0)[-1]
     return vad_result

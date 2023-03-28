@@ -3,7 +3,7 @@
 @author: Carry
 @file: main.py
 @time: 2023/3/27 13:32
-@desc: 获取近一轮测试的准确率报告
+@desc: 获取近一轮测试的准确率报告，需要传入埋点号码到label.txt文件中
 
 TP:预测是正样本，并且预测正确
 FP:预测是正样本，并且预测错误
@@ -57,7 +57,44 @@ def main():
     conn.close()
 
     print(f"tp:{tp}, fp:{fp}, tn:{tn}, fn:{fn}")
-    print(f"查准率：{tp / (tp + fp)}")
+    print(f"精确率：{tp / (tp + fp)}")
+    print(f"召回率：{tp / (tp + fn)}")
+    print(f"准确率：{(tp + tn) / (tp + fp + tn + fn)}")
+
+
+def main_fun01():
+    """
+    遍历logs表，统计命中的数据
+    Returns:
+
+    """
+    tp = fp = tn = fn = 0
+
+    label_list = read_txt('./label.txt')
+    label_list.pop(0)
+    label_list = [i.split(',')[0] for i in label_list]
+
+    query_sql = f"SELECT * FROM log_28"
+    cur.execute(query_sql)
+    res = cur.fetchall()
+    for i in res:
+        phone = i['phone']
+        if phone in label_list:
+            if 'True' in i['message']:
+                tp += 1  # 预测正确
+            elif 'False' in i['message']:
+                fn += 1
+        else:
+            if 'True' in i['message']:
+                fp += 1
+            elif 'False' in i['message']:
+                tn += 1
+
+    cur.close()
+    conn.close()
+
+    print(f"tp:{tp}, fp:{fp}, tn:{tn}, fn:{fn}")
+    print(f"精确率：{tp / (tp + fp)}")
     print(f"召回率：{tp / (tp + fn)}")
     print(f"准确率：{(tp + tn) / (tp + fp + tn + fn)}")
 
@@ -65,4 +102,5 @@ def main():
 if __name__ == '__main__':
     hit_score = 0.78
     test_data_num = 50 * 10000
-    main()
+    # main()
+    main_fun01()

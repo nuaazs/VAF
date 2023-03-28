@@ -127,9 +127,6 @@ def test(outinfo, pool=False):
             "clip": clip,
             "before_vad_length": outinfo.before_length,
             "after_vad_length": outinfo.after_length,
-            "self_test_score_mean": 1,
-            "self_test_score_min": 1,
-            "self_test_score_max": 1,
             "self_test_before_score": 1,
             "used_time": outinfo.used_time,
         }

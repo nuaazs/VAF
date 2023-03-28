@@ -8,7 +8,6 @@ import time
 import os
 from datetime import datetime
 
-import pymysql
 import requests
 from logs import Logger
 
@@ -29,8 +28,6 @@ client = Minio(
     secret_key="minioadmin",
     secure=False
 )
-
-
 
 
 def rclone_job(file):
@@ -55,7 +52,6 @@ def main():
     # 方式1
     objects = client.list_objects(BUCKETS_NAME_GRAY, recursive=True)
     files = []
-    # files = [obj.object_name for obj in objects]
     for obj in objects:
         files.append(obj.object_name)
         print(len(files))
