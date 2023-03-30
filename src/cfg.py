@@ -378,11 +378,11 @@ WAV_CHANNEL = 1
 
 # Mysql
 MYSQL = {
-            "host": "zhaosheng.mysql.rds.aliyuncs.com",
+            "host": "",
             "port": 27546,
             "db": "si2",
             "username": "root",
-            "passwd": "Nt3380518!zhaosheng123"
+            "passwd": ""
     }
 # Redis
 REDIS = {
